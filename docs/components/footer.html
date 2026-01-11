@@ -1,0 +1,77 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-content">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <a href="/" class="footer-logo-link">
+          <img src="/logo-footer.svg" alt="India Stack Watch" class="footer-logo">
+        </a>
+        <p class="footer-tagline">Architectural critique of Digital Public Infrastructure</p>
+        <p class="footer-license">CC0 Public Domain</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-heading">Framework</div>
+        <a href="/dpi/">DPI Framework</a>
+        <a href="/dpi/definitions/" class="footer-sub">Definitions</a>
+        <a href="/dpi/build/" class="footer-sub">How to Build</a>
+        <a href="/dpi/require/" class="footer-sub">How to Require</a>
+        <a href="/dpi/analysis/" class="footer-sub">Analysis</a>
+        <a href="/terminology/">Terminology</a>
+        <a href="/methods/">Methods</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-heading">Five Tests</div>
+        <a href="/exit/">Exit</a>
+        <a href="/foss/">Open Source?</a>
+        <a href="/audit/">Audit</a>
+        <a href="/fork/">Fork</a>
+        <a href="/participate/">Participate</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-heading">Evidence</div>
+        <a href="/layers/">Layers</a>
+        <a href="/surveillance/">Surveillance</a>
+        <a href="/exclusion/">Human Cost</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copying is an act of love. Love is not subject to law.</p>
+      <div class="footer-meta">
+        <a href="/sitemap-index.xml">Sitemap</a>
+        <a href="/dpi/sitemap.xml">DPI Sitemap</a>
+        <a href="/llms.txt" id="llms-link">llms.txt</a>
+      </div>
+    </div>
+    <script>
+      // Use DPI-specific llms.txt for DPI pages
+      (function() {
+        var llmsLink = document.getElementById('llms-link');
+        if (llmsLink && window.location.pathname.startsWith('/dpi/')) {
+          llmsLink.href = '/dpi/llms.txt';
+          llmsLink.textContent = 'dpi/llms.txt';
+        }
+      })();
+    </script>
+  </div>
+</footer>
+
+<!-- Google Analytics - deferred load -->
+<script>
+(function() {
+  var loaded = false;
+  function loadGtag() {
+    if (loaded) return;
+    loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){dataLayer.push(arguments);};
+    gtag('js', new Date());
+    gtag('config', 'G-GP7RJG0PPJ');
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-GP7RJG0PPJ';
+    document.head.appendChild(s);
+  }
+  ['scroll','click','mousemove','keydown','touchstart'].forEach(function(e){
+    document.addEventListener(e, loadGtag, {passive:true, once:true});
+  });
+})();
+</script>

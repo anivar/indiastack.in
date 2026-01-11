@@ -1,0 +1,20 @@
+{
+  "name": "India Stack Watch",
+  "short_name": "IndiaStack",
+  "description": "Critical technical examination of India Stack and Digital Public Infrastructure",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0c",
+  "theme_color": "#00f5a0",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["news", "education"],
+  "lang": "en",
+  "orientation": "portrait-primary"
+}

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>India Stack Watch</title>
+    <link>https://indiastack.in</link>
+    <description>Architectural critique of India's digital infrastructure through a cybernetics frame. Evaluating systems by corrigibility, not outcomes.</description>
+    <language>en</language>
+    <lastBuildDate>Mon, 06 Jan 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://indiastack.in/rss.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Terminology: The Conceptual Spine</title>
+      <link>https://indiastack.in/terminology/</link>
+      <description>Operational definitions for architectural critique. PRware, Error Asymmetry, Closed Control Loop, Jurisdictional Arbitrage. The vocabulary for analyzing control systems.</description>
+      <guid>https://indiastack.in/terminology/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Methods: Evaluation Procedure</title>
+      <link>https://indiastack.in/methods/</link>
+      <description>The five structural tests for corrigibility: Safe Refusal, Legible Execution, Independent Verifiability, Constitutive Input, Credible Replacement.</description>
+      <guid>https://indiastack.in/methods/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>The Observability Problem</title>
+      <link>https://indiastack.in/foss/</link>
+      <description>Open source is not about licenses. It's about whether citizens can observe and correct systems that govern their lives. This is cybernetics.</description>
+      <guid>https://indiastack.in/foss/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Aadhaar: Testing the Claims</title>
+      <link>https://indiastack.in/aadhaar/</link>
+      <description>1.43B enrolled. 210+ breaches. RTI-exempt. 49% biometric failure in Jharkhand. Error asymmetry: fail-safe for state, fail-deadly for users.</description>
+      <guid>https://indiastack.in/aadhaar/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Human Cost: When Systems Kill</title>
+      <link>https://indiastack.in/exclusion/</link>
+      <description>25 of 42 documented hunger deaths linked to authentication failures. A system that cannot detect its own errors will kill. This is control theory.</description>
+      <guid>https://indiastack.in/exclusion/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>The Surveillance Layer</title>
+      <link>https://indiastack.in/surveillance/</link>
+      <description>NATGRID links 21+ databases. Observation without reciprocity. Asymmetric information = asymmetric power. The panopticon is operational.</description>
+      <guid>https://indiastack.in/surveillance/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>The Layers</title>
+      <link>https://indiastack.in/layers/</link>
+      <description>25+ components. Same failure pattern: closed source, RTI-exempt, no citizen governance. The architecture of enclosure.</description>
+      <guid>https://indiastack.in/layers/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Can You Fork It?</title>
+      <link>https://indiastack.in/fork/</link>
+      <description>Credible replacement test. True open source lets you fork. India Stack: governance by black box. Exit means exclusion.</description>
+      <guid>https://indiastack.in/fork/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Can You Audit It?</title>
+      <link>https://indiastack.in/audit/</link>
+      <description>Independent verification test. No public audits. RTI-exempt. 210+ breaches documented. Trust without verification is not trust.</description>
+      <guid>https://indiastack.in/audit/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Can You Exit?</title>
+      <link>https://indiastack.in/exit/</link>
+      <description>Safe refusal test. No deletion. No opt-out. Participation under exclusion threat is not consent. This is systems design.</description>
+      <guid>https://indiastack.in/exit/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Can You Participate?</title>
+      <link>https://indiastack.in/participate/</link>
+      <description>Constitutive input test. Grievance redressal is not governance. Can affected populations shape the rules? No.</description>
+      <guid>https://indiastack.in/participate/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>UPI/Payments Stack</title>
+      <link>https://indiastack.in/payments/</link>
+      <description>NPCI sees all transactions. PhonePe + Google = 86% duopoly. Financial surveillance with convenience branding.</description>
+      <guid>https://indiastack.in/payments/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Health Stack</title>
+      <link>https://indiastack.in/health/</link>
+      <description>ABDM: 80 crore IDs. Star Health breach: 31M records. Consent theater under enrollment pressure.</description>
+      <guid>https://indiastack.in/health/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Education Stack</title>
+      <link>https://indiastack.in/education/</link>
+      <description>APAAR: Children tracked from age 6. Lifetime surveillance begins early. No parental opt-out.</description>
+      <guid>https://indiastack.in/education/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Data Stack</title>
+      <link>https://indiastack.in/data/</link>
+      <description>Account Aggregator, DigiLocker, Digi Yatra. 30% enrolled without consent. Consent as checkbox theater.</description>
+      <guid>https://indiastack.in/data/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Governance Stack</title>
+      <link>https://indiastack.in/governance/</link>
+      <description>Code first, policy later. Private infrastructure becomes public mandate. State-blessed monopoly.</description>
+      <guid>https://indiastack.in/governance/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>AI Stack</title>
+      <link>https://indiastack.in/ai/</link>
+      <description>Same pattern, higher stakes. Private models, public mandate. Algorithmic decision-making at population scale.</description>
+      <guid>https://indiastack.in/ai/</guid>
+      <pubDate>Mon, 06 Jan 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

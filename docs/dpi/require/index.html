@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Public Infrastructure Procurement, DPI Legal Requirements & Policy</title>
+  <meta name="description" content="Legal and procurement requirements for Digital Public Infrastructure (DPI). Model clauses for RFPs, statutory language, constitutional safeguards. How to make DPI accountability binding through procurement and legislation.">
+  <meta name="keywords" content="DPI procurement, Digital Public Infrastructure policy, DPI legal requirements, DPI RFP, DPI legislation, DPI statutory requirements, public infrastructure procurement, digital governance law, DPI regulation, DPI compliance, open source procurement, government technology procurement">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Anivar Aravind">
+  <link rel="canonical" href="https://indiastack.in/dpi/require/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Digital Public Infrastructure Procurement, Legal Requirements">
+  <meta property="og:description" content="Legal and procurement instruments to make DPI accountability binding. Model clauses, statutory language, constitutional safeguards.">
+  <meta property="og:url" content="https://indiastack.in/dpi/require/">
+  <meta property="og:image" content="https://indiastack.in/dpi/og-image-dpi.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="article:section" content="Digital Public Infrastructure">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DPI Procurement & Legal Requirements">
+  <meta name="twitter:description" content="How to require Digital Public Infrastructure accountability through procurement and legislation.">
+  <meta name="twitter:image" content="https://indiastack.in/dpi/og-image-dpi.png">
+
+  <!-- Schema: TechArticle -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to Require Corrigible Digital Public Infrastructure",
+    "name": "DPI Require: Legal & Procurement",
+    "description": "Legal and procurement instruments to make DPI accountability binding. Model RFP clauses, statutory language, constitutional safeguards for the five corrigibility tests.",
+    "url": "https://indiastack.in/dpi/require/",
+    "datePublished": "2026-01-07",
+    "dateModified": "2026-01-11",
+    "author": {"@type": "Person", "name": "Anivar Aravind", "url": "https://anivar.net"},
+    "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "isPartOf": {"@type": "WebPage", "url": "https://indiastack.in/dpi/", "name": "DPI Corrigibility Framework"},
+    "about": [
+      {"@type": "Thing", "name": "Government Procurement"},
+      {"@type": "Thing", "name": "Technology Policy"},
+      {"@type": "Thing", "name": "Digital Public Infrastructure"}
+    ],
+    "keywords": ["DPI procurement", "DPI legal", "RFP clauses", "statutory requirements", "constitutional safeguards"]
+  }
+  </script>
+
+  <!-- Schema: ItemList for Requirements -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Five Legal Requirements for DPI Corrigibility",
+    "description": "Legal instruments to require each corrigibility test",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "EXIT", "description": "Exit right without penalty: data portability, provider alternatives, offline fallbacks"},
+      {"@type": "ListItem", "position": 2, "name": "CODE", "description": "Source transparency: AGPL/equivalent license, public repositories, build reproducibility"},
+      {"@type": "ListItem", "position": 3, "name": "AUDIT", "description": "Independent verification: third-party audit access, published schemas, log export"},
+      {"@type": "ListItem", "position": 4, "name": "GOVERN", "description": "Constitutive input: binding governance processes, public rulemaking, affected population representation"},
+      {"@type": "ListItem", "position": 5, "name": "FORK", "description": "Replacement credibility: modular architecture, API stability, migration support"}
+    ]
+  }
+  </script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"DPI Framework","item":"https://indiastack.in/dpi/"},{"@type":"ListItem","position":3,"name":"How to Require","item":"https://indiastack.in/dpi/require/"}]}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    .requirement-card {
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .requirement-card h3 {
+      margin: 0.75rem 0 1.25rem;
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    .requirement-text {
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .requirement-text p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+
+    .requirement-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .requirement-text ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0;
+    }
+
+    .requirement-text ul li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .requirement-text ul li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+    }
+
+    .rationale-box {
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      margin-top: 1.25rem;
+    }
+
+    .rationale-box h4 {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .rationale-box p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .test-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+    }
+
+    .presupposition-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+
+    .presupposition-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* Tablet responsive */
+    @media (max-width: 900px) {
+      section[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 2rem !important;
+      }
+      section[style*="grid-template-columns: 1fr 1fr"] > div:last-child {
+        order: -1;
+      }
+      section[style*="grid-template-columns: 1fr 1fr"] img {
+        max-width: 280px !important;
+      }
+      section[style*="grid-template-columns: 1fr 1fr"] h1 {
+        font-size: 2rem !important;
+      }
+      .presupposition-list {
+        grid-template-columns: 1fr;
+      }
+      div[style*="grid-template-columns: repeat(5, 1fr)"] {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+      div[style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+      .requirement-card {
+        padding: 1.5rem;
+      }
+      .requirement-text {
+        padding: 1rem;
+      }
+      div[style*="grid-template-columns: repeat(5, 1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-pattern"></div>
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+
+    <!-- Hero -->
+    <section class="fade-up" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 2rem 0 3rem;">
+      <div>
+        <p class="eyebrow" style="margin-bottom: 1rem;"><a href="/" style="color: var(--text-muted);">Home</a> / <a href="/dpi/" style="color: var(--text-muted);">DPI Framework</a> / <span style="color: var(--accent);">Require</span></p>
+        <h1 style="font-size: 2.25rem; line-height: 1.2; margin-bottom: 1rem;">How to Require <span style="color: var(--accent);">Corrigibility</span></h1>
+        <p class="lead" style="margin-bottom: 0.5rem;">Making DPI constitutionally enforceable.</p>
+        <p class="lead"><strong style="color: var(--accent);">Minimum structural conditions.</strong></p>
+      </div>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="/components/svg/hero-require.svg" alt="Legal instruments for corrigibility" style="width: 100%; max-width: 360px; height: auto; filter: drop-shadow(0 0 60px rgba(13, 216, 146, 0.3));">
+      </div>
+    </section>
+
+    <!-- Introduction -->
+    <div class="fade-up" style="max-width: 750px; margin-bottom: 2.5rem;">
+      <p style="font-size: 1.05rem; line-height: 1.7;"><strong>Corrigibility cannot be left to policy intent, good faith, or post-hoc review.</strong></p>
+      <p style="margin-top: 1rem; color: var(--text-secondary);">If Digital Public Infrastructure exercises population-scale power, corrigibility must be mandated <em>ex ante</em> through law, procurement, and regulatory conditions.</p>
+      <p style="margin-top: 1rem; color: var(--text-secondary);">This page provides illustrative examples of how the five corrigibility tests can be translated into binding requirements.</p>
+    </div>
+
+    <!-- Illustrative Disclaimer -->
+    <div class="fade-up" style="background: rgba(129,140,248,0.08); border: 1px solid rgba(129,140,248,0.2); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2.5rem; max-width: 750px;">
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin: 0 0 1rem;"><strong style="color: var(--indigo);">Illustrative Instruments</strong></p>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0 0 0.75rem;">Corrigibility is a structural property. Different legal and institutional contexts may enforce it in different ways.</p>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0 0 0.75rem;">The following clauses, requirements, and language are provided as <strong>illustrative examples</strong> of how corrigibility surfaces can be made inspectable in procurement or designation processes. Their use is optional.</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Inclusion, modification, or omission is a policy decision for the adopting institution. The framework evaluates structure, not instruments.</p>
+    </div>
+
+    <div class="info-box fade-up" style="margin-bottom: 2.5rem; background: rgba(13,216,146,0.08); border-color: rgba(13,216,146,0.25);">
+      <p style="margin: 0;"><strong style="color: var(--accent);">These requirements are not aspirational.</strong><br><span style="color: var(--text-secondary);">They are minimum structural conditions.</span></p>
+    </div>
+
+    <!-- The Corrigibility Frame -->
+    <section class="fade-up" style="margin-bottom: 3rem;">
+      <h2 class="section-title">The Corrigibility Frame</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-secondary);">Corrigibility is not a value preference. It is a <strong style="color: #fff;">structural property</strong> that determines whether power exercised through systems remains governable.</p>
+      <p style="margin-bottom: 1.25rem; color: var(--text-secondary);">A system is corrigible only if those affected by its operation can:</p>
+
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; margin: 1.5rem 0;">
+        <div style="background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.25); border-radius: 8px; padding: 1rem; text-align: center;">
+          <span style="font-size: 0.75rem; color: var(--cyan); font-weight: 600; font-family: var(--font-mono);">detect</span>
+          <p style="margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--text-secondary);">error</p>
+        </div>
+        <div style="background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.25); border-radius: 8px; padding: 1rem; text-align: center;">
+          <span style="font-size: 0.75rem; color: var(--purple); font-weight: 600; font-family: var(--font-mono);">contest</span>
+          <p style="margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--text-secondary);">decisions</p>
+        </div>
+        <div style="background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25); border-radius: 8px; padding: 1rem; text-align: center;">
+          <span style="font-size: 0.75rem; color: var(--amber); font-weight: 600; font-family: var(--font-mono);">trigger</span>
+          <p style="margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--text-secondary);">correction</p>
+        </div>
+        <div style="background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.25); border-radius: 8px; padding: 1rem; text-align: center;">
+          <span style="font-size: 0.75rem; color: var(--blue); font-weight: 600; font-family: var(--font-mono);">exit</span>
+          <p style="margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--text-secondary);">without penalty</p>
+        </div>
+        <div style="background: rgba(244,114,182,0.08); border: 1px solid rgba(244,114,182,0.25); border-radius: 8px; padding: 1rem; text-align: center;">
+          <span style="font-size: 0.75rem; color: var(--rose); font-weight: 600; font-family: var(--font-mono);">enable</span>
+          <p style="margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--text-secondary);">replacement</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 1.5rem; color: var(--text-secondary);">Where these capacities are absent, power becomes unidirectional and self-stabilizing.</p>
+      <p style="margin-top: 1rem;"><strong style="color: var(--accent);">Law must therefore require corrigibility as a condition of public infrastructure.</strong></p>
+    </section>
+
+    <!-- Conceptual Foundations -->
+    <section class="fade-up" style="margin-bottom: 3rem;">
+      <h2 class="section-title">Conceptual Foundations</h2>
+      <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">The requirements below rest on three independent traditions. Each arrives at the same conclusion through a different path.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+        <!-- Cybernetics -->
+        <div style="background: rgba(6,182,212,0.06); border: 1px solid rgba(6,182,212,0.2); border-radius: 12px; padding: 1.5rem;">
+          <h4 style="color: var(--cyan); font-size: 0.85rem; font-weight: 600; margin: 0 0 0.75rem; font-family: var(--font-mono); letter-spacing: 0.05em;">CYBERNETICS</h4>
+          <p style="font-size: 0.85rem; font-weight: 500; color: #fff; margin-bottom: 0.75rem;">Feedback and Control</p>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">In control theory, a regulator must possess sufficient feedback to correct error in the system it governs. Where feedback is blocked, systems drift toward failure regardless of intent.</p>
+          <p style="font-size: 0.8rem; color: var(--cyan); margin: 0;"><strong>Legal implication:</strong> Systems exercising public power must be structurally open to feedback from those they affect.</p>
+        </div>
+
+        <!-- Commons -->
+        <div style="background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.2); border-radius: 12px; padding: 1.5rem;">
+          <h4 style="color: var(--amber); font-size: 0.85rem; font-weight: 600; margin: 0 0 0.75rem; font-family: var(--font-mono); letter-spacing: 0.05em;">COMMONS</h4>
+          <p style="font-size: 0.85rem; font-weight: 500; color: #fff; margin-bottom: 0.75rem;">Ostrom's Conditions</p>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Commons are sustainable only when users can participate in rule-making, monitor behavior, resolve disputes, and prevent enclosure.</p>
+          <p style="font-size: 0.8rem; color: var(--amber); margin: 0;"><strong>Legal implication:</strong> DPI is a shared resource. Without structural safeguards, it becomes enclosed and governed by operators rather than users.</p>
+        </div>
+
+        <!-- FOSS -->
+        <div style="background: rgba(244,114,182,0.06); border: 1px solid rgba(244,114,182,0.2); border-radius: 12px; padding: 1.5rem;">
+          <h4 style="color: var(--rose); font-size: 0.85rem; font-weight: 600; margin: 0 0 0.75rem; font-family: var(--font-mono); letter-spacing: 0.05em;">FREE SOFTWARE</h4>
+          <p style="font-size: 0.85rem; font-weight: 500; color: #fff; margin-bottom: 0.75rem;">Inspectability and Forkability</p>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">FOSS emerged from the recognition that software governing others must be inspectable and replaceable. The possibility of a fork disciplines power even when unused.</p>
+          <p style="font-size: 0.8rem; color: var(--rose); margin: 0;"><strong>Legal implication:</strong> Public infrastructure that cannot be inspected or replaced cannot be held accountable.</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 1.5rem; text-align: center;"><strong style="color: var(--accent);">Corrigibility is the point at which these three traditions converge.</strong></p>
+    </section>
+
+    <!-- Constitutional Foundation -->
+    <section class="fade-up" style="margin-bottom: 3rem;">
+      <h2 class="section-title">The Constitutional Foundation</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-secondary);">India's Right to Privacy judgment (2017), a globally significant constitutional ruling, establishes that any state system affecting autonomy, dignity, or access to essential services must satisfy <strong style="color: #fff;">proportionality</strong>: legality, necessity, and non-excessive harm.</p>
+
+      <p style="margin-bottom: 1.25rem; color: var(--text-secondary);">However, proportionality presumes that systems are:</p>
+
+      <div class="presupposition-list">
+        <div class="presupposition-item"><strong style="color: #fff;">Legible</strong> in operation</div>
+        <div class="presupposition-item"><strong style="color: #fff;">Auditable</strong> in practice</div>
+        <div class="presupposition-item"><strong style="color: #fff;">Reversible</strong> in effect</div>
+        <div class="presupposition-item"><strong style="color: #fff;">Alternatives</strong> exist</div>
+      </div>
+
+      <div class="info-box" style="background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.25); margin-top: 1.5rem;">
+        <p style="margin: 0; color: var(--text-secondary);">Where digital systems <strong style="color: var(--danger);">block exit</strong>, <strong style="color: var(--danger);">hide execution</strong>, <strong style="color: var(--danger);">prevent independent audit</strong>, or <strong style="color: var(--danger);">cannot be replaced</strong>, proportionality cannot function. Judicial review collapses into deference.</p>
+      </div>
+
+      <p style="margin-top: 1.5rem; font-size: 1.05rem;"><strong style="color: var(--accent);">Corrigibility supplies the structural preconditions that constitutional doctrines like proportionality presuppose but cannot themselves enforce.</strong></p>
+
+      <div style="background: rgba(129,140,248,0.06); border: 1px solid rgba(129,140,248,0.2); border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 1.5rem;">
+        <p style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--indigo); margin-bottom: 0.75rem;">CONSTITUTIONAL LINKAGE</p>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin: 0;">The Right to Privacy judgment (Puttaswamy v. Union of India, 2017) requires proportionality: legality, necessity, and minimal impairment. These judicial preconditions presuppose legibility, reversibility, alternatives, and independent review. The five corrigibility tests operationalize those preconditions into a testable evidence set (see <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces</a>).</p>
+      </div>
+    </section>
+
+    <!-- ENFORCEMENT GUIDANCE -->
+    <div class="fade-up" style="background: linear-gradient(135deg, rgba(13,216,146,0.1) 0%, rgba(13,216,146,0.03) 100%); border: 1px solid rgba(13,216,146,0.25); border-radius: 16px; padding: 2rem; margin-bottom: 3rem;">
+      <h3 style="color: var(--accent); font-size: 0.85rem; font-family: var(--font-mono); letter-spacing: 0.1em; margin-bottom: 1.25rem;">ENFORCEMENT GUIDANCE</h3>
+      <p style="font-size: 1.1rem; color: #fff; margin-bottom: 1rem;">DPI designation should be conditional on demonstrable evidence for each corrigibility test.</p>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">The <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Corrigibility Exposure Surfaces</a> defines the minimal artifacts evaluators should require.</p>
+      <div style="display: grid; gap: 0.5rem; margin: 1.25rem 0;">
+        <p style="color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--accent); margin-right: 0.5rem;">→</span> Partial evidence is suitable only for limited pilots with mandated fallback measures</p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--accent); margin-right: 0.5rem;">→</span> Full evidence should be required for DPI designation</p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--danger); margin-right: 0.5rem;">×</span> No national security, efficiency, or innovation exception</p>
+      </div>
+    </div>
+
+    <!-- REQUIREMENT 01: EXIT -->
+    <div class="requirement-card fade-up" style="border-left: 3px solid var(--cyan); background: linear-gradient(135deg, rgba(6,182,212,0.06) 0%, transparent 50%);">
+      <span class="eyebrow" style="color: var(--cyan);">REQUIREMENT 01</span>
+      <h3>Statutory Right to Safe Refusal</h3>
+      <span class="test-badge" style="background: rgba(6,182,212,0.15); color: var(--cyan);">EXIT</span>
+
+      <div class="requirement-text">
+        <p>No person shall be denied access to government services, welfare benefits, legal identity, or civic participation for refusing or discontinuing digital participation.</p>
+        <p>Equivalent non-digital pathways must remain available, functional, and non-punitive.</p>
+      </div>
+
+      <div class="rationale-box" style="background: rgba(6,182,212,0.08); border-left: 3px solid var(--cyan);">
+        <h4 style="color: var(--cyan);">CONCEPTUAL BASIS</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><strong style="color: var(--cyan);">Cybernetics:</strong> Exit is a primary feedback signal. Without it, systems cannot register failure.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><strong style="color: var(--amber);">Commons:</strong> Participation must be voluntary to remain legitimate.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);"><strong style="color: var(--rose);">Constitutional law:</strong> Consent without refusal is coercive.</p>
+      </div>
+
+      <div style="background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1rem;">
+        <h4 style="color: var(--purple); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 0.5rem; font-family: var(--font-mono);">APPLICATION TO LEARNED SYSTEMS</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Where learned systems mediate services invisibly, disclosure is mandatory. Non-AI alternatives must remain available. Refusal of AI mediation must not result in denial of service.</p>
+      </div>
+    </div>
+
+    <!-- REQUIREMENT 02: CODE -->
+    <div class="requirement-card fade-up" style="border-left: 3px solid var(--blue); background: linear-gradient(135deg, rgba(59,130,246,0.06) 0%, transparent 50%);">
+      <span class="eyebrow" style="color: var(--blue);">REQUIREMENT 02</span>
+      <h3>Reproducible Execution as Condition of Use</h3>
+      <span class="test-badge" style="background: rgba(59,130,246,0.15); color: var(--blue);">CODE</span>
+
+      <div class="requirement-text">
+        <p>The complete executing source code of any DPI system shall be:</p>
+        <ul>
+          <li>publicly available</li>
+          <li>reproducible from source</li>
+          <li>licensed to permit inspection, modification, and reuse</li>
+        </ul>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">API documentation, standards compliance, or policy descriptions do not satisfy this requirement.</p>
+      </div>
+
+      <div class="rationale-box" style="background: rgba(59,130,246,0.08); border-left: 3px solid var(--blue);">
+        <h4 style="color: var(--blue);">CONCEPTUAL BASIS</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><strong style="color: var(--rose);">FOSS:</strong> Inspectability is a precondition of trust.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><strong style="color: var(--cyan);">Cybernetics:</strong> Feedback requires visibility into control logic.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);"><strong style="color: var(--amber);">Constitutional law:</strong> Opaque execution functions as secret law.</p>
+      </div>
+
+      <div style="background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1rem;">
+        <h4 style="color: var(--purple); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 0.5rem; font-family: var(--font-mono);">APPLICATION TO LEARNED SYSTEMS</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Behavior is determined by training, not inference alone. Training data, training processes, and alignment decisions must be disclosed. Weights without training context replicate the problem of open specifications without open execution.</p>
+      </div>
+    </div>
+
+    <!-- REQUIREMENT 03: AUDIT -->
+    <div class="requirement-card fade-up" style="border-left: 3px solid var(--purple); background: linear-gradient(135deg, rgba(168,85,247,0.06) 0%, transparent 50%);">
+      <span class="eyebrow" style="color: var(--purple);">REQUIREMENT 03</span>
+      <h3>Independent Audit Without Permission</h3>
+      <span class="test-badge" style="background: rgba(168,85,247,0.15); color: var(--purple);">AUDIT</span>
+
+      <div class="requirement-text">
+        <p>Independent parties must be able to:</p>
+        <ul>
+          <li>inspect system behavior</li>
+          <li>measure error and exclusion rates</li>
+          <li>test security and integrity</li>
+          <li>publish findings</li>
+        </ul>
+        <p style="margin-top: 0.75rem;">without operator approval, contractual restriction, or legal threat.</p>
+      </div>
+
+      <div class="rationale-box" style="background: rgba(168,85,247,0.08); border-left: 3px solid var(--purple);">
+        <h4 style="color: var(--purple);">CONCEPTUAL BASIS</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><strong style="color: var(--cyan);">Cybernetics:</strong> Error cannot be corrected if it cannot be measured.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><strong style="color: var(--amber);">Commons:</strong> Monitoring must be accountable to users, not operators.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);"><strong style="color: var(--rose);">Constitutional law:</strong> Proportionality requires evidence, not assertion.</p>
+      </div>
+
+      <div style="background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1rem;">
+        <h4 style="color: var(--purple); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 0.5rem; font-family: var(--font-mono);">APPLICATION TO LEARNED SYSTEMS</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Benchmarks are insufficient. Sustained behavioral verification in deployment conditions is required. Model updates during audit periods must be disclosed.</p>
+      </div>
+    </div>
+
+    <!-- REQUIREMENT 04: GOVERN -->
+    <div class="requirement-card fade-up" style="border-left: 3px solid var(--amber); background: linear-gradient(135deg, rgba(245,158,11,0.06) 0%, transparent 50%);">
+      <span class="eyebrow" style="color: var(--amber);">REQUIREMENT 04</span>
+      <h3>Constitutive Governance Authority</h3>
+      <span class="test-badge" style="background: rgba(245,158,11,0.15); color: var(--amber);">GOVERN</span>
+
+      <div class="requirement-text">
+        <p>Affected populations must have binding authority in:</p>
+        <ul>
+          <li>system design decisions</li>
+          <li>eligibility rules</li>
+          <li>access criteria</li>
+          <li>future modifications</li>
+        </ul>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">Consultation, feedback portals, or grievance redress mechanisms do not constitute governance.</p>
+      </div>
+
+      <div class="rationale-box" style="background: rgba(245,158,11,0.08); border-left: 3px solid var(--amber);">
+        <h4 style="color: var(--amber);">CONCEPTUAL BASIS</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><strong style="color: var(--amber);">Commons:</strong> Rules must be made by those bound by them.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><strong style="color: var(--cyan);">Cybernetics:</strong> Governance is a feedback channel, not a complaint sink.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);"><strong style="color: var(--rose);">Constitutional law:</strong> Legitimate aims cannot be unilaterally asserted.</p>
+      </div>
+
+      <div style="background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1rem;">
+        <h4 style="color: var(--purple); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 0.5rem; font-family: var(--font-mono);">APPLICATION TO LEARNED SYSTEMS</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Training objectives and optimization targets are governance decisions. Affected populations must participate in defining what systems are designed to optimize.</p>
+      </div>
+    </div>
+
+    <!-- REQUIREMENT 05: FORK -->
+    <div class="requirement-card fade-up" style="border-left: 3px solid var(--rose); background: linear-gradient(135deg, rgba(244,114,182,0.06) 0%, transparent 50%);">
+      <span class="eyebrow" style="color: var(--rose);">REQUIREMENT 05</span>
+      <h3>Perpetual Forkability and Replaceability</h3>
+      <span class="test-badge" style="background: rgba(244,114,182,0.15); color: var(--rose);">FORK</span>
+
+      <div class="requirement-text">
+        <p>DPI systems must be legally and technically forkable:</p>
+        <ul>
+          <li>alternative implementations must be permitted</li>
+          <li>deployment without incumbent permission must be lawful</li>
+          <li>re-enclosure through contracts, IP, or regulation is prohibited</li>
+        </ul>
+      </div>
+
+      <div class="rationale-box" style="background: rgba(244,114,182,0.08); border-left: 3px solid var(--rose);">
+        <h4 style="color: var(--rose);">CONCEPTUAL BASIS</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><strong style="color: var(--rose);">FOSS:</strong> Forkability disciplines power.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;"><strong style="color: var(--cyan);">Cybernetics:</strong> Replacement is the ultimate corrective action.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);"><strong style="color: var(--amber);">Constitutional law:</strong> Necessity requires less restrictive alternatives.</p>
+      </div>
+
+      <div style="background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1rem;">
+        <h4 style="color: var(--purple); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; margin-bottom: 0.5rem; font-family: var(--font-mono);">APPLICATION TO LEARNED SYSTEMS</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Licensing alone is insufficient. Concentration of compute, data, or training resources can function as effective barriers. Forkability must be practical, not theoretical.</p>
+      </div>
+    </div>
+
+    <!-- COMPLIANCE AND REVIEW -->
+    <section class="fade-up" style="margin: 3rem 0;">
+      <h2 class="section-title">Compliance and Review</h2>
+      <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+        <p style="margin-bottom: 1rem; color: var(--text-secondary);">Designation as Digital Public Infrastructure shall be <strong style="color: #fff;">conditional and revocable</strong>.</p>
+        <p style="margin-bottom: 1rem; color: var(--text-secondary);">Failure to maintain corrigibility requirements at any point automatically suspends DPI status, regardless of past approval.</p>
+        <p style="margin: 0; font-weight: 500; color: var(--accent);">Corrigibility is not a one-time certification. It is a continuous structural obligation.</p>
+      </div>
+    </section>
+
+    <!-- WHY LAW MUST REQUIRE -->
+    <section class="fade-up" style="margin: 3rem 0;">
+      <h2 class="section-title">Why Law Must Require Corrigibility</h2>
+      <p style="margin-bottom: 1rem; color: var(--text-secondary);"><strong style="color: #fff;">Markets do not select for corrigibility.</strong> Institutions optimize for rollout speed, scale, and control.</p>
+      <p style="margin-bottom: 1.25rem; color: var(--text-secondary);">Without legal mandate:</p>
+
+      <div style="display: grid; gap: 0.5rem; margin-bottom: 1.5rem;">
+        <p style="color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--danger); margin-right: 0.5rem;">→</span> exit paths are closed</p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--danger); margin-right: 0.5rem;">→</span> audits are restricted</p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--danger); margin-right: 0.5rem;">→</span> governance is internalized</p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--danger); margin-right: 0.5rem;">→</span> alternatives are prohibited</p>
+      </div>
+
+      <p style="color: var(--text-secondary);">Correction does not disappear, it reroutes through courts, protests, media exposure, and political crisis.</p>
+      <p style="margin-top: 1rem;"><strong style="color: var(--accent);">Requiring corrigibility shifts correction upstream, reducing harm and litigation.</strong></p>
+    </section>
+
+    <!-- CONCLUSION -->
+    <div class="fade-up" style="background: linear-gradient(135deg, rgba(13,216,146,0.1) 0%, rgba(13,216,146,0.03) 100%); border: 1px solid rgba(13,216,146,0.25); border-radius: 16px; padding: 2rem 2.5rem; text-align: center; margin: 3rem 0;">
+      <p style="font-size: 1.15rem; color: #fff; margin-bottom: 1rem;">Corrigibility is the <strong style="color: var(--accent);">minimum structural condition</strong> under which digital systems exercising public power can remain constitutional, stable, and legitimate.</p>
+      <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 1rem;">This holds across technologies, including deterministic systems and learned systems.</p>
+      <p style="font-size: 1rem; color: var(--text-muted); margin: 0; font-style: italic;">If a system cannot be corrected by those it affects, it must not be deployed as public infrastructure.</p>
+    </div>
+
+    <!-- Related Pages -->
+    <section class="fade-up" style="margin: 3rem 0 2rem;">
+      <h2 class="section-title">Related</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+        <a href="/dpi/analysis/" style="background: linear-gradient(135deg, rgba(129,140,248,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--indigo); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+          <span class="eyebrow" style="color: var(--indigo);">ANALYSIS</span>
+          <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">Why Corrigibility</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Structural necessity</p>
+        </a>
+        <a href="/dpi/build/" style="background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--blue); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+          <span class="eyebrow" style="color: var(--blue);">TECHNICAL</span>
+          <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">How to Build</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Architecture primitives</p>
+        </a>
+        <a href="/dpi/definitions/" style="background: linear-gradient(135deg, rgba(6,182,212,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--cyan); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+          <span class="eyebrow" style="color: var(--cyan);">INTERNATIONAL</span>
+          <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">Definitions</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">G20, UNDP, World Bank</p>
+        </a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+        <a href="/dpi/learned-systems/" style="background: linear-gradient(135deg, rgba(168,85,247,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--purple); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+          <span class="eyebrow" style="color: var(--purple);">ANNEX</span>
+          <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">Learned Systems</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Stochastic governance</p>
+        </a>
+        <a href="/dpi/annex/exposure-surfaces/" style="background: linear-gradient(135deg, rgba(13,216,146,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+          <span class="eyebrow" style="color: var(--accent);">ANNEX</span>
+          <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">Exposure Surfaces</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Minimal artifacts</p>
+        </a>
+        <a href="/dpi/" style="background: linear-gradient(135deg, rgba(13,216,146,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+          <span class="eyebrow" style="color: var(--accent);">FRAMEWORK</span>
+          <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">DPI Framework</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Five tests overview</p>
+        </a>
+      </div>
+    </section>
+
+    <a href="/dpi/" class="back-link fade-up" style="display: inline-block; margin-top: 1rem;">← Back to DPI Framework</a>
+
+    <p class="fade-up" style="margin-top: 3rem; font-size: 0.85rem; color: var(--text-muted);">Authored by <a href="https://anivar.net" style="color: var(--text-secondary);" target="_blank" rel="noopener">Anivar Aravind</a></p>
+
+  </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/js/components.js"></script>
+  <script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

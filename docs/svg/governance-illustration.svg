@@ -1,0 +1,24 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Flow: Code -> Deploy -> Law (inverted) -->
+        <rect x="50" y="170" width="80" height="60" rx="5" stroke="#00f5a0" stroke-width="2" fill="rgba(0,245,160,0.1)" opacity="0.6"/>
+        <text x="70" y="205" font-family="monospace" font-size="12" fill="#00f5a0" opacity="0.8">&lt;/&gt;</text>
+        <!-- Arrow -->
+        <line x1="140" y1="200" x2="180" y2="200" stroke="#ffa502" stroke-width="2" opacity="0.5"/>
+        <polygon points="180,195 195,200 180,205" fill="#ffa502" opacity="0.5"/>
+        <!-- Deploy -->
+        <rect x="200" y="170" width="80" height="60" rx="5" stroke="#ffa502" stroke-width="2" fill="rgba(255,165,2,0.1)" opacity="0.6"/>
+        <circle cx="240" cy="200" r="15" stroke="#ffa502" stroke-width="2" fill="none" opacity="0.6"/>
+        <!-- Arrow -->
+        <line x1="290" y1="200" x2="330" y2="200" stroke="#ff4757" stroke-width="2" opacity="0.5"/>
+        <polygon points="330,195 345,200 330,205" fill="#ff4757" opacity="0.5"/>
+        <!-- Law (at end, not beginning) -->
+        <rect x="280" y="170" width="80" height="60" rx="5" stroke="#ff4757" stroke-width="2" fill="rgba(255,71,87,0.1)" opacity="0.6"/>
+        <text x="305" y="205" font-family="serif" font-size="16" fill="#ff4757" opacity="0.8">§</text>
+        <!-- Labels -->
+        <text x="65" y="255" font-family="monospace" font-size="10" fill="#00f5a0" opacity="0.5">CODE</text>
+        <text x="210" y="255" font-family="monospace" font-size="10" fill="#ffa502" opacity="0.5">DEPLOY</text>
+        <text x="300" y="255" font-family="monospace" font-size="10" fill="#ff4757" opacity="0.5">LAW</text>
+        <!-- "Wrong order" indicator -->
+        <path d="M320 280 Q200 320 80 280" stroke="#ff4757" stroke-width="1" stroke-dasharray="5,5" fill="none" opacity="0.4"/>
+        <text x="180" y="310" font-family="monospace" font-size="10" fill="#ff4757" opacity="0.5">REVERSED</text>
+    </svg>

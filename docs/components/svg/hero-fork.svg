@@ -1,0 +1,103 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Fork: Git fork symbol blocked - can't run your own instance -->
+
+    <!-- Central repository (blocked) -->
+    <circle cx="200" cy="200" r="35" stroke="#ef4444" stroke-width="3" fill="rgba(239,68,68,0.1)"/>
+    <rect x="185" y="185" width="30" height="24" rx="4" stroke="#ef4444" stroke-width="2" fill="rgba(239,68,68,0.15)"/>
+    <path d="M193 185V177C193 171 200 165 207 165S221 171 221 177V185" stroke="#ef4444" stroke-width="2" fill="none"/>
+
+    <!-- Fork branches (blocked with X) -->
+
+    <!-- Left branch -->
+    <path d="M165 200 L100 140" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+    <circle cx="80" cy="120" r="20" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.5"/>
+    <g transform="translate(80, 120)">
+        <line x1="-8" y1="-8" x2="8" y2="8" stroke="#ef4444" stroke-width="2"/>
+        <line x1="8" y1="-8" x2="-8" y2="8" stroke="#ef4444" stroke-width="2"/>
+    </g>
+
+    <!-- Right branch -->
+    <path d="M235 200 L300 140" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+    <circle cx="320" cy="120" r="20" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.5"/>
+    <g transform="translate(320, 120)">
+        <line x1="-8" y1="-8" x2="8" y2="8" stroke="#ef4444" stroke-width="2"/>
+        <line x1="8" y1="-8" x2="-8" y2="8" stroke="#ef4444" stroke-width="2"/>
+    </g>
+
+    <!-- Bottom branch -->
+    <path d="M200 235 L200 300" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+    <circle cx="200" cy="320" r="20" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.5"/>
+    <g transform="translate(200, 320)">
+        <line x1="-8" y1="-8" x2="8" y2="8" stroke="#ef4444" stroke-width="2"/>
+        <line x1="8" y1="-8" x2="-8" y2="8" stroke="#ef4444" stroke-width="2"/>
+    </g>
+
+    <!-- Labels for blocked forks -->
+    <text x="80" y="155" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.4)">SELF-HOST?</text>
+    <text x="80" y="167" text-anchor="middle" font-family="monospace" font-size="8" fill="#ef4444">NO</text>
+
+    <text x="320" y="155" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.4)">SOURCE?</text>
+    <text x="320" y="167" text-anchor="middle" font-family="monospace" font-size="8" fill="#ef4444">CLOSED</text>
+
+    <text x="200" y="355" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.4)">PERMISSION?</text>
+    <text x="200" y="367" text-anchor="middle" font-family="monospace" font-size="8" fill="#ef4444">REQUIRED</text>
+
+    <!-- What forkable looks like comparison (top) -->
+    <g transform="translate(200, 50)" opacity="0.4">
+        <text x="0" y="0" text-anchor="middle" font-family="monospace" font-size="8" fill="#0dd892">TRULY FORKABLE:</text>
+        <text x="0" y="15" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.5)">X-Road • Gov.UK • Email/SMTP</text>
+    </g>
+
+    <!-- Central label -->
+    <text x="200" y="255" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">SINGLE OPERATOR</text>
+
+    <!-- Checklist -->
+    <g transform="translate(50, 260)">
+        <g transform="translate(0, 0)">
+            <line x1="0" y1="-3" x2="6" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <line x1="6" y1="-3" x2="0" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="12" y="2" font-family="monospace" font-size="7" fill="#ef4444">Aadhaar</text>
+        </g>
+        <g transform="translate(0, 15)">
+            <line x1="0" y1="-3" x2="6" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <line x1="6" y1="-3" x2="0" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="12" y="2" font-family="monospace" font-size="7" fill="#ef4444">UPI</text>
+        </g>
+        <g transform="translate(0, 30)">
+            <line x1="0" y1="-3" x2="6" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <line x1="6" y1="-3" x2="0" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="12" y="2" font-family="monospace" font-size="7" fill="#ef4444">DigiLocker</text>
+        </g>
+        <g transform="translate(0, 45)">
+            <line x1="0" y1="-3" x2="6" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <line x1="6" y1="-3" x2="0" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="12" y="2" font-family="monospace" font-size="7" fill="#ef4444">ONDC</text>
+        </g>
+    </g>
+
+    <g transform="translate(290, 260)">
+        <g transform="translate(0, 0)">
+            <line x1="0" y1="-3" x2="6" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <line x1="6" y1="-3" x2="0" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="12" y="2" font-family="monospace" font-size="7" fill="#ef4444">ABDM</text>
+        </g>
+        <g transform="translate(0, 15)">
+            <line x1="0" y1="-3" x2="6" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <line x1="6" y1="-3" x2="0" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="12" y="2" font-family="monospace" font-size="7" fill="#ef4444">eSign</text>
+        </g>
+        <g transform="translate(0, 30)">
+            <line x1="0" y1="-3" x2="6" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <line x1="6" y1="-3" x2="0" y2="3" stroke="#ef4444" stroke-width="1.5"/>
+            <text x="12" y="2" font-family="monospace" font-size="7" fill="#ef4444">FASTag</text>
+        </g>
+        <g transform="translate(0, 45)">
+            <line x1="0" y1="-3" x2="6" y2="3" stroke="#f59e0b" stroke-width="1.5"/>
+            <line x1="6" y1="-3" x2="0" y2="3" stroke="#f59e0b" stroke-width="1.5"/>
+            <text x="12" y="2" font-family="monospace" font-size="7" fill="#f59e0b">DEPA*</text>
+        </g>
+    </g>
+
+    <!-- Bottom label -->
+    <text x="200" y="395" text-anchor="middle" font-family="monospace" font-size="10" fill="rgba(255,255,255,0.4)">NOT FORKABLE • NOT OPEN</text>
+</svg>

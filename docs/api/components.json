@@ -1,0 +1,154 @@
+{
+  "version": "1.0",
+  "updated": "2025-07-17",
+  "components": [
+    {
+      "id": "aadhaar",
+      "name": "Aadhaar / UIDAI",
+      "layer": "identity",
+      "status": "closed",
+      "governance": "Government trust (UIDAI)",
+      "open_source": false,
+      "forkable": false,
+      "auditable": false,
+      "exit_possible": false,
+      "issues": [
+        "No source code published",
+        "RTI-exempt",
+        "No deletion mechanism",
+        "Linked to NATGRID",
+        "6-12% biometric failure rate for manual laborers"
+      ]
+    },
+    {
+      "id": "upi",
+      "name": "UPI / NPCI",
+      "layer": "payments",
+      "status": "closed",
+      "governance": "NPCI (private bank consortium)",
+      "open_source": false,
+      "forkable": false,
+      "auditable": false,
+      "exit_possible": false,
+      "issues": [
+        "NPCI controls standard and implementation",
+        "Complete financial visibility of transactions",
+        "No alternative payment rail",
+        "Gatekept access requires approval"
+      ]
+    },
+    {
+      "id": "account-aggregator",
+      "name": "Account Aggregator (DEPA)",
+      "layer": "data",
+      "status": "spec_only",
+      "governance": "ReBIT (RBI entity) + Sahamati",
+      "open_source": false,
+      "forkable": false,
+      "auditable": false,
+      "exit_possible": false,
+      "issues": [
+        "Requires RBI license + Sahamati membership",
+        "No way to verify data deletion",
+        "Consent under coercion not meaningful"
+      ]
+    },
+    {
+      "id": "digilocker",
+      "name": "DigiLocker",
+      "layer": "data",
+      "status": "partial",
+      "governance": "Government (MeitY)",
+      "open_source": false,
+      "forkable": false,
+      "auditable": false,
+      "exit_possible": false,
+      "issues": [
+        "Claims open source but single instance",
+        "Cannot self-host",
+        "No complete audit logs"
+      ]
+    },
+    {
+      "id": "ondc",
+      "name": "ONDC",
+      "layer": "commerce",
+      "status": "partial",
+      "governance": "Private consortium",
+      "open_source": false,
+      "forkable": false,
+      "auditable": false,
+      "exit_possible": true,
+      "issues": [
+        "Not FOSS despite open claims",
+        "Subsidy-dependent adoption",
+        "Private governance structure"
+      ]
+    },
+    {
+      "id": "abdm",
+      "name": "ABDM / ABHA",
+      "layer": "health",
+      "status": "closed",
+      "governance": "NHA (Government)",
+      "open_source": false,
+      "forkable": false,
+      "auditable": false,
+      "exit_possible": false,
+      "issues": [
+        "Aadhaar-linked health ID",
+        "Patient data exposed on NHA websites",
+        "Blanket consent from bottom 40%"
+      ]
+    },
+    {
+      "id": "cowin",
+      "name": "CoWIN / U-WIN",
+      "layer": "health",
+      "status": "closed",
+      "governance": "Government (MoHFW)",
+      "open_source": false,
+      "forkable": false,
+      "auditable": false,
+      "exit_possible": false,
+      "issues": [
+        "Required Aadhaar/mobile for vaccination",
+        "Not accessible to persons with disabilities",
+        "200-280M Indians had no/poor internet access"
+      ]
+    },
+    {
+      "id": "natgrid",
+      "name": "NATGRID",
+      "layer": "surveillance",
+      "status": "closed",
+      "governance": "MHA (Government)",
+      "open_source": false,
+      "forkable": false,
+      "auditable": false,
+      "exit_possible": false,
+      "issues": [
+        "Links 21+ databases via Aadhaar",
+        "RTI-exempt since 2011",
+        "No judicial oversight",
+        "Access for 11 central agencies"
+      ]
+    },
+    {
+      "id": "npr",
+      "name": "NPR",
+      "layer": "identity",
+      "status": "closed",
+      "governance": "Government (RGI)",
+      "open_source": false,
+      "forkable": false,
+      "auditable": false,
+      "exit_possible": false,
+      "issues": [
+        "119 crore residents data",
+        "Aadhaar-seeded without consent",
+        "Connected to NATGRID"
+      ]
+    }
+  ]
+}

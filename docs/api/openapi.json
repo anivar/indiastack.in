@@ -1,0 +1,33 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "India Stack Watch API",
+    "description": "Structured data about India Stack components and their openness status",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {"url": "https://indiastack.in/api"}
+  ],
+  "paths": {
+    "/components.json": {
+      "get": {
+        "summary": "Get all India Stack components with analysis",
+        "responses": {
+          "200": {
+            "description": "List of components with openness status"
+          }
+        }
+      }
+    },
+    "/summary.json": {
+      "get": {
+        "summary": "Get site summary and key findings",
+        "responses": {
+          "200": {
+            "description": "Summary of India Stack Watch findings"
+          }
+        }
+      }
+    }
+  }
+}

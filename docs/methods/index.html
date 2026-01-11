@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methods | India Stack Watch</title>
+  <meta name="description" content="How this site evaluates digital systems. Structural tests derived from control theory, commons governance, and free software practice. Corrigibility, not outcomes.">
+  <meta name="keywords" content="evaluation methods, digital infrastructure, corrigibility, control theory, commons governance, FOSS, structural tests, cybernetics">
+  <link rel="canonical" href="https://indiastack.in/methods/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Methods, Structural Tests for Digital Infrastructure">
+  <meta property="og:description" content="Five structural tests for evaluating digital infrastructure: Safe Refusal, Legible Execution, Independent Verifiability, Constitutive Input, Credible Replacement. Corrigibility, not outcomes.">
+  <meta property="og:url" content="https://indiastack.in/methods/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Methods, Five Structural Tests for Corrigibility">
+  <meta name="twitter:description" content="Evaluate digital systems using structural tests from cybernetics, commons governance, and FOSS. Corrigibility means citizens can detect error and trigger correction.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    /* Hero */
+    .method-hero {
+      padding: 4rem 0 3rem;
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-text {
+      flex: 1;
+    }
+    .hero-illustration {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-illustration svg,
+    .hero-illustration img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      filter: drop-shadow(0 0 60px rgba(0, 255, 153, 1)) drop-shadow(0 0 120px rgba(0, 255, 153, 0.6));
+      opacity: 1;
+    }
+    .method-hero .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .method-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .method-hero .lead {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      max-width: 540px;
+      line-height: 1.6;
+    }
+    .method-hero .scope-inline {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      margin-bottom: 0;
+    }
+
+    /* Section */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--border), transparent);
+    }
+
+    .method-section {
+      margin-bottom: 4.5rem;
+    }
+    .method-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .method-section p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .method-section p strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Bullet List */
+    .bullet-list {
+      margin: 1.25rem 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 0.6rem;
+    }
+    .bullet-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.25);
+    }
+    .bullet-list li strong {
+      color: #fff;
+    }
+
+    /* Warning Box */
+    .warn-box {
+      background: rgba(239,68,68,0.06);
+      border-left: 3px solid var(--danger);
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 10px 10px 0;
+    }
+    .warn-box p {
+      margin: 0;
+      color: var(--text-primary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .warn-box strong {
+      color: var(--danger);
+    }
+
+    /* Three Lenses Diagram */
+    .lenses-diagram {
+      background: #030305;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    .lenses-diagram svg,
+    .lenses-diagram img {
+      width: 100%;
+      max-width: 650px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Corrigibility Box */
+    .corrigibility-box {
+      background: linear-gradient(135deg, rgba(13,216,146,0.08) 0%, rgba(13,216,146,0.02) 100%);
+      border: 1px solid rgba(13,216,146,0.2);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      position: relative;
+    }
+    .corrigibility-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 16px 16px 0 0;
+    }
+    .corrigibility-box .term {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .corrigibility-box .phonetic {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+    .corrigibility-box .def {
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+    .corrigibility-box .def strong {
+      color: var(--accent);
+    }
+
+    /* Test Cards */
+    .test-grid {
+      display: grid;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .test-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      transition: border-color 0.2s;
+    }
+    .test-card:hover {
+      border-color: var(--border);
+    }
+    .test-card .test-num {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      margin-bottom: 0.4rem;
+    }
+    .test-card .test-name {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    .test-card .test-content {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+    .test-card .test-why {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      font-style: italic;
+    }
+
+    /* Binary Box */
+    .binary-box {
+      background: rgba(239,68,68,0.06);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: 14px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+    .binary-box .statement {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .binary-box .statement strong {
+      color: var(--danger);
+    }
+    .binary-box .sub {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* Scope Grid */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .scope-col {
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .scope-col.no {
+      border: 1px solid rgba(239,68,68,0.2);
+    }
+    .scope-col.yes {
+      border: 1px solid rgba(13,216,146,0.2);
+    }
+    .scope-col .header {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+    .scope-col.no .header { color: var(--danger); }
+    .scope-col.yes .header { color: var(--accent); }
+    .scope-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .scope-col li {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .scope-col li:last-child {
+      border-bottom: none;
+    }
+
+    /* Doctrine Final */
+    .doctrine-final {
+      background: linear-gradient(135deg, rgba(13,216,146,0.1) 0%, rgba(13,216,146,0.02) 100%);
+      border: 1px solid rgba(13,216,146,0.25);
+      border-radius: 16px;
+      padding: 3rem;
+      margin: 3.5rem 0 2rem;
+      text-align: center;
+    }
+    .doctrine-final .main {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .doctrine-final .main strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .doctrine-final .sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .closing-note {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .test-card { grid-template-columns: 1fr; gap: 0.75rem; }
+      .scope-grid { grid-template-columns: 1fr; }
+      .method-hero {
+        padding: 3rem 0 2rem;
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-illustration { order: -1; }
+      .hero-illustration svg,
+      .hero-illustration img { max-width: 280px; margin: 0 auto; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Methods: Evaluation Procedure for Digital Infrastructure",
+    "description": "Five structural tests for corrigibility: Safe Refusal, Legible Execution, Independent Verifiability, Constitutive Input, Credible Replacement. Derived from cybernetics, commons governance, and FOSS principles.",
+    "url": "https://indiastack.in/methods/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-08",
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "publisher": {
+      "@type": "Organization",
+      "name": "India Stack Watch",
+      "url": "https://indiastack.in",
+      "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}
+    },
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/methods/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"},
+    "about": [
+      {"@type": "Thing", "name": "Corrigibility", "description": "The structural capacity of affected populations to detect error and trigger correction"},
+      {"@type": "Thing", "name": "Cybernetics", "description": "The study of control and communication in systems"},
+      {"@type": "Thing", "name": "Commons Governance", "description": "Ostrom's principles for managing shared resources"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Evaluate Digital Infrastructure for Corrigibility",
+    "description": "Apply five structural tests to determine if a digital system is correctable by those it affects",
+    "step": [
+      {"@type": "HowToStep", "name": "Safe Refusal Test", "text": "Can people refuse digital systems while retaining access to non-digital government services?"},
+      {"@type": "HowToStep", "name": "Legible Execution Test", "text": "Are the executable rules that affect people publicly inspectable?"},
+      {"@type": "HowToStep", "name": "Independent Verifiability Test", "text": "Can claims be continuously tested by adversarial actors without requiring permission?"},
+      {"@type": "HowToStep", "name": "Constitutive Input Test", "text": "Do affected populations have rule-making input over system design?"},
+      {"@type": "HowToStep", "name": "Credible Replacement Test", "text": "Is collective replacement or replication technically and legally possible?"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is corrigibility in digital systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Corrigibility is the structural capacity of those affected by a system to detect error, apply pressure, and trigger correction, without suffering material harm. A corrigible system can be observed, tested, refused, shaped by affected populations, and replaced if necessary."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why use structural tests instead of outcome metrics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When participation is compulsory, outcome metrics become meaningless. Adoption measures dependence, not preference. Usage measures compliance, not consent. Scale measures reach, not legitimacy. Coerced data cannot distinguish success from legitimacy, so structural tests are used instead."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the five structural tests for digital infrastructure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The five tests are: (1) Safe Refusal, can people refuse digital while keeping non-digital government access? (2) Legible Execution, is the code publicly inspectable? (3) Independent Verifiability, can claims be tested without permission? (4) Constitutive Input, do affected populations shape rules? (5) Credible Replacement, can the system be replicated or replaced?"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if a system fails one of the five tests?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Failure of any single test is fatal. These are binary tests, not a scoring rubric. A system that is highly transparent but offers no exit is still incorrigible. Partial compliance does not count, these are necessary conditions for public legitimacy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the three analytical lenses used in evaluation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Three independent frameworks converge on the same requirements: (1) Cybernetics, can those acted upon correct the system? Failure mode is runaway. (2) Commons governance (Ostrom), who governs the shared resource? Failure mode is enclosure. (3) FOSS principles, can power be observed and replaced? Failure mode is lock-in."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+
+    <header class="method-hero fade-up">
+      <div class="hero-text">
+        <div class="eyebrow">Evaluation Procedure</div>
+        <h1>Methods</h1>
+        <p class="lead">This site evaluates digital systems using structural tests, not outcomes. This page explains why, and how.</p>
+        <div class="scope-box">
+          <div class="scope-label">SCOPE</div>
+          <p>This page defines <strong>how</strong> systems are evaluated. It does not argue what systems <strong>should</strong> exist.</p>
+        </div>
+      </div>
+      <div class="hero-illustration">
+        <img src="/components/svg/hero-methods.svg" alt="Structural tests illustration">
+      </div>
+    </header>
+
+    <!-- Why Structural Tests -->
+    <section class="method-section fade-up">
+      <div class="section-label">The Problem with Outcomes</div>
+
+      <p>At population scale, digital systems cease to be tools. They become <strong>control systems</strong>, closed loops that act on populations, measure responses, and adjust behavior.</p>
+
+      <p>When participation is compulsory or refusal carries material cost:</p>
+
+      <ul class="bullet-list">
+        <li>Adoption measures <strong>dependence</strong>, not preference</li>
+        <li>Usage measures <strong>compliance</strong>, not consent</li>
+        <li>Scale measures <strong>reach</strong>, not legitimacy</li>
+        <li>Satisfaction surveys measure <strong>adaptation to constraint</strong>, not free choice</li>
+      </ul>
+
+      <div class="warn-box">
+        <p><strong>The signal collapses.</strong> Coerced data cannot distinguish success from legitimacy. Outcome metrics are therefore excluded from evaluation on this site.</p>
+      </div>
+    </section>
+
+    <!-- Three Lenses -->
+    <section class="method-section fade-up">
+      <div class="section-label">Three Analytical Lenses</div>
+
+      <p>This site applies three independent frameworks. Each emerged from a different discipline. Each addresses a different domain. They converge diagnostically.</p>
+
+      <div class="lenses-diagram">
+        <img src="/components/svg/diagram-three-lenses.svg" alt="Three analytical lenses: Cybernetics, Commons, FOSS">
+      </div>
+
+      <p class="note-text">These frameworks do not reinforce each other rhetorically. They converge on the same structural requirements because those requirements are necessary for legitimate shared systems.</p>
+    </section>
+
+    <!-- Corrigibility -->
+    <section class="method-section fade-up">
+      <div class="section-label">The Core Criterion</div>
+
+      <div class="corrigibility-box">
+        <div class="term">Corrigibility</div>
+        <div class="phonetic">/kɒˈrɪdʒɪbɪlɪti/</div>
+        <div class="def">The structural capacity of those affected by a system to <strong>detect error</strong>, <strong>apply pressure</strong>, and <strong>trigger correction</strong>, without suffering material harm.</div>
+      </div>
+
+      <p>A corrigible system can be observed (its rules are visible), tested (its claims can be verified), refused (exit does not destroy the person), shaped (affected populations have constitutive input), and replaced (alternatives can exist).</p>
+
+      <p>Without corrigibility, systems mistake compliance for consent, treat silence as approval, suppress harm signals as noise, and escalate control when things break. Error costs land on users; the system stays safe for operators.</p>
+
+      <!-- Feedback Loop Diagram -->
+      <div class="lenses-diagram mt-2">
+        <img src="/components/svg/diagram-feedback-loop.svg" alt="Corrigible vs Incorrigible feedback loops">
+      </div>
+    </section>
+
+    <!-- Five Tests -->
+    <section class="method-section fade-up">
+      <div class="section-label">Five Structural Tests</div>
+
+      <p>A system is classified as public only if <strong>all five</strong> are satisfied:</p>
+
+      <div class="test-grid">
+        <a href="/exit/" class="test-card no-underline">
+          <div>
+            <div class="test-num">TEST 01</div>
+            <div class="test-name">Safe Refusal →</div>
+          </div>
+          <div class="test-content">
+            Refusal of digital systems must be possible while retaining access to non-digital government services.
+            <div class="test-why">Consent given under duress is not consent. If declining digital means losing government services entirely, the "choice" is meaningless.</div>
+          </div>
+        </a>
+
+        <a href="/foss/" class="test-card no-underline">
+          <div>
+            <div class="test-num">TEST 02</div>
+            <div class="test-name">Legible Execution →</div>
+          </div>
+          <div class="test-content">
+            Rules that materially affect people must be inspectable in their executable form.
+            <div class="test-why">The specification is not the system. The API is not the algorithm. Only executable code reveals actual behavior.</div>
+          </div>
+        </a>
+
+        <a href="/audit/" class="test-card no-underline">
+          <div>
+            <div class="test-num">TEST 03</div>
+            <div class="test-name">Independent Verifiability →</div>
+          </div>
+          <div class="test-content">
+            Claims about system behavior must be continuously testable by independent, adversarial actors without prior permission.
+            <div class="test-why">Trust that cannot be verified is obedience. Internal audits are structurally compromised.</div>
+          </div>
+        </a>
+
+        <a href="/participate/" class="test-card no-underline">
+          <div>
+            <div class="test-num">TEST 04</div>
+            <div class="test-name">Constitutive Input →</div>
+          </div>
+          <div class="test-content">
+            Affected populations must have rule-making input over system design, not merely grievance mechanisms after harm.
+            <div class="test-why">Grievance redressal is remedial. Constitutive input shapes rules before harm. These are structurally different.</div>
+          </div>
+        </a>
+
+        <a href="/fork/" class="test-card no-underline">
+          <div>
+            <div class="test-num">TEST 05</div>
+            <div class="test-name">Credible Replacement →</div>
+          </div>
+          <div class="test-content">
+            It must be technically and legally possible to collectively replace or replicate the system without incumbent permission.
+            <div class="test-why">The possibility of replacement disciplines power even when unused. When alternatives are forbidden, the system becomes monopoly.</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Binary -->
+    <section class="method-section fade-up">
+      <div class="section-label">Binary Tests</div>
+
+      <div class="binary-box">
+        <div class="statement">Failure of <strong>any one</strong> test is fatal.</div>
+        <div class="sub">Partial compliance does not count. These are necessary conditions, not a scoring rubric.</div>
+      </div>
+
+      <p>A system that is highly transparent but offers no exit is still incorrigible. A system that permits exit but cannot be audited is still incorrigible. Partial feedback is not feedback, it is noise that legitimates while failing to constrain.</p>
+    </section>
+
+    <!-- Scope -->
+    <section class="method-section fade-up">
+      <div class="section-label">What This Site Does</div>
+
+      <div class="scope-grid">
+        <div class="scope-col no">
+          <div class="header">DOES NOT</div>
+          <ul>
+            <li>Argue intent or motivation</li>
+            <li>Debate efficiency or innovation</li>
+            <li>Weigh benefits against harms</li>
+            <li>Propose alternative systems</li>
+            <li>Claim outcomes are bad</li>
+          </ul>
+        </div>
+        <div class="scope-col yes">
+          <div class="header">DOES</div>
+          <ul>
+            <li>Apply structural tests consistently</li>
+            <li>Classify systems as corrigible or not</li>
+            <li>Document evidence for those tests</li>
+            <li>Refuse to treat scale as legitimacy</li>
+            <li>Maintain procedural neutrality</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note-text">The site's position is not "India Stack is bad." It is: <em>India Stack fails structural tests required for public legitimacy, therefore outcome claims are not evidence, therefore the system cannot be defended on the grounds usually offered.</em></p>
+    </section>
+
+    <!-- Final -->
+    <div class="doctrine-final fade-up">
+      <p class="main">A digital system is legitimate only if it is <strong>structurally corrigible</strong> by those it affects.</p>
+      <p class="sub">Absent that: efficiency is compression of dissent, stability is delayed failure, and "public" is a marketing term.</p>
+    </div>
+
+    <p class="closing-note fade-up">Readers are encouraged to apply this method to any digital system, not only those discussed here.</p>
+
+    <div class="warn-box fade-up mt-2">
+      <p><strong>Closed Control Loop:</strong> Exit is blocked technically, refusal is penalized legally, and correction is structurally unavailable. None of these alone is decisive, together they form a closed loop. <a href="/terminology/#legal-lock-in" class="text-accent">See Terminology →</a></p>
+    </div>
+
+    <a href="/terminology/" class="page-crosslink fade-up">
+      <span class="text">Key terms used in this evaluation → <strong class="text-accent">Terminology</strong></span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="/dpi/" class="page-crosslink fade-up">
+      <span class="text">Apply these tests globally → <strong class="text-accent">DPI Corrigibility Framework</strong></span>
+      <span class="arrow">→</span>
+    </a>
+
+  </div>
+  </main>
+
+    <div id="site-footer"></div>
+
+<script>
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, observerOptions);
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.dataset.open === 'true';
+    navLinks.dataset.open = !isOpen;
+    menuToggle.setAttribute('aria-expanded', !isOpen);
+  });
+}
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+</script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPI | India Stack Watch</title>
+  <meta name="description" content="Critical analysis of UPI. Claims of 'open and interoperable' vs NPCI private consortium control. Security vulnerabilities, fraud statistics, and surveillance concerns.">
+  <meta name="keywords" content="UPI criticism, NPCI control, UPI security, UPI fraud, UPI CVE, payment surveillance India">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://indiastack.in/upi/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="og:title" content="UPI: The Claims vs Reality">
+  <meta property="og:description" content="'Open and interoperable' controlled by a private bank consortium. Complete financial surveillance. Multiple security vulnerabilities.">
+  <meta property="og:url" content="https://indiastack.in/upi/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    /* UPI page - blue accent theme */
+    .gradient-orb.orb-1 { background: radial-gradient(circle, #3b82f6 0%, transparent 70%); }
+    .gradient-orb.orb-2 { background: radial-gradient(circle, #8b5cf6 0%, transparent 70%); }
+    h1 span { color: #3b82f6; }
+    .claim-box { background: rgba(59, 130, 246, 0.08); border-left: 3px solid #3b82f6; }
+    .claim-label { color: #3b82f6; }
+    .stat-number.blue { color: #3b82f6; }
+    .verdict { border-color: rgba(59,130,246,0.3); }
+    .verdict-text { color: #3b82f6; }
+    .highlight-blue { color: #3b82f6; font-weight: 600; }
+    .cve-list { background: rgba(251,191,36, 0.05); border: 1px solid rgba(251,191,36,0.2); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+    .cve-list h3 { color: var(--warning); margin-bottom: 1rem; font-size: 1rem; }
+    .cve-item { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; padding-left: 1rem; border-left: 2px solid rgba(251,191,36,0.3); }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "UPI: Claims vs Reality",
+    "description": "NPCI sees all transactions. PhonePe + Google = 86% duopoly. Financial surveillance infrastructure analysis.",
+    "url": "https://indiastack.in/upi/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-09",
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in", "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/upi/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"},
+    "keywords": ["UPI", "NPCI", "payments", "financial surveillance", "PhonePe", "Google Pay"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"UPI","item":"https://indiastack.in/upi/"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who controls UPI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NPCI, a Section 8 company with 51%+ public sector bank ownership. CAG appoints its auditors (government company status), yet NPCI won a 2019 CIC case to claim it is NOT subject to RTI. It received Rs 8,730 crore in government subsidies (2021-2025) but rejects public accountability. No alternative payment rail exists, RBI rejected all New Umbrella Entity applications."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What security vulnerabilities have been found in UPI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "USENIX Security 2020 found multi-factor authentication design flaws in UPI 1.0 allowing remote account compromise. BHIM app had multiple CVEs (2017-2018). A 2019 government audit revealed 40+ vulnerabilities with personal data stored in plain text, unencrypted."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is UPI surveillance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. UPI provides complete financial surveillance: every transaction is visible to NPCI, including location, merchant, amount, frequency. Data can be shared with government agencies. Cash displacement means surveillance expansion."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the UPI fraud rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "56.5% of banking frauds are UPI/digital payment related (FY25). 1 in 5 UPI users report being defrauded (LocalCircles 2025). With $3T annual transaction value, UPI is a massive fraud target."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is UPI open source?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Source code is not published. Cannot be forked or independently deployed. 'Open and interoperable' refers to API access, not code. PhonePe + Google Pay control 86% of UPI, a duopoly on supposedly 'open' infrastructure."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- Visual effects -->
+  <div class="scan-line"></div>
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main" class="container">
+    <a href="/layers/" class="back">← BACK TO LAYERS</a>
+
+    <!-- UPI Logo Mimic - Payment Surveillance -->
+    <div class="hero-illustration">
+      <img src="/components/svg/hero-upi.svg" alt="UPI illustration">
+    </div>
+
+    <h1>UPI: <span>Claims vs Reality</span></h1>
+    <p class="subtitle">The government promotes UPI as "open and interoperable." Here's what they don't tell you about who controls it and how it surveils you.</p>
+
+    <!-- CLAIM 1: Open and Interoperable -->
+    <div class="section-label">Claim #1</div>
+    <div class="claim-box">
+      <div class="claim-label">indiastack.global says</div>
+      <p>"UPI is an open and interoperable digital payment platform that integrates multiple bank accounts into a single mobile application."</p>
+    </div>
+    <div class="reality-box">
+      <div class="reality-label">Reality</div>
+      <p><span class="highlight">NPCI claims to be private but takes public money.</span> It's a consortium that controls both the standard AND the implementation, while evading accountability.</p>
+      <ul>
+        <li><strong>51%+ owned by public sector banks.</strong> CAG appoints auditors (government company status).</li>
+        <li>Yet NPCI <strong>won 2019 CIC case</strong> to NOT be subject to RTI requests</li>
+        <li>Government gave <strong>Rs 8,730 crore</strong> (2021-2025) to subsidize RuPay and BHIM-UPI</li>
+        <li>Uses "National" in name despite 2014 rule limiting that to government entities</li>
+        <li>No alternative payment rail exists, RBI rejected all New Umbrella Entity applications</li>
+        <li>Source code is not published. Cannot be forked. Cannot be audited.</li>
+      </ul>
+    </div>
+
+    <!-- UPI is NOT like Email -->
+    <div class="section-label">Not Like Email</div>
+    <div class="finding-card">
+      <h3>UPI ≠ SMTP</h3>
+      <p>UPI has been <strong>incorrectly compared with email and SMTP</strong>. Unlike email, UPI is not open access:</p>
+      <ul>
+        <li>You <strong>cannot</strong> set up a UPI service like you can set up an email server</li>
+        <li>UPI protocols are <strong>not open</strong>, unlike SMTP</li>
+        <li>NPCI controls and gates access to the "marketplace"</li>
+        <li>Mozilla has <a href="https://foundation.mozilla.org/en/blog/indias-techno-legal-regulatory-approach-to-digital-public-infrastructure/" target="_blank">criticized NODE</a> for "openwashing" of projects</li>
+      </ul>
+      <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">The phrase "open" for UPI has been used liberally, "open architecture", but NPCI runs and controls access to the marketplace that is UPI.</p>
+    </div>
+
+    <!-- Duopoly Stats -->
+    <div class="section-label">Market Concentration</div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number blue">48.7%</div>
+        <div class="stat-label">PhonePe market share (Walmart-backed)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number blue">37.2%</div>
+        <div class="stat-label">Google Pay market share</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">85.9%</div>
+        <div class="stat-label">Two foreign-backed players control UPI</div>
+      </div>
+    </div>
+    <div class="finding-card">
+      <div class="source">NPCI Data / MediaNama Analysis (Feb 2025)</div>
+      <h3>The "Open" Platform is a Duopoly</h3>
+      <p>PhonePe (8.1B monthly transactions) + Google Pay (6.1B) control 85.9% of UPI. Paytm is at 6.93%. <strong>BHIM, NPCI's own app, is at just 0.2%</strong> despite NPCI giving its subsidiary Rs 300 crore to compete.</p>
+      <p style="margin-top: 0.75rem;">NPCI announced a 30% market share cap in 2020. The deadline has been extended repeatedly, <strong>now to December 31, 2026</strong>. The cap has never been enforced.</p>
+    </div>
+
+    <!-- CLAIM 2: Sovereign Solution -->
+    <div class="section-label">Claim #2</div>
+    <div class="claim-box">
+      <div class="claim-label">indiastack.global says</div>
+      <p>"Sovereign Solution and Multiplier of Economic activity"</p>
+    </div>
+    <div class="reality-box">
+      <div class="reality-label">Reality</div>
+      <p>UPI provides <span class="highlight">complete financial surveillance</span>:</p>
+      <ul>
+        <li>Every transaction is visible to NPCI</li>
+        <li>Location, merchant, amount, frequency. All tracked</li>
+        <li>No privacy from the payment rail operator</li>
+        <li>Data can be shared with government agencies</li>
+        <li>Cash displacement = surveillance expansion</li>
+      </ul>
+    </div>
+
+    <!-- Security Vulnerabilities -->
+    <div class="section-label">Security Vulnerabilities</div>
+    
+    <div class="finding-card">
+      <div class="source">USENIX Security 2020 / Renuka Kumar et al.</div>
+      <h3>Design-Level Authentication Flaws in UPI 1.0</h3>
+      <p>Reverse-engineering of 7 popular UPI apps revealed <span class="highlight">multi-factor authentication design flaws</span> that could allow a victim's bank account to be linked and emptied, even if the victim had never used a UPI app. Attacks were scalable and remote.</p>
+    </div>
+
+    <div class="cve-list">
+      <h3>CVEs in BHIM (NPCI's Official UPI App)</h3>
+      <div class="cve-item"><strong>CVE-2017-9821:</strong> Hardcoded SMS validation strings (AK-NPCIMB, IM-NPCIBM, VK-NPCIBM) enabled authentication bypass</div>
+      <div class="cve-item"><strong>CVE-2017-9819:</strong> OTP feature not properly restricted, easier to bypass authentication</div>
+      <div class="cve-item"><strong>CVE-2017-9820:</strong> Custom keypad input exposed to Accessibility service</div>
+      <div class="cve-item"><strong>CVE-2018-15660, CVE-2018-15661:</strong> Additional vulnerabilities reported to CERT-US</div>
+    </div>
+
+    <div class="finding-card">
+      <div class="source">Government Audit, Feb 2019</div>
+      <h3>NPCI Infrastructure Vulnerabilities</h3>
+      <p>Audit revealed <span class="highlight">40+ security vulnerabilities</span>. Personal data including 16-digit card numbers, customer names, and account numbers were stored in <strong>plain text</strong>, unencrypted.</p>
+    </div>
+
+    <!-- Fraud Statistics -->
+    <div class="section-label">Fraud Statistics</div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">56.5%</div>
+        <div class="stat-label">Of banking frauds are UPI/digital payment related (FY25)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1 in 5</div>
+        <div class="stat-label">UPI users report being defrauded (LocalCircles 2025)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number blue">$3T</div>
+        <div class="stat-label">Annual UPI transaction value, massive fraud target</div>
+      </div>
+    </div>
+
+    <!-- CLAIM 3: Financial Inclusion -->
+    <div class="section-label">Claim #3</div>
+    <div class="claim-box">
+      <div class="claim-label">indiastack.global says</div>
+      <p>"Financial Inclusion and Cash displacement"</p>
+    </div>
+    <div class="reality-box">
+      <div class="reality-label">Reality</div>
+      <p>Financial inclusion through <span class="highlight">surveillance infrastructure</span>:</p>
+      <ul>
+        <li>Cash provides privacy, UPI eliminates it</li>
+        <li>Rural users often lack smartphone/internet access</li>
+        <li>Dependent on network connectivity, fails during outages</li>
+        <li>Requires bank account, excludes the unbanked</li>
+        <li>"Inclusion" means "inclusion in surveillance"</li>
+      </ul>
+    </div>
+
+    <!-- Discrimination History -->
+    <div class="section-label">Differential Treatment</div>
+    <div class="finding-card">
+      <div class="source">MediaNama / Payments Council of India / Public Statements</div>
+      <h3>NPCI Has Picked Winners</h3>
+      <p>NPCI has admitted to discriminating between participants:</p>
+      <ul>
+        <li><strong>Wallet companies excluded (2016):</strong> NPCI CEO AP Hota said banks asked to "leave the wallets out of it... just a competitive position."</li>
+        <li><strong>Paytm delayed:</strong> Vijay Shekhar Sharma alleged NPCI asked to delay Paytm UPI launch by 4 months so Google Tez could launch first.</li>
+        <li><strong>Google Tez launched with 4 banks</strong> (Axis, HDFC, ICICI, SBI), other UPI apps launched with only one partner bank.</li>
+        <li><strong>WhatsApp got differential interface</strong>, NPCI called it a "beta launch for a million users."</li>
+        <li><strong>WhatsApp restricted for 6 years:</strong> Limited to 1 million users (2018), then 100 million (2022), full rollout only Dec 31, 2024.</li>
+      </ul>
+    </div>
+
+    <div class="finding-card">
+      <div class="source">Payments Council of India (2017)</div>
+      <h3>"Payments Neutrality" Demand</h3>
+      <blockquote style="font-style: italic; color: var(--text-secondary); margin: 1rem 0; padding-left: 1rem; border-left: 2px solid #3b82f6;">
+        "Only bank-led PSPs have direct access to payment systems. Non-bank PSPs can access payment systems only through a member bank... None of these can connect to NPCI run infrastructure, and are effectively <strong>disenfranchised by the Banks that run NPCI</strong>."
+      </blockquote>
+    </div>
+
+    <!-- The Test -->
+    <div class="section-label">The Fork Test</div>
+    <div class="finding-card">
+      <h3>Can you fork UPI?</h3>
+      <p><strong>Source available?</strong> No<br>
+      <strong>Can deploy independently?</strong> No<br>
+      <strong>No permission needed?</strong> No, requires NPCI approval<br>
+      <strong>Alternative exists?</strong> No, RBI rejected all New Umbrella Entity applications</p>
+    </div>
+
+    <div class="verdict">
+      <div class="verdict-label">Verdict</div>
+      <div class="verdict-text">Private Consortium Control. Complete Financial Surveillance. Not Open.</div>
+    </div>
+
+    <div class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li><a href="https://www.theindiaforum.in/society/whom-npci-accountable" target="_blank">The India Forum: To Whom is the NPCI Accountable?</a></li>
+        <li><a href="https://www.medianama.com/2025/02/223-npci-competition-regulation/" target="_blank">MediaNama: What if competition regulation was applied to NPCI? (Feb 2025)</a></li>
+        <li><a href="https://www.medianama.com/2025/02/223-how-not-to-screw-up-your-digital-public-infrastructure-dpi/" target="_blank">MediaNama: How not to screw up your DPI (Feb 2025)</a></li>
+        <li><a href="https://www.usenix.org/conference/usenixsecurity20/presentation/kumar" target="_blank">USENIX Security 2020: UPI Security Analysis</a></li>
+        <li><a href="https://hasgeek.com/cashlessconsumer/security-analysis-of-unified-payments-interface-and-payment-apps-in-india-paper-presentation/" target="_blank">CashlessConsumer: UPI Security Presentation</a></li>
+        <li><a href="https://inc42.com/buzz/govt-audit-reveals-security-vulnerabilities-in-npci-infrastructure/" target="_blank">Inc42: NPCI Security Vulnerabilities</a></li>
+        <li><a href="https://cashlessconsumer.in" target="_blank">CashlessConsumer: Consumer Collective on Digital Payments</a></li>
+        <li><a href="https://www.npci.org.in/" target="_blank">NPCI Official Website (ownership structure)</a></li>
+      </ul>
+    </div>
+
+    <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 12px;">
+      <p style="margin: 0 0 0.75rem; color: var(--text-secondary);">UPI is part of the broader Payments Stack controlled by NPCI.</p>
+      <a href="/payments/" style="display: inline-block; padding: 0.75rem 1.5rem; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); border-radius: 8px; color: var(--accent); font-weight: 500; text-decoration: none;">See Full Payments Stack Analysis →</a>
+    </div>
+
+    <nav class="nav-section">
+      <div class="nav-grid-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/payments/" class="nav-link">Payments Stack</a>
+        <a href="/aadhaar/" class="nav-link">Aadhaar</a>
+        <a href="/fork/" class="nav-link">Fork</a>
+        <a href="/audit/" class="nav-link">Audit</a>
+        <a href="/exit/" class="nav-link">Exit</a>
+        <a href="/layers/" class="nav-link">All Layers</a>
+      </div>
+    </nav>
+  </main>
+
+
+    <div class="media-section">
+      <div class="media-label">Concerns documented by</div>
+      <div class="media-logos">
+        <a href="https://www.washingtonpost.com/news/theworldpost/wp/2018/08/09/aadhaar/" target="_blank" class="media-logo" title="The Washington Post">
+          <svg viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Georgia, Times, serif" font-size="14" font-style="italic" fill="#666">The Washington Post</text></svg>
+        </a>
+        <a href="https://techcrunch.com/2025/02/02/india-expands-aadhaar-authentication-for-businesses-raising-privacy-concerns/" target="_blank" class="media-logo" title="TechCrunch">
+          <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#666">TechCrunch</text></svg>
+        </a>
+        <a href="https://www.hrw.org/news/2018/01/13/india-identification-project-threatens-rights" target="_blank" class="media-logo" title="Human Rights Watch">
+          <svg viewBox="0 0 150 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="500" fill="#666">Human Rights Watch</text></svg>
+        </a>
+        <a href="https://www.aljazeera.com/news/2018/1/5/india-probes-breach-of-biometric-identity-database" target="_blank" class="media-logo" title="Al Jazeera">
+          <svg viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#666">Al Jazeera</text></svg>
+        </a>
+        <a href="https://www.moneylife.in/article/aadhaar-data-breach-largest-in-the-world-says-wefs-global-risk-report-and-avast/56384.html" target="_blank" class="media-logo" title="World Economic Forum">
+          <svg viewBox="0 0 32 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Courier, monospace" font-size="13" font-weight="600" fill="#666">WEF</text></svg>
+        </a>
+      </div>
+    </div>
+
+    <div id="site-footer"></div>
+<script>
+// Mobile menu toggle
+
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal-up, .fade-up, .content-section').forEach(el => observer.observe(el));
+
+// Magnetic hover effect for cards
+document.querySelectorAll('.nav-card, .component-card, .info-box, .gov-card, .ai-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateZ(10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease';
+  });
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.dataset.open === 'true';
+    navLinks.dataset.open = !isOpen;
+    menuToggle.setAttribute('aria-expanded', !isOpen);
+  });
+}
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+</script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

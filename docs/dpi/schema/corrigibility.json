@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://indiastack.in/dpi/schema/corrigibility.json",
+  "title": "Corrigibility Assessment",
+  "description": "Evaluation of structural correction capacity. Authored by auditors, not operators.",
+  "type": "object",
+  "required": ["target", "assessed_by", "tests"],
+
+  "properties": {
+
+    "target": {
+      "type": "string",
+      "description": "System being evaluated (matches infrastructure.json meta.system_id)"
+    },
+
+    "assessed_by": {
+      "type": "string",
+      "description": "Organization or individual performing assessment"
+    },
+
+    "assessed_at": {
+      "type": "string",
+      "format": "date"
+    },
+
+    "methodology": {
+      "type": "string",
+      "format": "uri",
+      "description": "Link to assessment methodology"
+    },
+
+    "tests": {
+      "type": "object",
+      "required": ["exit", "code", "audit", "govern", "fork"],
+
+      "properties": {
+
+        "exit": {
+          "type": "object",
+          "properties": {
+            "pass": { "type": "boolean" },
+            "penalty_ratio": {
+              "type": "number",
+              "description": "Time/cost ratio: manual vs digital. 1 = equal, 999 = blocked."
+            },
+            "evidence": { "type": "string" }
+          }
+        },
+
+        "code": {
+          "type": "object",
+          "properties": {
+            "pass": { "type": "boolean" },
+            "visibility": {
+              "type": "string",
+              "enum": ["full", "partial", "api_only", "none"]
+            },
+            "evidence": { "type": "string" }
+          }
+        },
+
+        "audit": {
+          "type": "object",
+          "properties": {
+            "pass": { "type": "boolean" },
+            "access": {
+              "type": "string",
+              "enum": ["open", "permissioned", "forbidden"]
+            },
+            "observed_fix_time": {
+              "type": "string",
+              "description": "Actual observed time to fix issues"
+            },
+            "evidence": { "type": "string" }
+          }
+        },
+
+        "govern": {
+          "type": "object",
+          "properties": {
+            "pass": { "type": "boolean" },
+            "user_power": {
+              "type": "string",
+              "enum": ["binding", "veto", "advisory", "none"]
+            },
+            "evidence": { "type": "string" }
+          }
+        },
+
+        "fork": {
+          "type": "object",
+          "properties": {
+            "pass": { "type": "boolean" },
+            "barriers": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["legal", "technical", "economic", "regulatory", "data"]
+              }
+            },
+            "estimated_cost": { "type": "string" },
+            "evidence": { "type": "string" }
+          }
+        }
+      }
+    },
+
+    "verdict": {
+      "type": "object",
+      "properties": {
+        "corrigible": { "type": "boolean" },
+        "tests_passed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "summary": { "type": "string" }
+      }
+    }
+  }
+}

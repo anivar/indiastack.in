@@ -1,0 +1,60 @@
+<svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="termGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ef4444" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#0dd892" stop-opacity="0.1"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Decoder frame -->
+    <rect x="40" y="60" width="200" height="160" rx="8" fill="url(#termGrad)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+    <!-- Input side (marketing speak) - red/danger -->
+    <rect x="50" y="80" width="80" height="20" rx="3" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1"/>
+    <text x="90" y="94" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="7">"OPEN"</text>
+
+    <rect x="50" y="110" width="80" height="20" rx="3" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1"/>
+    <text x="90" y="124" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="7">"PUBLIC"</text>
+
+    <rect x="50" y="140" width="80" height="20" rx="3" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1"/>
+    <text x="90" y="154" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="7">"DPI"</text>
+
+    <rect x="50" y="170" width="80" height="20" rx="3" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1"/>
+    <text x="90" y="184" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="7">"STACK"</text>
+
+    <!-- Arrows (transformation) -->
+    <path d="M135 90 L145 90" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#termArrow)"/>
+    <path d="M135 120 L145 120" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#termArrow)"/>
+    <path d="M135 150 L145 150" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#termArrow)"/>
+    <path d="M135 180 L145 180" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#termArrow)"/>
+
+    <!-- Output side (reality) - green/truth -->
+    <rect x="150" y="80" width="80" height="20" rx="3" fill="rgba(13,216,146,0.15)" stroke="#0dd892" stroke-width="1"/>
+    <text x="190" y="94" text-anchor="middle" fill="#0dd892" font-family="monospace" font-size="6">CLOSED SOURCE</text>
+
+    <rect x="150" y="110" width="80" height="20" rx="3" fill="rgba(13,216,146,0.15)" stroke="#0dd892" stroke-width="1"/>
+    <text x="190" y="124" text-anchor="middle" fill="#0dd892" font-family="monospace" font-size="6">INCORRIGIBLE</text>
+
+    <rect x="150" y="140" width="80" height="20" rx="3" fill="rgba(13,216,146,0.15)" stroke="#0dd892" stroke-width="1"/>
+    <text x="190" y="154" text-anchor="middle" fill="#0dd892" font-family="monospace" font-size="6">PRWARE</text>
+
+    <rect x="150" y="170" width="80" height="20" rx="3" fill="rgba(13,216,146,0.15)" stroke="#0dd892" stroke-width="1"/>
+    <text x="190" y="184" text-anchor="middle" fill="#0dd892" font-family="monospace" font-size="6">SILOS</text>
+
+    <!-- Header labels -->
+    <text x="90" y="72" text-anchor="middle" fill="rgba(239,68,68,0.7)" font-family="monospace" font-size="6" letter-spacing="1">CLAIM</text>
+    <text x="190" y="72" text-anchor="middle" fill="rgba(13,216,146,0.7)" font-family="monospace" font-size="6" letter-spacing="1">REALITY</text>
+
+    <!-- Decoder symbol at top -->
+    <circle cx="140" cy="35" r="18" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <text x="140" y="40" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="monospace" font-size="10">{ }</text>
+
+    <!-- Bottom label -->
+    <text x="140" y="235" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="monospace" font-size="8">TERMINOLOGY DECODER</text>
+
+    <defs>
+        <marker id="termArrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="rgba(255,255,255,0.4)"/>
+        </marker>
+    </defs>
+</svg>

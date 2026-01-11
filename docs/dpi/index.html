@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DPI Corrigibility Framework, Five Tests for Digital Public Infrastructure</title>
+  <meta name="description" content="Universal criteria for evaluating Digital Public Infrastructure. Five structural tests: EXIT (safe refusal), CODE (legible execution), AUDIT (independent verification), GOVERN (constitutive input), FORK (credible replacement). All must pass. Public domain (CC0).">
+  <meta name="keywords" content="Digital Public Infrastructure, DPI, DPI framework, DPI evaluation, DPI accountability, G20 DPI definition, UNDP DPI, corrigibility, digital governance, DPI safeguards, population-scale systems, AI governance">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Anivar Aravind">
+  <meta name="rating" content="General">
+  <link rel="canonical" href="https://indiastack.in/dpi/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="DPI Corrigibility Framework | Universal Evaluation Standard">
+  <meta property="og:description" content="Five structural tests to evaluate Digital Public Infrastructure. EXIT, CODE, AUDIT, GOVERN, FORK, all must pass.">
+  <meta property="og:url" content="https://indiastack.in/dpi/">
+  <meta property="og:image" content="https://indiastack.in/dpi/og-image-dpi.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:author" content="Anivar Aravind">
+  <meta property="article:published_time" content="2026-01-07">
+  <meta property="article:modified_time" content="2026-01-11">
+  <meta property="article:section" content="Digital Public Infrastructure">
+  <meta property="article:tag" content="Digital Public Infrastructure">
+  <meta property="article:tag" content="DPI">
+  <meta property="article:tag" content="Corrigibility">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DPI Corrigibility Framework">
+  <meta name="twitter:description" content="Universal criteria for Digital Public Infrastructure. Five tests. All must pass.">
+  <meta name="twitter:image" content="https://indiastack.in/dpi/og-image-dpi.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "DPI Corrigibility Framework: Universal Evaluation Standard",
+    "name": "DPI Corrigibility Framework",
+    "description": "Universal criteria for evaluating Digital Public Infrastructure. Five structural tests (EXIT, CODE, AUDIT, GOVERN, FORK), all must pass. Public domain (CC0).",
+    "url": "https://indiastack.in/dpi/",
+    "datePublished": "2026-01-07",
+    "dateModified": "2026-01-11",
+    "author": {"@type": "Person", "name": "Anivar Aravind", "url": "https://anivar.net"},
+    "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "keywords": ["Digital Public Infrastructure", "DPI", "corrigibility", "evaluation framework", "public domain", "CC0"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the DPI Corrigibility Framework?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Universal criteria for evaluating Digital Public Infrastructure using five structural tests: EXIT (safe refusal), CODE (legible execution), AUDIT (independent verification), GOVERN (constitutive input), FORK (credible replacement). All five must pass."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is corrigibility?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The structural capacity of those affected by a system to detect error, signal harm, and trigger correction, without incurring material loss or irreversible consequence."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this framework?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The DPI Corrigibility Framework is released under CC0 1.0 Universal (Public Domain). Use, adapt, translate, and redistribute freely. No attribution required."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"DPI Framework","item":"https://indiastack.in/dpi/"}]}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    /* Tablet breakpoint */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 2rem !important;
+      }
+      .hero-grid > div:last-child {
+        order: -1;
+      }
+      .hero-grid img {
+        max-width: 280px !important;
+      }
+      .hero-grid h1 {
+        font-size: 2rem !important;
+      }
+    }
+    /* Tablet breakpoint for grids */
+    @media (max-width: 900px) {
+      [style*="grid-template-columns: repeat(3"],
+      .wash-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* Mobile breakpoint */
+    @media (max-width: 600px) {
+      .table-wrapper {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+      }
+      .table-wrapper table {
+        min-width: 500px;
+      }
+      .nav-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .hero-grid h1 {
+        font-size: 1.75rem !important;
+      }
+      .test-card {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-pattern"></div>
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+
+    <!-- Hero -->
+    <section class="fade-up hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 3rem 0 2rem;">
+      <div>
+        <p class="eyebrow" style="color: var(--accent);">GLOBAL EVALUATION STANDARD</p>
+        <h1 style="font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem;">DPI <span style="color: var(--accent);">Corrigibility</span> Framework</h1>
+        <p class="lead">Universal criteria for evaluating Digital Public Infrastructure.<br><strong>Five tests. All must pass.</strong></p>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">Public Domain (CC0) - Use freely, no attribution required.</p>
+      </div>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="/components/svg/hero-dpi.svg" alt="DPI evaluation framework" style="width: 100%; max-width: 400px; height: auto; filter: drop-shadow(0 0 60px rgba(13, 216, 146, 0.4));">
+      </div>
+    </section>
+
+    <!-- Core Principle -->
+    <div class="fade-up" style="background: linear-gradient(135deg, rgba(13,216,146,0.12) 0%, rgba(13,216,146,0.04) 100%); border: 1px solid rgba(13,216,146,0.3); border-radius: 16px; padding: 2rem; text-align: center; margin-bottom: 3rem;">
+      <p style="font-size: 1.25rem; line-height: 1.6; margin: 0 0 1rem;"><strong style="color: var(--accent);">Public infrastructure must be corrigible by those it affects.</strong></p>
+      <p style="color: var(--text-secondary); margin: 0 0 1rem;">Corrigibility combines three necessary capacities: observable feedback (cybernetics), participatory rule-making (commons governance), and credible replaceability (free software freedoms). The five tests measure whether these capacities are present. Failure of any single test disqualifies a system from DPI.</p>
+      <p style="color: var(--text-secondary); margin: 0;">Where this condition is not met, the system may be widely used or state-backed, but it does not operate as public infrastructure.</p>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">Corrigibility is not a governance preference or ethical aspiration.<br>It is a structural condition for legitimacy in systems that exercise power at population scale.</p>
+    </div>
+
+    <!-- The Problem -->
+    <section class="fade-up" style="margin: 3rem 0;">
+      <h2 class="section-title">The Problem: International Definitions Lack Structure</h2>
+      <p style="margin-bottom: 1.5rem;">Digital Public Infrastructure (DPI) is being deployed globally at unprecedented speed. Governments and multilateral institutions increasingly rely on digital identity systems, payment rails, data exchanges, and now large-scale AI to mediate access to essential services.</p>
+      <p style="margin-bottom: 2rem; color: var(--text-secondary);">The G20 (2023) and the United Nations have adopted official definitions that now shape procurement, funding, and policy alignment across jurisdictions. These definitions articulate desirable attributes, open, inclusive, interoperable, accountable, but do not specify structural conditions under which those attributes can be verified or enforced.</p>
+
+      <div class="fade-up" style="background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(59,130,246,0.02) 100%); border: 1px solid rgba(59,130,246,0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem;">
+        <span class="eyebrow" style="color: var(--blue);">G20 NEW DELHI DECLARATION (2023)</span>
+        <blockquote style="font-style: italic; color: var(--text-secondary); margin: 0.75rem 0; padding-left: 1rem; border-left: 2px solid rgba(59,130,246,0.4); font-size: 0.95rem; line-height: 1.7;">
+          "Digital public infrastructure… is described as a set of shared digital systems that <strong style="color: var(--blue);">should be</strong> secure and interoperable, and <strong style="color: var(--blue);">can be</strong> built on open standards and specifications to deliver and provide equitable access to public and/or private services at societal scale and are governed by applicable legal frameworks and enabling rules."
+        </blockquote>
+      </div>
+
+      <div class="fade-up" style="background: linear-gradient(135deg, rgba(6,182,212,0.08) 0%, rgba(6,182,212,0.02) 100%); border: 1px solid rgba(6,182,212,0.2); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+        <span class="eyebrow" style="color: var(--cyan);">UN / UNDP (2023–2024)</span>
+        <blockquote style="font-style: italic; color: var(--text-secondary); margin: 0.75rem 0; padding-left: 1rem; border-left: 2px solid rgba(6,182,212,0.4); font-size: 0.95rem; line-height: 1.7;">
+          "Digital public infrastructure refers to solutions and systems that enable the effective provision of essential society-wide functions… DPI can be provided by the public or private sector."
+        </blockquote>
+      </div>
+
+      <p class="fade-up" style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; padding: 1rem; background: rgba(168,85,247,0.06); border-radius: 8px; border-left: 3px solid var(--purple);">The same institutions now promote "AI as Digital Public Infrastructure" using identical language, without introducing additional structural requirements.</p>
+
+      <!-- Why Insufficient -->
+      <div class="fade-up" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; margin-bottom: 2rem;">
+        <h4 style="color: var(--text-primary); margin-bottom: 1.25rem; font-size: 1rem;">Why These Definitions Are Insufficient</h4>
+        <div style="display: grid; gap: 1rem;">
+          <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--purple); margin-right: 0.5rem;">✗</span> <strong style="color: var(--text-primary);">Aspirational language is not definitional</strong>, "should be" and "can be" describe intent, not conditions</p>
+          <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--purple); margin-right: 0.5rem;">✗</span> <strong style="color: var(--text-primary);">Open standards are not open execution</strong>, published specifications do not reveal how systems operate</p>
+          <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--purple); margin-right: 0.5rem;">✗</span> <strong style="color: var(--text-primary);">"Applicable legal frameworks" exclude nothing</strong>, all systems operate under some legal regime</p>
+          <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;"><span style="color: var(--purple); margin-right: 0.5rem;">✗</span> <strong style="color: var(--text-primary);">No verification mechanism exists</strong>, compliance is self-asserted</p>
+        </div>
+      </div>
+
+      <div class="fade-up" style="background: linear-gradient(135deg, rgba(168,85,247,0.1) 0%, rgba(168,85,247,0.03) 100%); border: 1px solid rgba(168,85,247,0.25); border-radius: 12px; padding: 1.25rem; text-align: center;">
+        <p style="font-size: 1rem; margin: 0;"><strong style="color: var(--purple);">Without structural requirements, "public" becomes a descriptive label rather than an operational property.</strong></p>
+      </div>
+
+      <!-- Implied vs Delivered -->
+      <div class="fade-up table-wrapper" style="margin-top: 2rem; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid var(--border); overflow: hidden;">
+        <table style="margin: 0; width: 100%;">
+          <thead>
+            <tr style="background: rgba(255,255,255,0.03);">
+              <th style="padding: 1rem; text-align: left; color: var(--text-muted); font-size: 0.8rem;">IMPLIED CLAIM</th>
+              <th style="padding: 1rem; text-align: center; color: var(--text-muted); font-size: 0.8rem;">TEST</th>
+              <th style="padding: 1rem; text-align: left; color: var(--text-muted); font-size: 0.8rem;">COMMON PATTERN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-top: 1px solid var(--border);">
+              <td style="padding: 0.75rem 1rem; color: var(--text-secondary);">Open standards</td>
+              <td style="padding: 0.75rem 1rem; text-align: center; color: var(--blue); font-weight: 600;">CODE</td>
+              <td style="padding: 0.75rem 1rem; color: var(--text-muted);">Specifications public, execution proprietary</td>
+            </tr>
+            <tr style="border-top: 1px solid var(--border);">
+              <td style="padding: 0.75rem 1rem; color: var(--text-secondary);">Accountability</td>
+              <td style="padding: 0.75rem 1rem; text-align: center; color: var(--purple); font-weight: 600;">AUDIT</td>
+              <td style="padding: 0.75rem 1rem; color: var(--text-muted);">Internal audits only</td>
+            </tr>
+            <tr style="border-top: 1px solid var(--border);">
+              <td style="padding: 0.75rem 1rem; color: var(--text-secondary);">Participation</td>
+              <td style="padding: 0.75rem 1rem; text-align: center; color: var(--warning); font-weight: 600;">GOVERN</td>
+              <td style="padding: 0.75rem 1rem; color: var(--text-muted);">Technocratic governance</td>
+            </tr>
+            <tr style="border-top: 1px solid var(--border);">
+              <td style="padding: 0.75rem 1rem; color: var(--text-secondary);">Consent</td>
+              <td style="padding: 0.75rem 1rem; text-align: center; color: var(--cyan); font-weight: 600;">EXIT</td>
+              <td style="padding: 0.75rem 1rem; color: var(--text-muted);">Refusal penalized</td>
+            </tr>
+            <tr style="border-top: 1px solid var(--border);">
+              <td style="padding: 0.75rem 1rem; color: var(--text-secondary);">Reusability</td>
+              <td style="padding: 0.75rem 1rem; text-align: center; color: var(--rose); font-weight: 600;">FORK</td>
+              <td style="padding: 0.75rem 1rem; color: var(--text-muted);">Monopoly operation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem; text-align: center;">This pattern appears across jurisdictions and substrates, including identity systems, payment rails, and emerging AI infrastructure.</p>
+    </section>
+
+    <!-- Corrigibility Definition -->
+    <section class="fade-up" style="margin: 3rem 0;">
+      <div style="background: linear-gradient(135deg, rgba(129,140,248,0.1) 0%, rgba(129,140,248,0.02) 100%); border: 1px solid rgba(129,140,248,0.25); border-radius: 16px; padding: 2.5rem; text-align: center;">
+        <h3 style="font-size: 1.75rem; color: var(--indigo); margin-bottom: 0.25rem; font-weight: 600;">Corrigibility</h3>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.25rem;">/kɒˈrɪdʒɪbɪlɪti/, operational definition</p>
+        <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8; max-width: 650px; margin: 0 auto 1.5rem;">The structural capacity of those affected by a system to <strong style="color: var(--cyan);">detect error</strong>, <strong style="color: var(--purple);">signal harm</strong>, and <strong style="color: var(--accent);">trigger correction</strong>, without incurring material loss or irreversible consequence.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; max-width: 600px; margin: 0 auto; text-align: center;">
+          <div style="padding: 0.75rem 0.5rem; background: rgba(255,255,255,0.02); border-radius: 8px;">
+            <p style="color: var(--text-primary); font-weight: 600; font-size: 0.9rem; margin: 0;">Observed</p>
+            <p style="color: var(--text-muted); font-size: 0.75rem; margin: 0.25rem 0 0;">legible</p>
+          </div>
+          <div style="padding: 0.75rem 0.5rem; background: rgba(255,255,255,0.02); border-radius: 8px;">
+            <p style="color: var(--text-primary); font-weight: 600; font-size: 0.9rem; margin: 0;">Verified</p>
+            <p style="color: var(--text-muted); font-size: 0.75rem; margin: 0.25rem 0 0;">testable</p>
+          </div>
+          <div style="padding: 0.75rem 0.5rem; background: rgba(255,255,255,0.02); border-radius: 8px;">
+            <p style="color: var(--text-primary); font-weight: 600; font-size: 0.9rem; margin: 0;">Refused</p>
+            <p style="color: var(--text-muted); font-size: 0.75rem; margin: 0.25rem 0 0;">safe exit</p>
+          </div>
+          <div style="padding: 0.75rem 0.5rem; background: rgba(255,255,255,0.02); border-radius: 8px;">
+            <p style="color: var(--text-primary); font-weight: 600; font-size: 0.9rem; margin: 0;">Shaped</p>
+            <p style="color: var(--text-muted); font-size: 0.75rem; margin: 0.25rem 0 0;">input</p>
+          </div>
+          <div style="padding: 0.75rem 0.5rem; background: rgba(255,255,255,0.02); border-radius: 8px;">
+            <p style="color: var(--text-primary); font-weight: 600; font-size: 0.9rem; margin: 0;">Replaced</p>
+            <p style="color: var(--text-muted); font-size: 0.75rem; margin: 0.25rem 0 0;">forkable</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-top: 1.5rem;">
+        <p style="margin-bottom: 0.5rem; color: var(--text-secondary);"><span style="color: var(--cyan);">●</span> A system that cannot be observed cannot be corrected.</p>
+        <p style="margin-bottom: 0.5rem; color: var(--text-secondary);"><span style="color: var(--warning);">●</span> A system that cannot be refused cannot be consented to.</p>
+        <p style="margin: 0; color: var(--text-secondary);"><span style="color: var(--rose);">●</span> A system that cannot be replaced cannot be held accountable.</p>
+      </div>
+    </section>
+
+    <!-- Five Tests -->
+    <section class="fade-up" style="margin: 3rem 0;">
+      <h2 class="section-title">The Five Structural Tests</h2>
+      <p style="margin-bottom: 0.5rem; font-size: 1.1rem;"><strong>All five are necessary. All must pass.</strong></p>
+      <p style="margin-bottom: 2rem; color: var(--text-secondary);">Failure of any one test disqualifies a system from evaluation as genuinely public infrastructure.</p>
+
+      <div style="display: grid; gap: 1.5rem;">
+      <!-- TEST 01: EXIT -->
+      <div class="card fade-up" style="display: grid; grid-template-columns: 60px 1fr; gap: 1.5rem; align-items: start; border-left: 3px solid var(--cyan); background: linear-gradient(135deg, rgba(6,182,212,0.06) 0%, transparent 50%);">
+        <div style="display: flex; justify-content: center; padding-top: 0.5rem;">
+          <img src="/components/svg/icon-test-exit.svg" alt="Exit" style="width: 48px; height: 48px; filter: brightness(1.1) drop-shadow(0 0 8px rgba(6,182,212,0.4));">
+        </div>
+        <div>
+          <h4 style="color: var(--cyan); margin-bottom: 0.5rem; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.05em;">TEST 01: SAFE REFUSAL (EXIT)</h4>
+          <p style="color: var(--text-primary); margin-bottom: 0.75rem; font-size: 1.05rem;">Can a person decline participation while retaining access to essential services?</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.25rem;"><strong style="color: var(--cyan);">Pass:</strong> <span style="color: var(--text-secondary);">Refusal carries no penalty. Non-digital or alternative pathways remain available.</span></p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.75rem;"><strong style="color: var(--text-muted);">Fail:</strong> <span style="color: var(--text-muted);">Opting out results in exclusion from food, banking, healthcare, employment, or mobility.</span></p>
+          <p style="font-size: 0.85rem; font-style: italic; color: var(--text-muted); border-top: 1px solid rgba(6,182,212,0.2); padding-top: 0.75rem;">Where refusal triggers material harm, consent cannot be considered freely exercised.</p>
+        </div>
+      </div>
+
+      <!-- TEST 02: CODE -->
+      <div class="card fade-up" style="display: grid; grid-template-columns: 60px 1fr; gap: 1.5rem; align-items: start; border-left: 3px solid var(--blue); background: linear-gradient(135deg, rgba(59,130,246,0.06) 0%, transparent 50%);">
+        <div style="display: flex; justify-content: center; padding-top: 0.5rem;">
+          <img src="/components/svg/icon-test-code.svg" alt="Code" style="width: 48px; height: 48px; filter: brightness(1.1) drop-shadow(0 0 8px rgba(59,130,246,0.4));">
+        </div>
+        <div>
+          <h4 style="color: var(--blue); margin-bottom: 0.5rem; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.05em;">TEST 02: LEGIBLE EXECUTION (CODE)</h4>
+          <p style="color: var(--text-primary); margin-bottom: 0.75rem; font-size: 1.05rem;">Is the system's actual execution observable in practice?</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.25rem;"><strong style="color: var(--blue);">Pass:</strong> <span style="color: var(--text-secondary);">Executing logic is inspectable. Source code or equivalent execution artifacts are available.</span></p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.75rem;"><strong style="color: var(--text-muted);">Fail:</strong> <span style="color: var(--text-muted);">Only policy documents, APIs, or specifications are public.</span></p>
+          <p style="font-size: 0.85rem; font-style: italic; color: var(--text-muted); border-top: 1px solid rgba(59,130,246,0.2); padding-top: 0.75rem;">For systems with learned components, legibility extends to training processes, data composition, and optimization regimes, not only inference interfaces.</p>
+        </div>
+      </div>
+
+      <!-- TEST 03: AUDIT -->
+      <div class="card fade-up" style="display: grid; grid-template-columns: 60px 1fr; gap: 1.5rem; align-items: start; border-left: 3px solid var(--purple); background: linear-gradient(135deg, rgba(168,85,247,0.06) 0%, transparent 50%);">
+        <div style="display: flex; justify-content: center; padding-top: 0.5rem;">
+          <img src="/components/svg/icon-test-audit.svg" alt="Audit" style="width: 48px; height: 48px; filter: brightness(1.1) drop-shadow(0 0 8px rgba(168,85,247,0.4));">
+        </div>
+        <div>
+          <h4 style="color: var(--purple); margin-bottom: 0.5rem; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.05em;">TEST 03: INDEPENDENT VERIFICATION (AUDIT)</h4>
+          <p style="color: var(--text-primary); margin-bottom: 0.75rem; font-size: 1.05rem;">Can independent parties verify system behavior without operator permission?</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.25rem;"><strong style="color: var(--purple);">Pass:</strong> <span style="color: var(--text-secondary);">External auditors can measure error rates, bias, and failure modes. Results are public.</span></p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.75rem;"><strong style="color: var(--text-muted);">Fail:</strong> <span style="color: var(--text-muted);">Verification depends on operator consent or is legally restricted.</span></p>
+          <p style="font-size: 0.85rem; font-style: italic; color: var(--text-muted); border-top: 1px solid rgba(168,85,247,0.2); padding-top: 0.75rem;">Benchmark compliance does not substitute for deployment-level verification.</p>
+        </div>
+      </div>
+
+      <!-- TEST 04: GOVERN -->
+      <div class="card fade-up" style="display: grid; grid-template-columns: 60px 1fr; gap: 1.5rem; align-items: start; border-left: 3px solid var(--warning); background: linear-gradient(135deg, rgba(245,158,11,0.06) 0%, transparent 50%);">
+        <div style="display: flex; justify-content: center; padding-top: 0.5rem;">
+          <img src="/components/svg/icon-test-govern.svg" alt="Govern" style="width: 48px; height: 48px; filter: brightness(1.1) drop-shadow(0 0 8px rgba(245,158,11,0.4));">
+        </div>
+        <div>
+          <h4 style="color: var(--warning); margin-bottom: 0.5rem; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.05em;">TEST 04: CONSTITUTIVE INPUT (GOVERN)</h4>
+          <p style="color: var(--text-primary); margin-bottom: 0.75rem; font-size: 1.05rem;">Do affected populations have <strong>binding</strong> authority in system design and evolution?</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.25rem;"><strong style="color: var(--warning);">Pass:</strong> <span style="color: var(--text-secondary);">Governance includes structured, pre-deployment participation by those affected.</span></p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.75rem;"><strong style="color: var(--text-muted);">Fail:</strong> <span style="color: var(--text-muted);">Decisions are made internally. Consultation, if any, is advisory or post hoc.</span></p>
+          <p style="font-size: 0.85rem; font-style: italic; color: var(--text-muted); border-top: 1px solid rgba(245,158,11,0.2); padding-top: 0.75rem;">Grievance mechanisms after harm do not replace authority before deployment.</p>
+        </div>
+      </div>
+
+      <!-- TEST 05: FORK -->
+      <div class="card fade-up" style="display: grid; grid-template-columns: 60px 1fr; gap: 1.5rem; align-items: start; border-left: 3px solid var(--rose); background: linear-gradient(135deg, rgba(244,114,182,0.06) 0%, transparent 50%);">
+        <div style="display: flex; justify-content: center; padding-top: 0.5rem;">
+          <img src="/components/svg/icon-test-fork.svg" alt="Fork" style="width: 48px; height: 48px; filter: brightness(1.1) drop-shadow(0 0 8px rgba(244,114,182,0.4));">
+        </div>
+        <div>
+          <h4 style="color: var(--rose); margin-bottom: 0.5rem; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.05em;">TEST 05: CREDIBLE REPLACEMENT (FORK)</h4>
+          <p style="color: var(--text-primary); margin-bottom: 0.75rem; font-size: 1.05rem;">Can the system be replicated or replaced without incumbent permission?</p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.25rem;"><strong style="color: var(--rose);">Pass:</strong> <span style="color: var(--text-secondary);">Alternative implementations are legally, technically, and economically feasible.</span></p>
+          <p style="font-size: 0.9rem; margin-bottom: 0.75rem;"><strong style="color: var(--text-muted);">Fail:</strong> <span style="color: var(--text-muted);">Control is centralized. Barriers prevent credible alternatives.</span></p>
+          <p style="font-size: 0.85rem; font-style: italic; color: var(--text-muted); border-top: 1px solid rgba(244,114,182,0.2); padding-top: 0.75rem;">For capital-intensive systems, economic concentration (compute, data, infrastructure) constitutes a structural barrier even absent formal licensing restrictions.</p>
+        </div>
+      </div>
+      </div>
+
+      <!-- Fatal Failure -->
+      <div class="fade-up" style="background: linear-gradient(135deg, rgba(239,68,68,0.1) 0%, rgba(239,68,68,0.03) 100%); border: 1px solid rgba(239,68,68,0.25); border-radius: 12px; padding: 1.5rem; text-align: center; margin-top: 2rem;">
+        <p style="font-size: 1.2rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem;">Failure of <span style="color: var(--danger);">any one</span> test is fatal.</p>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Partial compliance does not count. These are necessary conditions, not a scoring rubric.</p>
+      </div>
+    </section>
+
+    <!-- Evaluation Template -->
+    <section class="fade-up" style="margin: 3rem 0;">
+      <h2 class="section-title">Evaluation Template</h2>
+
+      <div class="table-wrapper" style="background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid var(--border); overflow: hidden;">
+        <table style="margin: 0; width: 100%;">
+          <thead>
+            <tr style="background: rgba(255,255,255,0.03);">
+              <th style="padding: 1rem; text-align: left;">SYSTEM</th>
+              <th style="padding: 1rem; text-align: center; color: var(--cyan);">EXIT</th>
+              <th style="padding: 1rem; text-align: center; color: var(--blue);">CODE</th>
+              <th style="padding: 1rem; text-align: center; color: var(--purple);">AUDIT</th>
+              <th style="padding: 1rem; text-align: center; color: var(--warning);">GOVERN</th>
+              <th style="padding: 1rem; text-align: center; color: var(--rose);">FORK</th>
+              <th style="padding: 1rem; text-align: center;">RESULT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 1rem; background: rgba(255,255,255,0.01);"><em style="color: var(--text-muted);">[Name]</em></td>
+              <td style="padding: 1rem; text-align: center; background: rgba(6,182,212,0.04);">?</td>
+              <td style="padding: 1rem; text-align: center; background: rgba(59,130,246,0.04);">?</td>
+              <td style="padding: 1rem; text-align: center; background: rgba(168,85,247,0.04);">?</td>
+              <td style="padding: 1rem; text-align: center; background: rgba(245,158,11,0.04);">?</td>
+              <td style="padding: 1rem; text-align: center; background: rgba(244,114,182,0.04);">?</td>
+              <td style="padding: 1rem; text-align: center; background: rgba(255,255,255,0.01);">, </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fade-up" style="background: linear-gradient(135deg, rgba(239,68,68,0.08) 0%, rgba(239,68,68,0.02) 100%); border: 1px solid rgba(239,68,68,0.2); border-radius: 12px; padding: 1.25rem 1.5rem; text-align: center; margin-top: 1.5rem;">
+        <p style="margin: 0; font-size: 0.95rem;"><strong style="color: var(--danger);">If any condition is not structurally satisfied</strong>, the system exhibits characteristics of a closed control system, notwithstanding public branding.</p>
+      </div>
+    </section>
+
+    <!-- Open-Washing Patterns -->
+    <section class="fade-up" style="margin: 3rem 0;">
+      <h2 class="section-title">Open-Washing Patterns</h2>
+      <p style="margin-bottom: 0.75rem;">How systems claim openness while maintaining structural closure.</p>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">These patterns recur across Digital Public Infrastructure and AI systems. They are not implementation accidents. They are predictable strategies for satisfying the language of openness while defeating its substance.</p>
+
+      <!-- 2x2 Grid for first 4 patterns -->
+      <div class="wash-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+        <!-- 01 API-as-Openness -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; border-top: 3px solid var(--blue);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--blue); font-weight: 700;">01</span>
+              <h4 style="color: var(--text-primary); margin: 0.25rem 0; font-size: 1rem;">API-as-Openness</h4>
+            </div>
+            <span style="background: rgba(59,130,246,0.15); color: var(--blue); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: var(--font-mono);">CODE</span>
+          </div>
+          <p style="color: var(--blue); font-size: 0.8rem; font-weight: 500; margin-bottom: 0.5rem;">Interface ≠ system</p>
+          <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">Publishing endpoint documentation while keeping execution proprietary.</p>
+          <div style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 0.75rem;">
+            <p style="margin: 0 0 0.25rem;"><strong style="color: var(--text-secondary);">DPI:</strong> APIs published; core resolution opaque</p>
+            <p style="margin: 0;"><strong style="color: var(--text-secondary);">AI:</strong> API docs; training data undisclosed</p>
+          </div>
+        </div>
+
+        <!-- 02 Spec-as-Source -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; border-top: 3px solid var(--rose);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--rose); font-weight: 700;">02</span>
+              <h4 style="color: var(--text-primary); margin: 0.25rem 0; font-size: 1rem;">Spec-as-Source</h4>
+            </div>
+            <div style="display: flex; gap: 0.25rem;">
+              <span style="background: rgba(244,114,182,0.15); color: var(--rose); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: var(--font-mono);">FORK</span>
+              <span style="background: rgba(59,130,246,0.15); color: var(--blue); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: var(--font-mono);">CODE</span>
+            </div>
+          </div>
+          <p style="color: var(--rose); font-size: 0.8rem; font-weight: 500; margin-bottom: 0.5rem;">Readable ≠ replicable</p>
+          <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">Publishing protocol specs while maintaining monopoly operation.</p>
+          <div style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 0.75rem;">
+            <p style="margin: 0 0 0.25rem;"><strong style="color: var(--text-secondary);">DPI:</strong> Open specs; one operator</p>
+            <p style="margin: 0;"><strong style="color: var(--text-secondary);">AI:</strong> "Open weights" sans training data</p>
+          </div>
+        </div>
+
+        <!-- 03 Funnel Open-Sourcing -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; border-top: 3px solid var(--warning);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--warning); font-weight: 700;">03</span>
+              <h4 style="color: var(--text-primary); margin: 0.25rem 0; font-size: 1rem;">Funnel Open-Sourcing</h4>
+            </div>
+            <div style="display: flex; gap: 0.25rem;">
+              <span style="background: rgba(244,114,182,0.15); color: var(--rose); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: var(--font-mono);">FORK</span>
+              <span style="background: rgba(245,158,11,0.15); color: var(--warning); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: var(--font-mono);">GOVERN</span>
+            </div>
+          </div>
+          <p style="color: var(--warning); font-size: 0.8rem; font-weight: 500; margin-bottom: 0.5rem;">Open client ≠ open power</p>
+          <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">Open-sourcing SDKs while keeping control components closed.</p>
+          <div style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 0.75rem;">
+            <p style="margin: 0 0 0.25rem;"><strong style="color: var(--text-secondary);">DPI:</strong> Open frontend; closed biometrics</p>
+            <p style="margin: 0;"><strong style="color: var(--text-secondary);">AI:</strong> Open fine-tuning; closed base models</p>
+          </div>
+        </div>
+
+        <!-- 04 DID-Washing -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; border-top: 3px solid var(--cyan);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+            <div>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan); font-weight: 700;">04</span>
+              <h4 style="color: var(--text-primary); margin: 0.25rem 0; font-size: 1rem;">DID-Washing</h4>
+            </div>
+            <div style="display: flex; gap: 0.25rem;">
+              <span style="background: rgba(6,182,212,0.15); color: var(--cyan); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: var(--font-mono);">EXIT</span>
+              <span style="background: rgba(244,114,182,0.15); color: var(--rose); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: var(--font-mono);">FORK</span>
+            </div>
+          </div>
+          <p style="color: var(--cyan); font-size: 0.8rem; font-weight: 500; margin-bottom: 0.5rem;">Local storage ≠ decentralized trust</p>
+          <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">Using decentralized vocabulary with centralized trust roots.</p>
+          <div style="font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 0.75rem;">
+            <p style="margin: 0 0 0.25rem;"><strong style="color: var(--text-secondary);">DPI:</strong> VCs requiring state validation</p>
+            <p style="margin: 0;"><strong style="color: var(--text-secondary);">AI:</strong> "Personal agents" on centralized APIs</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 Safety-Washing - Full width -->
+      <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; border-top: 3px solid var(--purple); margin-top: 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--purple); font-weight: 700;">05</span>
+            <h4 style="color: var(--text-primary); margin: 0.25rem 0; font-size: 1rem;">Safety-Washing</h4>
+          </div>
+          <span style="background: rgba(168,85,247,0.15); color: var(--purple); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px; font-family: var(--font-mono);">AUDIT</span>
+        </div>
+        <p style="color: var(--purple); font-size: 0.8rem; font-weight: 500; margin-bottom: 0.5rem;">Policy ≠ verification</p>
+        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">Publishing safety principles, benchmarks, or red-team summaries without independent audit access.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 0.75rem;">
+          <p style="margin: 0;"><strong style="color: var(--text-secondary);">AI:</strong> Benchmark compliance cited without disclosure of scope, caveats, or deployment variance.</p>
+          <p style="margin: 0;"><strong style="color: var(--text-secondary);">DPI:</strong> Internal risk assessments presented as accountability.</p>
+        </div>
+      </div>
+
+      <div class="fade-up" style="background: linear-gradient(135deg, rgba(239,68,68,0.08) 0%, rgba(239,68,68,0.02) 100%); border: 1px solid rgba(239,68,68,0.2); border-radius: 12px; padding: 1.25rem 1.5rem; margin-top: 1.5rem; text-align: center;">
+        <p style="color: var(--text-secondary); margin: 0;"><strong style="color: #fff;">Open-washing enables partial compliance narratives.</strong> The corrigibility framework rejects partial compliance by design.</p>
+      </div>
+    </section>
+
+    <!-- Analytical Foundations -->
+    <section class="fade-up" style="margin: 3rem 0;">
+      <h2 class="section-title">Analytical Foundations</h2>
+      <p style="margin-bottom: 2rem; color: var(--text-secondary);">This framework converges three independent traditions that arrive at the same requirements:</p>
+
+      <!-- Three Lenses Diagram -->
+      <div class="fade-up" style="background: linear-gradient(135deg, #030305 0%, #0a0a0f 100%); border: 1px solid rgba(13,216,146,0.15); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;"></div>
+        <img src="/components/svg/diagram-three-lenses.svg" alt="Three analytical lenses: Cybernetics, Commons, Free Software, all converge on corrigibility" style="width: 100%; max-width: 800px; height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 0 30px rgba(13,216,146,0.15));">
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
+        <div class="card" style="border-top: 3px solid var(--accent); background: linear-gradient(180deg, rgba(13,216,146,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--accent);">CYBERNETICS</span>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0.5rem 0 0;">Legitimate control requires feedback from those affected. Systems that suppress error signals drift toward failure.</p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--warning); background: linear-gradient(180deg, rgba(245,158,11,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--warning);">COMMONS (OSTROM)</span>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0.5rem 0 0;">Shared systems require user participation in rule-making, monitoring, and conflict resolution. Absent these, commons become enclosures.</p>
+        </div>
+
+        <div class="card" style="border-top: 3px solid var(--blue); background: linear-gradient(180deg, rgba(59,130,246,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--blue);">FREE SOFTWARE</span>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin: 0.5rem 0 0;">Inspectability and forkability discipline power. Openness without these properties is rhetorical.</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 1.5rem; color: var(--text-muted); font-size: 0.9rem;">AI systems stress all three by compressing social variety, enclosing collectively produced data, and centralizing execution through capital-intensive infrastructure.</p>
+    </section>
+
+    <!-- Operational Clarifications -->
+    <section class="fade-up" style="margin: 3rem 0;">
+      <h2 class="section-title">Operational Clarifications</h2>
+
+      <div style="display: grid; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden;">
+        <div style="background: rgba(255,255,255,0.015); padding: 1rem 1.25rem; display: grid; grid-template-columns: 120px 1fr; gap: 1rem; align-items: baseline;">
+          <span style="font-weight: 600; color: var(--cyan); font-size: 0.9rem;">Public</span>
+          <div><span style="color: var(--text-muted); font-size: 0.85rem; text-decoration: line-through;">Widely used</span> <span style="color: var(--text-muted); margin: 0 0.5rem;">→</span> <span style="color: var(--text-primary); font-weight: 500;">Correctable by those affected</span></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.015); padding: 1rem 1.25rem; display: grid; grid-template-columns: 120px 1fr; gap: 1rem; align-items: baseline;">
+          <span style="font-weight: 600; color: var(--blue); font-size: 0.9rem;">Open</span>
+          <div><span style="color: var(--text-muted); font-size: 0.85rem; text-decoration: line-through;">Open standards</span> <span style="color: var(--text-muted); margin: 0 0.5rem;">→</span> <span style="color: var(--text-primary); font-weight: 500;">Inspectable, forkable execution</span></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.015); padding: 1rem 1.25rem; display: grid; grid-template-columns: 120px 1fr; gap: 1rem; align-items: baseline;">
+          <span style="font-weight: 600; color: var(--purple); font-size: 0.9rem;">Consent</span>
+          <div><span style="color: var(--text-muted); font-size: 0.85rem; text-decoration: line-through;">Enrollment</span> <span style="color: var(--text-muted); margin: 0 0.5rem;">→</span> <span style="color: var(--text-primary); font-weight: 500;">Safe, reversible participation</span></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.015); padding: 1rem 1.25rem; display: grid; grid-template-columns: 120px 1fr; gap: 1rem; align-items: baseline;">
+          <span style="font-weight: 600; color: var(--warning); font-size: 0.9rem;">Participation</span>
+          <div><span style="color: var(--text-muted); font-size: 0.85rem; text-decoration: line-through;">Redress</span> <span style="color: var(--text-muted); margin: 0 0.5rem;">→</span> <span style="color: var(--text-primary); font-weight: 500;">Constitutive authority</span></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.015); padding: 1rem 1.25rem; display: grid; grid-template-columns: 120px 1fr; gap: 1rem; align-items: baseline;">
+          <span style="font-weight: 600; color: var(--rose); font-size: 0.9rem;">Success</span>
+          <div><span style="color: var(--text-muted); font-size: 0.85rem; text-decoration: line-through;">Scale</span> <span style="color: var(--text-muted); margin: 0 0.5rem;">→</span> <span style="color: var(--text-primary); font-weight: 500;">Stability under voluntary use</span></div>
+        </div>
+        <div style="background: rgba(255,255,255,0.015); padding: 1rem 1.25rem; display: grid; grid-template-columns: 120px 1fr; gap: 1rem; align-items: baseline;">
+          <span style="font-weight: 600; color: var(--indigo); font-size: 0.9rem;">Infrastructure</span>
+          <div><span style="color: var(--text-muted); font-size: 0.85rem; text-decoration: line-through;">Universal use</span> <span style="color: var(--text-muted); margin: 0 0.5rem;">→</span> <span style="color: var(--text-primary); font-weight: 500;">Collective shapeability</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="fade-up" style="margin: 3rem 0;">
+      <div style="background: linear-gradient(135deg, rgba(13,216,146,0.1) 0%, rgba(13,216,146,0.03) 100%); border: 1px solid rgba(13,216,146,0.25); border-radius: 16px; padding: 2.5rem; text-align: center;">
+        <p style="font-size: 1.1rem; color: #fff; margin-bottom: 1rem;">The DPI Corrigibility Framework does not assume that all technologies are ready to govern populations.</p>
+        <p style="font-size: 1.15rem; color: var(--accent); font-weight: 600; margin-bottom: 1.5rem;">It exists to identify when they are not.</p>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">That is why corrigibility must be <strong style="color: var(--accent);">defined</strong>, <strong style="color: var(--accent);">tested</strong>, <strong style="color: var(--accent);">built</strong>, and <strong style="color: var(--accent);">required</strong>, across identity systems, payment rails, data infrastructures, and learning systems that claim public status.</p>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Not as ethics. Not as preference. <strong style="color: #fff;">As structure.</strong></p>
+      </div>
+    </section>
+
+    <!-- Quick Mapping -->
+    <div class="fade-up" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem;">
+      <h4 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 0.95rem;">Quick mapping: lenses → tests</h4>
+      <div style="display: grid; gap: 0.5rem; font-size: 0.9rem;">
+        <p style="margin: 0; color: var(--text-secondary);"><span style="color: var(--accent);">Feedback (cybernetics)</span> → <span style="font-weight: 600; color: var(--cyan);">EXIT</span>, <span style="font-weight: 600; color: var(--purple);">AUDIT</span></p>
+        <p style="margin: 0; color: var(--text-secondary);"><span style="color: var(--warning);">Commons governance (Ostrom)</span> → <span style="font-weight: 600; color: var(--warning);">GOVERN</span>, <span style="font-weight: 600; color: var(--cyan);">EXIT</span></p>
+        <p style="margin: 0; color: var(--text-secondary);"><span style="color: var(--blue);">Inspectability & replaceability (FOSS)</span> → <span style="font-weight: 600; color: var(--blue);">CODE</span>, <span style="font-weight: 600; color: var(--rose);">FORK</span></p>
+      </div>
+    </div>
+
+    <!-- Deep Links -->
+    <section class="fade-up" style="margin: 3rem 0;">
+      <h2 class="section-title">Go Deeper</h2>
+      <div class="nav-grid">
+        <a href="/dpi/analysis/" class="nav-card" style="border-top: 3px solid var(--indigo); background: linear-gradient(180deg, rgba(129,140,248,0.08) 0%, transparent 30%);">
+          <span class="nav-card-label" style="color: var(--indigo);">ANALYSIS</span>
+          <h3>Why Corrigibility</h3>
+          <p>Structural necessity, not ethics</p>
+        </a>
+        <a href="/dpi/build/" class="nav-card" style="border-top: 3px solid var(--blue); background: linear-gradient(180deg, rgba(59,130,246,0.08) 0%, transparent 30%);">
+          <span class="nav-card-label" style="color: var(--blue);">TECHNICAL</span>
+          <h3>How to Build</h3>
+          <p>Architecture primitives</p>
+        </a>
+        <a href="/dpi/require/" class="nav-card" style="border-top: 3px solid var(--warning); background: linear-gradient(180deg, rgba(245,158,11,0.08) 0%, transparent 30%);">
+          <span class="nav-card-label" style="color: var(--warning);">LEGAL</span>
+          <h3>How to Require</h3>
+          <p>Procurement and statutory language</p>
+        </a>
+      </div>
+
+      <div class="nav-grid" style="margin-top: 1rem;">
+        <a href="/dpi/definitions/" class="nav-card" style="border-top: 3px solid var(--cyan); background: linear-gradient(180deg, rgba(6,182,212,0.08) 0%, transparent 30%);">
+          <span class="nav-card-label" style="color: var(--cyan);">INTERNATIONAL</span>
+          <h3>Definitions</h3>
+          <p>G20, UNDP, World Bank</p>
+        </a>
+        <a href="/dpi/learned-systems/" class="nav-card" style="border-top: 3px solid var(--purple); background: linear-gradient(180deg, rgba(168,85,247,0.08) 0%, transparent 30%);">
+          <span class="nav-card-label" style="color: var(--purple);">ANNEX</span>
+          <h3>Learned Systems</h3>
+          <p>Governance for stochastic systems</p>
+        </a>
+        <a href="/terminology/" class="nav-card" style="border-top: 3px solid var(--rose); background: linear-gradient(180deg, rgba(244,114,182,0.08) 0%, transparent 30%);">
+          <span class="nav-card-label" style="color: var(--rose);">DEFINITIONS</span>
+          <h3>Terminology</h3>
+          <p>Operational definitions for DPI evaluation</p>
+        </a>
+      </div>
+      <div class="nav-grid" style="margin-top: 1rem; grid-template-columns: repeat(2, 1fr); max-width: 66%;">
+        <a href="/methods/" class="nav-card" style="border-top: 3px solid var(--amber); background: linear-gradient(180deg, rgba(245,158,11,0.08) 0%, transparent 30%);">
+          <span class="nav-card-label" style="color: var(--amber);">FRAMEWORK</span>
+          <h3>Methods</h3>
+          <p>How tests are applied</p>
+        </a>
+        <a href="/dpi/annex/exposure-surfaces/" class="nav-card" style="border-top: 3px solid var(--accent); background: linear-gradient(180deg, rgba(13,216,146,0.08) 0%, transparent 30%);">
+          <span class="nav-card-label" style="color: var(--accent);">ANNEX</span>
+          <h3>Exposure Surfaces</h3>
+          <p>Structural locations for independent challenge</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- License -->
+    <div class="fade-up" style="background: linear-gradient(135deg, rgba(13,216,146,0.06) 0%, rgba(13,216,146,0.02) 100%); border: 1px solid rgba(13,216,146,0.2); border-radius: 16px; text-align: center; padding: 2rem; margin-top: 2rem;">
+      <span style="display: inline-block; background: rgba(13,216,146,0.15); border: 2px solid var(--accent); border-radius: 8px; padding: 0.4rem 0.75rem; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-bottom: 1rem;">CC0 1.0 UNIVERSAL</span>
+      <p style="color: var(--text-primary); font-size: 0.95rem; margin-bottom: 0.5rem;">This framework is <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener" style="color: var(--accent); font-weight: 500;">public domain</a>.</p>
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Use, adapt, translate, and redistribute freely. No attribution required.</p>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(13,216,146,0.15);">Authored by <a href="https://anivar.net" target="_blank" rel="noopener" style="color: var(--accent);">Anivar Aravind</a></p>
+    </div>
+
+  </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/js/components.js"></script>
+  <script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

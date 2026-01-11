@@ -1,0 +1,75 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Health Stack: CoWIN, ABDM, consent theater, breaches -->
+
+    <!-- Medical cross outline -->
+    <path d="M165 80 L235 80 L235 165 L320 165 L320 235 L235 235 L235 320 L165 320 L165 235 L80 235 L80 165 L165 165 Z"
+          fill="rgba(239,68,68,0.08)" stroke="#ef4444" stroke-width="2" opacity="0.7"/>
+
+    <!-- Central surveillance eye -->
+    <ellipse cx="200" cy="200" rx="45" ry="25" stroke="#ef4444" stroke-width="2" fill="none"/>
+    <circle cx="200" cy="200" r="15" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="1.5"/>
+    <circle cx="200" cy="200" r="6" fill="#ef4444"/>
+
+    <!-- Data flow lines emanating from cross -->
+    <g stroke="#ef4444" stroke-width="1" opacity="0.5" stroke-dasharray="4 4">
+        <line x1="80" y1="200" x2="40" y2="200"/>
+        <line x1="320" y1="200" x2="360" y2="200"/>
+        <line x1="200" y1="80" x2="200" y2="40"/>
+        <line x1="200" y1="320" x2="200" y2="360"/>
+        <line x1="120" y1="120" x2="80" y2="80"/>
+        <line x1="280" y1="120" x2="320" y2="80"/>
+        <line x1="120" y1="280" x2="80" y2="320"/>
+        <line x1="280" y1="280" x2="320" y2="320"/>
+    </g>
+
+    <!-- Data collection nodes -->
+    <g>
+        <circle cx="40" cy="200" r="12" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="40" y="204" text-anchor="middle" font-family="monospace" font-size="6" fill="#ef4444">CoWIN</text>
+    </g>
+    <g>
+        <circle cx="360" cy="200" r="12" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="360" y="204" text-anchor="middle" font-family="monospace" font-size="6" fill="#ef4444">ABDM</text>
+    </g>
+    <g>
+        <circle cx="200" cy="40" r="12" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="200" y="44" text-anchor="middle" font-family="monospace" font-size="5" fill="#ef4444">AAROGYA</text>
+    </g>
+    <g>
+        <circle cx="200" cy="360" r="12" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="200" y="364" text-anchor="middle" font-family="monospace" font-size="6" fill="#ef4444">UHID</text>
+    </g>
+
+    <!-- Heartbeat that flatlines -->
+    <path d="M60 100 L80 100 L90 80 L100 120 L110 90 L120 100 L160 100"
+          fill="none" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+    <path d="M160 100 L340 100" fill="none" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+
+    <!-- Statistics badges -->
+    <g transform="translate(70, 320)">
+        <rect x="-35" y="-12" width="70" height="24" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">40%</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="5" fill="rgba(255,255,255,0.4)">NO CONSENT</text>
+    </g>
+
+    <g transform="translate(330, 320)">
+        <rect x="-35" y="-12" width="70" height="24" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">31M</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="5" fill="rgba(255,255,255,0.4)">STAR BREACH</text>
+    </g>
+
+    <!-- BREACH warning badge -->
+    <g transform="translate(320, 70)">
+        <rect x="-30" y="-10" width="60" height="20" rx="3" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="8" fill="#ef4444">BREACH</text>
+    </g>
+
+    <!-- "Consent Theater" label -->
+    <text x="200" y="260" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.4)">CONSENT THEATER</text>
+
+    <!-- ABHA ID count -->
+    <g transform="translate(200, 295)">
+        <text x="0" y="0" text-anchor="middle" font-family="monospace" font-size="18" fill="#ef4444">328M</text>
+        <text x="0" y="15" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.4)">ABHA IDs</text>
+    </g>
+</svg>

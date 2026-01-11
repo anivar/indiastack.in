@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- AI EXIT: Disclosure & Alternative Path -->
+
+  <!-- Brain/AI symbol -->
+  <circle cx="45" cy="50" r="25" stroke="#06b6d4" stroke-width="2" fill="rgba(6,182,212,0.1)"/>
+  <path d="M35 45 Q45 35 55 45 Q50 50 55 55 Q45 65 35 55 Q40 50 35 45" stroke="#06b6d4" stroke-width="1.5" fill="none"/>
+  <circle cx="42" cy="48" r="3" fill="#06b6d4"/>
+  <circle cx="48" cy="52" r="3" fill="#06b6d4"/>
+
+  <!-- Exit arrow -->
+  <path d="M70 50 L95 50" stroke="#0dd892" stroke-width="3" stroke-linecap="round"/>
+  <path d="M85 40 L95 50 L85 60" stroke="#0dd892" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Door frame -->
+  <rect x="75" y="30" width="25" height="40" rx="2" stroke="#0dd892" stroke-width="2" fill="none" stroke-dasharray="4 2"/>
+
+  <!-- Disclosure indicator -->
+  <circle cx="45" cy="85" r="8" stroke="#06b6d4" stroke-width="1.5" fill="rgba(6,182,212,0.15)"/>
+  <text x="45" y="89" text-anchor="middle" font-size="10" font-weight="bold" fill="#06b6d4">i</text>
+
+  <!-- Alternative path indicator -->
+  <path d="M58 85 L75 85 L75 95" stroke="#0dd892" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <circle cx="75" cy="100" r="5" fill="#0dd892" opacity="0.5"/>
+</svg>

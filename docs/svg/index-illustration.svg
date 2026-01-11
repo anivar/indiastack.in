@@ -1,0 +1,21 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Lock/Eye symbol for homepage -->
+        <circle cx="200" cy="200" r="150" stroke="url(#homeGrad)" stroke-width="2" fill="none" opacity="0.3"/>
+        <circle cx="200" cy="200" r="100" stroke="url(#homeGrad)" stroke-width="1.5" fill="none" opacity="0.4"/>
+        <circle cx="200" cy="200" r="50" stroke="url(#homeGrad)" stroke-width="1" fill="none" opacity="0.5"/>
+        <circle cx="200" cy="200" r="20" fill="url(#homeGrad)" opacity="0.6"/>
+        <!-- Eye shape -->
+        <ellipse cx="200" cy="200" rx="120" ry="60" stroke="#ff4757" stroke-width="2" fill="none" opacity="0.3"/>
+        <circle cx="200" cy="200" r="30" stroke="#ff4757" stroke-width="2" fill="none" opacity="0.4"/>
+        <!-- Lock bars -->
+        <line x1="200" y1="50" x2="200" y2="100" stroke="#00f5a0" stroke-width="3" opacity="0.4"/>
+        <line x1="200" y1="300" x2="200" y2="350" stroke="#ff4757" stroke-width="3" opacity="0.4"/>
+        <line x1="50" y1="200" x2="100" y2="200" stroke="#00f5a0" stroke-width="3" opacity="0.4"/>
+        <line x1="300" y1="200" x2="350" y2="200" stroke="#ff4757" stroke-width="3" opacity="0.4"/>
+        <defs>
+            <linearGradient id="homeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f5a0"/>
+                <stop offset="100%" stop-color="#ff4757"/>
+            </linearGradient>
+        </defs>
+    </svg>

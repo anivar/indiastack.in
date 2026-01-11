@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annex: Learned Systems and Corrigibility, AI Governance Framework</title>
+  <meta name="description" content="How the DPI corrigibility framework applies to AI and learned systems. The five tests (EXIT, CODE, AUDIT, GOVERN, FORK) remain invariant. What changes is verification method: from inspecting execution to bounding behavior.">
+  <meta name="keywords" content="AI governance, learned systems, machine learning accountability, AI corrigibility, stochastic governance, AI audit, behavioral bounds, LLM governance, AI transparency, training data governance, AI infrastructure">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Anivar Aravind">
+  <meta name="rating" content="General">
+  <link rel="canonical" href="https://indiastack.in/dpi/learned-systems/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Learned Systems and Corrigibility, AI Governance Framework">
+  <meta property="og:description" content="How the five corrigibility tests apply to AI and learned systems. From inspecting execution to bounding behavior.">
+  <meta property="og:url" content="https://indiastack.in/dpi/learned-systems/">
+  <meta property="og:image" content="https://indiastack.in/dpi/og-image-dpi.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:author" content="Anivar Aravind">
+  <meta property="article:published_time" content="2026-01-11">
+  <meta property="article:modified_time" content="2026-01-11">
+  <meta property="article:section" content="Digital Public Infrastructure">
+  <meta property="article:tag" content="AI Governance">
+  <meta property="article:tag" content="Learned Systems">
+  <meta property="article:tag" content="Machine Learning">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Learned Systems and Corrigibility">
+  <meta name="twitter:description" content="How the five corrigibility tests apply to AI and learned systems.">
+  <meta name="twitter:image" content="https://indiastack.in/dpi/og-image-dpi.png">
+
+  <!-- Schema: TechArticle -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Learned Systems and Corrigibility: AI Governance Framework",
+    "name": "Annex: Learned Systems",
+    "description": "How the DPI corrigibility framework applies to AI and learned systems. The five tests remain invariant; what changes is verification method.",
+    "url": "https://indiastack.in/dpi/learned-systems/",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "author": {"@type": "Person", "name": "Anivar Aravind", "url": "https://anivar.net"},
+    "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "isPartOf": {"@type": "WebPage", "url": "https://indiastack.in/dpi/", "name": "DPI Corrigibility Framework"},
+    "about": [
+      {"@type": "Thing", "name": "Artificial Intelligence"},
+      {"@type": "Thing", "name": "Machine Learning"},
+      {"@type": "Thing", "name": "Digital Public Infrastructure"}
+    ],
+    "keywords": ["AI governance", "learned systems", "machine learning", "corrigibility", "LLM", "training data", "stochastic systems"]
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do the five corrigibility tests apply to AI systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The five tests (EXIT, CODE, AUDIT, GOVERN, FORK) apply without modification. EXIT requires disclosure and non-AI alternatives. CODE requires training pipeline transparency. AUDIT shifts to statistical verification. GOVERN covers objectives and value tradeoffs. FORK requires resource forkability including compute and data access."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is 'source' in a learned system?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For learned systems, source is distributed across layers: training data corpus, data filtering decisions, model architecture, training objectives, RLHF processes, and system prompts. Inference code alone does not determine behavior."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can AI systems qualify as Digital Public Infrastructure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only if they can satisfy all five corrigibility tests: be refused without penalty, be legible across training pipeline, be independently audited statistically, be governed over objectives, and be credibly replaced. Many current AI systems cannot meet these conditions."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema: ItemList for Five Tests -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Five Corrigibility Tests for Learned Systems",
+    "description": "How each test applies to AI and learned systems",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "EXIT", "description": "Disclosure + non-AI alternative + query transparency"},
+      {"@type": "ListItem", "position": 2, "name": "CODE", "description": "Layered transparency across training pipeline"},
+      {"@type": "ListItem", "position": 3, "name": "AUDIT", "description": "Statistical bounds + continuous monitoring"},
+      {"@type": "ListItem", "position": 4, "name": "GOVERN", "description": "Governance over objectives and value tradeoffs"},
+      {"@type": "ListItem", "position": 5, "name": "FORK", "description": "Resource forkability including compute and data"}
+    ]
+  }
+  </script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"DPI Framework","item":"https://indiastack.in/dpi/"},{"@type":"ListItem","position":3,"name":"Annex: Learned Systems","item":"https://indiastack.in/dpi/learned-systems/"}]}
+  </script>
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    /* Page-specific styles */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding: 2rem 0 3rem;
+    }
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 1.5rem 0;
+    }
+    .comparison-table {
+      width: 100%;
+      min-width: 500px;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .comparison-table caption {
+      text-align: left;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding-bottom: 0.75rem;
+      caption-side: top;
+    }
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .comparison-table th {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(255,255,255,0.02);
+    }
+    .comparison-table td:first-child {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .comparison-table td {
+      color: var(--text-secondary);
+    }
+    .layer-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .layer-item {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1.25rem;
+    }
+    .extension-card {
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border);
+    }
+    .extension-card h3 {
+      margin: 0.5rem 0 1rem;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+    }
+    .test-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.35rem;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .related-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .related-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .related-card h4 {
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      margin: 0.5rem 0 0.25rem;
+    }
+    .related-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin: 0;
+    }
+    /* Mobile responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+      }
+      .hero-grid > div:last-child {
+        order: -1;
+      }
+      .hero-grid img {
+        max-width: 260px;
+      }
+      .hero-grid h1 {
+        font-size: 1.85rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .comparison-table {
+        font-size: 0.8rem;
+      }
+      .comparison-table th,
+      .comparison-table td {
+        padding: 0.5rem;
+      }
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+      .extension-card {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="grid-pattern" aria-hidden="true"></div>
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container" style="max-width: 900px;">
+
+    <!-- Hero -->
+    <section class="fade-up hero-grid">
+      <div>
+        <nav aria-label="Breadcrumb" class="eyebrow" style="margin-bottom: 1rem;">
+          <a href="/">Home</a> /
+          <a href="/dpi/">DPI Framework</a> /
+          <span aria-current="page">Annex</span>
+        </nav>
+        <h1><span style="color: var(--purple);">Annex:</span> Learned Systems <span style="color: var(--accent);">and Corrigibility</span></h1>
+        <p class="lead">Governance for stochastic systems.</p>
+        <p style="color: var(--text-secondary); margin-top: 1rem;">This annex explains how the corrigibility framework applies to learned or probabilistic systems, including contemporary AI models.</p>
+      </div>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="/components/svg/hero-learned-systems.svg" alt="Diagram showing training pipeline layers for learned systems" style="width: 100%; max-width: 380px; height: auto; filter: drop-shadow(0 0 60px rgba(168, 85, 247, 0.4));">
+      </div>
+    </section>
+
+    <!-- Core principle -->
+    <div class="info-box fade-up" style="background: rgba(13,216,146,0.08); border-color: rgba(13,216,146,0.25);">
+      <p style="margin-bottom: 0.75rem;"><strong style="color: var(--accent);">The five corrigibility tests remain invariant.</strong></p>
+      <p style="margin-bottom: 0.75rem;">Same standard. Different verification method.</p>
+      <p style="margin-bottom: 0.75rem;"><strong style="color: var(--accent);">Corrigibility in deterministic systems</strong> concerns <strong>inspecting execution</strong>.</p>
+      <p style="margin: 0;"><strong style="color: var(--accent);">Corrigibility in learned systems</strong> concerns <strong>bounding behavior</strong>.</p>
+    </div>
+
+    <div class="fade-up" style="background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0;">
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin: 0;">Learned systems require a <strong>Behavioral Specification</strong>, <strong>runtime disclosure</strong>, and <strong>drift telemetry</strong> in the <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces</a>.</p>
+    </div>
+
+    <p class="fade-up" style="color: var(--text-muted); font-size: 0.9rem; margin: 1.5rem 0 3rem; font-style: italic;">This annex does not introduce a weaker standard. It clarifies why certain learned systems may be structurally incapable of meeting the existing standard.</p>
+
+    <!-- Scope -->
+    <section class="fade-up" style="margin-bottom: 3rem;">
+      <h2 class="section-title">Scope of This Annex</h2>
+      <p>This covers systems that learn behavior from data instead of following hardcoded rules:</p>
+      <ul style="margin: 1rem 0 1.5rem 1.5rem;">
+        <li>Machine learning models</li>
+        <li>Large language models</li>
+        <li>Algorithmic decision systems trained on historical data</li>
+        <li>Systems whose outputs are probabilistic rather than deterministic</li>
+      </ul>
+      <p style="color: var(--accent); font-weight: 500;">Systems that cannot satisfy all five tests do not meet the structural conditions required for designation as Digital Public Infrastructure.</p>
+    </section>
+
+    <!-- The Deterministic Assumption -->
+    <section class="fade-up" style="margin-bottom: 3rem;">
+      <h2 class="section-title">The Deterministic Assumption</h2>
+      <p style="margin-bottom: 1.5rem;">The five corrigibility tests implicitly assume <strong>deterministic systems</strong>.</p>
+
+      <div class="table-wrapper">
+        <table class="comparison-table" aria-describedby="det-table-desc">
+          <caption id="det-table-desc">Comparison of assumptions between deterministic and learned systems</caption>
+          <thead>
+            <tr>
+              <th scope="col">Assumption</th>
+              <th scope="col">Deterministic Systems</th>
+              <th scope="col">Learned Systems</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Predictability</td>
+              <td>Same input produces same output</td>
+              <td>Same input may produce different outputs</td>
+            </tr>
+            <tr>
+              <td>Source of behavior</td>
+              <td>Source code</td>
+              <td>Training data and objectives</td>
+            </tr>
+            <tr>
+              <td>Inspection</td>
+              <td>Read the code</td>
+              <td>Weights and representations are opaque</td>
+            </tr>
+            <tr>
+              <td>Reproduction</td>
+              <td>Exact binary reproduction</td>
+              <td>Statistical approximation only</td>
+            </tr>
+            <tr>
+              <td>Modification</td>
+              <td>Change code and predict effect</td>
+              <td>Change training with uncertain effects</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Learned systems break every one of these assumptions.</p>
+      <p style="margin-top: 1rem; color: var(--text-secondary);">These differences do not invalidate the framework. They identify where additional disclosure, monitoring, and governance mechanisms are required for learned systems to remain corrigible over time.</p>
+    </section>
+
+    <!-- What Is Source -->
+    <section class="fade-up" style="margin-bottom: 3rem;">
+      <h2 class="section-title">What Is "Source" in a Learned System</h2>
+
+      <p><strong>For traditional software:</strong></p>
+      <p style="margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.9rem; background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 6px; border-left: 3px solid var(--blue);"><span style="color: var(--blue);">source code</span> <span style="color: var(--text-muted);">→</span> <span style="color: var(--cyan);">compiler</span> <span style="color: var(--text-muted);">→</span> <span style="color: var(--purple);">binary</span> <span style="color: var(--text-muted);">→</span> <span style="color: var(--accent);">behavior</span></p>
+
+      <p><strong>For learned systems,</strong> behavior is distributed across layers:</p>
+
+      <div class="layer-stack" role="list" aria-label="Training pipeline layers">
+        <div class="layer-item" role="listitem" style="border-left: 3px solid var(--purple);">
+          Training data corpus
+        </div>
+        <div class="layer-item" role="listitem" style="border-left: 3px solid var(--purple);">
+          Data filtering and preprocessing decisions
+        </div>
+        <div class="layer-item" role="listitem" style="border-left: 3px solid var(--blue);">
+          Model architecture and hyperparameters
+        </div>
+        <div class="layer-item" role="listitem" style="border-left: 3px solid var(--blue);">
+          Random initialization and hardware effects
+        </div>
+        <div class="layer-item" role="listitem" style="border-left: 3px solid var(--amber);">
+          Training objectives and loss functions
+        </div>
+        <div class="layer-item" role="listitem" style="border-left: 3px solid var(--amber);">
+          Reinforcement learning from human feedback
+        </div>
+        <div class="layer-item" role="listitem" style="border-left: 3px solid var(--cyan);">
+          System prompts and runtime constraints
+        </div>
+        <div class="layer-item" role="listitem" style="border-left: 3px solid var(--text-muted); opacity: 0.6;">
+          <span style="color: var(--text-muted);">Inference code</span>
+        </div>
+      </div>
+
+      <p style="margin-top: 1.5rem;">Inference code alone does not determine behavior. Publishing it does not satisfy the CODE test.</p>
+      <p style="color: var(--accent); font-weight: 500;">For learned systems, source transparency means transparency across the training pipeline.</p>
+    </section>
+
+    <!-- Five Tests Invariant -->
+    <section class="fade-up" style="margin-bottom: 3rem;">
+      <h2 class="section-title">The Five Tests Remain Invariant</h2>
+      <p style="margin-bottom: 1.5rem;">The corrigibility framework continues to evaluate the same five power relationships.</p>
+
+      <div class="table-wrapper">
+        <table class="comparison-table" aria-describedby="tests-table-desc">
+          <caption id="tests-table-desc">How each test applies to deterministic vs learned systems</caption>
+          <thead>
+            <tr>
+              <th scope="col">Test</th>
+              <th scope="col">Deterministic Verification</th>
+              <th scope="col">Learned System Verification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="test-tag" style="background: rgba(6,182,212,0.15); color: var(--cyan);">EXIT</span></td>
+              <td>Can refuse the system</td>
+              <td>Disclosure + non-AI alternative + query transparency</td>
+            </tr>
+            <tr>
+              <td><span class="test-tag" style="background: rgba(59,130,246,0.15); color: var(--blue);">CODE</span></td>
+              <td>Source code determines behavior</td>
+              <td>Layered transparency across training pipeline</td>
+            </tr>
+            <tr>
+              <td><span class="test-tag" style="background: rgba(168,85,247,0.15); color: var(--purple);">AUDIT</span></td>
+              <td>Inspect logic and outputs</td>
+              <td>Statistical bounds + continuous monitoring</td>
+            </tr>
+            <tr>
+              <td><span class="test-tag" style="background: rgba(245,158,11,0.15); color: var(--amber);">GOVERN</span></td>
+              <td>Maintainer and RFC process</td>
+              <td>Governance over objectives and value tradeoffs</td>
+            </tr>
+            <tr>
+              <td><span class="test-tag" style="background: rgba(244,114,182,0.15); color: var(--rose);">FORK</span></td>
+              <td>Copy code and deploy</td>
+              <td>Resource forkability including compute and data</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>No new test is introduced. No existing test is relaxed.</p>
+    </section>
+
+    <!-- EXIT Extended -->
+    <article class="extension-card fade-up" style="border-left: 3px solid var(--cyan); background: linear-gradient(135deg, rgba(6,182,212,0.06) 0%, transparent 50%);" aria-labelledby="exit-heading">
+      <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+        <img src="/components/svg/test-exit-ai.svg" alt="AI disclosure and alternative paths" style="width: 80px; height: 80px; flex-shrink: 0;">
+        <div>
+          <span class="eyebrow" style="color: var(--cyan);">EXIT, EXTENDED</span>
+          <h3 id="exit-heading" style="margin-top: 0.25rem;">Disclosure and Alternative</h3>
+        </div>
+      </div>
+      <p style="margin-top: 1rem;">Learned systems are often embedded invisibly. Users may not know when an AI system is mediating access to services, recommendations, or decisions.</p>
+      <p style="margin-top: 1rem;"><strong>EXIT for learned systems requires:</strong></p>
+      <ul style="margin: 0.75rem 0 0 1.5rem;">
+        <li>Mandatory disclosure that AI is involved</li>
+        <li>Disclosure of what role the system plays</li>
+        <li>A non-AI alternative without penalty</li>
+        <li>Query-level transparency including model version and policy version</li>
+      </ul>
+      <p style="margin-top: 1rem; color: var(--cyan); font-weight: 500;">If refusal results in degraded service, exclusion, or delay, EXIT fails.</p>
+    </article>
+
+    <!-- CODE Extended -->
+    <article class="extension-card fade-up" style="border-left: 3px solid var(--blue); background: linear-gradient(135deg, rgba(59,130,246,0.06) 0%, transparent 50%);" aria-labelledby="code-heading">
+      <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+        <img src="/components/svg/test-code-ai.svg" alt="Training pipeline layers" style="width: 80px; height: 80px; flex-shrink: 0;">
+        <div>
+          <span class="eyebrow" style="color: var(--blue);">CODE, EXTENDED</span>
+          <h3 id="code-heading" style="margin-top: 0.25rem;">Layered Transparency</h3>
+        </div>
+      </div>
+      <p style="margin-top: 1rem;">In learned systems, behavior is determined primarily by training.</p>
+      <p style="margin-top: 1rem;"><strong>CODE requires disclosure of:</strong></p>
+      <ul style="margin: 0.75rem 0 0 1.5rem;">
+        <li>Training data sources and provenance</li>
+        <li>Data inclusion and exclusion criteria</li>
+        <li>Training objectives and loss functions</li>
+        <li>Hyperparameters and architecture choices</li>
+        <li>RLHF or preference optimization processes</li>
+        <li>System prompts and safety constraints</li>
+        <li>Version history of each layer</li>
+      </ul>
+      <p style="margin-top: 1rem; color: var(--blue); font-weight: 500;">Publishing model weights without disclosure of training data, training objectives, and optimization processes provides insufficient legibility for the purposes of structural accountability.</p>
+    </article>
+
+    <!-- AUDIT Extended -->
+    <article class="extension-card fade-up" style="border-left: 3px solid var(--purple); background: linear-gradient(135deg, rgba(168,85,247,0.06) 0%, transparent 50%);" aria-labelledby="audit-heading">
+      <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+        <img src="/components/svg/test-audit-ai.svg" alt="Statistical distribution with bounds" style="width: 80px; height: 80px; flex-shrink: 0;">
+        <div>
+          <span class="eyebrow" style="color: var(--purple);">AUDIT, EXTENDED</span>
+          <h3 id="audit-heading" style="margin-top: 0.25rem;">Statistical Verification</h3>
+        </div>
+      </div>
+      <p style="margin-top: 1rem;">Learned systems cannot be fully audited through inspection. Audit therefore shifts from logical verification to statistical verification.</p>
+
+      <div class="table-wrapper">
+        <table class="comparison-table" aria-describedby="audit-table-desc">
+          <caption id="audit-table-desc">Audit approach comparison</caption>
+          <thead>
+            <tr>
+              <th scope="col">Deterministic Audit</th>
+              <th scope="col">Learned System Audit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Does this rule fire?</td>
+              <td>Does output distribution remain within bounds?</td>
+            </tr>
+            <tr>
+              <td>Is there a bug?</td>
+              <td>What is the error rate under distribution D?</td>
+            </tr>
+            <tr>
+              <td>One-time review</td>
+              <td>Continuous monitoring</td>
+            </tr>
+            <tr>
+              <td>Deterministic claims</td>
+              <td>Confidence-bounded claims</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Audit for learned systems requires:</strong></p>
+      <ul style="margin: 0.75rem 0 0 1.5rem;">
+        <li>Behavioral specifications</li>
+        <li>Defined acceptable error and exclusion bounds</li>
+        <li>Continuous measurement against those bounds</li>
+        <li>Disclosure of model updates and retraining events</li>
+        <li>Independent audit access without permission</li>
+      </ul>
+      <p style="margin-top: 1rem; color: var(--purple); font-weight: 500;">Benchmark passing is not audit.</p>
+      <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">For learned systems, auditability is satisfied through confidence-bounded claims supported by continuous measurement. Point-in-time certification or benchmark performance does not constitute independent verification of deployed behavior.</p>
+    </article>
+
+    <!-- GOVERN Extended -->
+    <article class="extension-card fade-up" style="border-left: 3px solid var(--amber); background: linear-gradient(135deg, rgba(245,158,11,0.06) 0%, transparent 50%);" aria-labelledby="govern-heading">
+      <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+        <img src="/components/svg/test-govern-ai.svg" alt="Objective targets and adjustment dials" style="width: 80px; height: 80px; flex-shrink: 0;">
+        <div>
+          <span class="eyebrow" style="color: var(--amber);">GOVERN, EXTENDED</span>
+          <h3 id="govern-heading" style="margin-top: 0.25rem;">Objective Governance</h3>
+        </div>
+      </div>
+      <p style="margin-top: 1rem;">In deterministic systems, governance operates through code review and maintainership. In learned systems, governance operates through objectives.</p>
+      <p style="margin-top: 1rem;"><strong>Governance questions include:</strong></p>
+      <ul style="margin: 0.75rem 0 1rem 1.5rem;">
+        <li>What is the system optimizing for?</li>
+        <li>What outcomes are prioritized?</li>
+        <li>What tradeoffs are accepted?</li>
+        <li>What constitutes harm or error?</li>
+        <li>Who defines acceptable failure rates?</li>
+      </ul>
+      <p>These are normative decisions expressed through technical parameters.</p>
+      <p style="margin-top: 1rem;"><strong>For learned systems, GOVERN requires:</strong></p>
+      <ul style="margin: 0.75rem 0 0 1.5rem;">
+        <li>Transparency of objectives and value tradeoffs</li>
+        <li>Binding input from affected populations</li>
+        <li>Public processes for changing objectives</li>
+        <li>Disclosure of who sets preferences and how</li>
+      </ul>
+      <p style="margin-top: 1rem; color: var(--amber); font-weight: 500;">Grievance mechanisms after harm do not constitute governance.</p>
+    </article>
+
+    <!-- FORK Extended -->
+    <article class="extension-card fade-up" style="border-left: 3px solid var(--rose); background: linear-gradient(135deg, rgba(244,114,182,0.06) 0%, transparent 50%);" aria-labelledby="fork-heading">
+      <div style="display: flex; gap: 1.5rem; align-items: flex-start;">
+        <img src="/components/svg/test-fork-ai.svg" alt="Compute forking and resource barriers" style="width: 80px; height: 80px; flex-shrink: 0;">
+        <div>
+          <span class="eyebrow" style="color: var(--rose);">FORK, EXTENDED</span>
+          <h3 id="fork-heading" style="margin-top: 0.25rem;">Resource Forkability</h3>
+        </div>
+      </div>
+      <p style="margin-top: 1rem;">Forking a learned system is constrained by resources, not just permission.</p>
+
+      <div class="table-wrapper">
+        <table class="comparison-table" aria-describedby="fork-table-desc">
+          <caption id="fork-table-desc">Resource barriers to forking learned systems</caption>
+          <thead>
+            <tr>
+              <th scope="col">Layer</th>
+              <th scope="col">Typical Cost</th>
+              <th scope="col">Barrier</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Inference code</td>
+              <td>Minimal</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Running open weights</td>
+              <td>Low</td>
+              <td>Minor</td>
+            </tr>
+            <tr>
+              <td>Fine-tuning</td>
+              <td>Moderate</td>
+              <td>Economic</td>
+            </tr>
+            <tr>
+              <td style="color: var(--danger);">Retraining from scratch</td>
+              <td style="color: var(--danger);">Very high</td>
+              <td style="color: var(--danger);">Structural</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>True forkability requires:</strong></p>
+      <ul style="margin: 0.75rem 0 0 1.5rem;">
+        <li>Access to sufficient compute</li>
+        <li>Access to recreatable or alternative data</li>
+        <li>Disclosure of training recipes</li>
+        <li>Economic feasibility for non-incumbents</li>
+      </ul>
+      <p style="margin-top: 1rem; color: var(--rose); font-weight: 500;">Legal permission to fork without access to compute or data is meaningless. This is an infrastructure question, not a licensing question.</p>
+    </article>
+
+    <!-- Training Data as Commons -->
+    <section class="fade-up" style="margin-bottom: 3rem;">
+      <h2 class="section-title">Training Data as a Commons</h2>
+      <p>Training data is collectively generated across societies, while model development and control remain concentrated among a limited number of actors. This asymmetry transfers value without corresponding governance rights.</p>
+      <p style="margin-top: 1rem;">Current systems derive legitimacy from collective production without adopting the governance structures that commons require.</p>
+      <p style="margin-top: 1rem;"><strong>Commons governance requires:</strong></p>
+      <ul style="margin: 0.75rem 0 1rem 1.5rem;">
+        <li>Clear boundaries: who can use what</li>
+        <li>Monitoring accountable to contributors</li>
+        <li>Graduated sanctions for misuse</li>
+        <li>Dispute resolution that works</li>
+        <li>Rule-making by those whose data it is</li>
+      </ul>
+      <p>Current AI systems fail all five.</p>
+      <p style="margin-top: 0.75rem; color: var(--accent); font-weight: 500;">No governance of the data commons, no public infrastructure.</p>
+    </section>
+
+    <!-- Probabilistic Power -->
+    <section class="fade-up" style="margin-bottom: 3rem;">
+      <h2 class="section-title">Probabilistic Power</h2>
+      <p>Traditional systems say: "If X, then Y." You can read the rule. You can contest it.</p>
+      <p style="margin-top: 1rem;">Learned systems say: "Probably Y." You cannot read why. You can only observe patterns.</p>
+      <p style="margin-top: 1rem;"><strong>Power now looks like:</strong></p>
+      <ul style="margin: 0.75rem 0 1.5rem 1.5rem;">
+        <li>Patterns learned from historical data, including historical bias</li>
+        <li>Weights you cannot read</li>
+        <li>Outcomes that vary per person</li>
+        <li>Objectives set by operators, not users</li>
+      </ul>
+      <p style="color: var(--purple); font-weight: 500; margin-bottom: 1rem;">This represents a form of governance mediated through statistical inference rather than explicit rules.</p>
+      <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 1.25rem;">
+        <p><strong>The question changes:</strong></p>
+        <p style="margin-top: 0.5rem;"><span style="color: var(--cyan);">Before:</span> "Is this rule correct?"</p>
+        <p style="margin-top: 0.5rem;"><span style="color: var(--rose);">Now:</span> "Is this error rate acceptable, and who decides?"</p>
+      </div>
+    </section>
+
+    <!-- The Correction Gap -->
+    <section class="fade-up" style="margin-bottom: 3rem;">
+      <h2 class="section-title">The Correction Gap</h2>
+      <p><strong>Traditional fix:</strong></p>
+      <p style="margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.9rem; background: rgba(13,216,146,0.08); padding: 0.75rem 1rem; border-radius: 6px; border-left: 3px solid var(--accent);"><span style="color: var(--cyan);">bug reported</span> <span style="color: var(--text-muted);">→</span> <span style="color: var(--blue);">find the line</span> <span style="color: var(--text-muted);">→</span> <span style="color: var(--accent);">patch it</span></p>
+      <p><strong>AI fix:</strong></p>
+      <p style="margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.9rem; background: rgba(239,68,68,0.08); padding: 0.75rem 1rem; border-radius: 6px; border-left: 3px solid var(--danger);"><span style="color: var(--cyan);">problem reported</span> <span style="color: var(--text-muted);">→</span> <span style="color: var(--amber);">which training data?</span> <span style="color: var(--text-muted);">→</span> <span style="color: var(--amber);">which objective?</span> <span style="color: var(--text-muted);">→</span> <span style="color: var(--danger);">retrain everything?</span></p>
+      <p>Retraining is not patching. You might need new data, new objectives, new compute. Months, not hours.</p>
+      <p style="margin-top: 1rem;">The framework still applies. But the gap limits where AI can go.</p>
+      <p style="margin-top: 1rem; color: var(--text-secondary);">Where correction cycles exceed acceptable time horizons for the function being performed, deployment scope must be correspondingly constrained.</p>
+      <p style="margin-top: 1rem; color: var(--accent); font-weight: 500;">If correction cannot occur within the timeframe required by the function, deployment is unsuitable for that function.</p>
+
+      <!-- Correction Pathway Artifact -->
+      <div style="background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.25); border-radius: 12px; padding: 1.75rem; margin-top: 2rem;">
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--purple); margin-bottom: 1rem; letter-spacing: 0.1em;">REQUIRED ARTIFACT: CORRECTION PATHWAY</p>
+        <p style="margin-bottom: 1rem; color: var(--text-secondary);">Every learned-system submission must include a short, testable "Correction Pathway" document that states:</p>
+        <ol style="margin: 0 0 1rem 1.25rem; color: var(--text-secondary);">
+          <li style="margin-bottom: 0.5rem;"><strong>Detection triggers:</strong> telemetry/drift thresholds with quantitative thresholds and false-positive/false-negative tradeoffs.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Fallback delivery method:</strong> how affected users continue to receive service while correction occurs.</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Remediation window:</strong> maximum time for restoration, with confidence bounds on expected recovery.</li>
+          <li><strong>Escrow triggers:</strong> what public artifacts unlock if remediation fails.</li>
+        </ol>
+        <p style="color: var(--purple); font-size: 0.9rem; margin: 0;">This Correction Pathway is a checklist item in the <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces</a>.</p>
+      </div>
+    </section>
+
+    <!-- Implications for Designation and Deployment -->
+    <section class="fade-up" style="margin-bottom: 3rem;">
+      <h2 class="section-title">Implications for Designation and Deployment</h2>
+      <p>Learned systems may be evaluated under the same corrigibility framework applied to deterministic digital public infrastructure. The five tests remain invariant; what differs is the architectural and evidentiary burden required to satisfy them.</p>
+      <p style="margin-top: 1rem;">Where a learned system cannot be safely refused without penalty, rendered legible across its training pipeline, independently audited through statistical verification, governed over its objectives by affected populations, and credibly replaced within feasible resource constraints, it lacks the structural properties required for designation as Digital Public Infrastructure.</p>
+      <p style="margin-top: 1rem;">This assessment is structural rather than normative. It does not evaluate intent, innovation, or performance. It evaluates whether affected parties retain the capacity to detect error, contest outcomes, and trigger correction before harm becomes irreversible.</p>
+      <p style="margin-top: 1rem;">In practice, many contemporary learned systems exhibit correction cycles, resource concentration, and opacity that exceed acceptable thresholds for essential or consequential public functions. In such cases, deployment may remain appropriate for advisory, experimental, or non-essential use, but not for population-scale public authority.</p>
+      <p style="margin-top: 1.5rem; color: var(--accent); font-weight: 500;">Designation as public infrastructure is conditional on corrigibility being demonstrable in operation, not asserted in principle.</p>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="fade-up" style="margin-bottom: 3rem;">
+      <div style="background: linear-gradient(135deg, rgba(13,216,146,0.1) 0%, rgba(13,216,146,0.03) 100%); border: 1px solid rgba(13,216,146,0.25); border-radius: 16px; padding: 2rem; text-align: center;">
+        <p style="font-size: 1.1rem; margin-bottom: 1rem;"><strong>Same five tests. Same standard. No exceptions for AI.</strong></p>
+        <p style="margin-bottom: 1rem;">What differs is the evidentiary and architectural burden required to satisfy them.</p>
+        <p style="margin-bottom: 1.25rem; color: var(--text-secondary);">This annex does not weaken the framework. It identifies the conditions under which learned systems may satisfy it.</p>
+        <p style="color: var(--accent); font-weight: 500; margin: 0;">For learned systems to qualify as public infrastructure, they require disclosure mechanisms, governance arrangements, and resource accessibility that most current systems do not provide.</p>
+      </div>
+    </section>
+
+    <!-- Related Pages -->
+    <section class="fade-up" style="margin: 3rem 0 2rem;">
+      <h2 class="section-title">Related</h2>
+      <div class="related-grid">
+        <a href="/dpi/analysis/" class="related-card" style="border-top: 3px solid var(--indigo); background: linear-gradient(135deg, rgba(129,140,248,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--indigo);">ANALYSIS</span>
+          <h4>Why Corrigibility</h4>
+          <p>Structural necessity</p>
+        </a>
+        <a href="/dpi/build/" class="related-card" style="border-top: 3px solid var(--blue); background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--blue);">TECHNICAL</span>
+          <h4>How to Build</h4>
+          <p>Architecture primitives</p>
+        </a>
+        <a href="/dpi/require/" class="related-card" style="border-top: 3px solid var(--amber); background: linear-gradient(135deg, rgba(245,158,11,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--amber);">LEGAL</span>
+          <h4>How to Require</h4>
+          <p>Procurement language</p>
+        </a>
+      </div>
+      <div class="related-grid" style="margin-top: 1rem;">
+        <a href="/dpi/definitions/" class="related-card" style="border-top: 3px solid var(--cyan); background: linear-gradient(135deg, rgba(6,182,212,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--cyan);">INTERNATIONAL</span>
+          <h4>Definitions</h4>
+          <p>G20, UNDP, World Bank</p>
+        </a>
+        <a href="/dpi/annex/exposure-surfaces/" class="related-card" style="border-top: 3px solid var(--accent); background: linear-gradient(135deg, rgba(13,216,146,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--accent);">ANNEX</span>
+          <h4>Exposure Surfaces</h4>
+          <p>Minimal artifacts</p>
+        </a>
+        <a href="/dpi/" class="related-card" style="border-top: 3px solid var(--accent); background: linear-gradient(135deg, rgba(13,216,146,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--accent);">FRAMEWORK</span>
+          <h4>DPI Framework</h4>
+          <p>Five tests overview</p>
+        </a>
+      </div>
+    </section>
+
+    <a href="/dpi/" class="back-link fade-up" style="display: inline-block; margin-top: 1rem;">← Back to DPI Framework</a>
+
+    <p class="fade-up" style="margin-top: 3rem; font-size: 0.85rem; color: var(--text-muted);">Authored by <a href="https://anivar.net" target="_blank" rel="noopener">Anivar Aravind</a></p>
+
+  </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/js/components.js"></script>
+  <script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

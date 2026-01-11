@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://indiastack.in/dpi/schema/infrastructure.json",
+  "title": "Infrastructure Manifest v1.1",
+  "description": "This manifest exposes operational facts. It does not assert compliance, safety, or public legitimacy.",
+  "type": "object",
+  "required": ["meta", "access"],
+
+  "properties": {
+
+    "meta": {
+      "type": "object",
+      "required": ["system_id", "lifecycle"],
+      "properties": {
+        "system_id": {
+          "type": "string",
+          "description": "Unique identifier",
+          "examples": ["urn:in:gov:uidai", "api.payments.gov"]
+        },
+        "version": { "type": "string" },
+        "deployment": {
+          "type": "string",
+          "enum": ["production", "staging", "pilot", "demo"]
+        },
+        "lifecycle": {
+          "type": "string",
+          "enum": ["active", "deprecated", "sunset", "archived"]
+        },
+        "license": {
+          "type": "string",
+          "description": "SPDX identifier or PROPRIETARY",
+          "examples": ["MIT", "AGPL-3.0", "PROPRIETARY"]
+        },
+        "maintainer": { "type": "string", "format": "email" }
+      }
+    },
+
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "repository": { "type": "string", "format": "uri" },
+        "docs": { "type": "string", "format": "uri" },
+        "closed_components": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Named proprietary dependencies",
+          "examples": [["oracle-db", "aws-rekognition", "idemia-abis"]]
+        }
+      }
+    },
+
+    "access": {
+      "type": "object",
+      "required": ["offline_equivalent"],
+      "properties": {
+        "endpoint": { "type": "string", "format": "uri" },
+        "offline_channel": {
+          "type": "string",
+          "format": "uri",
+          "description": "Manual/offline alternative"
+        },
+        "offline_equivalent": {
+          "type": "boolean",
+          "description": "Does offline provide equivalent service (time, cost, outcome)?"
+        },
+        "data_export": {
+          "type": "string",
+          "format": "uri",
+          "description": "User data portability endpoint"
+        }
+      }
+    },
+
+    "reliability": {
+      "type": "object",
+      "properties": {
+        "status_page": { "type": "string", "format": "uri" },
+        "dispute_slo": {
+          "type": "string",
+          "description": "Max time to resolve disputes",
+          "examples": ["24h", "7d", "30d"]
+        },
+        "fix_slo": {
+          "type": "string",
+          "description": "Max time to fix verified bugs",
+          "examples": ["24h", "7d", "90d"]
+        },
+        "escalation": {
+          "type": "string",
+          "format": "uri",
+          "description": "External authority when internal fixes fail"
+        }
+      }
+    },
+
+    "governance": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string",
+          "enum": ["community", "foundation", "corporate", "government", "closed"]
+        },
+        "issues": { "type": "string", "format": "uri" },
+        "rfc": { "type": "string", "format": "uri" }
+      }
+    },
+
+    "learned_components": {
+      "type": "object",
+      "description": "Required if system uses ML/AI",
+      "properties": {
+        "model_card": { "type": "string", "format": "uri" },
+        "training_docs": { "type": "string", "format": "uri" },
+        "role": {
+          "type": "string",
+          "enum": ["advisory", "decision", "enforcement"],
+          "description": "How AI affects outcomes"
+        },
+        "when_uncertain": {
+          "type": "string",
+          "enum": ["escalates", "fails_open", "fails_closed", "silent"]
+        }
+      }
+    }
+  }
+}

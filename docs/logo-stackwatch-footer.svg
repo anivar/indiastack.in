@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 120" width="340" height="120">
+  <defs>
+    <linearGradient id="fl1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f5a0"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="fl2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffa502"/>
+      <stop offset="100%" stop-color="#e67e00"/>
+    </linearGradient>
+    <linearGradient id="fl3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6b81"/>
+      <stop offset="100%" stop-color="#ff4757"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Stack icon - 3 layers -->
+  <g transform="translate(45, 60)">
+    <!-- Bottom layer (largest) -->
+    <rect x="-35" y="14" width="70" height="18" rx="4" fill="url(#fl3)" opacity="0.9"/>
+    <!-- Middle layer -->
+    <rect x="-28" y="-5" width="56" height="18" rx="4" fill="url(#fl2)" opacity="0.9"/>
+    <!-- Top layer (smallest) -->
+    <rect x="-21" y="-24" width="42" height="18" rx="4" fill="url(#fl1)" opacity="0.9"/>
+    <!-- Connecting dots -->
+    <circle cx="0" cy="-15" r="3.5" fill="#fff" opacity="0.6"/>
+    <circle cx="0" cy="4" r="3.5" fill="#fff" opacity="0.6"/>
+    <circle cx="0" cy="23" r="3.5" fill="#fff" opacity="0.6"/>
+  </g>
+
+  <!-- Text: STACK -->
+  <text x="100" y="52" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" font-weight="600" fill="#ffffff" letter-spacing="0.02em">STACK</text>
+
+  <!-- Text: WATCH -->
+  <text x="100" y="92" font-family="'Space Grotesk', system-ui, sans-serif" font-size="38" font-weight="700" fill="#00f5a0" letter-spacing="0.1em">WATCH</text>
+
+  <!-- Subtle underline accent -->
+  <line x1="100" y1="100" x2="230" y2="100" stroke="#00f5a0" stroke-width="3" opacity="0.4"/>
+</svg>

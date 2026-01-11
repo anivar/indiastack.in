@@ -1,0 +1,19 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Broken chain/link -->
+        <ellipse cx="150" cy="200" rx="50" ry="30" stroke="#00f5a0" stroke-width="3" fill="none" opacity="0.5"/>
+        <ellipse cx="250" cy="200" rx="50" ry="30" stroke="#ff4757" stroke-width="3" fill="none" opacity="0.5"/>
+        <!-- Break in middle -->
+        <line x1="190" y1="180" x2="210" y2="220" stroke="#0a0a0c" stroke-width="15"/>
+        <!-- Sparks at break -->
+        <line x1="195" y1="195" x2="180" y2="180" stroke="#ff4757" stroke-width="2" opacity="0.7"/>
+        <line x1="205" y1="205" x2="220" y2="220" stroke="#ff4757" stroke-width="2" opacity="0.7"/>
+        <line x1="200" y1="190" x2="200" y2="170" stroke="#ffa502" stroke-width="2" opacity="0.6"/>
+        <line x1="200" y1="210" x2="200" y2="230" stroke="#ffa502" stroke-width="2" opacity="0.6"/>
+        <!-- Person icon falling -->
+        <circle cx="200" cy="300" r="20" stroke="#ff4757" stroke-width="2" fill="none" opacity="0.5"/>
+        <line x1="200" y1="320" x2="200" y2="360" stroke="#ff4757" stroke-width="2" opacity="0.5"/>
+        <line x1="200" y1="340" x2="180" y2="360" stroke="#ff4757" stroke-width="2" opacity="0.5"/>
+        <line x1="200" y1="340" x2="220" y2="360" stroke="#ff4757" stroke-width="2" opacity="0.5"/>
+        <!-- Down arrow -->
+        <polygon points="200,380 185,365 215,365" fill="#ff4757" opacity="0.6"/>
+    </svg>

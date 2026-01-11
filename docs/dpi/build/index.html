@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build Digital Public Infrastructure, DPI Architecture Requirements</title>
+  <meta name="description" content="Technical architecture for building accountable Digital Public Infrastructure (DPI). Six mandatory primitives: reproducible execution, modular architecture, fork-authorizing licenses, audit surfaces, safe refusal paths, policy-as-code governance. Open source DPI design patterns.">
+  <meta name="keywords" content="build DPI, Digital Public Infrastructure architecture, DPI technical requirements, DPI design, open source DPI, DPI implementation, DPI primitives, reproducible builds, modular DPI, DPI audit, policy as code, digital infrastructure development, public infrastructure software">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Anivar Aravind">
+  <link rel="canonical" href="https://indiastack.in/dpi/build/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How to Build Digital Public Infrastructure, Architecture Requirements">
+  <meta property="og:description" content="Technical architecture for building accountable DPI. Six mandatory primitives for corrigible systems.">
+  <meta property="og:url" content="https://indiastack.in/dpi/build/">
+  <meta property="og:image" content="https://indiastack.in/dpi/og-image-dpi.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="article:section" content="Digital Public Infrastructure">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Build Accountable DPI">
+  <meta name="twitter:description" content="Technical architecture requirements for Digital Public Infrastructure that passes all five corrigibility tests.">
+  <meta name="twitter:image" content="https://indiastack.in/dpi/og-image-dpi.png">
+
+  <!-- Schema: TechArticle -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "How to Build Corrigible Digital Public Infrastructure",
+    "name": "DPI Build: Architecture Primitives",
+    "description": "Technical architecture for building accountable DPI. Six mandatory primitives: reproducible execution, modular architecture, fork-authorizing licenses, audit surfaces, safe refusal paths, policy-as-code governance.",
+    "url": "https://indiastack.in/dpi/build/",
+    "datePublished": "2026-01-07",
+    "dateModified": "2026-01-11",
+    "author": {"@type": "Person", "name": "Anivar Aravind", "url": "https://anivar.net"},
+    "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "isPartOf": {"@type": "WebPage", "url": "https://indiastack.in/dpi/", "name": "DPI Corrigibility Framework"},
+    "about": {"@type": "Thing", "name": "Software Architecture"},
+    "keywords": ["DPI architecture", "build DPI", "open source", "reproducible builds", "modular architecture", "audit surfaces"]
+  }
+  </script>
+
+  <!-- Schema: HowTo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Build Corrigible Digital Public Infrastructure",
+    "description": "Six mandatory architectural primitives for building DPI that passes all five corrigibility tests",
+    "step": [
+      {"@type": "HowToStep", "position": 1, "name": "Reproducible Execution", "text": "Same inputs produce identical outputs. Deterministic builds, pinned dependencies, reproducible pipelines."},
+      {"@type": "HowToStep", "position": 2, "name": "Modular Architecture", "text": "Each component replaceable without system collapse. Loose coupling, defined interfaces, graceful degradation."},
+      {"@type": "HowToStep", "position": 3, "name": "Fork-Authorizing Licenses", "text": "Rights to copy, modify, and deploy alternatives without permission. AGPL or equivalent."},
+      {"@type": "HowToStep", "position": 4, "name": "Audit Surfaces", "text": "Independent verification without operator cooperation. Published schemas, query access, log export."},
+      {"@type": "HowToStep", "position": 5, "name": "Safe Refusal Paths", "text": "Exit without penalty or functional loss. Offline operation, data portability, alternative providers."},
+      {"@type": "HowToStep", "position": 6, "name": "Policy-as-Code Governance", "text": "Rules expressed as inspectable, executable code. Public versioning, binding governance processes."}
+    ]
+  }
+  </script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"DPI Framework","item":"https://indiastack.in/dpi/"},{"@type":"ListItem","position":3,"name":"How to Build","item":"https://indiastack.in/dpi/build/"}]}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    .primitive-card {
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .primitive-card h3 {
+      margin: 0.5rem 0 1rem;
+      font-size: 1.25rem;
+    }
+
+    .requirement-box {
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+    }
+
+    .requirement-box h4 {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .implementation-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .implementation-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .implementation-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      font-weight: 600;
+    }
+
+    .why-section {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .why-section h4 {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .test-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .failure-conditions {
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .failure-conditions h4 {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--danger);
+      margin-bottom: 0.5rem;
+    }
+
+    .failure-conditions ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .failure-conditions li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .failure-conditions li::before {
+      content: "×";
+      position: absolute;
+      left: 0;
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    /* Tablet responsive */
+    @media (max-width: 900px) {
+      section[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 2rem !important;
+      }
+      section[style*="grid-template-columns: 1fr 1fr"] > div:last-child {
+        order: -1;
+      }
+      section[style*="grid-template-columns: 1fr 1fr"] img {
+        max-width: 280px !important;
+      }
+      section[style*="grid-template-columns: 1fr 1fr"] h1 {
+        font-size: 2rem !important;
+      }
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 600px) {
+      .primitive-card {
+        padding: 1.5rem;
+      }
+      .requirement-box {
+        padding: 1rem;
+      }
+      section[style*="grid-template-columns: 1fr 1fr"] h1 {
+        font-size: 1.75rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-pattern"></div>
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+
+    <!-- Hero -->
+    <section class="fade-up" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 2rem 0 3rem;">
+      <div>
+        <p class="eyebrow" style="margin-bottom: 1rem;"><a href="/" style="color: var(--text-muted);">Home</a> / <a href="/dpi/" style="color: var(--text-muted);">DPI Framework</a> / <span style="color: var(--accent);">Build</span></p>
+        <h1 style="font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem;">How to Build <span style="color: var(--accent);">Corrigible</span> DPI</h1>
+        <p class="lead" style="margin-bottom: 1rem;">Architectural requirements. <strong style="color: var(--accent);">Mandatory.</strong></p>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Corrigibility is a property of system design: the six primitives below implement observability, controllability, and replaceability at scale. Each primitive maps to a small set of evidence artifacts listed in the <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Corrigibility Exposure Surfaces</a> (annex).</p>
+      </div>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="/components/svg/hero-build.svg" alt="Six primitives building corrigible DPI" style="width: 100%; max-width: 360px; height: auto; filter: drop-shadow(0 0 60px rgba(13, 216, 146, 0.3));">
+      </div>
+    </section>
+
+    <div class="fade-up" style="max-width: 750px; margin-bottom: 3rem;">
+      <p style="font-size: 1.05rem; line-height: 1.7;">The six primitives below are <strong>necessary conditions</strong>, not best practices, not recommendations, not nice-to-haves. A system missing any one of them cannot be corrected by those it affects.</p>
+      <p style="margin-top: 1rem; color: var(--text-secondary);">These primitives are not novel inventions. They are established practices from open-source development, secure systems engineering, and infrastructure design. What is novel is applying them systematically to DPI, and treating them as non-negotiable.</p>
+
+      <div style="background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2); border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 1.5rem;">
+        <h4 style="color: var(--purple); font-size: 0.85rem; font-weight: 600; margin: 0 0 0.5rem;">Note on learned systems (AI)</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">These primitives apply to both deterministic and learned systems. In learned systems, "building" includes the training pipeline, data governance, update mechanisms, and rollback paths. Where these cannot be made corrigible, the system cannot qualify as public infrastructure.</p>
+      </div>
+    </div>
+
+    <!-- corrigibility-surface.json Manifest -->
+    <div class="fade-up" style="background: rgba(13,216,146,0.06); border: 1px solid rgba(13,216,146,0.2); border-radius: 12px; padding: 1.75rem 2rem; margin-bottom: 3rem;">
+      <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 1rem; letter-spacing: 0.1em;">MACHINE-READABLE MANIFEST</p>
+      <h3 style="color: #fff; font-size: 1.15rem; margin-bottom: 1rem;">Illustrative Manifest Format</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">One way corrigibility surfaces can be made legible is through a machine-readable manifest. Other mechanisms may exist. See the full <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces annex</a> for the complete schema.</p>
+
+      <div style="background: rgba(129,140,248,0.08); border: 1px solid rgba(129,140,248,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.25rem;">
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">This schema uses JSON Schema Draft 2020-12. The framework is agnostic to format — statutory registers, public dashboards, or other mechanisms are equally valid.</p>
+      </div>
+
+      <div style="background: rgba(0,0,0,0.4); border-radius: 8px; padding: 1.25rem; font-family: var(--font-mono); font-size: 0.8rem; overflow-x: auto;">
+        <pre style="margin: 0; color: var(--text-secondary); white-space: pre; line-height: 1.6;">{
+  "$schema": "https://indiastack.in/dpi/schema/corrigibility-manifest.json",
+  "schema_version": "1.0.0",
+  "name": "example-dpi",
+  "description": "Corrigibility exposure surfaces for Example DPI System",
+  "created_at": "2026-01-11T00:00:00Z",
+  "lifecycle_stage": "production",
+  "authors": ["Organization Name &lt;contact@example.org&gt;"],
+
+  "surfaces": {
+    "exit": {
+      "fallback_procedures": [
+        { "type": "documentation", "uri": "https://..." }
+      ],
+      "alternative_providers": ["provider-a", "provider-b"],
+      "data_portability": { "format": "json", "endpoint": "/export" }
+    },
+
+    "code": {
+      "locators": [
+        { "type": "source", "uri": "https://github.com/..." },
+        { "type": "build_manifest", "uri": "https://..." },
+        { "type": "behavioral_spec", "uri": "https://..." }
+      ],
+      "reproducible_build_checksum": "sha256:..."
+    },
+
+    "audit": {
+      "locators": [
+        { "type": "telemetry_schema", "uri": "https://..." },
+        { "type": "dashboard", "uri": "https://..." },
+        { "type": "test_harness", "uri": "https://..." }
+      ],
+      "drift_detection": {
+        "enabled": true,
+        "behavior_change_indicator": {
+          "method": "error_rate",
+          "endpoint": "/metrics/behavior",
+          "alert_threshold": ">5%",
+          "check_interval": "PT1H"
+        },
+        "remediation_latency": {
+          "detection_window": "PT24H",
+          "remediation_window": "P7D"
+        }
+      }
+    },
+
+    "govern": {
+      "locators": [
+        { "type": "policy_repository", "uri": "https://..." },
+        { "type": "rfc_process", "uri": "https://..." },
+        { "type": "charter", "uri": "https://..." }
+      ],
+      "governance_body": { "members": ["..."], "quorum": "..." }
+    },
+
+    "fork": {
+      "license": { "spdx_id": "AGPL-3.0-or-later", "uri": "https://..." },
+      "proprietary_dependencies": [],
+      "resource_requirements": {
+        "compute": { "description": "...", "barrier_level": "low|medium|high" },
+        "data": { "description": "...", "barrier_level": "low|medium|high" }
+      }
+    }
+  },
+
+  "trust_dependencies": [
+    { "surface": "audit", "type": "sampling", "description": "5% coverage" },
+    { "surface": "code", "type": "third_party", "description": "Model weights" }
+  ],
+
+  "proof": {
+    "type": "DataIntegrityProof",
+    "cryptosuite": "eddsa-jcs-2022",
+    "created": "2026-01-11T00:00:00Z",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:web:example.org#key-1",
+    "proofValue": "..."
+  }
+}</pre>
+      </div>
+
+      <div style="margin-top: 1.25rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div style="background: rgba(255,255,255,0.03); border-radius: 6px; padding: 1rem;">
+          <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em;">SCHEMA PATTERNS</p>
+          <ul style="margin: 0; padding-left: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
+            <li><code>manifest_version</code>: semantic versioning</li>
+            <li><code>created_at</code>: RFC 3339 timestamp</li>
+            <li><code>lifecycle_stage</code>: pilot | production | deprecated</li>
+            <li><code>evidence_surfaces</code>: five-test structure</li>
+            <li><code>integrity</code>: optional signatures</li>
+          </ul>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border-radius: 6px; padding: 1rem;">
+          <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.5rem; letter-spacing: 0.05em;">CORRIGIBILITY FIELDS</p>
+          <ul style="margin: 0; padding-left: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
+            <li><code>exit</code>, <code>code</code>, <code>audit</code>, <code>govern</code>, <code>fork</code></li>
+            <li><code>ai_system</code>: for AI/ML systems</li>
+            <li><code>changelog</code>: temporal accountability</li>
+            <li><code>contact</code>: escalation paths</li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 1rem; padding: 0.75rem 1rem; background: rgba(168,85,247,0.06); border-left: 2px solid var(--purple); border-radius: 0 6px 6px 0;"><code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px;">lifecycle_stage</code> contextualizes corrigibility expectations but does not alter the requirement that all five tests must eventually be met for public infrastructure designation.</p>
+
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">The <code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px;">trust_dependencies</code> array explicitly declares where correction routes through trust rather than structure. The optional <code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px;">proof</code> section enables cryptographic verification of manifest authenticity. See <a href="/dpi/analysis/" style="color: var(--accent);">Analysis</a> for structural interpretation.</p>
+    </div>
+
+    <!-- PRIMITIVE 01: Reproducible Execution -->
+    <div class="primitive-card fade-up" style="border-left: 3px solid var(--blue); background: linear-gradient(135deg, rgba(59,130,246,0.06) 0%, transparent 50%);">
+      <span class="eyebrow" style="color: var(--blue);">PRIMITIVE 01</span>
+      <h3 style="color: #fff;">Reproducible Execution</h3>
+      <p>The deployed binary must be independently reproducible from published source. Third parties must be able to verify that the running system matches the claimed code.</p>
+
+      <div class="requirement-box">
+        <h4 style="color: var(--blue);">Requirement</h4>
+        <p style="font-size: 0.95rem;">Publish complete source code, build scripts, and deterministic build environments. Anyone must be able to compile the <em>exact binary</em> deployed in production and verify the match cryptographically.</p>
+      </div>
+
+      <div class="requirement-box">
+        <h4 style="color: var(--blue);">Implementation</h4>
+        <ul class="implementation-list" style="--arrow-color: var(--blue);">
+          <li style="color: var(--text-secondary);">Containerized builds using Docker, Nix, or Bazel with pinned dependencies</li>
+          <li style="color: var(--text-secondary);">Published SHA256 hashes of all release artifacts</li>
+          <li style="color: var(--text-secondary);">Transparency logs (Sigstore, Rekor) for signed attestations</li>
+          <li style="color: var(--text-secondary);">Third-party verification infrastructure (reproducible builds project)</li>
+          <li style="color: var(--text-secondary);">Automated CI/CD pipelines that publish reproducibility reports</li>
+        </ul>
+      </div>
+
+      <div class="why-section">
+        <h4>Why This Matters</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Source code is meaningless without reproducibility. A system could publish code and run something entirely different. Reproducibility is the foundation of auditability, without it, code review proves nothing about production behavior. This is how you verify that what's running is what was audited.</p>
+      </div>
+
+      <div style="background: rgba(13,216,146,0.06); border: 1px solid rgba(13,216,146,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1.25rem;">
+        <p style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem;">EVIDENCE</p>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Source repository link, build manifest, and signed reproducible-build checksum (see <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces</a>).</p>
+      </div>
+
+      <div style="background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2); border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 1.25rem;">
+        <h4 style="color: var(--blue); font-size: 0.8rem; font-weight: 600; margin: 0 0 0.75rem; font-family: var(--font-mono); letter-spacing: 0.05em;">LEARNED SYSTEMS REQUIREMENT</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0 0 0.75rem;">For machine-learned systems, reproducibility applies to <strong>training</strong>, not just inference. It must be possible to:</p>
+        <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; color: var(--text-secondary);">
+          <li style="margin-bottom: 0.35rem;">reproduce model weights from documented training code and data snapshots, <em>or</em></li>
+          <li>verify that deployed weights correspond to a specific, published training run.</li>
+        </ul>
+        <p style="font-size: 0.9rem; color: var(--blue); margin: 0.75rem 0 0; font-weight: 500;">Inference-only reproducibility is insufficient. Behavior is determined upstream.</p>
+      </div>
+
+      <div style="margin-top: 1.25rem;">
+        <span class="test-badge" style="background: rgba(59,130,246,0.15); color: var(--blue);">CODE</span>
+        <span class="test-badge" style="background: rgba(168,85,247,0.15); color: var(--purple);">AUDIT</span>
+      </div>
+    </div>
+
+    <!-- PRIMITIVE 02: Replaceable Modular Architecture -->
+    <div class="primitive-card fade-up" style="border-left: 3px solid var(--rose); background: linear-gradient(135deg, rgba(244,114,182,0.06) 0%, transparent 50%);">
+      <span class="eyebrow" style="color: var(--rose);">PRIMITIVE 02</span>
+      <h3 style="color: #fff;">Replaceable Modular Architecture</h3>
+      <p>The system must be decomposed into independently replaceable modules with stable, documented interfaces. Any component must be swappable without rebuilding the entire system.</p>
+
+      <div class="requirement-box">
+        <h4 style="color: var(--rose);">Requirement</h4>
+        <p style="font-size: 0.95rem;">Decompose into small, well-specified modules: authentication, storage, routing, policy engine, notification. Define stable, versioned APIs between all modules. Document data flows and module boundaries.</p>
+      </div>
+
+      <div class="requirement-box">
+        <h4 style="color: var(--rose);">Implementation</h4>
+        <ul class="implementation-list" style="--arrow-color: var(--rose);">
+          <li style="color: var(--text-secondary);">Interface definition languages (protobuf, OpenAPI, GraphQL schemas)</li>
+          <li style="color: var(--text-secondary);">Semantic versioning for all internal and external APIs</li>
+          <li style="color: var(--text-secondary);">Documented module boundaries with clear ownership</li>
+          <li style="color: var(--text-secondary);">Loose coupling: policy separate from implementation</li>
+          <li style="color: var(--text-secondary);">Standard data interchange formats (JSON, protobuf)</li>
+        </ul>
+      </div>
+
+      <div class="why-section">
+        <h4>Why This Matters</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Modularity is the technical precondition for credible forks. A monolithic system cannot be partially replaced, you must take it all or build from scratch. Stable interfaces allow alternative implementations to emerge without coordinating with the original vendor. This is how forks become economically viable.</p>
+      </div>
+
+      <div style="background: rgba(13,216,146,0.06); border: 1px solid rgba(13,216,146,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1.25rem;">
+        <p style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem;">EVIDENCE</p>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Documented module boundaries, stable APIs, and interface schemas (OpenAPI/proto) (see <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces</a>).</p>
+      </div>
+
+      <div style="margin-top: 1.25rem;">
+        <span class="test-badge" style="background: rgba(244,114,182,0.15); color: var(--rose);">FORK</span>
+      </div>
+    </div>
+
+    <!-- PRIMITIVE 03: Fork-Authorizing Implementation -->
+    <div class="primitive-card fade-up" style="border-left: 3px solid var(--blue); background: linear-gradient(135deg, rgba(59,130,246,0.04) 0%, rgba(244,114,182,0.04) 50%, transparent 100%);">
+      <span class="eyebrow" style="color: var(--blue);">PRIMITIVE 03</span>
+      <h3 style="color: #fff;">Fork-Authorizing Implementation</h3>
+
+      <div class="requirement-box">
+        <h4 style="color: var(--blue);">Requirement</h4>
+        <p style="font-size: 0.95rem;">The complete production-capable server implementation must be published under a free software license that guarantees perpetual forkability and prohibits re-enclosure of the system.</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.75rem;">Any license that allows the system or its control components to become closed in downstream deployments fails this requirement.</p>
+      </div>
+
+      <div class="failure-conditions">
+        <h4>Disqualifiers</h4>
+        <ul>
+          <li>Source-available or restricted licenses</li>
+          <li>Dual licensing that enables proprietary re-enclosure</li>
+          <li>Contributor agreements permitting unilateral relicensing</li>
+          <li>Field-of-use or scale restrictions</li>
+          <li>Trademark or branding controls that block deployment</li>
+          <li>Proprietary dependencies required for operation</li>
+        </ul>
+      </div>
+
+      <div class="why-section">
+        <h4>Why</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">A system that can be closed again is not corrigible. Forking must survive first replacement.</p>
+      </div>
+
+      <div style="background: rgba(13,216,146,0.06); border: 1px solid rgba(13,216,146,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1.25rem;">
+        <p style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem;">EVIDENCE</p>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">License text permitting redistribution and a statement of no proprietary runtime dependencies (see <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces</a>).</p>
+      </div>
+
+      <div style="margin-top: 1.5rem; padding: 1rem 1.25rem; background: rgba(244,114,182,0.08); border-radius: 6px; border-left: 3px solid var(--rose);">
+        <p style="font-size: 0.95rem; color: #fff; margin: 0; font-weight: 500;">Public infrastructure must remain forkable under pressure.</p>
+      </div>
+
+      <div style="margin-top: 1.25rem;">
+        <span class="test-badge" style="background: rgba(59,130,246,0.15); color: var(--blue);">CODE</span>
+        <span class="test-badge" style="background: rgba(244,114,182,0.15); color: var(--rose);">FORK</span>
+      </div>
+    </div>
+
+    <!-- PRIMITIVE 04: Permissionless Audit Surfaces -->
+    <div class="primitive-card fade-up" style="border-left: 3px solid var(--purple); background: linear-gradient(135deg, rgba(168,85,247,0.06) 0%, transparent 50%);">
+      <span class="eyebrow" style="color: var(--purple);">PRIMITIVE 04</span>
+      <h3 style="color: #fff;">Permissionless Audit Surfaces</h3>
+      <p>External auditors must be able to verify system behavior without requiring permission from the operator. Audit access must be structural, not discretionary.</p>
+
+      <div class="requirement-box">
+        <h4 style="color: var(--purple);">Requirement</h4>
+        <p style="font-size: 0.95rem;">Provide machine-readable logs, metrics, and test endpoints that external parties can inspect without operator approval. Use cryptographic techniques where raw data cannot be shared. The goal: verify system behavior without compromising individual privacy.</p>
+      </div>
+
+      <div class="requirement-box">
+        <h4 style="color: var(--purple);">Implementation</h4>
+        <ul class="implementation-list" style="--arrow-color: var(--purple);">
+          <li style="color: var(--text-secondary);">Append-only audit logs with tamper-evident hashing (Merkle trees)</li>
+          <li style="color: var(--text-secondary);">Differential privacy for aggregate statistics</li>
+          <li style="color: var(--text-secondary);">Public dashboards with error rates, latency distributions, rejection rates</li>
+          <li style="color: var(--text-secondary);">Synthetic test accounts for black-box testing</li>
+          <li style="color: var(--text-secondary);">Secure multi-party computation for cross-institutional audits</li>
+          <li style="color: var(--text-secondary);">Published API schemas for automated compliance testing</li>
+          <li style="color: var(--text-secondary);">Behavioral audit endpoints for learned systems (error rates, drift indicators, confidence distributions)</li>
+          <li style="color: var(--text-secondary);">Publicly documented update cadence and retraining triggers</li>
+          <li style="color: var(--text-secondary);">Audit access that survives model updates and version changes</li>
+        </ul>
+      </div>
+
+      <div class="why-section">
+        <h4>Why This Matters</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Audits that require operator permission are audits that can be denied or delayed until evidence is cleaned. Permissionless audit surfaces mean researchers, journalists, and civil society can verify claims independently. Privacy-preserving techniques (differential privacy, MPC) allow verification without exposing individual records.</p>
+        <p style="font-size: 0.9rem; color: var(--purple); margin-top: 0.75rem; font-weight: 500;">In learned systems, auditability must target behavior over time, not static code artifacts.</p>
+      </div>
+
+      <div style="background: rgba(13,216,146,0.06); border: 1px solid rgba(13,216,146,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1.25rem;">
+        <p style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem;">EVIDENCE</p>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Telemetry schema, public aggregate dashboards, and test-harness description (see <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces</a>).</p>
+      </div>
+
+      <div style="margin-top: 1.25rem;">
+        <span class="test-badge" style="background: rgba(168,85,247,0.15); color: var(--purple);">AUDIT</span>
+      </div>
+    </div>
+
+    <!-- PRIMITIVE 05: Safe Refusal and Fallback Paths -->
+    <div class="primitive-card fade-up" style="border-left: 3px solid var(--cyan); background: linear-gradient(135deg, rgba(6,182,212,0.06) 0%, transparent 50%);">
+      <span class="eyebrow" style="color: var(--cyan);">PRIMITIVE 05</span>
+      <h3 style="color: #fff;">Safe Refusal and Fallback Paths</h3>
+      <p>Every service endpoint must have a documented non-digital alternative. Refusal to use the system must not result in exclusion, penalty, or degraded service.</p>
+
+      <div class="requirement-box">
+        <h4 style="color: var(--cyan);">Requirement</h4>
+        <p style="font-size: 0.95rem;">Design explicit non-digital pathways for every essential service. System failure or user opt-out must never produce exclusion from government services. Interoperate with legacy systems. Maintain paper processes.</p>
+      </div>
+
+      <div class="requirement-box">
+        <h4 style="color: var(--cyan);">Implementation</h4>
+        <ul class="implementation-list" style="--arrow-color: var(--cyan);">
+          <li style="color: var(--text-secondary);">Documented fallback procedures for every service endpoint</li>
+          <li style="color: var(--text-secondary);">Tested degraded-mode operation with regular drills</li>
+          <li style="color: var(--text-secondary);">Staff trained on manual processes</li>
+          <li style="color: var(--text-secondary);">No cross-system penalties for refusal (no "flags" that propagate)</li>
+          <li style="color: var(--text-secondary);">Equivalent service levels for non-digital paths</li>
+          <li style="color: var(--text-secondary);">Interoperability with legacy identification systems</li>
+        </ul>
+      </div>
+
+      <div class="why-section">
+        <h4>Why This Matters</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Consent requires meaningful alternatives. A system you cannot refuse is a system you cannot consent to. Fallback paths make participation voluntary rather than coerced. They also provide resilience against system failures, attacks, and outages. This is the difference between public service and coercive control.</p>
+        <p style="font-size: 0.9rem; color: var(--cyan); margin-top: 0.75rem; font-weight: 500;">For learned systems embedded invisibly in service delivery, safe refusal requires disclosure and a non-AI alternative. An opt-out that is technically impossible is not an opt-out.</p>
+      </div>
+
+      <div style="background: rgba(13,216,146,0.06); border: 1px solid rgba(13,216,146,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1.25rem;">
+        <p style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem;">EVIDENCE</p>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Publicly documented non-digital fallback procedures for each essential endpoint (see <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces</a>).</p>
+      </div>
+
+      <div style="margin-top: 1.25rem;">
+        <span class="test-badge" style="background: rgba(6,182,212,0.15); color: var(--cyan);">EXIT</span>
+      </div>
+    </div>
+
+    <!-- PRIMITIVE 06: Policy as Code with Binding Governance -->
+    <div class="primitive-card fade-up" style="border-left: 3px solid var(--amber); background: linear-gradient(135deg, rgba(245,158,11,0.06) 0%, transparent 50%);">
+      <span class="eyebrow" style="color: var(--amber);">PRIMITIVE 06</span>
+      <h3 style="color: #fff;">Policy as Code with Binding Governance</h3>
+      <p>Operational rules must be encoded in machine-readable policy files, versioned publicly, and subject to governance processes that include affected populations.</p>
+
+      <div class="requirement-box">
+        <h4 style="color: var(--amber);">Requirement</h4>
+        <p style="font-size: 0.95rem;">Encode eligibility rules, access policies, and operational parameters in structured policy files, not buried in application code. Version these policies in public repositories. Establish RFC processes for changes: affected populations comment before deployment, not after.</p>
+        <p style="font-size: 0.9rem; color: var(--amber); margin-top: 0.75rem; font-weight: 500;">For learned systems, policy files must include training objectives, constraint definitions, and update rules, not only runtime access logic.</p>
+      </div>
+
+      <div class="requirement-box">
+        <h4 style="color: var(--amber);">Implementation</h4>
+        <ul class="implementation-list" style="--arrow-color: var(--amber);">
+          <li style="color: var(--text-secondary);">Policy languages (Rego, Cedar, CUE) for machine-readable rules</li>
+          <li style="color: var(--text-secondary);">Public Git repositories for policy definitions with full history</li>
+          <li style="color: var(--text-secondary);">Required public comment periods for changes affecting eligibility</li>
+          <li style="color: var(--text-secondary);">Multi-stakeholder governance bodies with affected-population representation</li>
+          <li style="color: var(--text-secondary);">Published changelogs with rationale for every policy change</li>
+          <li style="color: var(--text-secondary);">Automated enforcement: deployed policies must match published definitions</li>
+        </ul>
+      </div>
+
+      <div class="why-section">
+        <h4>Why This Matters</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);">Rules buried in code are invisible to those they affect. Policy-as-code makes governance observable and contestable. Public versioning creates accountability, you can see what changed and when. Binding governance processes ensure that those affected by rules have input before those rules are enforced.</p>
+      </div>
+
+      <div style="background: rgba(13,216,146,0.06); border: 1px solid rgba(13,216,146,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1.25rem;">
+        <p style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem;">EVIDENCE</p>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Policy-as-code repository link and changelog showing public RFC/comment history (see <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces</a>).</p>
+      </div>
+
+      <div style="margin-top: 1.25rem;">
+        <span class="test-badge" style="background: rgba(245,158,11,0.15); color: var(--amber);">GOVERN</span>
+      </div>
+    </div>
+
+    <!-- Non-negotiable callout -->
+    <div class="fade-up" style="background: linear-gradient(135deg, rgba(239,68,68,0.1) 0%, rgba(239,68,68,0.03) 100%); border: 1px solid rgba(239,68,68,0.25); border-radius: 16px; padding: 2rem; text-align: center; margin: 3rem 0;">
+      <p style="font-size: 1.35rem; font-weight: 600; color: #fff; margin-bottom: 0.75rem;">These primitives are <span style="color: var(--danger);">not optional</span>.</p>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 600px; margin: 0 auto;">They are the architectural preconditions for the five tests. A system built without them cannot pass, no matter what governance documents claim. Design these in from day one, or retrofit them later at enormous cost.</p>
+    </div>
+
+    <!-- Primitives to Tests Diagram -->
+    <div class="fade-up" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 2rem 0;">
+      <img src="/components/svg/diagram-build-primitives.svg" alt="Six build primitives mapped to five corrigibility tests" style="width: 100%; max-width: 800px; margin: 0 auto; display: block;">
+    </div>
+
+    <!-- Related Pages -->
+    <section class="fade-up" style="margin: 3rem 0 2rem;">
+      <h2 class="section-title">Related</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+        <a href="/dpi/analysis/" style="background: linear-gradient(135deg, rgba(129,140,248,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--indigo); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+          <span class="eyebrow" style="color: var(--indigo);">ANALYSIS</span>
+          <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">Why Corrigibility</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Structural necessity</p>
+        </a>
+        <a href="/dpi/require/" style="background: linear-gradient(135deg, rgba(245,158,11,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--amber); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+          <span class="eyebrow" style="color: var(--amber);">LEGAL</span>
+          <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">How to Require</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Procurement language</p>
+        </a>
+        <a href="/dpi/definitions/" style="background: linear-gradient(135deg, rgba(6,182,212,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--cyan); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+          <span class="eyebrow" style="color: var(--cyan);">INTERNATIONAL</span>
+          <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">Definitions</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">G20, UNDP, World Bank</p>
+        </a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+        <a href="/dpi/learned-systems/" style="background: linear-gradient(135deg, rgba(168,85,247,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--purple); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+          <span class="eyebrow" style="color: var(--purple);">ANNEX</span>
+          <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">Learned Systems</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Stochastic governance</p>
+        </a>
+        <a href="/dpi/annex/exposure-surfaces/" style="background: linear-gradient(135deg, rgba(13,216,146,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+          <span class="eyebrow" style="color: var(--accent);">ANNEX</span>
+          <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">Exposure Surfaces</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Minimal artifacts</p>
+        </a>
+        <a href="/dpi/" style="background: linear-gradient(135deg, rgba(13,216,146,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+          <span class="eyebrow" style="color: var(--accent);">FRAMEWORK</span>
+          <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">DPI Framework</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Five tests overview</p>
+        </a>
+      </div>
+    </section>
+
+    <a href="/dpi/" class="back-link fade-up" style="display: inline-block; margin-top: 1rem;">← Back to DPI Framework</a>
+
+    <p class="fade-up" style="margin-top: 3rem; font-size: 0.85rem; color: var(--text-muted);">Authored by <a href="https://anivar.net" style="color: var(--text-secondary);" target="_blank" rel="noopener">Anivar Aravind</a></p>
+
+  </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/js/components.js"></script>
+  <script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

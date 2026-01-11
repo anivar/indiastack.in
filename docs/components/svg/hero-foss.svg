@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- FOSS/Observability: Eye trying to see into a black box -->
+
+    <!-- Central black box -->
+    <rect x="140" y="140" width="120" height="120" rx="8" fill="rgba(20,20,20,0.9)" stroke="#ef4444" stroke-width="2"/>
+
+    <!-- Question marks inside black box (hidden/unknown) -->
+    <text x="170" y="190" font-family="monospace" font-size="24" fill="rgba(239,68,68,0.3)">?</text>
+    <text x="200" y="210" font-family="monospace" font-size="24" fill="rgba(239,68,68,0.3)">?</text>
+    <text x="220" y="185" font-family="monospace" font-size="24" fill="rgba(239,68,68,0.3)">?</text>
+
+    <!-- Lock on the box -->
+    <rect x="185" y="250" width="30" height="24" rx="4" stroke="#ef4444" stroke-width="2" fill="rgba(239,68,68,0.15)"/>
+    <path d="M193 250V242C193 236 200 230 207 230S221 236 221 242V250" stroke="#ef4444" stroke-width="2" fill="none"/>
+
+    <!-- Eye trying to observe (blocked) -->
+    <g transform="translate(200, 70)">
+        <ellipse cx="0" cy="0" rx="50" ry="25" stroke="#0dd892" stroke-width="2" fill="none"/>
+        <circle cx="0" cy="0" r="12" fill="rgba(13,216,146,0.3)" stroke="#0dd892" stroke-width="2"/>
+        <circle cx="0" cy="0" r="5" fill="#0dd892"/>
+    </g>
+
+    <!-- Blocked vision lines (dashed) -->
+    <line x1="200" y1="95" x2="200" y2="140" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+    <line x1="160" y1="95" x2="160" y2="140" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+    <line x1="240" y1="95" x2="240" y2="140" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+
+    <!-- X marks on vision lines -->
+    <g transform="translate(200, 118)" opacity="0.8">
+        <line x1="-5" y1="-5" x2="5" y2="5" stroke="#ef4444" stroke-width="2"/>
+        <line x1="5" y1="-5" x2="-5" y2="5" stroke="#ef4444" stroke-width="2"/>
+    </g>
+
+    <!-- Feedback loop diagram (broken) -->
+    <g transform="translate(200, 340)">
+        <text x="0" y="0" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.5)">CITIZENS</text>
+        <path d="M-50 10 L-50 -30 L-80 -30" stroke="#0dd892" stroke-width="1.5" fill="none" opacity="0.5" stroke-dasharray="4 4"/>
+        <path d="M50 10 L50 -30 L80 -30" stroke="#ef4444" stroke-width="1.5" fill="none" opacity="0.5"/>
+        <text x="-80" y="-20" font-family="monospace" font-size="7" fill="#0dd892" opacity="0.6">OBSERVE</text>
+        <text x="80" y="-20" font-family="monospace" font-size="7" fill="#ef4444" opacity="0.6">BLOCKED</text>
+    </g>
+
+    <!-- Code symbols that should be visible -->
+    <g opacity="0.4">
+        <text x="70" y="180" font-family="monospace" font-size="10" fill="#0dd892">&lt;/&gt;</text>
+        <text x="310" y="180" font-family="monospace" font-size="10" fill="#0dd892">{...}</text>
+        <text x="70" y="220" font-family="monospace" font-size="10" fill="#0dd892">fn()</text>
+        <text x="310" y="220" font-family="monospace" font-size="10" fill="#0dd892">[...]</text>
+    </g>
+
+    <!-- Arrows pointing to code (but blocked) -->
+    <path d="M100 180 L135 180" stroke="#0dd892" stroke-width="1" fill="none" opacity="0.3"/>
+    <path d="M300 180 L265 180" stroke="#0dd892" stroke-width="1" fill="none" opacity="0.3"/>
+
+    <!-- Labels -->
+    <text x="200" y="300" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444" letter-spacing="0.1em">BLACK BOX</text>
+    <text x="200" y="395" text-anchor="middle" font-family="monospace" font-size="10" fill="rgba(255,255,255,0.4)">NO FEEDBACK LOOP</text>
+</svg>

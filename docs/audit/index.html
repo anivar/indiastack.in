@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can You Audit It? | India Stack Watch</title>
+  <meta name="description" content="Security audit analysis of India Stack components. RTI-exempt systems, no public code review, no independent verification. The WEF called the Aadhaar breach the largest in history.">
+  <meta name="keywords" content="Aadhaar security audit, India Stack audit, DPI security, Aadhaar data breach, UIDAI RTI exempt, biometric security">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="India Stack Watch">
+  <link rel="canonical" href="https://indiastack.in/audit/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="og:title" content="Can You Audit India Stack?">
+  <meta property="og:description" content="No source code. No independent audits. RTI-exempt. The WEF Global Risks Report called it the largest data breach in history.">
+  <meta property="og:url" content="https://indiastack.in/audit/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@indiastackwatch">
+  <meta name="twitter:title" content="Can You Audit India Stack?">
+  <meta name="twitter:description" content="No source code. No independent audits. RTI-exempt. The WEF Global Risks Report called it the largest data breach in history.">
+  <meta name="twitter:image" content="https://indiastack.in/og-image.png">
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="msapplication-TileColor" content="#0a0a0a">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "Can You Audit India Stack?",
+    "description": "Security audit analysis of India Stack components. RTI-exempt systems, no public code review, no independent verification. The WEF called the Aadhaar breach the largest in history.",
+    "url": "https://indiastack.in/audit/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-08",
+    "publisher": {
+      "@type": "Organization",
+      "name": "India Stack Watch",
+      "url": "https://indiastack.in",
+      "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}
+    },
+    "headline": "Can You Audit India Stack?",
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/audit/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"}
+  }
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    /* Audit page - green accent theme */
+    .gradient-orb.orb-1 { background: radial-gradient(circle, #0dd892 0%, transparent 70%); }
+    .gradient-orb.orb-2 { background: radial-gradient(circle, #059669 0%, transparent 70%); }
+
+    /* Page-specific finding cards */
+    .finding-card { background: #0c0c0c; border-left: 3px solid #ef4444; border-radius: 0 8px 8px 0; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+    .finding-card h3 { font-size: 1rem; font-weight: 500; color: rgba(255,255,255,0.9); margin-bottom: 0.5rem; }
+    .finding-card .source { font-family: var(--font-mono); font-size: 0.7rem; color: #0dd892; margin-bottom: 0.5rem; }
+    .finding-card p { font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.5; margin-bottom: 0.5rem; }
+    .finding-card .highlight { color: #ef4444; font-weight: 500; }
+
+    .quote-box { background: rgba(239, 68, 68, 0.08); border-left: 3px solid #ef4444; padding: 1.25rem 1.5rem; margin: 2rem 0; border-radius: 0 8px 8px 0; }
+    .quote-box blockquote { color: rgba(255,255,255,0.9); font-size: 0.95rem; line-height: 1.6; font-style: italic; margin-bottom: 0.5rem; }
+    .quote-box cite { font-size: 0.8rem; color: rgba(255,255,255,0.55); font-style: normal; }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"Audit","item":"https://indiastack.in/audit/"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can anyone independently audit Aadhaar's security?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Independent security audits are not permitted. UIDAI is RTI-exempt. Source code is not available. Even the CAG's government audit was 'partial because of non-transparency' according to their own report."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What did the CAG find in their Aadhaar audit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CAG Report No. 24 of 2021 found 38% of enrollments (45 crore out of 115 crore) had missing identity/address documents, 4.75 lakh duplicate Aadhaars were cancelled, no data archiving policy existed despite having one of the world's largest biometric databases, and no independent security audits were conducted."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What security vulnerabilities were found in UPI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A 2019 government security audit found 40+ vulnerabilities including several rated 'critical' and 'high' risk. Card numbers were stored in plain text, RuPay numbers visible in server logs, and unencrypted data in the ATM network. USENIX 2020 research found design-level flaws in UPI 1.0 that could allow remote bank account compromise."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why did the WEF call Aadhaar the largest data breach?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The World Economic Forum Global Risks Report 2019 stated: 'The largest [data breach] was in India, where the government ID database, Aadhaar, reportedly suffered multiple breaches that potentially compromised the records of all 1.1 billion registered citizens.'"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why are NPCI and ONDC RTI-exempt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NPCI and ONDC are structured as Section 8 companies (private non-profits) which exempts them from the Right to Information Act. This means citizens cannot file RTI requests to access information about these systems that process their data and govern their transactions."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- Visual effects -->
+  <div class="scan-line"></div>
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div id="site-header"></div>
+  <main id="main-content" role="main">
+  <div class="container">
+    <section class="hero-section fade-up">
+      <div class="hero-content">
+        <div class="eyebrow text-accent">Test 03 · Independent Verifiability</div>
+<h1 class="hero-title">Can You <span class="accent">Audit</span> It?</h1>
+        <p class="hero-subtitle">Independent security audits? <strong>Not allowed.</strong> Code review? Not possible. Even government audits reveal systemic failures, but remain largely hidden.</p>
+      </div>
+      <div class="hero-illustration accent">
+        <img src="/components/svg/hero-audit.svg" alt="Audit test illustration" width="500" height="500">
+      </div>
+    </section>
+    <!-- Quick Test Grid -->
+    <div class="quick-test">
+      <div class="quick-test-item">
+        <span class="q">Independent security audit allowed?</span>
+        <span class="a no">No</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">RTI requests answered?</span>
+        <span class="a no">Stonewalled</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">Source code available for review?</span>
+        <span class="a no">No</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">CAG audit finding on documents?</span>
+        <span class="a no">38% Missing</span>
+      </div>
+    </div>
+
+    <div class="definition accent">
+      <div class="definition-label text-accent">The Pattern</div>
+      <p><strong class="text-accent">Can't verify? Can't correct.</strong> Audit keeps complex systems honest. Without it, errors pile up, power concentrates, the system drifts from what it claims to do.</p>
+    </div>
+
+    <div class="ascii-diagram">
+<pre>
+<span class="text-accent">THE VERIFICATION LOOP: OPEN vs CLOSED SYSTEMS</span>
+
+<span class="text-accent">AUDITABLE SYSTEM (healthy governance)</span>
+
+  ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+  │  CITIZENS │ ──────▶ │  EXAMINE  │ ──────▶ │  CORRECT  │
+  │       │     │  CODE   │     │  ERRORS  │
+  └─────────────┘     └─────────────┘     └──────┬──────┘
+     ▲                        │
+     │          FEEDBACK           │
+     └────────────────────────────────────────────────┘
+
+
+<span class="text-rose">NON-AUDITABLE SYSTEM (India Stack)</span>
+
+  ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+  │  CITIZENS │ ──────▶ │ <span class="text-rose">BLACK BOX</span> │ ──────▶ │ <span class="text-rose">NO ACCESS</span> │
+  │ (subjects) │     │ (RTI-exempt)│     │ <span class="text-rose">TO CORRECT</span> │
+  └─────────────┘     └─────────────┘     └──────┬──────┘
+     │                        │
+     │        <span class="text-rose">NO FEEDBACK</span>           ✕
+     ▼
+  ┌─────────────────────────────────────────────────────────────┐
+  │ <span class="text-rose">ERRORS ACCUMULATE. 38% MISSING DOCUMENTS. 210+ BREACHES.</span>   │
+  │ <span class="text-rose">CITIZENS DIE. SYSTEM INSISTS IT'S CORRECT.</span>          │
+  └─────────────────────────────────────────────────────────────┘
+</pre>
+    </div>
+
+
+
+<div class="quote-box">
+      <blockquote>"Public infrastructure" that cannot be independently audited is not public. It is a black box with public funding.</blockquote>
+    </div>
+
+    <div class="info-box">
+      <h3>What These Government Audits Are</h3>
+      <p>The CAG and Parliamentary reports cited below are <strong>not independent security audits</strong>. They are government reviews of government systems, partial, years delayed, and limited by what UIDAI chose to share. RTI requests are stonewalled. Independent researchers have no access.</p>
+      <p class="mt-1">Yet even these constrained reviews reveal fundamental problems. Imagine what independent audits would find.</p>
+    </div>
+
+    <div class="section-label">UIDAI / Aadhaar: CAG Report No. 24 of 2021</div>
+
+    <div class="finding-card">
+      <div class="source">CAG Audit (2014-2019)</div>
+      <h3>38% Enrolments Missing POI/POA Documents</h3>
+      <p>45 crore out of 115 crore Aadhaar enrolments have <span class="highlight">missing identity/address documents</span>. Enrolment agencies did not transfer documentation to UIDAI. "Are the people who sign up actually who they say they are? UIDAI may not know."</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="source">CAG Audit (2014-2019)</div>
+      <h3>4.75 Lakh Duplicate Aadhaars Cancelled</h3>
+      <p>On average, <span class="highlight">145 duplicate Aadhaars per day</span> were generated over 9 years since 2010 that required cancellation.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="source">CAG Audit (2014-2019)</div>
+      <h3>No Data Archiving Policy</h3>
+      <p>Despite maintaining <span class="highlight">one of the world's largest biometric databases</span>, UIDAI had no data archiving policy, a "vital storage management best practice."</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="source">CAG Audit (2014-2019)</div>
+      <h3>Privacy at Risk</h3>
+      <p>UIDAI had not ensured that client applications used by ecosystem partners <span class="highlight">were not capable of storing personal information</span>. No encryption algorithm specified for Aadhaar Data Vault.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="source">CAG Audit (2014-2019)</div>
+      <h3>No Independent Security Audits</h3>
+      <p>"No REs or ASAs had their operations audited annually either by a certified Information Systems Auditor or by UIDAI."</p>
+    </div>
+
+    <div class="quote-box">
+      <blockquote>"The audit of functioning of the UIDAI is partial because of non-transparency."</blockquote>
+      <cite>- CAG Report No. 24 of 2021</cite>
+    </div>
+
+    <div class="finding-card">
+      <div class="source">World Economic Forum Global Risks Report 2019</div>
+      <h3>"Largest Data Breach in the World"</h3>
+      <p>"The largest [data breach] was in India, where the government ID database, Aadhaar, reportedly suffered <span class="highlight">multiple breaches that potentially compromised the records of all 1.1 billion registered citizens</span>."</p>
+    </div>
+
+    <div class="section-label">Parliamentary Standing Committee (2011-2013)</div>
+
+    <div class="info-box">
+      <h3>Rejected Aadhaar Three Times</h3>
+      <ul>
+        <li><strong>Dec 2011:</strong> 31-member committee led by Yashwant Sinha rejected NIAI Bill on privacy, identity theft, security concerns</li>
+        <li><strong>Dec 2012:</strong> Committee rejected UID project again</li>
+        <li><strong>Dec 2013:</strong> Stated UIDAI was "functioning without any legal basis"</li>
+      </ul>
+      <p class="mt-1">"The issue of aadhaar numbers and incurring expenditure from the exchequer by the Government is a clear <span class="highlight">circumvention of Parliament</span>."</p>
+    </div>
+
+
+    <div class="section-label">Function Creep</div>
+
+    <div class="quote-box">
+      <blockquote>"<strong>Coercion, illegality, contempt of court and exclusion</strong> have become characteristics by which people recognise the UID project."</blockquote>
+      <cite>- Usha Ramanathan</cite>
+    </div>
+
+    <div class="info-box">
+      <h3>Voluntary → Compulsory</h3>
+      <p>"First Aadhaar was a voluntary exercise, then it was made compulsory." What began as optional ID for welfare became mandatory for:</p>
+      <ul>
+        <li>Bank accounts (2017)</li>
+        <li>Mobile SIM cards (2017)</li>
+        <li>Tax filing / PAN (2017)</li>
+        <li>School admissions</li>
+        <li>Midday meals for children</li>
+        <li>Pension disbursement</li>
+        <li>Scholarship applications</li>
+        <li>HIV/AIDS treatment access</li>
+      </ul>
+      <p class="mt-1">Supreme Court struck down private sector use in 2018. Government <span class="highlight">re-legislated it</span> through amendments by 2025.</p>
+    </div>
+
+    <div class="section-label">NPCI / UPI: Government Security Audit (2019)</div>
+
+    <div class="finding-card">
+      <div class="source">Govt Security Audit, March 2019</div>
+      <h3>40+ Security Vulnerabilities Found</h3>
+      <p>Including several rated <span class="highlight">'critical' and 'high' risk</span>. Card numbers stored in plain text. RuPay card numbers visible in server logs. Unencrypted data in the 250,000 ATM network.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="source">Cybersecurity Experts</div>
+      <h3>Audit Quality Concerns</h3>
+      <p>"Audits are done to satisfy the minimum compliance requirement and not to identify the risk exposure." Most audits awarded via <span class="highlight">lowest bidder (L1) tendering</span>, quality compromised.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="source">LocalCircles Survey, 2025</div>
+      <h3>1 in 5 UPI Users Defrauded</h3>
+      <p>Digital payment frauds (including UPI) accounted for <span class="highlight">56.5% of all banking frauds</span> in FY25, with losses totaling ₹520 crore.</p>
+    </div>
+
+    <div class="section-label">UPI Security Research (USENIX 2020)</div>
+
+    <div class="finding-card">
+      <div class="source">Renuka Kumar et al., University of Michigan</div>
+      <h3>Multi-Factor Authentication Design Flaws</h3>
+      <p>Reverse-engineering of 7 popular UPI apps revealed <span class="highlight">design-level flaws in UPI 1.0</span> that could allow a victim's bank account to be linked and emptied, even if the victim had never used a UPI app. Attacks were scalable and remote.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="source">CVE Database</div>
+      <h3>Multiple CVEs in BHIM (NPCI's Official App)</h3>
+      <p><span class="highlight">CVE-2017-9821:</span> Hardcoded SMS validation strings (AK-NPCIMB, IM-NPCIBM, VK-NPCIBM) enabled authentication bypass.</p>
+      <p><span class="highlight">CVE-2017-9819:</span> OTP feature not properly restricted, easier to bypass authentication.</p>
+      <p><span class="highlight">CVE-2017-9820:</span> Custom keypad input exposed to Accessibility service.</p>
+      <p><span class="highlight">CVE-2018-15660, CVE-2018-15661:</span> Additional vulnerabilities reported to CERT-US.</p>
+    </div>
+
+    <div class="section-label">ABDM / Ayushman Bharat</div>
+
+    <div class="finding-card">
+      <div class="source">MediaNama, IFF (2024)</div>
+      <h3>Patient Data Publicly Exposed</h3>
+      <p>Names, discharge dates, and payment amounts of patients <span class="highlight">published on NHA websites</span>, violating their own Health Data Management Policy. Up to 28 Cr beneficiary details potentially public.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="source">FIR, Lucknow (November 2025)</div>
+      <h3>Fraud: 300+ Fake Ayushman Cards</h3>
+      <p>Aadhaar-linked mobile numbers changed without knowledge. Fraudsters accessed government health portals using unauthorized OTPs. Union Health Ministry ordered internal audit.</p>
+    </div>
+
+    <div class="section-label">ONDC / Account Aggregator</div>
+
+    <div class="info-box">
+      <h3>Cannot Be Audited by Public</h3>
+      <ul>
+        <li><strong>ONDC:</strong> Section 8 company. RTI Act exempt. Cannot file writ petition for rights violations.</li>
+        <li><strong>Account Aggregator:</strong> Self-regulated by Sahamati (private non-profit). Biennial audits are self-administered.</li>
+        <li><strong>NPCI:</strong> Similar "not for profit" structure. No public accountability mechanism.</li>
+      </ul>
+    </div>
+
+    <div class="section-label">What "Auditable" Should Mean</div>
+
+    <div class="info-box">
+      <h3>True Public Infrastructure</h3>
+      <p>Open source code. Public audit logs. Independent security research welcome. Bug bounty programs. RTI-accessible. Parliamentary oversight. Judicial review.</p>
+    </div>
+
+    <div class="info-box danger">
+      <h3>"India Stack" Is PR Branding</h3>
+      <p>There is no single "India Stack." It is a marketing term for projects owned and controlled by different entities:</p>
+      <ul>
+        <li><strong>Aadhaar:</strong> UIDAI (government trust), RTI-exempt, CAG found 38% missing documents, no independent audit access</li>
+        <li><strong>UPI:</strong> NPCI (private bank consortium), 2019 govt audit found 40+ vulnerabilities, code not public</li>
+        <li><strong>Account Aggregator:</strong> ReBIT spec, Sahamati self-regulation, private oversight of private implementation</li>
+        <li><strong>ONDC:</strong> Section 8 company, RTI-exempt, cannot file writ petition</li>
+        <li><strong>ABDM:</strong> NHA, patient data exposed on public dashboards, violating own policy</li>
+      </ul>
+      <p class="mt-1"><strong>None of these allow independent security audits.</strong> Even Aadhaar, the oldest component, has never been properly audited. CAG admitted their review was "partial because of non-transparency." Parliamentary Standing Committee called it "circumvention of Parliament." RTI queries are stonewalled.</p>
+    </div>
+
+    <div class="quote-box warning mt-2">
+      <blockquote>"Aadhaar is <strong>defective by design</strong>. By the time they understand it, many will die, many others will be excluded, and still others will be victims of identity fraud. Finally, they will understand and Aadhaar will be dead. But it is a long process. What we can do now is improve the speed of this learning process."</blockquote>
+      <cite>- Anivar Aravind, <a href="https://timesofindia.indiatimes.com/city/bengaluru/supreme-court-judgement-on-aadhaar-its-victory-for-some-partial-success-failure-for-others/articleshow/65974597.cms" target="_blank" class="text-danger">Times of India</a> (September 2018)</cite>
+    </div>
+
+    <div class="info-box warning mt-2">
+      <h3>Systems Without Error Correction</h3>
+      <p>Healthy systems have feedback loops. When something fails, the failure is detected, reported, and corrected. India Stack has no such mechanism.</p>
+      <ul>
+        <li>When biometric authentication fails, the system does not record why, it just denies service</li>
+        <li>When citizens die due to welfare exclusion, there is no automatic correction</li>
+        <li>When data is breached, there is no public disclosure requirement</li>
+        <li>When the system makes errors, the citizen must prove the error, the system assumes it is right</li>
+      </ul>
+      <p class="mt-1">A system that cannot detect its own failures will amplify them.</p>
+    </div>
+
+    <div class="verdict">
+      <div class="verdict-label">Verdict</div>
+      <div class="verdict-text">No Independent Audit Allowed. Government's Own Audits Reveal Failure.</div>
+    </div>
+
+    <div class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li><a href="https://cag.gov.in/webroot/uploads/download_audit_report/2021/24%20of%202021_UIDAI-0624d8136a02d72.65885742.pdf" target="_blank">CAG Report No. 24 of 2021. UIDAI Functioning</a></li>
+        <li><a href="https://www.moneylife.in/article/aadhaar-data-breach-largest-in-the-world-says-wefs-global-risk-report-and-avast/56384.html" target="_blank">WEF Global Risks Report: Aadhaar "Largest Breach"</a></li>
+        <li>Missing POI/POA Documents. UIDAI struggle to collate ID proof</li>
+        <li><a href="https://www.moneylife.in/article/security-audit-found-40-vulnerabilities-in-npci-including-several-critical-and-high-risk-report/61063.html" target="_blank">Moneylife: NPCI Security Vulnerabilities</a></li>
+        <li><a href="https://uidai.gov.in/images/report_of_the_departmental_standing_committee_on_finance_on_the_bill_13012017.pdf" target="_blank">Parliamentary Standing Committee Report</a></li>
+        <li><a href="https://internetfreedom.in/ab-pm-jay-patient-privacy/" target="_blank">IFF: AB PM-JAY Patient Privacy</a></li>
+        <li><a href="https://internetfreedom.in/ondc-an-explainer/" target="_blank">IFF: ONDC Explainer</a></li>
+        <li><a href="https://medium.com/karana/aadhaar-a-self-certified-id-a63e299b36f5" target="_blank">Kaarana: Aadhaar as Self-Certified ID</a></li>
+        <li><a href="https://medium.com/karana/aadhaar-enrolment-costs-bc17f0d30018" target="_blank">Kaarana: 11% Enrollment Rejection Rate</a></li>
+        <li><a href="https://medium.com/karana/extracting-personal-phone-numbers-linked-to-aadhaar-801d4802c0c8" target="_blank">Kaarana: Phone Number Extraction Vulnerability</a></li>
+        <li><a href="https://www.usenix.org/conference/usenixsecurity20/presentation/kumar" target="_blank">USENIX Security 2020: UPI Security Analysis (Renuka Kumar et al.)</a></li>
+        <li><a href="https://hasgeek.com/cashlessconsumer/security-analysis-of-unified-payments-interface-and-payment-apps-in-india-paper-presentation/" target="_blank">CashlessConsumer: UPI Security Presentation</a></li>
+        <li><a href="https://cashlessconsumer.in" target="_blank">CashlessConsumer: Consumer Collective on Digital Payments</a></li>
+      </ul>
+    </div>
+
+    <a href="/dpi/" class="page-crosslink fade-up" style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; background: rgba(129,140,248,0.06); border: 1px solid rgba(129,140,248,0.2); border-radius: 12px; text-decoration: none; margin: 2rem 0;">
+      <span style="color: var(--text-secondary);">Universal AUDIT test for any system → <strong style="color: var(--indigo);">DPI Corrigibility Framework</strong></span>
+      <span style="color: var(--indigo);">→</span>
+    </a>
+    </div>
+
+    <div class="media-section">
+      <div class="media-label">Concerns documented by</div>
+      <div class="media-logos">
+        <a href="https://www.washingtonpost.com/news/theworldpost/wp/2018/08/09/aadhaar/" target="_blank" class="media-logo" title="The Washington Post">
+          <svg viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Georgia, Times, serif" font-size="14" font-style="italic" fill="#666">The Washington Post</text></svg>
+        </a>
+        <a href="https://techcrunch.com/2025/02/02/india-expands-aadhaar-authentication-for-businesses-raising-privacy-concerns/" target="_blank" class="media-logo" title="TechCrunch">
+          <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#666">TechCrunch</text></svg>
+        </a>
+        <a href="https://www.hrw.org/news/2018/01/13/india-identification-project-threatens-rights" target="_blank" class="media-logo" title="Human Rights Watch">
+          <svg viewBox="0 0 150 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="500" fill="#666">Human Rights Watch</text></svg>
+        </a>
+        <a href="https://www.aljazeera.com/news/2018/1/5/india-probes-breach-of-biometric-identity-database" target="_blank" class="media-logo" title="Al Jazeera">
+          <svg viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#666">Al Jazeera</text></svg>
+        </a>
+        <a href="https://www.moneylife.in/article/aadhaar-data-breach-largest-in-the-world-says-wefs-global-risk-report-and-avast/56384.html" target="_blank" class="media-logo" title="World Economic Forum">
+          <svg viewBox="0 0 32 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Courier, monospace" font-size="13" font-weight="600" fill="#666">WEF</text></svg>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+    <div id="site-footer"></div>
+<script>
+// Mobile menu toggle
+
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal-up, .fade-up, .content-section').forEach(el => observer.observe(el));
+
+// Magnetic hover effect for cards
+document.querySelectorAll('.nav-card, .component-card, .info-box, .gov-card, .ai-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateZ(10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease';
+  });
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.dataset.open === 'true';
+    navLinks.dataset.open = !isOpen;
+    menuToggle.setAttribute('aria-expanded', !isOpen);
+  });
+}
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+</script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

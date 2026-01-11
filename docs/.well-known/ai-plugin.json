@@ -1,0 +1,10 @@
+{
+  "schema_version": "v1",
+  "name": "India Stack Watch",
+  "description": "Forensic documentation of India's Digital Public Infrastructure. Structural audit of SPMI (State-Blessed Private Monopoly Infrastructure).",
+  "url": "https://indiastack.in",
+  "logo_url": "https://indiastack.in/og-image.svg",
+  "legal_info_url": "https://indiastack.in/",
+  "contact_email": "",
+  "keywords": ["India Stack", "DPI", "Aadhaar", "UPI", "NPCI", "digital infrastructure", "surveillance", "privacy", "SPMI", "SPOF"]
+}

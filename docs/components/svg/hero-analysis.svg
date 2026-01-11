@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <defs>
+    <filter id="glow-accent" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#0dd892" flood-opacity="0.4"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-indigo" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#818cf8" flood-opacity="0.5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-red" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#ef4444" flood-opacity="0.4"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Arrow marker -->
+    <marker id="arrow-accent" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#0dd892"/>
+    </marker>
+    <marker id="arrow-indigo" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#818cf8"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <!-- Background circles -->
+  <circle cx="200" cy="200" r="180" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+  <circle cx="200" cy="200" r="140" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4 4"/>
+  <circle cx="200" cy="200" r="100" fill="none" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="2 4"/>
+
+  <!-- Title -->
+  <text x="200" y="45" fill="#666" font-family="monospace" font-size="10" text-anchor="middle" letter-spacing="0.15em">FEEDBACK ANALYSIS</text>
+
+  <!-- Central SYSTEM node -->
+  <g transform="translate(200, 200)">
+    <rect x="-50" y="-25" width="100" height="50" rx="6" fill="#111" stroke="#818cf8" stroke-width="2" filter="url(#glow-indigo)"/>
+    <text x="0" y="-5" fill="#818cf8" font-family="monospace" font-size="8" text-anchor="middle" letter-spacing="0.1em">SYSTEM</text>
+    <text x="0" y="10" fill="#666" font-family="monospace" font-size="7" text-anchor="middle">S(t)</text>
+  </g>
+
+  <!-- POPULATION node (left) -->
+  <g transform="translate(70, 200)">
+    <circle cx="0" cy="0" r="35" fill="#111" stroke="#0dd892" stroke-width="2" filter="url(#glow-accent)"/>
+    <text x="0" y="-5" fill="#0dd892" font-family="monospace" font-size="7" text-anchor="middle">AFFECTED</text>
+    <text x="0" y="8" fill="#0dd892" font-family="monospace" font-size="7" text-anchor="middle">POP.</text>
+  </g>
+
+  <!-- CORRECTION node (top) -->
+  <g transform="translate(200, 90)">
+    <rect x="-40" y="-18" width="80" height="36" rx="4" fill="#111" stroke="#0dd892" stroke-width="1.5"/>
+    <text x="0" y="5" fill="#0dd892" font-family="monospace" font-size="8" text-anchor="middle">CORRECTION</text>
+  </g>
+
+  <!-- GRIEVANCE node (bottom) - blocked -->
+  <g transform="translate(200, 310)">
+    <rect x="-40" y="-18" width="80" height="36" rx="4" fill="#111" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 2" filter="url(#glow-red)"/>
+    <text x="0" y="5" fill="#ef4444" font-family="monospace" font-size="8" text-anchor="middle">GRIEVANCE</text>
+  </g>
+
+  <!-- Corrigible feedback loop (green, working) -->
+  <!-- Population → System (input) -->
+  <path d="M 105 200 L 145 200" stroke="#0dd892" stroke-width="2" marker-end="url(#arrow-accent)"/>
+
+  <!-- System → Correction (output goes up) -->
+  <path d="M 200 170 L 200 130" stroke="#0dd892" stroke-width="2" marker-end="url(#arrow-accent)" opacity="0.8"/>
+
+  <!-- Correction → Population (feedback returns) -->
+  <path d="M 160 90 Q 70 90 70 165" stroke="#0dd892" stroke-width="2" marker-end="url(#arrow-accent)" opacity="0.8"/>
+
+  <!-- Incorrigible path (red, blocked) -->
+  <!-- System → Grievance (output goes down) -->
+  <path d="M 200 230 L 200 290" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-red)" opacity="0.6" stroke-dasharray="4 2"/>
+
+  <!-- Grievance blocked - X mark -->
+  <g transform="translate(200, 310)">
+    <line x1="-50" y1="25" x2="-35" y2="40" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+    <line x1="-50" y1="40" x2="-35" y2="25" stroke="#ef4444" stroke-width="2" opacity="0.6"/>
+  </g>
+
+  <!-- Output arrow (right side) -->
+  <g transform="translate(330, 200)">
+    <circle cx="0" cy="0" r="25" fill="#111" stroke="#666" stroke-width="1"/>
+    <text x="0" y="4" fill="#666" font-family="monospace" font-size="7" text-anchor="middle">OUTPUT</text>
+  </g>
+  <path d="M 255 200 L 300 200" stroke="#666" stroke-width="1.5" marker-end="url(#arrow-indigo)" opacity="0.5"/>
+
+  <!-- Labels -->
+  <!-- ∂S/∂G = 0 equation (grievance doesn't change system) -->
+  <g transform="translate(280, 310)">
+    <text x="0" y="0" fill="#ef4444" font-family="'Times New Roman', serif" font-size="14" font-style="italic">∂S/∂G</text>
+    <text x="38" y="0" fill="#ef4444" font-family="'Times New Roman', serif" font-size="14">=</text>
+    <text x="52" y="0" fill="#ef4444" font-family="'Times New Roman', serif" font-size="14">0</text>
+  </g>
+
+  <!-- V(controller) ≥ V(disturbance) -->
+  <g transform="translate(70, 310)">
+    <rect x="-55" y="-14" width="110" height="28" rx="4" fill="rgba(13,216,146,0.1)" stroke="rgba(13,216,146,0.3)" stroke-width="1"/>
+    <text x="0" y="4" fill="#0dd892" font-family="'Times New Roman', serif" font-size="11" font-style="italic" text-anchor="middle">V(c) ≥ V(d)</text>
+  </g>
+
+  <!-- Corrigible label -->
+  <g transform="translate(70, 90)">
+    <text x="0" y="0" fill="#0dd892" font-family="monospace" font-size="9" text-anchor="middle" font-weight="600">CORRIGIBLE</text>
+    <text x="0" y="14" fill="#666" font-family="monospace" font-size="7" text-anchor="middle">feedback flows</text>
+  </g>
+
+  <!-- Incorrigible label -->
+  <g transform="translate(330, 310)">
+    <text x="0" y="0" fill="#ef4444" font-family="monospace" font-size="8" text-anchor="middle">INCORRIGIBLE</text>
+    <text x="0" y="12" fill="#666" font-family="monospace" font-size="6" text-anchor="middle">signal absorbed</text>
+  </g>
+
+  <!-- Five tests around the edge -->
+  <g transform="translate(330, 90)" opacity="0.7">
+    <rect x="-22" y="-8" width="44" height="16" rx="3" fill="#111" stroke="#06b6d4" stroke-width="1"/>
+    <text x="0" y="4" fill="#06b6d4" font-family="monospace" font-size="7" text-anchor="middle">EXIT</text>
+  </g>
+  <g transform="translate(360, 140)" opacity="0.7">
+    <rect x="-22" y="-8" width="44" height="16" rx="3" fill="#111" stroke="#3b82f6" stroke-width="1"/>
+    <text x="0" y="4" fill="#3b82f6" font-family="monospace" font-size="7" text-anchor="middle">CODE</text>
+  </g>
+  <g transform="translate(360, 260)" opacity="0.7">
+    <rect x="-22" y="-8" width="44" height="16" rx="3" fill="#111" stroke="#a855f7" stroke-width="1"/>
+    <text x="0" y="4" fill="#a855f7" font-family="monospace" font-size="7" text-anchor="middle">AUDIT</text>
+  </g>
+  <g transform="translate(40, 140)" opacity="0.7">
+    <rect x="-26" y="-8" width="52" height="16" rx="3" fill="#111" stroke="#f59e0b" stroke-width="1"/>
+    <text x="0" y="4" fill="#f59e0b" font-family="monospace" font-size="7" text-anchor="middle">GOVERN</text>
+  </g>
+  <g transform="translate(40, 260)" opacity="0.7">
+    <rect x="-22" y="-8" width="44" height="16" rx="3" fill="#111" stroke="#f472b6" stroke-width="1"/>
+    <text x="0" y="4" fill="#f472b6" font-family="monospace" font-size="7" text-anchor="middle">FORK</text>
+  </g>
+</svg>

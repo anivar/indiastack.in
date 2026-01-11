@@ -1,0 +1,78 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Surveillance: NATGRID, NPR, panopticon, asymmetric observation -->
+
+    <!-- Large surveillance eye -->
+    <ellipse cx="200" cy="180" rx="130" ry="65" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.8"/>
+    <ellipse cx="200" cy="180" rx="90" ry="45" stroke="#ef4444" stroke-width="2" fill="rgba(239,68,68,0.1)" opacity="0.7"/>
+    <circle cx="200" cy="180" r="35" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="200" cy="180" r="15" fill="#ef4444"/>
+
+    <!-- Scanning beam lines radiating from eye -->
+    <g stroke="#ef4444" stroke-width="1.5" opacity="0.4">
+        <line x1="200" y1="115" x2="200" y2="50"/>
+        <line x1="200" y1="245" x2="200" y2="310"/>
+        <line x1="70" y1="180" x2="30" y2="180"/>
+        <line x1="330" y1="180" x2="370" y2="180"/>
+        <line x1="100" y1="130" x2="60" y2="90"/>
+        <line x1="300" y1="130" x2="340" y2="90"/>
+        <line x1="100" y1="230" x2="60" y2="270"/>
+        <line x1="300" y1="230" x2="340" y2="270"/>
+    </g>
+
+    <!-- Data collection nodes -->
+    <g transform="translate(200, 40)">
+        <circle cx="0" cy="0" r="15" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="6" fill="#ef4444">NPR</text>
+    </g>
+
+    <g transform="translate(50, 90)">
+        <circle cx="0" cy="0" r="15" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="5" fill="#ef4444">BANK</text>
+    </g>
+
+    <g transform="translate(350, 90)">
+        <circle cx="0" cy="0" r="15" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="5" fill="#ef4444">UPI</text>
+    </g>
+
+    <g transform="translate(50, 270)">
+        <circle cx="0" cy="0" r="15" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="4" fill="#ef4444">HEALTH</text>
+    </g>
+
+    <g transform="translate(350, 270)">
+        <circle cx="0" cy="0" r="15" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="4" fill="#ef4444">TRAVEL</text>
+    </g>
+
+    <g transform="translate(200, 320)">
+        <circle cx="0" cy="0" r="15" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="5" fill="#ef4444">TAX</text>
+    </g>
+
+    <!-- Person being watched (below) -->
+    <g transform="translate(200, 360)">
+        <circle cx="0" cy="0" r="12" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none"/>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.3)">CITIZEN</text>
+    </g>
+
+    <!-- NATGRID label -->
+    <g transform="translate(200, 180)">
+        <rect x="-35" y="-8" width="70" height="16" rx="3" fill="rgba(0,0,0,0.8)"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">NATGRID</text>
+    </g>
+
+    <!-- Statistics -->
+    <g transform="translate(80, 340)">
+        <text x="0" y="0" font-family="monospace" font-size="7" fill="#ef4444" opacity="0.8">21+</text>
+        <text x="0" y="12" font-family="monospace" font-size="5" fill="rgba(255,255,255,0.4)">DATABASES</text>
+    </g>
+
+    <g transform="translate(320, 340)">
+        <text x="0" y="0" font-family="monospace" font-size="7" fill="#ef4444" opacity="0.8">11</text>
+        <text x="0" y="12" font-family="monospace" font-size="5" fill="rgba(255,255,255,0.4)">AGENCIES</text>
+    </g>
+
+    <!-- Bottom label -->
+    <text x="200" y="395" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.4)">ONE-WAY MIRROR</text>
+</svg>

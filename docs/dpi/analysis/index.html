@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Corrigibility Is a Structural Necessity, DPI Analysis</title>
+  <meta name="description" content="A condition for stability in population-scale systems. Control theory analysis of why DPI and AI systems require structural corrigibility.">
+  <meta name="keywords" content="DPI analysis, Digital Public Infrastructure accountability, DPI corrigibility, DPI control theory, population-scale systems, DPI feedback loops, digital governance theory, DPI stability, AI alignment DPI, cybernetics DPI, commons governance, DPI failure modes">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Anivar Aravind">
+  <link rel="canonical" href="https://indiastack.in/dpi/analysis/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Digital Public Infrastructure Analysis, Why DPI Needs Corrigibility">
+  <meta property="og:description" content="Why Digital Public Infrastructure requires structural corrigibility. Control theory analysis of population-scale systems.">
+  <meta property="og:url" content="https://indiastack.in/dpi/analysis/">
+  <meta property="og:image" content="https://indiastack.in/dpi/og-image-dpi.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="article:section" content="Digital Public Infrastructure">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DPI Analysis: Why Corrigibility Is Structural Necessity">
+  <meta name="twitter:description" content="Control theory analysis of why Digital Public Infrastructure must be corrigible by those it affects.">
+  <meta name="twitter:image" content="https://indiastack.in/dpi/og-image-dpi.png">
+
+  <!-- Schema: TechArticle -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Why Corrigibility Is a Structural Necessity for DPI",
+    "name": "DPI Analysis: Why Corrigibility",
+    "description": "Control theory and cybernetics analysis proving why Digital Public Infrastructure requires structural corrigibility. Ashby's Law, feedback loops, stability conditions.",
+    "url": "https://indiastack.in/dpi/analysis/",
+    "datePublished": "2026-01-07",
+    "dateModified": "2026-01-11",
+    "author": {"@type": "Person", "name": "Anivar Aravind", "url": "https://anivar.net"},
+    "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "isPartOf": {"@type": "WebPage", "url": "https://indiastack.in/dpi/", "name": "DPI Corrigibility Framework"},
+    "about": [
+      {"@type": "Thing", "name": "Cybernetics"},
+      {"@type": "Thing", "name": "Control Theory"},
+      {"@type": "Thing", "name": "Digital Public Infrastructure"}
+    ],
+    "keywords": ["DPI analysis", "corrigibility", "control theory", "Ashby's Law", "cybernetics", "feedback loops", "commons governance"]
+  }
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why is corrigibility a structural necessity?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Systems that cannot be corrected by those they affect will eventually be corrected by forces they cannot control. Corrigibility is a stability condition derived from Ashby's Law of Requisite Variety: a controller must have at least as much variety as the system it regulates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the legitimacy debt of incorrigible systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Incorrigible systems accumulate legitimacy debt through unprocessed grievances. When correction channels are blocked, correction demand doesn't disappear, it reroutes through courts, protests, media exposure, and political crisis. This debt compounds until system replacement becomes inevitable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does this apply to AI systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI systems face additional variety gaps. Training compresses social reality into fixed representations while the world continues to change. The model cannot adapt. The variety gap widens over time, making corrigibility even more critical for learned systems."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"DPI Framework","item":"https://indiastack.in/dpi/"},{"@type":"ListItem","position":3,"name":"Analysis","item":"https://indiastack.in/dpi/analysis/"}]}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <link rel="stylesheet" href="/components/math.css">
+  <style>
+    .test-block {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .test-block:last-child {
+      border-bottom: none;
+    }
+    .test-block .test-name {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .test-block .test-effect {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* Tablet responsive */
+    @media (max-width: 900px) {
+      section[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 2rem !important;
+      }
+      section[style*="grid-template-columns: 1fr 1fr"] > div:last-child {
+        order: -1;
+      }
+      section[style*="grid-template-columns: 1fr 1fr"] img {
+        max-width: 280px !important;
+      }
+      section[style*="grid-template-columns: 1fr 1fr"] h1 {
+        font-size: 2rem !important;
+      }
+      .threshold-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .test-block {
+        grid-template-columns: 1fr !important;
+        gap: 0.25rem;
+      }
+    }
+    @media (max-width: 768px) {
+      section[style*="grid-template-columns: repeat(3"] > div[style*="grid-template-columns"],
+      div[style*="grid-template-columns: repeat(3"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    @media (max-width: 600px) {
+      section[style*="grid-template-columns: 1fr 1fr"] h1 {
+        font-size: 1.75rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-pattern"></div>
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+
+    <!-- Hero -->
+    <section class="fade-up" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 2rem 0 3rem;">
+      <div>
+        <p class="eyebrow" style="margin-bottom: 1rem;"><a href="/" style="color: var(--text-muted);">Home</a> / <a href="/dpi/" style="color: var(--text-muted);">DPI Framework</a> / <span style="color: var(--indigo);">Analysis</span></p>
+        <h1 style="font-size: 2.25rem; line-height: 1.2; margin-bottom: 1rem;">Why Corrigibility Is a <span style="color: var(--indigo);">Structural Necessity</span></h1>
+        <p class="lead">A condition for stability in population-scale systems.</p>
+      </div>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="/components/svg/hero-analysis.svg" alt="Feedback analysis diagram" style="width: 100%; max-width: 340px; height: auto; filter: drop-shadow(0 0 60px rgba(129, 140, 248, 0.3));">
+      </div>
+    </section>
+
+    <!-- Reader Orientation -->
+    <div class="fade-up" style="background: rgba(129,140,248,0.06); border: 1px solid rgba(129,140,248,0.2); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem;">
+      <p style="font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--indigo); margin-bottom: 0.75rem;">HOW TO READ THIS PAGE</p>
+      <p style="margin-bottom: 0.75rem;">This page explains why corrigibility must be structural.</p>
+      <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+        <li><strong>Section headers + Conclusion</strong>, core argument</li>
+        <li><strong>Ashby's Law and feedback</strong>, formal proof (applies to all substrates)</li>
+        <li><strong>Constitutional Preconditions</strong>, why law needs corrigibility</li>
+        <li><strong>The False Commons (Ostrom)</strong>, commons governance failure, including training data</li>
+        <li><strong>Limits of Openness</strong>, why FOSS is necessary but not sufficient</li>
+        <li><strong>Temporal Persistence</strong>, why corrigibility must hold across time</li>
+        <li><strong>Conservation of Correction</strong>, system dynamics</li>
+        <li><strong>Interpreting the Schemas</strong>, two-manifest architecture</li>
+      </ul>
+    </div>
+
+    <article>
+
+      <!-- The Structural Problem -->
+      <section class="fade-up">
+        <h2 class="section-title">The Structural Problem</h2>
+        <p>DPI runs at population scale. Rules are encoded in advance. Access to essential services goes through these systems. They will inevitably misclassify, exclude, or fail some users some of the time. Not a bug. Math.</p>
+
+        <div class="info-box" style="margin: 1.5rem 0; background: rgba(129,140,248,0.08); border-color: rgba(129,140,248,0.25);">
+          <p style="margin: 0;">Errors will happen. The question is: can those affected <strong style="color: var(--indigo);">detect, correct, and reverse</strong> them before harm becomes permanent?</p>
+        </div>
+
+        <p><strong>Corrigibility</strong> is the system property that determines this.</p>
+      </section>
+
+      <!-- Notation note -->
+      <div class="fade-up" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 2rem;">
+        <p style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.5rem;">NOTATION NOTE</p>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Simple mathematical expressions are used here to state structural relationships compactly. No formal training is required; each expression is explained in plain language.</p>
+      </div>
+
+      <!-- Control, Variety, and Feedback -->
+      <section class="fade-up">
+        <h2 class="section-title">Control, Variety, and Feedback</h2>
+        <p class="section-claim" style="background: rgba(13,216,146,0.08); border-left: 3px solid var(--accent); padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--accent);"><strong>Claim:</strong> No fixed rule system can regulate population-scale diversity without feedback from those affected.</p>
+        <p>Ashby's Law of Requisite Variety states that a regulator must possess at least as much variety as the disturbances it seeks to regulate.</p>
+
+        <!-- Feedback Loop Diagram -->
+        <div style="display: flex; justify-content: center; margin: 2rem 0;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200" fill="none" style="max-width: 500px; width: 100%;">
+            <defs>
+              <marker id="arr-g" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#0dd892"/></marker>
+              <marker id="arr-i" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#818cf8"/></marker>
+            </defs>
+            <!-- Population -->
+            <circle cx="80" cy="100" r="45" fill="#111" stroke="#0dd892" stroke-width="2"/>
+            <text x="80" y="95" fill="#0dd892" font-family="monospace" font-size="10" text-anchor="middle">AFFECTED</text>
+            <text x="80" y="108" fill="#0dd892" font-family="monospace" font-size="10" text-anchor="middle">POP.</text>
+            <!-- System -->
+            <rect x="200" y="60" width="100" height="80" rx="8" fill="#111" stroke="#818cf8" stroke-width="2"/>
+            <text x="250" y="95" fill="#818cf8" font-family="monospace" font-size="11" text-anchor="middle">SYSTEM</text>
+            <text x="250" y="110" fill="#666" font-family="monospace" font-size="9" text-anchor="middle">V(controller)</text>
+            <!-- Output -->
+            <circle cx="420" cy="100" r="35" fill="#111" stroke="#666" stroke-width="1"/>
+            <text x="420" y="104" fill="#666" font-family="monospace" font-size="10" text-anchor="middle">OUTPUT</text>
+            <!-- Arrows -->
+            <path d="M 125 100 L 195 100" stroke="#818cf8" stroke-width="2" marker-end="url(#arr-i)"/>
+            <path d="M 300 100 L 380 100" stroke="#666" stroke-width="1.5"/>
+            <!-- Feedback loop -->
+            <path d="M 250 60 Q 250 20 150 20 Q 50 20 50 70" stroke="#0dd892" stroke-width="2" marker-end="url(#arr-g)" fill="none"/>
+            <text x="150" y="12" fill="#0dd892" font-family="monospace" font-size="9" text-anchor="middle">FEEDBACK</text>
+            <!-- Labels -->
+            <text x="80" y="165" fill="#666" font-family="monospace" font-size="8" text-anchor="middle">V(disturbance)</text>
+          </svg>
+        </div>
+
+        <div class="math-block">
+          <span class="math-label">Ashby's Law of Requisite Variety</span>
+          <div class="equation">
+            <span class="var">V</span>(<span class="fn">controller</span>) <span class="op">≥</span> <span class="var">V</span>(<span class="fn">disturbance</span>)
+          </div>
+        </div>
+
+        <p>In DPI, the <em>disturbance</em> is human diversity across language, mobility, disability, geography, documentation, and life events. The <em>controller</em> is a pre-specified rule system.</p>
+        <p>No fixed rule set can match population variety. Stability therefore depends on <strong>feedback channels</strong> that transmit error signals from affected populations back into system behavior.</p>
+
+        <!-- Learned Systems subsection -->
+        <div style="background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;">
+          <h4 style="color: var(--purple); margin-bottom: 0.75rem; font-size: 0.95rem;">Learned Systems (AI)</h4>
+          <p style="margin-bottom: 0.75rem;">In learned systems, the controller is implemented by a trained mapping <span class="math-inline" style="font-style: italic;">f<sub>θ</sub></span>. Training fixes <span class="math-inline" style="font-style: italic;">θ</span> until retraining occurs, while the real-world distribution <span class="math-inline" style="font-style: italic;">P(X; t)</span> continues to change.</p>
+          <p style="margin: 0; color: var(--text-secondary);">As a result, the controller's effective variety is fixed, while disturbance variety can increase over time. The variety gap does not close. It widens.</p>
+        </div>
+
+        <p style="color: var(--accent); font-weight: 500;">The five corrigibility tests define whether feedback channels exist to compensate for this structural limitation.</p>
+
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-top: 1.5rem;">
+          <p style="font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.75rem;">OPERATIONAL TRANSLATION</p>
+          <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">Each test corresponds to a distinct, demonstrable feedback or governance channel. EXIT provides refusal signals; CODE provides legibility; AUDIT provides independent error measurement; GOVERN provides collective rule-change; FORK provides credible replacement. The <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces</a> (annex) lists the minimal artifacts that prove these channels exist.</p>
+        </div>
+      </section>
+
+      <!-- How Systems Lose Requisite Variety -->
+      <section class="fade-up">
+        <h2 class="section-title">How Systems Lose Requisite Variety</h2>
+        <p class="section-claim" style="background: rgba(59,130,246,0.08); border-left: 3px solid var(--blue); padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--blue);"><strong>Claim:</strong> Each failed corrigibility test removes a feedback channel and reduces control capacity.</p>
+
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;">
+          <div class="test-block">
+            <span class="test-name" style="color: var(--cyan);">EXIT blocked</span>
+            <span class="test-effect">Refusal impossible. No negative signal from non-participation.</span>
+          </div>
+          <div class="test-block">
+            <span class="test-name" style="color: var(--blue);">CODE hidden</span>
+            <span class="test-effect">Decision logic unobservable. Errors cannot be inspected.</span>
+          </div>
+          <div class="test-block">
+            <span class="test-name" style="color: var(--purple);">AUDIT restricted</span>
+            <span class="test-effect">External verification blocked. Error rates remain unknown.</span>
+          </div>
+          <div class="test-block">
+            <span class="test-name" style="color: var(--amber);">GOVERN excluded</span>
+            <span class="test-effect">Rules cannot be adjusted by those affected.</span>
+          </div>
+          <div class="test-block">
+            <span class="test-name" style="color: var(--rose);">FORK prohibited</span>
+            <span class="test-effect">No credible replacement. Error persistence becomes rational.</span>
+          </div>
+        </div>
+
+        <p>When these channels are blocked, <span class="math-inline">V</span>(controller) falls below <span class="math-inline">V</span>(disturbance). The system cannot regulate its own impact.</p>
+
+        <p style="color: var(--danger); font-weight: 500;">Instability is guaranteed.</p>
+      </section>
+
+      <!-- Constitutional Preconditions -->
+      <section class="fade-up">
+        <h2 class="section-title">Constitutional Preconditions</h2>
+        <p class="section-claim" style="background: rgba(129,140,248,0.08); border-left: 3px solid var(--indigo); padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--indigo);"><strong>Claim:</strong> Corrigibility supplies what constitutional review presupposes but cannot enforce.</p>
+        <p>Proportionality analysis, the foundation of rights review across jurisdictions, presupposes conditions in order to function:</p>
+        <ul style="color: var(--text-secondary); margin: 1rem 0 1rem 1.5rem;">
+          <li><strong>Legibility of rules</strong>, power must be knowable to be contestable</li>
+          <li><strong>Reversibility of outcomes</strong>, harm must be correctable</li>
+          <li><strong>Availability of alternatives</strong>, necessity collapses without choice</li>
+          <li><strong>Independent review</strong>, oversight cannot depend on operator permission</li>
+        </ul>
+        <p>Where digital systems block these structurally, courts cannot apply review meaningfully. Review becomes contingent on operator assertion. Oversight shifts from verification to trust.</p>
+        <p style="color: var(--indigo); font-weight: 500;">Corrigibility supplies the structural preconditions that law presupposes but cannot itself enforce.</p>
+      </section>
+
+      <!-- The False Commons -->
+      <section class="fade-up">
+        <h2 class="section-title">The False Commons: Why DPI Is Not a Public Good</h2>
+        <p class="section-claim" style="background: rgba(245,158,11,0.08); border-left: 3px solid var(--amber); padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--amber);"><strong>Claim:</strong> A system that fails commons governance conditions is an enclosure, not a public good.</p>
+        <p>Elinor Ostrom identified the conditions under which commons can be sustainably governed. Digital Public Infrastructure claims to be a commons for the digital age.</p>
+        <p>It fails these conditions.</p>
+
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;">
+          <div class="test-block">
+            <span class="test-name" style="color: var(--amber);">BOUNDARIES</span>
+            <span class="test-effect"><strong>Must be knowable.</strong> In DPI, the boundary between public service and private data extraction is opaque.</span>
+          </div>
+          <div class="test-block">
+            <span class="test-name" style="color: var(--amber);">MONITORING</span>
+            <span class="test-effect"><strong>Must be accountable to users.</strong> DPI inverts this. Citizens are fully visible to the system. The system is opaque to citizens.</span>
+          </div>
+          <div class="test-block">
+            <span class="test-name" style="color: var(--amber);">SANCTIONS</span>
+            <span class="test-effect"><strong>Must be graduated.</strong> DPI imposes binary outcomes. Authentication failure leads to exclusion.</span>
+          </div>
+          <div class="test-block">
+            <span class="test-name" style="color: var(--amber);">DISPUTES</span>
+            <span class="test-effect"><strong>Must be resolved locally and at low cost.</strong> DPI centralizes redress or requires litigation, making errors permanent for many.</span>
+          </div>
+          <div class="test-block">
+            <span class="test-name" style="color: var(--amber);">RULE-MAKING</span>
+            <span class="test-effect"><strong>Must involve those affected.</strong> DPI rules are set through executive or technocratic processes.</span>
+          </div>
+        </div>
+
+        <!-- Training Data as a Commons (AI) -->
+        <div style="background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0;">
+          <h4 style="color: var(--purple); margin-bottom: 0.75rem; font-size: 0.95rem;">Training Data as a Commons (AI)</h4>
+          <p style="margin: 0; color: var(--text-secondary);">In AI systems, training data is an upstream commons. It is collectively produced, socially generated, and unevenly governed. When enclosed without reciprocal governance, systems inherit the legitimacy of the commons without its constraints.</p>
+        </div>
+
+        <p style="color: var(--amber); font-weight: 500;">A system that fails these conditions is not a commons. It is an enclosure.</p>
+      </section>
+
+      <!-- Limits of Openness -->
+      <section class="fade-up">
+        <h2 class="section-title">Limits of Openness</h2>
+        <p class="section-claim" style="background: rgba(59,130,246,0.08); border-left: 3px solid var(--blue); padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--blue);"><strong>Claim:</strong> Formal openness does not guarantee functional correction.</p>
+        <p>Free and Open Source Software enables correction by making power observable and replaceable. The four freedoms (use, study, modify, distribute) exist because software that cannot be inspected cannot be trusted.</p>
+        <p>But openness has layers.</p>
+        <p>For traditional DPI, source code access often suffices for legibility.</p>
+        <p>For AI systems, code may be visible while training data, model weights, or optimization regimes remain inaccessible. Even where artifacts are disclosed, scale and emergence may limit interpretability.</p>
+        <p>Corrigibility depends on whether openness enables <strong>actual replacement and correction</strong>, not on formal disclosure alone.</p>
+        <p style="color: var(--blue); font-weight: 500;">Open weights without training data replicate the problem of open standards without open execution.</p>
+      </section>
+
+      <!-- Temporal Persistence -->
+      <section class="fade-up">
+        <h2 class="section-title">Temporal Persistence</h2>
+        <p class="section-claim" style="background: rgba(168,85,247,0.08); border-left: 3px solid var(--purple); padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--purple);"><strong>Claim:</strong> Corrigibility must hold across time, not merely at deployment.</p>
+        <p>Traditional DPI systems are static. A database persists. Rules are fixed. What is deployed is what runs.</p>
+        <p>AI systems evolve. Retraining changes behavior. Updates are silent. Drift occurs without notice.</p>
+        <p>A system corrigible at deployment may become incorrigible over time.</p>
+        <p>From a cybernetic perspective, this introduces <strong>temporal instability</strong>. Safeguards validated at launch may erode as systems change. Feedback channels designed for one version may not reach the next.</p>
+        <div class="math-block" style="margin: 1.5rem 0;">
+          <span class="math-label">Temporal Variety Gap</span>
+          <div class="equation">
+            <span class="var">Δ</span>(<span class="var">t</span>) <span class="op">=</span> <span class="var">V</span>(<span class="fn">disturbance</span>; <span class="var">t</span>) <span class="op">−</span> <span class="var">V</span>(<span class="fn">controller</span>; <span class="var">θ</span>)
+          </div>
+          <div class="math-gloss">The variety gap grows when θ is fixed and the world continues to change.</div>
+        </div>
+
+        <p style="color: var(--purple); font-weight: 500;">Corrigibility is not a deployment property. It is a persistence condition.</p>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 1rem;">For learned systems, corrigibility depends on detection-to-remediation latency; auditors must see both detection triggers and remediation windows.</p>
+      </section>
+
+      <!-- Grievance Is Not a Feedback Channel -->
+      <section class="fade-up">
+        <h2 class="section-title">Grievance Is Not a Feedback Channel</h2>
+        <p class="section-claim" style="background: rgba(239,68,68,0.08); border-left: 3px solid var(--danger); padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--danger);"><strong>Claim:</strong> Expression without causal influence does not correct systems.</p>
+        <p>Many incorrigible systems provide grievance mechanisms. These absorb complaints without altering system behavior.</p>
+
+        <div class="math-block">
+          <span class="math-label">Grievance Absorption</span>
+          <div class="equation">
+            <span class="partial">∂</span><span class="var">S</span> / <span class="partial">∂</span><span class="var">G</span> <span class="op">=</span> 0
+          </div>
+          <div class="math-gloss">System state is invariant to grievance volume.</div>
+        </div>
+
+        <p>Grievance channels record dissatisfaction. They do not modify execution, policy, or eligibility logic. They therefore do not increase controller variety.</p>
+        <p><strong>Corrigibility requires causal influence, not expression.</strong> The tests measure whether affected populations can change system state, not whether they can complain.</p>
+      </section>
+
+      <!-- The Exit Threshold -->
+      <section class="fade-up">
+        <h2 class="section-title">The Exit Threshold</h2>
+        <p>There exists a structural threshold beyond which authority becomes coercive rather than legitimate.</p>
+
+        <div class="threshold-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0;">
+          <div class="card" style="border-color: rgba(13,216,146,0.3); background: linear-gradient(135deg, rgba(13,216,146,0.06) 0%, transparent 50%);">
+            <p style="color: var(--accent); font-weight: 600; margin-bottom: 0.5rem;">When refusal does not trigger exclusion</p>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Consent remains meaningful.</p>
+          </div>
+          <div class="card" style="border-color: rgba(239,68,68,0.3); background: linear-gradient(135deg, rgba(239,68,68,0.06) 0%, transparent 50%);">
+            <p style="color: var(--danger); font-weight: 600; margin-bottom: 0.5rem;">When refusal triggers material harm</p>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Consent collapses.</p>
+          </div>
+        </div>
+
+        <p style="color: var(--danger); font-weight: 500;">Once this threshold is crossed, other safeguards become discretionary rather than enforceable.</p>
+      </section>
+
+      <!-- Conservation of Correction Demand -->
+      <section class="fade-up">
+        <h2 class="section-title">Conservation of Correction Demand</h2>
+        <p class="section-claim" style="background: rgba(168,85,247,0.08); border-left: 3px solid var(--purple); padding: 0.75rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--purple);"><strong>Claim:</strong> Blocking designed correction channels does not reduce correction demand, it displaces it.</p>
+        <p>Correction demand is conserved.</p>
+
+        <!-- Conservation Flow Diagram -->
+        <div style="display: flex; justify-content: center; margin: 2rem 0;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220" fill="none" style="max-width: 500px; width: 100%;">
+            <defs>
+              <marker id="arr-des" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#0dd892"/></marker>
+              <marker id="arr-em" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/></marker>
+            </defs>
+            <!-- Total K -->
+            <rect x="30" y="80" width="80" height="60" rx="6" fill="#111" stroke="#818cf8" stroke-width="2"/>
+            <text x="70" y="105" fill="#818cf8" font-family="'Times New Roman', serif" font-size="18" font-style="italic" text-anchor="middle">K</text>
+            <text x="70" y="125" fill="#666" font-family="monospace" font-size="7" text-anchor="middle">TOTAL DEMAND</text>
+            <!-- Split point -->
+            <circle cx="180" cy="110" r="8" fill="#333" stroke="#666" stroke-width="1"/>
+            <!-- Designed channel (top) -->
+            <rect x="280" y="30" width="100" height="50" rx="6" fill="#111" stroke="#0dd892" stroke-width="2"/>
+            <text x="330" y="50" fill="#0dd892" font-family="'Times New Roman', serif" font-size="14" font-style="italic" text-anchor="middle">F<tspan font-size="10" baseline-shift="sub">designed</tspan></text>
+            <text x="330" y="68" fill="#666" font-family="monospace" font-size="7" text-anchor="middle">EXIT CODE AUDIT</text>
+            <!-- Emergent channel (bottom) -->
+            <rect x="280" y="140" width="100" height="50" rx="6" fill="#111" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 2"/>
+            <text x="330" y="160" fill="#ef4444" font-family="'Times New Roman', serif" font-size="14" font-style="italic" text-anchor="middle">F<tspan font-size="10" baseline-shift="sub">emergent</tspan></text>
+            <text x="330" y="178" fill="#666" font-family="monospace" font-size="7" text-anchor="middle">PROTEST LITIGATION</text>
+            <!-- Outcome -->
+            <rect x="420" y="80" width="70" height="60" rx="6" fill="#111" stroke="#666" stroke-width="1"/>
+            <text x="455" y="105" fill="#666" font-family="monospace" font-size="9" text-anchor="middle">SYSTEM</text>
+            <text x="455" y="118" fill="#666" font-family="monospace" font-size="9" text-anchor="middle">CHANGE</text>
+            <!-- Arrows -->
+            <path d="M 110 110 L 170 110" stroke="#818cf8" stroke-width="2"/>
+            <path d="M 188 105 Q 220 55 275 55" stroke="#0dd892" stroke-width="2" marker-end="url(#arr-des)" fill="none"/>
+            <path d="M 188 115 Q 220 165 275 165" stroke="#ef4444" stroke-width="2" marker-end="url(#arr-em)" fill="none" stroke-dasharray="4 2"/>
+            <path d="M 380 55 Q 410 55 410 95" stroke="#0dd892" stroke-width="1.5" fill="none"/>
+            <path d="M 380 165 Q 410 165 410 125" stroke="#ef4444" stroke-width="1.5" fill="none" stroke-dasharray="4 2"/>
+            <!-- Labels -->
+            <text x="235" y="40" fill="#0dd892" font-family="monospace" font-size="8">LOW COST</text>
+            <text x="235" y="195" fill="#ef4444" font-family="monospace" font-size="8">HIGH COST</text>
+          </svg>
+        </div>
+
+        <div class="math-block">
+          <span class="math-label">Conservation Law</span>
+          <div class="equation">
+            <span class="var">F</span><sub>designed</sub> <span class="op">+</span> <span class="var">F</span><sub>emergent</sub> <span class="op">=</span> <span class="var">K</span>
+          </div>
+          <div class="math-where">
+            <span class="def"><span class="symbol">F<sub>designed</sub></span> = correction flow through designed channels</span>
+            <span class="def"><span class="symbol">F<sub>emergent</sub></span> = correction flow through emergent channels</span>
+            <span class="def"><span class="symbol">K</span> = total correction demand (constant)</span>
+          </div>
+        </div>
+
+        <p style="color: var(--purple); font-weight: 500; font-style: italic;">The system chooses where correction occurs; it cannot choose whether it occurs.</p>
+
+        <p>When designed correction channels are blocked, correction does not disappear. It reroutes through emergent channels: protest, courts, journalism, political pressure, informal workarounds.</p>
+        <p><strong>Emergent correction is slower, costlier, and more destabilizing.</strong></p>
+        <p>Blocking designed channels shifts cost from operators to affected populations, and eventually back to operators through legitimacy collapse.</p>
+      </section>
+
+      <!-- Manifest Interpretation -->
+      <section class="fade-up" style="margin-top: 2.5rem;">
+        <h2 class="section-title">Interpreting the Schemas</h2>
+        <p>Two complementary JSON schemas separate operator facts from auditor judgments. This is one approach to make corrigibility surfaces legible; other mechanisms (statutory registers, public dashboards) are equally valid.</p>
+
+        <!-- Two-Manifest Architecture -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+          <div style="background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2); border-radius: 12px; padding: 1.25rem;">
+            <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--blue); margin: 0 0 0.5rem; letter-spacing: 0.1em;">INFRASTRUCTURE.JSON</p>
+            <p style="color: #fff; font-weight: 500; margin-bottom: 0.5rem;">Operator Manifest</p>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Published by system operators. Declares operational facts: dependencies, access channels, governance model. Does not assert compliance.</p>
+            <p style="color: var(--blue); font-size: 0.8rem; margin-top: 0.75rem; font-style: italic;">Analogy: package.json</p>
+          </div>
+          <div style="background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2); border-radius: 12px; padding: 1.25rem;">
+            <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--purple); margin: 0 0 0.5rem; letter-spacing: 0.1em;">CORRIGIBILITY.JSON</p>
+            <p style="color: #fff; font-weight: 500; margin-bottom: 0.5rem;">Auditor Assessment</p>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Authored by auditors, not operators. Evaluates structural correction capacity against the five tests. Contains pass/fail judgments with evidence.</p>
+            <p style="color: var(--purple); font-size: 0.8rem; margin-top: 0.75rem; font-style: italic;">Analogy: security audit report</p>
+          </div>
+        </div>
+
+        <p style="color: var(--accent); font-weight: 500; margin-bottom: 1.5rem;">Operators declare facts; auditors render verdicts. Operators cannot grade their own homework.</p>
+
+        <div style="background: rgba(129,140,248,0.06); border: 1px solid rgba(129,140,248,0.2); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 1.5rem 0;">
+          <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--indigo); margin-bottom: 1rem; letter-spacing: 0.1em;">STRUCTURAL READING</p>
+
+          <div style="display: grid; gap: 1rem;">
+            <div style="padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
+              <p style="font-weight: 500; color: #fff; margin-bottom: 0.5rem;">Boolean fields force confession.</p>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">A system declaring <code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem;">offline_equivalent: false</code> admits EXIT failure. Simple true/false fields cannot hide structural capture.</p>
+            </div>
+
+            <div style="padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
+              <p style="font-weight: 500; color: #fff; margin-bottom: 0.5rem;">Named dependencies enable scrutiny.</p>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;"><code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem;">closed_components: ["oracle-db", "idemia-abis"]</code> is more useful than <code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem;">proprietary: 3</code>. Names allow investigation.</p>
+            </div>
+
+            <div style="padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
+              <p style="font-weight: 500; color: #fff; margin-bottom: 0.5rem;">SLOs as justice metrics.</p>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;"><code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem;">dispute_slo: "30d"</code> and <code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem;">fix_slo: "90d"</code> quantify the velocity of justice. Operators must commit to response times.</p>
+            </div>
+
+            <div>
+              <p style="font-weight: 500; color: #fff; margin-bottom: 0.5rem;">Auditor assessment fields:</p>
+              <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem; color: var(--text-secondary);">
+                <li><code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem;">penalty_ratio</code>: Time/cost ratio of manual vs digital. 1 = equal, 999 = blocked.</li>
+                <li><code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem;">visibility</code>: <span style="color: var(--blue);">CODE</span> enum: full, partial, api_only, none.</li>
+                <li><code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem;">user_power</code>: <span style="color: var(--amber);">GOVERN</span> enum: binding, veto, advisory, none.</li>
+                <li><code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.85rem;">barriers</code>: <span style="color: var(--rose);">FORK</span> array: legal, technical, economic, regulatory, data.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p style="color: var(--indigo); font-weight: 500;">The schemas make implicit claims explicit. Comparing manifests across systems reveals differences that promotional language obscures.</p>
+
+        <!-- Schema Structure View -->
+        <div style="background: rgba(6,182,212,0.06); border: 1px solid rgba(6,182,212,0.2); border-radius: 12px; padding: 1.75rem 2rem; margin: 2rem 0;">
+          <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan); margin: 0 0 1rem; letter-spacing: 0.1em;">SCHEMA STRUCTURE</p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 1rem;">
+              <p style="font-size: 0.75rem; color: var(--blue); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">INFRASTRUCTURE.JSON</p>
+              <ul style="margin: 0; padding-left: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
+                <li><code style="color: var(--blue);">meta</code>: system_id, lifecycle, license</li>
+                <li><code style="color: var(--blue);">dependencies</code>: repository, closed_components[]</li>
+                <li><code style="color: var(--blue);">access</code>: offline_equivalent, data_export</li>
+                <li><code style="color: var(--blue);">reliability</code>: dispute_slo, fix_slo, escalation</li>
+                <li><code style="color: var(--blue);">learned_components</code>: role, when_uncertain</li>
+              </ul>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 1rem;">
+              <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">CORRIGIBILITY.JSON</p>
+              <ul style="margin: 0; padding-left: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
+                <li><code style="color: var(--purple);">target</code>: matches infrastructure system_id</li>
+                <li><code style="color: var(--purple);">assessed_by</code>: auditor organization</li>
+                <li><code style="color: var(--purple);">tests</code>: exit, code, audit, govern, fork</li>
+                <li><code style="color: var(--purple);">verdict</code>: corrigible, tests_passed, summary</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+            <p style="font-size: 0.75rem; color: var(--accent); font-family: var(--font-mono); margin: 0 0 0.75rem; letter-spacing: 0.05em;">FIVE TESTS IN CORRIGIBILITY ASSESSMENT</p>
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; text-align: center;">
+              <div style="background: rgba(6,182,212,0.15); border-radius: 4px; padding: 0.5rem;"><span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--cyan); font-weight: 600;">EXIT</span><p style="font-size: 0.6rem; color: var(--text-muted); margin: 0.25rem 0 0;">penalty_ratio</p></div>
+              <div style="background: rgba(59,130,246,0.15); border-radius: 4px; padding: 0.5rem;"><span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--blue); font-weight: 600;">CODE</span><p style="font-size: 0.6rem; color: var(--text-muted); margin: 0.25rem 0 0;">visibility</p></div>
+              <div style="background: rgba(168,85,247,0.15); border-radius: 4px; padding: 0.5rem;"><span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--purple); font-weight: 600;">AUDIT</span><p style="font-size: 0.6rem; color: var(--text-muted); margin: 0.25rem 0 0;">access</p></div>
+              <div style="background: rgba(245,158,11,0.15); border-radius: 4px; padding: 0.5rem;"><span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--amber); font-weight: 600;">GOVERN</span><p style="font-size: 0.6rem; color: var(--text-muted); margin: 0.25rem 0 0;">user_power</p></div>
+              <div style="background: rgba(244,114,182,0.15); border-radius: 4px; padding: 0.5rem;"><span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--rose); font-weight: 600;">FORK</span><p style="font-size: 0.6rem; color: var(--text-muted); margin: 0.25rem 0 0;">barriers[]</p></div>
+            </div>
+          </div>
+
+          <div style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); border-radius: 8px; padding: 1rem;">
+            <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">AI SYSTEM EXTENSIONS / INFRASTRUCTURE.JSON</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.75rem; color: var(--text-secondary);">
+              <div>
+                <p style="margin: 0 0 0.25rem; color: var(--purple); font-weight: 500;">learned_components.role</p>
+                <p style="margin: 0;"><code>advisory</code> / <code>decision</code> / <code>enforcement</code></p>
+              </div>
+              <div>
+                <p style="margin: 0 0 0.25rem; color: var(--purple); font-weight: 500;">learned_components.when_uncertain</p>
+                <p style="margin: 0;"><code>escalates</code> / <code>fails_open</code> / <code>fails_closed</code> / <code>silent</code></p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1rem; text-align: center;">
+            <a href="/dpi/schema/infrastructure.json" style="color: var(--blue); font-size: 0.85rem; margin-right: 1.5rem;">View infrastructure.json →</a>
+            <a href="/dpi/schema/corrigibility.json" style="color: var(--purple); font-size: 0.85rem;">View corrigibility.json →</a>
+          </div>
+        </div>
+
+        <!-- Schema Limitations -->
+        <div style="background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2); border-radius: 12px; padding: 1.5rem; margin: 2rem 0;">
+          <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--danger); margin: 0 0 1rem; letter-spacing: 0.1em;">WHAT THIS MANIFEST CANNOT DO</p>
+
+          <div style="margin-bottom: 1rem;">
+            <p style="color: #fff; font-weight: 500; margin-bottom: 0.5rem;">Link Rot Escape Hatch</p>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">A URL satisfies the schema even if it points to a 404, a login screen, or a blank PDF. Schema validates syntax, not semantics. Independent verification is required.</p>
+          </div>
+
+          <div style="margin-bottom: 1rem;">
+            <p style="color: #fff; font-weight: 500; margin-bottom: 0.5rem;">Self-Attestation Limits</p>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">The manifest is self-declared. Without independent crawler/verifier infrastructure, claims remain unverified. The manifest enables scrutiny; it does not perform it.</p>
+          </div>
+
+          <div style="margin-bottom: 1rem;">
+            <p style="color: #fff; font-weight: 500; margin-bottom: 0.5rem;">Subjective Fields</p>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;"><code style="background: rgba(255,255,255,0.1); padding: 0.15rem 0.4rem; border-radius: 4px;">service_equivalence: "full"</code> is defined by the operator. An 8-hour queue may be called "full equivalence" by those who never stand in it.</p>
+          </div>
+
+          <p style="color: var(--danger); font-weight: 500; margin-top: 1.25rem;">The manifest is a Warrant Canary, not a Compliance Certificate.</p>
+          <ul style="color: var(--text-secondary); font-size: 0.9rem; margin: 0.75rem 0 0 1.5rem;">
+            <li>If a system refuses to publish: they are hiding something.</li>
+            <li>If they publish honestly: they admit structural flaws.</li>
+            <li>If they publish dishonestly: evidence_surfaces allow civil society to catch the lie.</li>
+          </ul>
+        </div>
+
+        <!-- Technical Aristocracy Response -->
+        <div style="background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.2); border-radius: 12px; padding: 1.5rem; margin: 2rem 0;">
+          <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--amber); margin: 0 0 0.75rem; letter-spacing: 0.1em;">ON CAPACITY TO EXERCISE</p>
+          <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">These tests do not require every individual to read code or audit models. They require that <strong style="color: #fff;">someone independent can</strong>.</p>
+          <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">A farmer cannot audit a neural network. But the farmer needs a world where journalists, researchers, and civil society organizations can, and where their findings have consequence.</p>
+          <p style="color: var(--amber); font-weight: 500; margin: 0;">Corrigibility is not individual capacity. It is structural possibility.</p>
+        </div>
+      </section>
+
+      <!-- Conclusion -->
+      <section class="fade-up" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+        <h2 class="section-title">Conclusion</h2>
+        <p>Corrigibility is a structural condition for stability in systems that exercise asymmetric power at population scale.</p>
+        <p>This applies to deterministic infrastructures and to learned systems. In the latter case, correction is harder because behavior is produced through training while environmental variation continues.</p>
+
+        <div class="info-box" style="background: rgba(13,216,146,0.08); border-color: rgba(13,216,146,0.25); margin: 1.5rem 0;">
+          <p style="margin: 0; font-size: 1rem;">Corrigibility is a structural necessity: systems that cannot be corrected by those they affect will be corrected by forces they cannot control.</p>
+        </div>
+
+        <p>Practically, corrigibility is not a slogan. It is a set of demonstrable channels. The <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces</a> (annex) shows the minimal artifacts needed to prove those channels are present.</p>
+        <p>Corrigibility must therefore be <strong style="color: var(--accent);">defined</strong>, <strong style="color: var(--accent);">tested</strong>, <strong style="color: var(--accent);">built</strong>, and <strong style="color: var(--accent);">required</strong> across all infrastructures that claim public status, including Digital Public Infrastructure and large-scale AI systems.</p>
+        <p style="color: var(--text-muted);">Not as ethics. Not as preference. <strong style="color: #fff;">As structure.</strong></p>
+      </section>
+
+      <!-- Authorship -->
+      <div class="fade-up" style="background: linear-gradient(135deg, rgba(13,216,146,0.06) 0%, rgba(13,216,146,0.02) 100%); border: 1px solid rgba(13,216,146,0.2); border-radius: 12px; text-align: center; padding: 1.5rem; margin-top: 2rem;">
+        <span style="display: inline-block; background: rgba(13,216,146,0.15); border: 2px solid var(--accent); border-radius: 8px; padding: 0.3rem 0.6rem; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem;">CC0 1.0 UNIVERSAL</span>
+        <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Public domain. Use freely.</p>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid rgba(13,216,146,0.15);">Authored by <a href="https://anivar.net" target="_blank" rel="noopener" style="color: var(--accent);">Anivar Aravind</a></p>
+      </div>
+
+      <!-- Related Pages -->
+      <section class="fade-up" style="margin: 3rem 0 2rem;">
+        <h2 class="section-title">Related</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+          <a href="/dpi/build/" style="background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--blue); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+            <span class="eyebrow" style="color: var(--blue);">TECHNICAL</span>
+            <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">How to Build</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Architecture primitives</p>
+          </a>
+          <a href="/dpi/require/" style="background: linear-gradient(135deg, rgba(245,158,11,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--amber); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+            <span class="eyebrow" style="color: var(--amber);">LEGAL</span>
+            <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">How to Require</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Procurement language</p>
+          </a>
+          <a href="/dpi/definitions/" style="background: linear-gradient(135deg, rgba(6,182,212,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--cyan); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+            <span class="eyebrow" style="color: var(--cyan);">INTERNATIONAL</span>
+            <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">Definitions</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">G20, UNDP, World Bank</p>
+          </a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+          <a href="/dpi/learned-systems/" style="background: linear-gradient(135deg, rgba(168,85,247,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--purple); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+            <span class="eyebrow" style="color: var(--purple);">ANNEX</span>
+            <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">Learned Systems</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Stochastic governance</p>
+          </a>
+          <a href="/dpi/annex/exposure-surfaces/" style="background: linear-gradient(135deg, rgba(13,216,146,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+            <span class="eyebrow" style="color: var(--accent);">ANNEX</span>
+            <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">Exposure Surfaces</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Structural challenge locations</p>
+          </a>
+          <a href="/dpi/" style="background: linear-gradient(135deg, rgba(13,216,146,0.08) 0%, transparent 40%); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: 12px; padding: 1.25rem; text-decoration: none; transition: all 0.2s ease;">
+            <span class="eyebrow" style="color: var(--accent);">FRAMEWORK</span>
+            <h4 style="color: #fff; font-size: 0.95rem; margin: 0.5rem 0 0.25rem;">DPI Framework</h4>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Five tests overview</p>
+          </a>
+        </div>
+      </section>
+
+      <a href="/dpi/" class="back-link fade-up" style="display: inline-block; margin-top: 1rem;">← Back to DPI Framework</a>
+
+    </article>
+  </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/js/components.js"></script>
+  <script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

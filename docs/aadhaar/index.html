@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aadhaar: Claims vs Reality | India Stack Watch</title>
+  <meta name="description" content="Critical analysis of Aadhaar. Claims of 'open architecture' vs closed reality. No source code. RTI-exempt. 6-12% biometric failure rate. Deaths from authentication failures.">
+  <meta name="keywords" content="Aadhaar criticism, UIDAI problems, Aadhaar source code, biometric failure, Aadhaar deaths, Aadhaar data breach">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://indiastack.in/aadhaar/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="og:title" content="Aadhaar: The Claims vs Reality">
+  <meta property="og:description" content="'Open architecture' with no published code. 'Data security' with world's largest breach. Testing Aadhaar against its own claims.">
+  <meta property="og:url" content="https://indiastack.in/aadhaar/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aadhaar: The Claims vs Reality">
+  <meta name="twitter:description" content="'Open architecture' with no published code. 'Data security' with world's largest breach.">
+  <meta name="twitter:image" content="https://indiastack.in/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "Aadhaar: Claims vs Reality",
+    "headline": "Aadhaar: Claims vs Reality",
+    "description": "Critical analysis of Aadhaar's claims of openness versus closed reality",
+    "url": "https://indiastack.in/aadhaar/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-08",
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "publisher": {
+      "@type": "Organization",
+      "name": "India Stack Watch",
+      "url": "https://indiastack.in",
+      "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}
+    },
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/aadhaar/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"}
+  }
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"Aadhaar","item":"https://indiastack.in/aadhaar/"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Aadhaar open source?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Despite claims of 'open architecture,' zero lines of Aadhaar source code have ever been published. 'Openness' refers only to API specifications, not the actual system code. The system cannot be forked, audited, or independently deployed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can children opt out of Aadhaar when they turn 18?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The Supreme Court ruled children can exit upon attaining majority, but UIDAI told the court that minors cannot opt out after turning 18. The exit mechanism was never implemented. 2.5+ crore children enrolled without meaningful consent remain in CIDR forever."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens when Aadhaar servers fail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All dependent services stop. July 2024: nationwide outage halted 7,000+ property registrations in Telangana. 2023: 54+ hours cumulative outages. Rural areas with poor connectivity cannot authenticate. Aadhaar is a single point of failure with no non-digital fallback."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Aadhaar's biometric failure rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "6-12% for manual laborers (worn fingerprints), 11% enrollment rejection (CAG Report), up to 49% authentication failure in Jharkhand (JPAL). MPs in 2025 warned that faulty biometrics are blocking genuine beneficiaries from rations and MGNREGA work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Has Aadhaar data been breached?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The World Economic Forum called it 'potentially the largest data breach in history.' The Tribune reported Rs 500 bought access to billion Aadhaar details. UIDAI admitted 210 government websites exposed data. Over 1.1 billion records potentially compromised."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <div class="scan-line"></div>
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+    <section class="hero-section fade-up">
+      <div class="hero-content">
+        <a href="/layers/" class="back-link">← BACK TO LAYERS</a>
+        <h1 class="hero-title">Aadhaar: <span class="accent">Claims vs Reality</span></h1>
+        <p class="hero-subtitle">The government promotes Aadhaar as "open architecture" with "strong security." <strong>Here's what they don't tell you.</strong></p>
+      </div>
+      <div class="hero-illustration accent">
+        <img src="/components/svg/hero-aadhaar.svg" alt="Aadhaar illustration" width="400" height="400">
+      </div>
+    </section>
+
+    <!-- Quick Test Grid -->
+    <div class="quick-test">
+      <div class="quick-test-item">
+        <span class="q">Is source code published?</span>
+        <span class="a no">No. Zero lines.</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">Independent security audit?</span>
+        <span class="a no">Never conducted.</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">RTI queries answered?</span>
+        <span class="a no">Exempt since 2016.</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">Can you delete your data?</span>
+        <span class="a no">No mechanism exists.</span>
+      </div>
+    </div>
+
+    <div class="callout warning">
+      <div class="label">THE FOUNDATION</div>
+      <p><strong>Aadhaar is the master key to India Stack.</strong> Every other layer, UPI, ABDM, DigiLocker, Account Aggregator. Authenticates through Aadhaar. When the foundation is closed, RTI-exempt, and unauditable, everything built on it inherits those properties.</p>
+    </div>
+
+    <!-- CLAIM 1: Open Architecture -->
+    <section class="content-section fade-up">
+      <h2 class="section-h2 warning">CLAIM #1: OPEN ARCHITECTURE</h2>
+
+      <div class="claim-box">
+        <div class="label">indiastack.global says</div>
+        <p>"Entire technology architecture behind Aadhaar is based on principles of openness, linear scalability, strong security, and most importantly vendor neutrality."</p>
+      </div>
+
+      <div class="reality-box">
+        <div class="label">Reality</div>
+        <p><strong class="text-rose">No source code has ever been published.</strong> The claim of "openness" refers to API specifications, not the actual system.</p>
+        <ul>
+          <li>UIDAI is <strong>RTI-exempt</strong> under Section 24 of RTI Act since 2016</li>
+          <li>No independent security audit has ever been conducted</li>
+          <li>Cannot be forked or independently deployed</li>
+          <li>"GitHub / OpenForge Link" on indiastack.global: <strong class="text-rose">No actual link exists</strong></li>
+        </ul>
+      </div>
+
+      <div class="cyber-diagram">
+<pre><span class="title">WHAT "OPEN" ACTUALLY MEANS</span>
+
+<span class="g">TRUE OPEN SOURCE</span>             <span class="r">AADHAAR "OPEN"</span>
+━━━━━━━━━━━━━━━━━━             ━━━━━━━━━━━━━━━
+
+Source code available    ✓        Source code available    <span class="r">✗</span>
+Can inspect algorithms   ✓        Can inspect algorithms   <span class="r">✗</span>
+Can run your own instance  ✓        Can run your own instance  <span class="r">✗</span>
+Can verify behavior     ✓        Can verify behavior     <span class="r">✗</span>
+Community can audit     ✓        Community can audit     <span class="r">✗</span>
+
+<span class="g">Examples: Linux, Signal, Bitcoin</span>     <span class="r">API docs only. Implementation hidden.</span>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+<span class="y">Publishing API documentation is not open source.</span>
+<span class="y">It's a menu, not the recipe. It's the interface, not the implementation.</span>
+</pre>
+      </div>
+    </section>
+
+    <!-- CLAIM 2: Data Security -->
+    <section class="content-section fade-up">
+      <h2 class="section-h2 warning">CLAIM #2: DATA SECURITY</h2>
+
+      <div class="claim-box">
+        <div class="label">indiastack.global says</div>
+        <p>"Data Security", listed as a core principle of Aadhaar's technology backbone.</p>
+      </div>
+
+      <div class="reality-box">
+        <div class="label">Reality</div>
+        <p>The World Economic Forum called Aadhaar data exposure <strong class="text-warning">"potentially the largest data breach in history."</strong></p>
+      </div>
+
+      <div class="finding-card">
+        <div class="source">The Tribune, January 2018</div>
+        <h3>Rs 500 Buys Access to Billion Aadhaar Details</h3>
+        <p>Reporter purchased login credentials from agents, accessed names, phone numbers, addresses, photographs, and bank details of any Aadhaar holder. The entire CIDR database was accessible for a trivial sum.</p>
+      </div>
+
+      <div class="finding-card">
+        <div class="source">Kaarana / Security Researcher</div>
+        <h3>ECMP Software Cracked for Rs 2,500</h3>
+        <p>Aadhaar enrolment software available on the black market. Used to create fake Aadhaar numbers and enrol people fraudulently. The software patch bypassed all security controls.</p>
+      </div>
+
+      <div class="finding-card">
+        <div class="source">UIDAI Admission</div>
+        <h3>210 Government Websites Exposed Data</h3>
+        <p>UIDAI itself admitted that 210 government websites had publicly displayed Aadhaar numbers and personal details, violating their own data protection claims.</p>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-number">210+</div>
+          <div class="stat-label">Documented data breaches</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1.1B</div>
+          <div class="stat-label">Records exposed (WEF estimate)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Rs 500</div>
+          <div class="stat-label">Cost of database access</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLAIM 3: ID for Everyone -->
+    <section class="content-section fade-up">
+      <h2 class="section-h2 warning">CLAIM #3: IDENTITY FOR EVERYONE</h2>
+
+      <div class="claim-box">
+        <div class="label">indiastack.global says</div>
+        <p>"Building an ID for everyone", "Provides identity to 1.42 billion residents"</p>
+      </div>
+
+      <div class="reality-box">
+        <div class="label">Reality</div>
+        <p>Biometric authentication <strong class="text-rose">systematically fails</strong> for those who need it most:</p>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-number">6-12%</div>
+          <div class="stat-label">Biometric failure rate for manual laborers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">11%</div>
+          <div class="stat-label">Enrolment rejection rate (CAG Report)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">49%</div>
+          <div class="stat-label">Authentication failure in Jharkhand (JPAL)</div>
+        </div>
+      </div>
+
+      <div class="pattern-grid">
+        <div class="pattern-card claim">
+          <h4>Who Aadhaar Was Built For</h4>
+          <ul>
+            <li>Office workers with soft hands</li>
+            <li>Urban populations with connectivity</li>
+            <li>Young adults with clear biometrics</li>
+            <li>Those with stable addresses</li>
+          </ul>
+        </div>
+        <div class="pattern-card reality">
+          <h4>Who Gets Excluded</h4>
+          <ul>
+            <li>Manual laborers (worn fingerprints)</li>
+            <li>Elderly (fading biometrics)</li>
+            <li>Disabled persons</li>
+            <li>Those without stable mobile numbers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <p><strong class="text-warning">The Paradox:</strong> The very populations that welfare schemes are meant to serve, laborers, elderly, disabled. Are systematically excluded by the biometric authentication that's supposed to help them.</p>
+      </div>
+
+      <div class="finding-card">
+        <div class="source">Parliamentary Standing Committee, 2025</div>
+        <h3>MPs Warn of Systematic Exclusion</h3>
+        <p>Across party lines, MPs warned that faulty fingerprint and iris scans are blocking recipients from PDS rations and MGNREGA work. Laborers' worn fingerprints and elderly citizens' changed iris patterns no longer match UIDAI records. Millions denied due to technical errors.</p>
+      </div>
+    </section>
+
+    <!-- System Infrastructure Failures -->
+    <section class="content-section fade-up">
+      <h2 class="section-h2 warning">SYSTEM FAILURES</h2>
+
+      <div class="reality-box">
+        <div class="label">Authentication Bottleneck</div>
+        <p>Aadhaar is the <strong class="text-rose">single point of failure</strong> for all India Stack services. When UIDAI servers fail, everything stops:</p>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-number">54+</div>
+          <div class="stat-label">Hours of outages in 2023 (Jan-Sept)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">7,000+</div>
+          <div class="stat-label">Property registrations halted in single Telangana outage (July 2024)</div>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <p><strong>Connectivity Dependency:</strong> Rural areas with poor internet cannot authenticate. No non-digital fallback exists. When the system fails, citizens have no alternative government pathway.</p>
+      </div>
+    </section>
+
+    <!-- Children's Consent -->
+    <section class="content-section fade-up">
+      <h2 class="section-h2 warning">CHILDREN ENROLLED WITHOUT CONSENT</h2>
+
+      <div class="finding-card">
+        <div class="source">Supreme Court Puttaswamy (2018)</div>
+        <h3>Promise: Exit at 18</h3>
+        <p>The Supreme Court ruled that children enrolled by parents "shall have the option to exit upon attaining majority."</p>
+      </div>
+
+      <div class="finding-card">
+        <div class="source text-rose">UIDAI to Supreme Court (2018)</div>
+        <h3>Reality: No Exit Implemented</h3>
+        <p>UIDAI told the Supreme Court that <strong class="text-rose">minors cannot opt out of Aadhaar after turning 18</strong>, directly contradicting the court's direction. The exit mechanism was never implemented.</p>
+      </div>
+
+      <div class="callout warning">
+        <p><strong>2.5+ crore children</strong> enrolled without understanding the system. No procedural safeguards for consent. No review of information. No deletion mechanism when they become adults. Once enrolled, always enrolled. Biometric data collected as a child remains in CIDR forever.</p>
+      </div>
+    </section>
+
+    <!-- CLAIM 4: Savings -->
+    <section class="content-section fade-up">
+      <h2 class="section-h2 warning">CLAIM #4: GOVERNMENT SAVINGS</h2>
+
+      <div class="claim-box">
+        <div class="label">indiastack.global says</div>
+        <p>"Saving to government exchequer: USD 49 Billion"</p>
+      </div>
+
+      <div class="reality-box">
+        <div class="label">Reality</div>
+        <p>"Savings" are often <strong class="text-rose">benefits denied to genuine beneficiaries</strong>:</p>
+        <ul>
+          <li><strong>JPAL Study:</strong> 88% of "duplicate" ration cards cancelled were found to be <em>genuine</em></li>
+          <li>A cancelled card doesn't mean savings, it means a real person didn't get food</li>
+          <li>Government counts every denied benefit as "fraud prevented"</li>
+        </ul>
+      </div>
+
+      <div class="cyber-diagram">
+<pre><span class="title">HOW "SAVINGS" ARE CALCULATED</span>
+
+GOVERNMENT METHODOLOGY:
+━━━━━━━━━━━━━━━━━━━━━━
+
+  Before Aadhaar: 10 million beneficiaries
+  After Aadhaar:  8 million beneficiaries
+          ─────────────────────────
+  "Savings":    2 million "duplicates removed" → <span class="g">$X billion saved!</span>
+
+<span class="r">WHAT ACTUALLY HAPPENED:</span>
+━━━━━━━━━━━━━━━━━━━━━━━
+
+  Of 2 million removed:
+  ├── 12% were actual duplicates      → 240,000
+  └── <span class="r">88% were genuine beneficiaries</span>   → <span class="r">1,760,000 denied food</span>
+
+  <span class="r">This is not savings. This is exclusion counted as efficiency.</span>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Source: JPAL Study on Impact of Biometric Systems on Welfare Programs
+</pre>
+      </div>
+    </section>
+
+    <!-- Human Cost -->
+    <section class="content-section fade-up">
+      <h2 class="section-h2 rose">THE HUMAN COST</h2>
+
+      <div class="quote-box">
+        <blockquote>"From being a promise of inclusivity, it very quickly shifted to becoming something that would <strong>exclude you</strong> if you refused, or were unable for any reason, to be a part of it."</blockquote>
+        <cite>- Usha Ramanathan, <a href="https://sur.conectas.org/en/the-political-meaning-of-privacy-and-identity-an-interview-with-usha-ramanathan/" target="_blank">Sur International Journal</a></cite>
+      </div>
+
+      <div class="quote-box">
+        <blockquote>"Aadhaar is <strong>defective by design</strong>. By the time they understand it, many will die, many others will be excluded, and still others will be victims of identity fraud. Finally, they will understand and Aadhaar will be dead. But it is a long process."</blockquote>
+        <cite>- Anivar Aravind, <a href="https://timesofindia.indiatimes.com/city/bengaluru/supreme-court-judgement-on-aadhaar-its-victory-for-some-partial-success-failure-for-others/articleshow/65974597.cms" target="_blank">Times of India</a> (September 2018)</cite>
+      </div>
+
+      <div class="finding-card">
+        <div class="source text-rose">Documented Cases</div>
+        <h3>Starvation Deaths Linked to Aadhaar</h3>
+        <p>Multiple documented deaths in Jharkhand and other states where PDS beneficiaries were denied rations due to Aadhaar authentication failures. <strong>11-year-old Santoshi Kumari died of starvation</strong> after her family was denied rations because their Aadhaar wasn't linked to their ration card.</p>
+      </div>
+    </section>
+
+    <!-- CLAIM 5: Legal Framework -->
+    <section class="content-section fade-up">
+      <h2 class="section-h2 warning">CLAIM #5: LEGAL FRAMEWORK</h2>
+
+      <div class="claim-box">
+        <div class="label">indiastack.global says</div>
+        <p>"Aadhaar Act 2016 provides legal backing". UIDAI is a "statutory authority"</p>
+      </div>
+
+      <div class="reality-box">
+        <div class="label">Reality</div>
+        <p>The legal framework was designed to <strong class="text-rose">prevent accountability</strong>:</p>
+        <ul>
+          <li>Aadhaar Act passed as <strong>Money Bill</strong> to bypass Rajya Sabha objections</li>
+          <li>Parliamentary Standing Committee rejected the bill <strong>three times</strong></li>
+          <li>UIDAI declared RTI-exempt organization</li>
+          <li>No mechanism for deletion of Aadhaar data</li>
+          <li>Linked to NATGRID surveillance system</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CLAIM 6: Vendor Neutrality -->
+    <section class="content-section fade-up">
+      <h2 class="section-h2 warning">CLAIM #6: VENDOR NEUTRALITY</h2>
+
+      <div class="claim-box">
+        <div class="label">indiastack.global says</div>
+        <p>"Vendor neutrality", suggesting open competition and choice</p>
+      </div>
+
+      <div class="reality-box">
+        <div class="label">Reality</div>
+        <p>There is <strong class="text-rose">only one implementation</strong>. You cannot:</p>
+        <ul>
+          <li>Run your own Aadhaar-compatible identity system</li>
+          <li>Choose an alternative provider</li>
+          <li>Opt out once enrolled</li>
+          <li>Verify how authentication decisions are made</li>
+        </ul>
+      </div>
+
+      <div class="callout warning">
+        <p><strong class="text-warning">Vendor neutrality without source code is meaningless.</strong> True vendor neutrality requires that anyone can implement the system. With Aadhaar, you can only call UIDAI's API, you cannot verify it, audit it, or build alternatives.</p>
+      </div>
+    </section>
+
+    <!-- The Fork Test -->
+    <section class="content-section fade-up">
+      <h2 class="section-h2 accent">THE FORK TEST</h2>
+
+      <div class="fork-test">
+        <h3>Can you fork Aadhaar?</h3>
+        <div class="fork-test-row">
+          <span class="label">Source code available?</span>
+          <span class="value no">No</span>
+        </div>
+        <div class="fork-test-row">
+          <span class="label">Can deploy independently?</span>
+          <span class="value no">No</span>
+        </div>
+        <div class="fork-test-row">
+          <span class="label">No permission needed?</span>
+          <span class="value no">No</span>
+        </div>
+        <div class="fork-test-row">
+          <span class="label">Can exit / delete data?</span>
+          <span class="value no">No mechanism exists</span>
+        </div>
+      </div>
+
+      <div class="verdict-box accent">
+        <div class="verdict-label">Verdict</div>
+        <div class="verdict-title">Closed System. "Open" Claims Are Marketing.</div>
+        <p class="verdict-text">After 17 years and 1.4 billion enrollments, zero lines of source code have been published for public audit.</p>
+      </div>
+    </section>
+
+    <!-- Sources -->
+    <section class="sources fade-up">
+      <h3>Sources</h3>
+      <ul>
+        <li><a href="https://www.tribuneindia.com/news/archive/nation/rs-500-10-minutes-and-you-have-access-to-billion-aadhaar-details-523361" target="_blank">The Tribune: Rs 500, 10 minutes, billion Aadhaar details</a></li>
+        <li><a href="https://rfruth.in/documents" target="_blank">Rethink Aadhaar: Documentation of harms</a></li>
+        <li><a href="https://medium.com/karana" target="_blank">Kaarana: Technical security research</a></li>
+        <li><a href="https://cfrce.com/aadhaar-deaths-tracker/" target="_blank">CFR Center for Equity: Aadhaar deaths tracker</a></li>
+        <li><a href="https://www.povertyactionlab.org/evaluation/impact-biometric-smartcards-public-welfare-programs-india" target="_blank">JPAL: Impact of biometric systems on welfare programs</a></li>
+        <li><a href="https://cag.gov.in/" target="_blank">CAG Reports on UIDAI performance</a></li>
+        <li><a href="https://timesofindia.indiatimes.com/city/bengaluru/supreme-court-judgement-on-aadhaar-its-victory-for-some-partial-success-failure-for-others/articleshow/65974597.cms" target="_blank">Times of India: Supreme Court Aadhaar judgment reactions</a></li>
+      </ul>
+    </section>
+
+    <!-- Navigation -->
+    <section class="fade-up mt-2">
+      <div class="nav-grid">
+        <a href="/upi/" class="nav-card">
+          <h3>UPI</h3>
+          <p>Financial surveillance layer.</p>
+        </a>
+        <a href="/surveillance/" class="nav-card">
+          <h3>Surveillance</h3>
+          <p>NATGRID and the panopticon.</p>
+        </a>
+        <a href="/exclusion/" class="nav-card">
+          <h3>Human Cost</h3>
+          <p>Deaths and exclusion.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+  </main>
+
+  <div class="media-section">
+    <div class="media-label">Concerns documented by</div>
+    <div class="media-logos">
+      <a href="https://www.washingtonpost.com/news/theworldpost/wp/2018/08/09/aadhaar/" target="_blank" class="media-logo" title="The Washington Post">
+        <svg viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Georgia, Times, serif" font-size="14" font-style="italic" fill="#666">The Washington Post</text></svg>
+      </a>
+      <a href="https://techcrunch.com/2025/02/02/india-expands-aadhaar-authentication-for-businesses-raising-privacy-concerns/" target="_blank" class="media-logo" title="TechCrunch">
+        <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#666">TechCrunch</text></svg>
+      </a>
+      <a href="https://www.hrw.org/news/2018/01/13/india-identification-project-threatens-rights" target="_blank" class="media-logo" title="Human Rights Watch">
+        <svg viewBox="0 0 150 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="500" fill="#666">Human Rights Watch</text></svg>
+      </a>
+      <a href="https://www.aljazeera.com/news/2018/1/5/india-probes-breach-of-biometric-identity-database" target="_blank" class="media-logo" title="Al Jazeera">
+        <svg viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#666">Al Jazeera</text></svg>
+      </a>
+      <a href="https://www.moneylife.in/article/aadhaar-data-breach-largest-in-the-world-says-wefs-global-risk-report-and-avast/56384.html" target="_blank" class="media-logo" title="World Economic Forum">
+        <svg viewBox="0 0 32 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Courier, monospace" font-size="13" font-weight="600" fill="#666">WEF</text></svg>
+      </a>
+    </div>
+  </div>
+
+    <div id="site-footer"></div>
+
+<script>
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal-up, .fade-up, .content-section').forEach(el => observer.observe(el));
+
+// Magnetic hover effect for cards
+document.querySelectorAll('.nav-card, .finding-card, .info-box').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateZ(10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease';
+  });
+});
+
+// Mobile menu toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.dataset.open === 'true';
+    navLinks.dataset.open = !isOpen;
+    menuToggle.setAttribute('aria-expanded', !isOpen);
+  });
+}
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+</script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

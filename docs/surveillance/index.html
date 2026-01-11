@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Surveillance Layer | India Stack Watch</title>
+  <meta name="keywords" content="India Stack surveillance, NATGRID, Aadhaar surveillance, UPI tracking, mass surveillance India">
+  <meta name="description" content="How India Stack enables mass surveillance. NATGRID links 21+ databases via Aadhaar. UPI creates 360-degree financial profiles.">
+  <link rel="canonical" href="https://indiastack.in/surveillance/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Surveillance Layer | India Stack Watch">
+  <meta property="og:description" content="Aadhaar without NATGRID isn't surveillance. Aadhaar with NATGRID is. Here's how they connect.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    /* Surveillance page - green accent theme */
+    .gradient-orb.orb-1 { background: radial-gradient(circle, #0dd892 0%, transparent 70%); }
+    .gradient-orb.orb-2 { background: radial-gradient(circle, #059669 0%, transparent 70%); }
+
+    /* Page-specific agency grid */
+    .agency-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; margin-top: 1rem; }
+    .agency { background: rgba(244, 114, 182, 0.1); padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.75rem; color: rgba(255,255,255,0.7); text-align: center; }
+
+    /* Page-specific link diagram */
+    .link-diagram { background: #0c0c0c; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; }
+    .link-diagram h3 { font-size: 0.9rem; font-weight: 500; margin-bottom: 1rem; color: #0dd892; text-align: center; }
+    .link-chain { display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
+    .link-node { background: rgba(255,255,255,0.07); padding: 0.75rem 1.5rem; border-radius: 4px; font-size: 0.85rem; color: rgba(255,255,255,0.8); }
+    .link-arrow { color: var(--warning); font-size: 1.2rem; }
+
+    /* Page-specific concern box */
+    .concern-box { background: rgba(245, 158, 11, 0.08); border-left: 3px solid #f59e0b; padding: 1.25rem 1.5rem; margin: 2rem 0; border-radius: 0 8px 8px 0; }
+    .concern-box h3 { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.75rem; color: #f59e0b; }
+    .concern-box p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+    @media (max-width: 600px) { .agency-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="India Stack Surveillance Architecture">
+  <meta name="twitter:description" content="NATGRID. NPR. Electoral linkage. The infrastructure of total visibility.">
+  <meta name="twitter:image" content="https://indiastack.in/og-image.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "India Stack Surveillance Architecture",
+    "headline": "India Stack Surveillance Architecture",
+    "description": "How India Stack enables mass surveillance. NATGRID links 21+ databases via Aadhaar. UPI creates 360-degree financial profiles.",
+    "url": "https://indiastack.in/surveillance/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-08",
+    "publisher": {
+      "@type": "Organization",
+      "name": "India Stack Watch",
+      "url": "https://indiastack.in",
+      "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}
+    },
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/surveillance/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"Surveillance","item":"https://indiastack.in/surveillance/"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is NATGRID?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NATGRID (National Intelligence Grid) is a real-time intelligence platform created after the 2008 Mumbai attacks. It links 21+ government and private databases using Aadhaar as the integration key, including driving licenses, bank records, FASTag, hospital records, airline data, tax records, and telecom metadata."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who has access to NATGRID?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "11 central agencies (RAW, IB, NIA, CBI, NCB, ED, FIU, CBDT, CBIC, DRI, DGGI) plus state police. SP-rank officers can query NATGRID. Over 45,000 queries per month from police and investigative agencies. No judicial oversight required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is NATGRID linked to Aadhaar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. NATGRID is now linked to NPR (National Population Register) which contains 119 crore residents' data including Aadhaar numbers. Aadhaar is the primary key that connects all databases in NATGRID."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What did the Supreme Court say about Aadhaar surveillance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Puttaswamy II majority (2018) ruled Aadhaar doesn't create surveillance architecture. However, Justice Chandrachud's dissent warned that combining Aadhaar with other databases enables profiling and surveillance. That combination has now happened with NATGRID-NPR linkage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What data does NPCI collect from UPI transactions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NPCI has visibility into all UPI transaction details: Aadhaar number, device fingerprint, IP address, operating system, application, bank account numbers, and GPS location. This creates a 'comprehensive financial profile' of every UPI user."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- Visual effects -->
+  <div class="scan-line"></div>
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div id="site-header"></div>
+  <main id="main-content" role="main">
+  <div class="container">
+    <section class="hero-section fade-up">
+      <div class="hero-content">
+        <div class="eyebrow text-rose">Structural Consequence · Closed Control Loop</div>
+<h1 class="hero-title">The <span class="accent">Surveillance</span> Layer</h1>
+        <p class="hero-subtitle">The Supreme Court said Aadhaar doesn't enable surveillance. Then NATGRID was linked to NPR. <strong>Aadhaar is the key that unlocks it all.</strong></p>
+      </div>
+      <div class="hero-illustration accent">
+        <img src="/components/svg/hero-surveillance.svg" alt="Surveillance eye illustration">
+      </div>
+    </section>
+
+    <!-- Quick Test Grid -->
+    <div class="quick-test">
+      <div class="quick-test-item">
+        <span class="q">Is NATGRID linked to Aadhaar?</span>
+        <span class="a no">Yes</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">NPR-Aadhaar linkage?</span>
+        <span class="a no">119 Cr Records</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">Voter ID-Aadhaar linkage?</span>
+        <span class="a partial">In Progress</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">Citizen opt-out?</span>
+        <span class="a no">None</span>
+      </div>
+    </div>
+    <div class="definition accent mb-1">
+      <div class="definition-label text-accent">The Pattern</div>
+      <p><strong class="text-accent">Observation without reciprocity is control.</strong> Healthy systems have two-way feedback: you watch the system, the system watches you, both can correct. One-way observation turns people into objects. Partnership becomes panopticon.</p>
+    </div>
+
+    <div class="section-label">The Architecture of Asymmetric Observation</div>
+
+    <div class="ascii-diagram">
+<pre>
+<span class="text-accent">SYMMETRIC SYSTEM (mutual observation)</span>
+
+  ┌─────────────┐     ┌─────────────┐
+  │  CITIZEN  │ ◀─────▶ │  STATE  │
+  │ (can see) │     │ (can see) │
+  └─────────────┘     └─────────────┘
+     │            │
+     ▼            ▼
+  ┌─────────────┐     ┌─────────────┐
+  │ Who used  │     │ What citizen│
+  │ my data?  │     │  did?   │
+  └─────────────┘     └─────────────┘
+     <span class="text-accent">ACCOUNTABILITY IN BOTH DIRECTIONS</span>
+
+
+<span class="text-rose">ASYMMETRIC SYSTEM (India Stack)</span>
+
+             ┌───────────────────┐
+             │  STATE / NPCI  │
+             │ UIDAI / NATGRID │
+             └────────┬──────────┘
+                 │ <span class="text-rose">SEES ALL</span>
+                 ▼
+  ┌─────────────────────────────────────────────────────────────┐
+  │ IDENTITY │ FINANCES │ LOCATION │ HEALTH │ POLITICS │ FAMILY│
+  └─────────────────────────────────────────────────────────────┘
+                 ▲
+                 │ <span class="text-rose">CANNOT SEE</span>
+             ┌────────┴──────────┐
+             │   CITIZEN    │
+             │ • No access logs │
+             │ • No audit trail │
+             │ • No correction │
+             └───────────────────┘
+             <span class="text-rose">THE PANOPTICON</span>
+</pre>
+    </div>
+
+    <div class="quote-box">
+      <blockquote>"Aadhaar without NATGRID isn't surveillance, but Aadhaar with NATGRID can be helpful for surveillance."</blockquote>
+      <cite>- Centre for Internet and Society</cite>
+    </div>
+
+    <div class="section-label">What Is NATGRID</div>
+    <div class="info-box">
+      <h3>National Intelligence Grid</h3>
+      <p>Created after the 2008 Mumbai attacks. A real-time intelligence platform linking 21+ government and private databases. Uses Aadhaar as the primary integration key.</p>
+      <p>Includes: driving licenses, vehicle registration, bank records, Aadhaar data, FASTag, hospital records, airline data, tax records, telecom metadata, immigration records.</p>
+      <p>Advanced analytics tool "Gandiva" enables facial recognition of suspects.</p>
+    </div>
+
+    <div class="section-label">Who Has Access</div>
+    <div class="info-box">
+      <h3>11 Central Agencies + State Police</h3>
+      <p>Superintendent of Police (SP) rank officers can query NATGRID. Over 45,000 queries per month from police and investigative agencies.</p>
+      <div class="agency-grid">
+        <div class="agency">RAW</div>
+        <div class="agency">IB</div>
+        <div class="agency">NIA</div>
+        <div class="agency">CBI</div>
+        <div class="agency">NCB</div>
+        <div class="agency">ED</div>
+        <div class="agency">FIU</div>
+        <div class="agency">CBDT</div>
+        <div class="agency">CBIC</div>
+        <div class="agency">DRI</div>
+        <div class="agency">DGGI</div>
+      </div>
+    </div>
+
+    <div class="section-label">The NPR Connection</div>
+    <div class="info-box">
+      <h3>National Population Register</h3>
+      <p>Family-wise details of 119 crore residents. Collected in 2010, updated in 2015 with Aadhaar and mobile numbers. Now linked to NATGRID.</p>
+      <p>NPR was created without informed consent. 119.34 crore Indians listed. Aadhaar seeding done non-transparently, raising constitutional questions.</p>
+    </div>
+
+    <div class="section-label">Surveillance Across Layers</div>
+    <table class="layer-table">
+      <thead>
+        <tr>
+          <th>System</th>
+          <th>Data Collected</th>
+          <th>Oversight</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="layer-name">Aadhaar</td>
+          <td class="layer-detail">Biometrics (fingerprints, iris), demographics, authentication logs with timestamp, location, and device. Linked to all other layers via unique 12-digit ID.</td>
+          <td class="layer-detail">UIDAI. RTI exempt. No independent audit.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">UPI</td>
+          <td class="layer-detail">NPCI has visibility into all transaction details: Aadhaar number, device fingerprint, IP address, operating system, application, bank account numbers, GPS location. Creates "comprehensive financial profile" of users.</td>
+          <td class="layer-detail">NPCI, private consortium. FIU access. No public audit.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">FASTag</td>
+          <td class="layer-detail">Real-time vehicle location at every toll plaza. Vehicle number, travel time, route patterns. Linked to bank account and Aadhaar.</td>
+          <td class="layer-detail">NPCI/NHAI, no consent for location tracking.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">Account Aggregator</td>
+          <td class="layer-detail">Financial profile across banks, insurance, mutual funds, tax records. Consent-based but consent for flow, not protection.</td>
+          <td class="layer-detail">Sahamati, private self-regulation.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">ABDM / ABHA</td>
+          <td class="layer-detail">Complete health records: diagnoses, prescriptions, lab reports, hospital visits. Linked to Aadhaar via Health ID.</td>
+          <td class="layer-detail">NHA, patient data exposed on public dashboards.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">CoWIN / U-WIN</td>
+          <td class="layer-detail">Vaccination records with Aadhaar, phone number, address. Now expanded to all immunization via U-WIN.</td>
+          <td class="layer-detail">MoHFW, centralized, mandatory for travel/work.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">DigiLocker</td>
+          <td class="layer-detail">All government documents: driving license, voter ID, educational certificates, property records. Aadhaar-authenticated access.</td>
+          <td class="layer-detail">MeitY, central government access to all documents.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">ONDC</td>
+          <td class="layer-detail">Purchase history, delivery addresses, merchant relationships. Commercial behavior profiling.</td>
+          <td class="layer-detail">Section 8 company. RTI exempt, no writ petition.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">Electoral Rolls</td>
+          <td class="layer-detail">Voter ID now linked to Aadhaar via 2021 amendment. Political participation mapped to identity.</td>
+          <td class="layer-detail">ECI, linking enables political profiling.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="quote-box">
+      <blockquote>"The idea that every citizen in this country is to be numbered is the primary thing in the project. The second part is that every database should have the number embedded in it so it becomes <strong>easy to collate information about people, easy to profile people</strong> and launch surveillance if you want."</blockquote>
+      <cite>- Usha Ramanathan, <a href="https://cis-india.org/internet-governance/blog/UID_Questions_without_Answers" target="_blank">CIS India</a></cite>
+    </div>
+
+    <div class="quote-box">
+      <blockquote>"The NPCI has visibility into all the details of each transaction, the Aadhaar number, device fingerprint, IP address, operating system, application, bank account numbers, and GPS location."</blockquote>
+      <cite>- Sunil Abraham, ORF Research</cite>
+    </div>
+
+    <div class="link-diagram">
+      <h3>How They Connect</h3>
+      <div class="link-chain">
+        <div class="link-node">Aadhaar (Biometrics + Demographics)</div>
+        <div class="link-arrow">↓</div>
+        <div class="link-node">NPR (Family-wise Data) + Electoral Rolls</div>
+        <div class="link-arrow">↓</div>
+        <div class="link-node">UPI (Financial) + FASTag (Location) + ABDM (Health)</div>
+        <div class="link-arrow">↓</div>
+        <div class="link-node">NATGRID (21+ Databases)</div>
+        <div class="link-arrow">↓</div>
+        <div class="link-node">11 Intelligence Agencies + State Police</div>
+      </div>
+    </div>
+
+    <div class="concern-box">
+      <h3>No Oversight</h3>
+      <p>NATGRID is exempt from the Right to Information Act (added to RTI's Second Schedule in 2011). Agencies can access personal data without registering an FIR. No comprehensive data protection law governs this access. The government has kept NATGRID outside judicial and parliamentary scrutiny.</p>
+    </div>
+
+    <div class="section-label">The Court Said...</div>
+    <div class="info-box">
+      <h3>Puttaswamy II (2018), Majority</h3>
+      <p>"Aadhaar's framework was not a measure to track or even monitor because the data gathered by it was for identification or authentication and not for tracking the people."</p>
+      <p>The majority dismissed surveillance concerns. It ruled Aadhaar doesn't create architecture for mass surveillance.</p>
+    </div>
+    <div class="info-box">
+      <h3>Chandrachud J. Dissent</h3>
+      <p>"Efficiencies can compromise dignity. When efficiency becomes a universal mantra to steam-roll fundamental freedoms, there is a danger of a society crossing the line which divides democracy from authoritarian cultures."</p>
+      <p>The dissent warned that combining Aadhaar with other databases enables profiling and surveillance. That combination has now happened.</p>
+    </div>
+
+    <div class="concern-box">
+      <h3>Permanent Identifiers, Permanent Risk</h3>
+      <p>Aadhaar numbers cannot be easily reissued after a breach. Unlike credit cards or phone numbers, your biometric identity is permanent. When financial, health, location, and political data are all linked to this permanent identifier, a single breach exposes your entire digital life.</p>
+    </div>
+
+    <div class="info-box warning mt-2">
+      <h3>The One-Way Mirror</h3>
+      <p>In India Stack, information flows in one direction: from citizens to the state. The architecture creates <strong>asymmetric observation</strong>, they see everything; you see nothing.</p>
+      <ul>
+        <li><strong>You cannot see who accessed your data:</strong> No access logs available to citizens</li>
+        <li><strong>You cannot verify your records:</strong> What does CIDR say about you? You cannot check</li>
+        <li><strong>You cannot correct errors:</strong> Dispute resolution is opaque and slow</li>
+        <li><strong>You cannot opt out:</strong> Observation is the price of participation</li>
+      </ul>
+      <p class="mt-1">This is the architecture of the panopticon: total visibility for the observer, zero visibility for the observed.</p>
+    </div>
+
+    <div class="verdict-box accent">
+      <div class="verdict-label">VERDICT</div>
+      <div class="verdict-title"><span class="text-accent">The Surveillance the Court Said Wouldn't Happen Is Now Operational.</span></div>
+    </div>
+
+
+    <div class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li><a href="https://www.medianama.com/2025/12/223-natgrid-npr-database-privacy-law-enforcement/" target="_blank">MediaNama: NATGRID-NPR Link (Dec 2025)</a></li>
+        <li><a href="https://sunilabraham.in/publications/unified-payment-interface-towards-greater-cyber-sovereignty-full-text/" target="_blank">Sunil Abraham: UPI Surveillance Analysis</a></li>
+        <li><a href="https://www.orfonline.org/research/unified-payment-interface" target="_blank">ORF: UPI Research Brief</a></li>
+        <li><a href="https://cis-india.org/internet-governance/blog/surveillance-project" target="_blank">CIS India: Surveillance Analysis</a></li>
+        <li><a href="https://indiankanoon.org/doc/127517806/" target="_blank">Puttaswamy v. Union of India (2018)</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/NATGRID" target="_blank">NATGRID - Wikipedia</a></li>
+        <li><a href="https://indconlawphil.wordpress.com/2019/11/11/revisiting-the-aadhaar-judgment/" target="_blank">IndConLawPhil: Revisiting the Aadhaar Judgment</a></li>
+      </ul>
+    </div></div>
+
+    <div class="media-section">
+      <div class="media-label">Concerns documented by</div>
+      <div class="media-logos">
+        <a href="https://www.washingtonpost.com/news/theworldpost/wp/2018/08/09/aadhaar/" target="_blank" class="media-logo" title="The Washington Post">
+          <svg viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Georgia, Times, serif" font-size="14" font-style="italic" fill="#666">The Washington Post</text></svg>
+        </a>
+        <a href="https://techcrunch.com/2025/02/02/india-expands-aadhaar-authentication-for-businesses-raising-privacy-concerns/" target="_blank" class="media-logo" title="TechCrunch">
+          <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#666">TechCrunch</text></svg>
+        </a>
+        <a href="https://www.hrw.org/news/2018/01/13/india-identification-project-threatens-rights" target="_blank" class="media-logo" title="Human Rights Watch">
+          <svg viewBox="0 0 150 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="500" fill="#666">Human Rights Watch</text></svg>
+        </a>
+        <a href="https://www.aljazeera.com/news/2018/1/5/india-probes-breach-of-biometric-identity-database" target="_blank" class="media-logo" title="Al Jazeera">
+          <svg viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#666">Al Jazeera</text></svg>
+        </a>
+        <a href="https://www.moneylife.in/article/aadhaar-data-breach-largest-in-the-world-says-wefs-global-risk-report-and-avast/56384.html" target="_blank" class="media-logo" title="World Economic Forum">
+          <svg viewBox="0 0 32 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Courier, monospace" font-size="13" font-weight="600" fill="#666">WEF</text></svg>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+    <div id="site-footer"></div>
+<script>
+// Mobile menu toggle
+
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal-up, .fade-up, .content-section').forEach(el => observer.observe(el));
+
+// Magnetic hover effect for cards
+document.querySelectorAll('.nav-card, .component-card, .info-box, .gov-card, .ai-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateZ(10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease';
+  });
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.dataset.open === 'true';
+    navLinks.dataset.open = !isOpen;
+    menuToggle.setAttribute('aria-expanded', !isOpen);
+  });
+}
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+</script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

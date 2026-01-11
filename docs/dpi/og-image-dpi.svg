@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0c"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(13,216,146,0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Accent line top -->
+  <rect x="0" y="0" width="1200" height="4" fill="#0dd892" opacity="0.8"/>
+
+  <!-- Eyebrow -->
+  <text x="100" y="100" font-family="'Space Mono', monospace" font-size="16" fill="#0dd892" letter-spacing="0.2em">EVALUATION FRAMEWORK</text>
+
+  <!-- Main Title -->
+  <text x="100" y="180" font-family="'Space Grotesk', system-ui, sans-serif" font-size="72" font-weight="700" fill="#ffffff">Digital Public</text>
+  <text x="100" y="260" font-family="'Space Grotesk', system-ui, sans-serif" font-size="72" font-weight="700" fill="#ffffff">Infrastructure</text>
+
+  <!-- Subtitle -->
+  <text x="100" y="320" font-family="'Space Grotesk', system-ui, sans-serif" font-size="28" fill="rgba(255,255,255,0.7)">Five Corrigibility Tests — All Must Pass</text>
+
+  <!-- Five test badges -->
+  <g transform="translate(100, 380)">
+    <!-- EXIT -->
+    <rect x="0" y="0" width="90" height="36" rx="6" fill="rgba(6,182,212,0.2)" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="45" y="24" text-anchor="middle" font-family="'Space Mono', monospace" font-size="14" font-weight="600" fill="#06b6d4">EXIT</text>
+
+    <!-- CODE -->
+    <rect x="110" y="0" width="90" height="36" rx="6" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="155" y="24" text-anchor="middle" font-family="'Space Mono', monospace" font-size="14" font-weight="600" fill="#3b82f6">CODE</text>
+
+    <!-- AUDIT -->
+    <rect x="220" y="0" width="90" height="36" rx="6" fill="rgba(168,85,247,0.2)" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="265" y="24" text-anchor="middle" font-family="'Space Mono', monospace" font-size="14" font-weight="600" fill="#a855f7">AUDIT</text>
+
+    <!-- GOVERN -->
+    <rect x="330" y="0" width="100" height="36" rx="6" fill="rgba(245,158,11,0.2)" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="380" y="24" text-anchor="middle" font-family="'Space Mono', monospace" font-size="14" font-weight="600" fill="#f59e0b">GOVERN</text>
+
+    <!-- FORK -->
+    <rect x="450" y="0" width="90" height="36" rx="6" fill="rgba(244,114,182,0.2)" stroke="#f472b6" stroke-width="1.5"/>
+    <text x="495" y="24" text-anchor="middle" font-family="'Space Mono', monospace" font-size="14" font-weight="600" fill="#f472b6">FORK</text>
+  </g>
+
+  <!-- Key message -->
+  <text x="100" y="480" font-family="'Space Grotesk', system-ui, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">Public infrastructure must be corrigible by those it affects.</text>
+
+  <!-- Globe/checkmark graphic on right -->
+  <g transform="translate(950, 280)">
+    <circle cx="0" cy="0" r="120" fill="none" stroke="rgba(13,216,146,0.2)" stroke-width="2"/>
+    <circle cx="0" cy="0" r="90" fill="none" stroke="rgba(13,216,146,0.15)" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="0" cy="0" r="60" fill="none" stroke="rgba(13,216,146,0.1)" stroke-width="1" stroke-dasharray="2 4"/>
+    <circle cx="0" cy="0" r="35" fill="rgba(13,216,146,0.15)" stroke="#0dd892" stroke-width="2"/>
+    <path d="M-12 0 L-4 8 L14 -10" stroke="#0dd892" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- URL and CC0 -->
+  <text x="100" y="580" font-family="'Space Mono', monospace" font-size="18" fill="#0dd892" letter-spacing="0.05em">indiastack.in/dpi</text>
+  <text x="1100" y="580" text-anchor="end" font-family="'Space Mono', monospace" font-size="14" fill="rgba(255,255,255,0.4)">CC0 PUBLIC DOMAIN</text>
+</svg>

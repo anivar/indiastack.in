@@ -1,0 +1,38 @@
+<svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg">
+    <!-- Matrix grid -->
+    <rect x="150" y="60" width="250" height="120" fill="rgba(13,216,146,0.08)" stroke="rgba(13,216,146,0.3)" stroke-width="1"/>
+    <rect x="400" y="60" width="250" height="120" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+    <rect x="150" y="180" width="250" height="120" fill="rgba(96,165,250,0.08)" stroke="rgba(96,165,250,0.3)" stroke-width="1"/>
+    <rect x="400" y="180" width="250" height="120" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
+
+    <!-- Axis labels -->
+    <text x="400" y="35" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">EXCLUDABILITY</text>
+    <text x="275" y="50" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Space Grotesk, sans-serif" font-size="10">Low</text>
+    <text x="525" y="50" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Space Grotesk, sans-serif" font-size="10">High</text>
+
+    <!-- Vertical axis label -->
+    <text x="60" y="170" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600" transform="rotate(-90 60 170)">RIVALRY</text>
+    <text x="120" y="120" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Space Grotesk, sans-serif" font-size="10">Low</text>
+    <text x="120" y="240" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Space Grotesk, sans-serif" font-size="10">High</text>
+
+    <!-- Quadrant labels -->
+    <text x="275" y="100" text-anchor="middle" fill="#0dd892" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">PUBLIC GOODS</text>
+    <text x="275" y="120" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Space Grotesk, sans-serif" font-size="10">Air, Knowledge, Defense</text>
+    <text x="275" y="140" text-anchor="middle" fill="rgba(13,216,146,0.6)" font-family="Space Mono, monospace" font-size="9">Non-rival + Non-excludable</text>
+
+    <text x="525" y="100" text-anchor="middle" fill="#f59e0b" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">CLUB GOODS</text>
+    <text x="525" y="120" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Space Grotesk, sans-serif" font-size="10">Netflix, Gym, Toll Roads</text>
+    <text x="525" y="140" text-anchor="middle" fill="rgba(245,158,11,0.6)" font-family="Space Mono, monospace" font-size="9">Non-rival + Excludable</text>
+
+    <text x="275" y="220" text-anchor="middle" fill="#60a5fa" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">COMMON POOL</text>
+    <text x="275" y="240" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Space Grotesk, sans-serif" font-size="10">Fisheries, Forests, Spectrum</text>
+    <text x="275" y="260" text-anchor="middle" fill="rgba(96,165,250,0.6)" font-family="Space Mono, monospace" font-size="9">Rival + Non-excludable</text>
+
+    <text x="525" y="220" text-anchor="middle" fill="#ef4444" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">PRIVATE GOODS</text>
+    <text x="525" y="240" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Space Grotesk, sans-serif" font-size="10">Food, Cars, Houses</text>
+    <text x="525" y="260" text-anchor="middle" fill="rgba(239,68,68,0.6)" font-family="Space Mono, monospace" font-size="9">Rival + Excludable</text>
+
+    <!-- India Stack callout -->
+    <rect x="430" y="85" width="190" height="35" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="525" y="107" text-anchor="middle" fill="#ef4444" font-family="Space Mono, monospace" font-size="9" font-weight="600">← INDIA STACK IS HERE</text>
+</svg>

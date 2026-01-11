@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Stack | India Stack Watch</title>
+  <meta name="description" content="Critical examination of India's Data Stack: Account Aggregator, DigiLocker, Digi Yatra. Consent theater, facial recognition surveillance, and data security failures.">
+  <meta name="keywords" content="Account Aggregator, DigiLocker, Digi Yatra, DEPA, data sharing, privacy, facial recognition, India Stack">
+  <link rel="canonical" href="https://indiastack.in/data/">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Data Stack | India Stack Watch">
+  <meta property="og:description" content="Account Aggregator, DigiLocker, Digi Yatra. Consent theater and surveillance infrastructure.">
+  <meta property="og:url" content="https://indiastack.in/data/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://indiastack.in/og-image.png">
+  
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    .data-component {
+      background: rgba(20, 20, 20, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .data-component h3 {
+      color: var(--accent);
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .data-component h3 .status {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+    .status-closed { background: rgba(244,114,182,0.2); color: #f472b6; }
+    .status-frt { background: rgba(168,85,247,0.2); color: #a855f7; }
+    .status-concern { background: rgba(251,191,36,0.2); color: #fbbf24; }
+    
+    .claim-reality {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .claim, .reality {
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .claim {
+      background: rgba(16,185,129,0.1);
+      border-left: 3px solid var(--accent);
+    }
+    .reality {
+      background: rgba(251,191,36,0.1);
+      border-left: 3px solid var(--warning);
+    }
+    .claim h4, .reality h4 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .claim h4 { color: var(--accent); }
+    .reality h4 { color: var(--warning); }
+    
+    .issues-list {
+      margin-top: 1rem;
+    }
+    .issues-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--text-secondary);
+    }
+    .issues-list li:last-child { border-bottom: none; }
+    .issues-list li strong {
+      color: var(--text-primary);
+    }
+    
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-item {
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat-item .number {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .stat-item .label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    
+    .warning-box {
+      background: rgba(168,85,247,0.1);
+      border: 1px solid rgba(168,85,247,0.3);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .warning-box h4 {
+      color: #a855f7;
+      margin-bottom: 0.5rem;
+    }
+    
+    .security-box {
+      background: rgba(251,191,36,0.1);
+      border: 1px solid rgba(251,191,36,0.3);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .security-box h4 {
+      color: var(--warning);
+      margin-bottom: 0.5rem;
+    }
+    
+    @media (max-width: 768px) {
+      .claim-reality { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Data Stack Analysis",
+    "description": "Account Aggregator, DigiLocker, Digi Yatra - data sharing under exclusion threat.",
+    "url": "https://indiastack.in/data/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-08",
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in", "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/data/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"},
+    "keywords": ["Account Aggregator", "DigiLocker", "Digi Yatra", "data sharing", "consent"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"Data","item":"https://indiastack.in/data/"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Digi Yatra voluntary?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Officially voluntary, but coercive in practice. A survey found ~30% of enrolled passengers signed up without knowing. Airport staff captured face biometrics without consent. IFF states it has 'become a tool of coercion and deception for airport staff.'"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Account Aggregator consent problem?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The SBI Managing Director flagged that single consent mechanism for multiple financial services is a privacy concern. Most customers don't read fine print and sign up without understanding the details. One checkbox grants access to comprehensive financial data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you delink Aadhaar from DigiLocker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Once Aadhaar is linked to DigiLocker, there's no way to remove the association. A surrendered SIM card, reassigned to a new user, was used to open a new DigiLocker account that displayed the previous holder's Aadhaar details."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Digi Yatra facial data stored centrally?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Government claims no central storage and 24-hour deletion after departure. However, airport operators control data, it's regulated by a private foundation (not ministry), and no independent verification is possible. There's an ongoing legal battle over ownership of millions of users' data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does IFF call for complete Digi Yatra withdrawal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "IFF urges complete withdrawal due to 'privacy, surveillance, exclusion errors and lack of institutional accountability and transparency.' They warn FRT-based systems enable 'creation of 360-degree profiles of citizens' and 'dragnet surveillance.'"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- Visual effects -->
+  <div class="scan-line"></div>
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+    <section class="hero-section fade-up">
+      <div class="hero-content">
+        <div class="eyebrow text-purple">Layer Deep Dive</div>
+        <h1 class="hero-title">Data <span class="purple">Stack</span></h1>
+        <p class="hero-subtitle">Financial data sharing, document storage, and biometric surveillance at airports</p>
+      </div>
+      <div class="hero-illustration purple">
+        <img src="/components/svg/hero-data.svg" alt="Data stack illustration">
+      </div>
+    </section>
+
+    <section class="content-section fade-up">
+      <div class="quote-box purple">
+        <blockquote>
+          "Digi Yatra's threats and challenges far outweigh its benefits. It has already become a tool of coercion and deception for airport staff against unsuspecting passengers."
+        </blockquote>
+        <cite>- Internet Freedom Foundation</cite>
+      </div>
+    </section>
+
+    <section class="content-section fade-up">
+      <h2>The Architecture</h2>
+      <p>Financial records flow through Account Aggregator. Documents through DigiLocker. Your face through Digi Yatra. Each promises convenience. Each enables surveillance. Together, they see everything.</p>
+      
+      <div class="layer-list">
+        <div class="layer-item">
+          <span class="layer-name">Account Aggregator</span>
+          <span class="layer-reality">Financial data sharing → Single consent for multiple services → Privacy concerns</span>
+        </div>
+        <div class="layer-item">
+          <span class="layer-name">DigiLocker</span>
+          <span class="layer-reality">Document wallet → OTP vulnerabilities → SIM swap risks</span>
+        </div>
+        <div class="layer-item">
+          <span class="layer-name">Digi Yatra</span>
+          <span class="layer-reality">Airport boarding → Facial recognition → Dragnet surveillance</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Account Aggregator -->
+    <section class="content-section fade-up">
+      <div class="data-component">
+        <h3>Account Aggregator <span class="status status-concern">Consent Concerns</span></h3>
+        
+        <div class="claim-reality">
+          <div class="claim">
+            <h4>Government Claims</h4>
+            <p>Consent-based data sharing. User control. No data stored by aggregator. Secure financial data portability.</p>
+          </div>
+          <div class="reality">
+            <h4>Documented Reality</h4>
+            <p>Single consent for multiple services. Most users don't understand fine print. SBI MD publicly expressed privacy concerns.</p>
+          </div>
+        </div>
+        
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div class="number">100M+</div>
+            <div class="label">Successful consents</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">2.61B</div>
+            <div class="label">Accounts enabled</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">126</div>
+            <div class="label">Financial institutions</div>
+          </div>
+        </div>
+        
+        <ul class="issues-list">
+          <li><strong>Single Consent Problem:</strong> SBI Managing Director flagged that single consent mechanism for multiple financial services is a privacy concern.</li>
+          <li><strong>Fine Print Trap:</strong> "Most customers do not read the fine print and often sign up without understanding the details."</li>
+          <li><strong>DPDP Rules Gap:</strong> Account Aggregators may become "white-label consent managers" under new rules, expanding their power.</li>
+          <li><strong>Not Truly Federated:</strong> While AA doesn't store data, the consent flow enables comprehensive financial surveillance.</li>
+          <li><strong>No Public Audit:</strong> AA framework code and security measures not independently audited.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DigiLocker -->
+    <section class="content-section fade-up">
+      <div class="data-component">
+        <h3>DigiLocker <span class="status status-closed">Security Concerns</span></h3>
+        
+        <div class="claim-reality">
+          <div class="claim">
+            <h4>Government Claims</h4>
+            <p>Secure document storage. 2048-bit RSA encryption. Multi-factor authentication. Regular security audits.</p>
+          </div>
+          <div class="reality">
+            <h4>Documented Reality</h4>
+            <p>OTP-based authentication vulnerable to SIM swap. Surrendered SIMs exposed Aadhaar data. Cannot delink Aadhaar once linked.</p>
+          </div>
+        </div>
+        
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div class="number">515M+</div>
+            <div class="label">Users (March 2025)</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">9.4B</div>
+            <div class="label">Documents issued</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">175%</div>
+            <div class="label">Phishing surge (2024)</div>
+          </div>
+        </div>
+        
+        <div class="security-box">
+          <h4>Critical Vulnerability: SIM Card Exposure</h4>
+          <p>A surrendered SIM card, reassigned to a new user by a telecom provider, was used to open a new DigiLocker account. The Aadhaar details of the previous SIM card holder were displayed in the newly-created account.</p>
+          <p class="text-secondary mt-1">This violates DPDP Act and demonstrates inability to delink Aadhaar from DigiLocker once associated.</p>
+        </div>
+        
+        <ul class="issues-list">
+          <li><strong>OTP Authentication Weakness:</strong> RBI has questioned OTP-based authentication for financial transactions. DigiLocker still relies on it.</li>
+          <li><strong>Cannot Delink Aadhaar:</strong> Once Aadhaar is linked to DigiLocker, there's no way to remove the association.</li>
+          <li><strong>SIM Cloning Risk:</strong> SIM card cloning, swapping, or blocking can compromise DigiLocker access.</li>
+          <li><strong>Fake DigiLocker Apps:</strong> Ministry of Electronics issued warnings about counterfeit apps harvesting identity data.</li>
+          <li><strong>Cloud Storage Concerns:</strong> Data stored in cloud, concerns about unauthorized access and service disruptions.</li>
+          <li><strong>248 Bank Breaches:</strong> Between June 2018 and March 2022, Indian banks recorded 248 successful data breaches.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Digi Yatra -->
+    <section class="content-section fade-up">
+      <div class="data-component">
+        <h3>Digi Yatra <span class="status status-frt">Facial Recognition</span></h3>
+        
+        <div class="claim-reality">
+          <div class="claim">
+            <h4>Government Claims</h4>
+            <p>Voluntary enrollment. Data stored on phone. Deleted within 24 hours. Convenient airport boarding. No central database.</p>
+          </div>
+          <div class="reality">
+            <h4>Documented Reality</h4>
+            <p>30% enrolled without consent. Coercive enrollment by airport staff. Legal battle over data ownership. Expanding to international travel.</p>
+          </div>
+        </div>
+        
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div class="number">16M</div>
+            <div class="label">Users (Sept 2025)</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">30K</div>
+            <div class="label">New sign-ups daily</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">~30%</div>
+            <div class="label">Enrolled without knowledge</div>
+          </div>
+        </div>
+        
+        <div class="warning-box">
+          <h4>IFF Position: Complete Withdrawal</h4>
+          <p>IFF urges officials "to completely withdraw Digi Yatra from Indian airports owing to its large gamut of concerns relating to privacy, surveillance, exclusion errors and lack of institutional accountability and transparency."</p>
+        </div>
+        
+        <ul class="issues-list">
+          <li><strong>Coercive Enrollment:</strong> Survey found ~30% of enrolled passengers signed up without knowing, airport staff captured face biometrics without consent.</li>
+          <li><strong>"Tool of Coercion":</strong> IFF states Digi Yatra has "become a tool of coercion and deception for airport staff against unsuspecting passengers."</li>
+          <li><strong>Facial Recognition Dangers:</strong> IFF warns FRT-based systems enable "creation of 360-degree profiles of citizens" and "dragnet surveillance."</li>
+          <li><strong>Legal Battle:</strong> Digi Yatra Foundation vs. ex-tech partner Data Evolve, dispute over ownership of millions of users' personal data.</li>
+          <li><strong>No Central Storage Claim:</strong> Government claims no central storage, but airport operators control data. Regulated by private foundation, not ministry.</li>
+          <li><strong>International Expansion:</strong> Pilot for foreign nationals planned for June 2025, extending FRT surveillance to international travelers.</li>
+          <li><strong>24-Hour Deletion Claim:</strong> Ministry says data deleted within 24 hours of departure, no independent verification possible.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section fade-up">
+      <h2>The Pattern: Consent as Theater</h2>
+      
+      <div class="quote-box">
+        <blockquote>
+          "Facial data stored from FRT-based authentication systems is far more vulnerable than any other biometric identifier as it can facilitate creation of 360-degree profiles of citizens and can result in 'dragnet surveillance.'"
+        </blockquote>
+        <cite>- Internet Freedom Foundation</cite>
+      </div>
+      
+      <p>Consent is a checkbox. You check it or you don't participate. That's not consent, it's an ultimatum.</p>
+      <ul class="issues-list">
+        <li><strong>Manufactured Consent:</strong> Terms nobody reads. Single checkbox for everything. Staff who enroll you without asking.</li>
+        <li><strong>No Exit:</strong> Want a loan? Share your data. Want to board faster? Share your face. The "choice" is participate or be excluded.</li>
+        <li><strong>Aggregation = Power:</strong> Each "convenience" is an aggregation point. Combined, they see everything.</li>
+        <li><strong>Private Foundation Control:</strong> Digi Yatra Foundation (private entity) controls biometric data. Not subject to RTI.</li>
+        <li><strong>Trust Us:</strong> Encrypted? Prove it. Deleted? Prove it. Code is closed. You cannot verify anything.</li>
+      </ul>
+    </section>
+
+    <section class="content-section fade-up">
+      <h2>Sources</h2>
+      <ul class="issues-list">
+        <li>Internet Freedom Foundation, Digi Yatra analysis, FRT concerns</li>
+        <li>Software Freedom Law Center, India, FRT surveillance documentation</li>
+        <li>Sahamati, Account Aggregator statistics</li>
+        <li>Moneylife, DigiLocker security analysis</li>
+        <li>Biometric Update, Digi Yatra enrollment practices</li>
+      </ul>
+    </section>
+
+    <section class="fade-up mt-2">
+      <div class="nav-grid">
+        <a href="/payments/" class="nav-card">
+          <h3>← Payments Stack</h3>
+          <p>UPI, NPCI, and financial surveillance.</p>
+        </a>
+        <a href="/governance/" class="nav-card">
+          <h3>Governance Stack →</h3>
+          <p>eOffice, PFMS, and centralization.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+  </main>
+
+    <div id="site-footer"></div>
+
+  <script>
+  
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal-up, .fade-up, .content-section').forEach(el => observer.observe(el));
+
+// Magnetic hover effect for cards
+document.querySelectorAll('.nav-card, .component-card, .info-box, .gov-card, .ai-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateZ(10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease';
+  });
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.dataset.open === 'true';
+      navLinks.dataset.open = !isOpen;
+      menuToggle.setAttribute('aria-expanded', !isOpen);
+    });
+  }
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+  </script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

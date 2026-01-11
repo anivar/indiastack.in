@@ -1,0 +1,78 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Data Stack: Account Aggregator, DigiLocker, Digi Yatra (facial recognition) -->
+
+    <!-- Face outline (scanning frame) - Digi Yatra -->
+    <rect x="130" y="80" width="140" height="180" rx="70" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="2"/>
+
+    <!-- Scanning grid overlay -->
+    <g stroke="#a855f7" stroke-width="0.5" opacity="0.3">
+        <line x1="130" y1="130" x2="270" y2="130"/>
+        <line x1="130" y1="170" x2="270" y2="170"/>
+        <line x1="130" y1="210" x2="270" y2="210"/>
+        <line x1="175" y1="80" x2="175" y2="260"/>
+        <line x1="225" y1="80" x2="225" y2="260"/>
+    </g>
+
+    <!-- Eyes (being scanned) -->
+    <ellipse cx="165" cy="150" rx="20" ry="12" fill="none" stroke="#a855f7" stroke-width="1.5"/>
+    <circle cx="165" cy="150" r="7" fill="rgba(168,85,247,0.4)"/>
+    <ellipse cx="235" cy="150" rx="20" ry="12" fill="none" stroke="#a855f7" stroke-width="1.5"/>
+    <circle cx="235" cy="150" r="7" fill="rgba(168,85,247,0.4)"/>
+
+    <!-- Scanning beam -->
+    <line x1="120" y1="120" x2="280" y2="120" stroke="#a855f7" stroke-width="3" opacity="0.7"/>
+
+    <!-- Corner brackets (scanning frame) -->
+    <path d="M115 100 L115 80 L135 80" fill="none" stroke="#a855f7" stroke-width="2.5"/>
+    <path d="M265 80 L285 80 L285 100" fill="none" stroke="#a855f7" stroke-width="2.5"/>
+    <path d="M115 240 L115 260 L135 260" fill="none" stroke="#a855f7" stroke-width="2.5"/>
+    <path d="M265 260 L285 260 L285 240" fill="none" stroke="#a855f7" stroke-width="2.5"/>
+
+    <!-- Data extraction/collection nodes -->
+    <g transform="translate(50, 100)">
+        <circle cx="0" cy="0" r="25" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="1"/>
+        <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="7" fill="#a855f7">AA</text>
+        <line x1="25" y1="0" x2="100" y2="50" stroke="#a855f7" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+    </g>
+
+    <g transform="translate(350, 100)">
+        <circle cx="0" cy="0" r="25" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="1"/>
+        <text x="0" y="3" text-anchor="middle" font-family="monospace" font-size="6" fill="#a855f7">DIGI</text>
+        <text x="0" y="11" text-anchor="middle" font-family="monospace" font-size="6" fill="#a855f7">LOCKER</text>
+        <line x1="-25" y1="0" x2="-70" y2="50" stroke="#a855f7" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+    </g>
+
+    <g transform="translate(200, 350)">
+        <circle cx="0" cy="0" r="30" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="1"/>
+        <text x="0" y="-3" text-anchor="middle" font-family="monospace" font-size="7" fill="#a855f7">DIGI</text>
+        <text x="0" y="8" text-anchor="middle" font-family="monospace" font-size="7" fill="#a855f7">YATRA</text>
+        <line x1="0" y1="-30" x2="0" y2="-80" stroke="#a855f7" stroke-width="1" opacity="0.5" stroke-dasharray="4 4"/>
+    </g>
+
+    <!-- Statistics badges -->
+    <g transform="translate(60, 250)">
+        <rect x="-40" y="-12" width="80" height="24" rx="4" fill="rgba(168,85,247,0.15)" stroke="#a855f7" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="9" fill="#a855f7">~30%</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="5" fill="rgba(255,255,255,0.4)">NO CONSENT</text>
+    </g>
+
+    <g transform="translate(340, 250)">
+        <rect x="-40" y="-12" width="80" height="24" rx="4" fill="rgba(168,85,247,0.15)" stroke="#a855f7" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="9" fill="#a855f7">16M</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="5" fill="rgba(255,255,255,0.4)">FRT USERS</text>
+    </g>
+
+    <!-- "Coercion" warning badge -->
+    <g transform="translate(60, 50)">
+        <rect x="-35" y="-10" width="70" height="20" rx="3" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="7" fill="#ef4444">COERCION</text>
+    </g>
+
+    <!-- Biometric dots -->
+    <circle cx="160" cy="195" r="3" fill="#a855f7" opacity="0.5"/>
+    <circle cx="240" cy="195" r="3" fill="#a855f7" opacity="0.5"/>
+    <circle cx="200" cy="225" r="3" fill="#a855f7" opacity="0.5"/>
+
+    <!-- Label -->
+    <text x="200" y="395" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.4)">FACIAL RECOGNITION SURVEILLANCE</text>
+</svg>

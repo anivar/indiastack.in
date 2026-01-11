@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Observability Problem | India Stack Watch</title>
+  <meta name="description" content="Open source is not about licenses. It's about whether citizens can observe and correct systems that govern their lives. India Stack fails this test.">
+  <meta name="keywords" content="India Stack open source, Aadhaar source code, UPI open source, cybernetics, observability, digital public infrastructure, DPI transparency">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="India Stack Watch">
+  <link rel="canonical" href="https://indiastack.in/foss/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="og:title" content="The Observability Problem">
+  <meta property="og:description" content="Open source is not about licenses. It's about whether citizens can observe and correct systems that govern their lives.">
+  <meta property="og:url" content="https://indiastack.in/foss/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Observability Problem">
+  <meta name="twitter:description" content="Open source is not about licenses. It's about observability and control.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Observability Problem",
+    "name": "The Observability Problem - India Stack Watch",
+    "description": "Open source is not about licenses. It's about whether citizens can observe and correct systems that govern their lives.",
+    "url": "https://indiastack.in/foss/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-08",
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "publisher": {
+      "@type": "Organization",
+      "name": "India Stack Watch",
+      "url": "https://indiastack.in",
+      "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}
+    },
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/foss/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"},
+    "keywords": ["open source", "India Stack", "Aadhaar", "UPI", "observability", "digital public infrastructure"]
+  }
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"Open Source?","item":"https://indiastack.in/foss/"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is India Stack open source?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Despite marketing claims, none of the core India Stack components (Aadhaar, UPI, ABDM, DigiLocker) have publicly available source code. What exists are API documentation and specifications- not the executable code that governs citizens' lives."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between API documentation and source code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "API documentation describes how to call endpoints and what responses to expect, like a restaurant menu. Source code is the actual implementation, like watching the chef cook. Without source code, you cannot verify that the implementation matches the documentation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is MOSIP open source?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MOSIP is partially open. The registration UI, workflows, and API middleware are open source. However, the critical biometric matching (ABIS), fingerprint/iris recognition, and de-duplication engines remain proprietary. MOSIP is open for export to other countries while Aadhaar remains closed to Indian citizens."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does open source matter for government systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open source enables the feedback loop essential for democratic governance. Citizens must be able to observe system behavior, compare it to desired outcomes, and correct errors. When code is hidden, errors accumulate, power concentrates, and the governed become the controlled."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does India have a government policy on open source software?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. MeitY's 2015 policy mandates open source software as the 'preferred option' for government organizations. Yet every core India Stack component violates this policy. The contradiction is enabled by Section 8 companies that bypass government procurement rules and RTI requirements."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- Visual effects -->
+  <div class="scan-line"></div>
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+    <section class="hero-section fade-up">
+      <div class="hero-content">
+        <div class="eyebrow text-accent">Test 02 · Legible Execution</div>
+<h1 class="hero-title">The <span class="accent">Observability</span> Problem</h1>
+        <p class="hero-subtitle">"Open source" is about a fundamental question of power: <strong>can citizens observe and correct systems that govern their lives?</strong></p>
+      </div>
+      <div class="hero-illustration">
+        <img src="/components/svg/hero-foss.svg" alt="Observability problem illustration" width="500" height="500">
+      </div>
+    </section>
+
+    <!-- Quick Test -->
+    <div class="quick-test">
+      <div class="quick-test-item">
+        <span class="q">Is the source code public?</span>
+        <span class="a no">No.</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">Can you verify the implementation?</span>
+        <span class="a no">No.</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">Can citizens audit the code?</span>
+        <span class="a no">No.</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">Does it meet OSI definition?</span>
+        <span class="a no">No.</span>
+      </div>
+    </div>
+
+    <div class="callout warning">
+      <div class="label">First, a Clarification</div>
+      <p><strong>"India Stack" is PRware</strong>, a marketing term coined by iSPIRT. There is no entity called "India Stack." Each system is owned by a different institution: UIDAI (Aadhaar), NPCI (UPI), NHA (ABDM), MeitY (DigiLocker). All closed source. The brand is unified. The code is fragmented, proprietary, and unobservable.</p>
+    </div>
+
+    <!-- THE CORE PRINCIPLE -->
+    <section class="content-section fade-up">
+      <div class="principle-box">
+        <div class="label">First Principle</div>
+        <p><strong>If you can't see what a system does, you can't fix it. And what you can't fix eventually owns you.</strong> Basic control theory.</p>
+      </div>
+
+      <p class="text-secondary">In cybernetic terms, governance requires a <strong>feedback loop</strong>: citizens observe the system's behavior, compare it to desired outcomes, and correct errors. When the system is a black box, when the code is hidden, this loop breaks. Errors accumulate. Power concentrates. The governed become the controlled.</p>
+
+      <div class="cyber-diagram">
+<pre><span class="title">THE FEEDBACK LOOP: OPEN vs CLOSED SYSTEMS</span>
+
+<span class="g">OPEN SYSTEM (functioning democracy)</span>
+
+  ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+  │  CITIZENS │ ──────▶ │  OBSERVE  │ ──────▶ │  CORRECT  │
+  │ (governed) │     │  CODE   │     │  ERRORS  │
+  └─────────────┘     └─────────────┘     └──────┬──────┘
+     ▲                        │
+     │          FEEDBACK          │
+     └────────────────────────────────────────────────┘
+
+
+<span class="r">CLOSED SYSTEM (India Stack)</span>
+
+  ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+  │  CITIZENS │ ──────▶ │ <span class="r">BLACK BOX</span> │ ──────▶ │ <span class="r">NO ACCESS</span> │
+  │ (subjects) │     │  (hidden) │     │ <span class="r">TO CORRECT</span> │
+  └─────────────┘     └─────────────┘     └──────┬──────┘
+     │                        │
+     │        <span class="r">NO FEEDBACK</span>           ✕
+     ▼                        
+  ┌─────────────────────────────────────────────────────────────┐
+  │ <span class="r">ERRORS ACCUMULATE. POWER CONCENTRATES. SYSTEM DRIFTS.</span>   │
+  └─────────────────────────────────────────────────────────────┘
+</pre>
+      </div>
+    </section>
+
+    <!-- THE DECEPTION STACK -->
+    <section class="content-section fade-up">
+      <h2>The Layers of Deception</h2>
+
+      <p class="text-secondary">India Stack's "openness" claims unravel at every layer of examination:</p>
+
+      <div class="deception-stack">
+        <div class="deception-layer">
+          <div class="deception-num">1</div>
+          <div class="deception-content">
+            <div class="deception-claim">"It's open source"</div>
+            <div class="deception-reality">→ No source code is publicly available</div>
+          </div>
+        </div>
+        <div class="deception-layer">
+          <div class="deception-num">2</div>
+          <div class="deception-content">
+            <div class="deception-claim">"The specifications are open"</div>
+            <div class="deception-reality">→ Mostly OpenAPI docs, how to call an API, not how the system works</div>
+          </div>
+        </div>
+        <div class="deception-layer">
+          <div class="deception-num">3</div>
+          <div class="deception-content">
+            <div class="deception-claim">"You can see what it does"</div>
+            <div class="deception-reality">→ API documentation ≠ system behavior. Implementation can differ from docs.</div>
+          </div>
+        </div>
+        <div class="deception-layer">
+          <div class="deception-num">4</div>
+          <div class="deception-content">
+            <div class="deception-claim">"It's on GitHub"</div>
+            <div class="deception-reality">→ Documentation repos, SDKs, examples. Never the actual infrastructure code.</div>
+          </div>
+        </div>
+        <div class="deception-layer">
+          <div class="deception-num">5</div>
+          <div class="deception-content">
+            <div class="deception-claim">"Anyone can build on it"</div>
+            <div class="deception-reality">→ Anyone can call the API. No one can verify, audit, or run their own instance.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cyber-diagram">
+<pre><span class="title">THE DISTINCTION THEY BLUR</span>
+
+  <span class="g">OpenAPI / Swagger Docs</span>       <span class="y">Protocol Specification</span>       <span class="r">Source Code</span>
+  ━━━━━━━━━━━━━━━━━━━━━━       ━━━━━━━━━━━━━━━━━━━━━━       ━━━━━━━━━━━━━
+  
+  "Here's how to call         "Here's how the protocol       "Here's the actual
+   our endpoints"           should work"             implementation"
+  
+  Tells you: what parameters     Tells you: the design,        Tells you: what the
+  to send, what response       the logic, the rules         system actually does
+  format to expect
+  
+  Like: a restaurant menu       Like: a recipe            Like: watching the
+                                       chef cook
+  
+  <span class="r">India Stack provides:</span>        <span class="y">India Stack provides:</span>        <span class="r">India Stack provides:</span>
+  <span class="r">Partial, for some systems</span>      <span class="y">Partial, selectively</span>        <span class="r">Nothing. Zero. Closed.</span>
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  <span class="dim">A menu tells you what you can order. It doesn't tell you what's in the kitchen.</span>
+</pre>
+      </div>
+
+      <div class="failure-box">
+        <div class="label">The Core Problem</div>
+        <p>Even where "specifications" exist, <strong>they are not binding</strong>. The implementation can differ. There's no way to verify that what runs matches what's documented. <strong>Documentation without code is just marketing.</strong></p>
+      </div>
+    </section>
+
+    <!-- THE OBSERVABILITY TEST -->
+    <section class="content-section fade-up">
+      <h2>The Observability Test</h2>
+
+      <p class="text-secondary">For each India Stack component, one question: <strong>Can a citizen access the source code to verify what it does?</strong></p>
+
+      <div class="audit-table">
+        <div class="audit-row header">
+          <div class="system">SYSTEM</div>
+          <div class="status">CODE?</div>
+          <div class="detail">WHAT'S ACTUALLY AVAILABLE</div>
+        </div>
+        <div class="audit-row">
+          <div class="system">Aadhaar</div>
+          <div class="status no">NO</div>
+          <div class="detail">Some API docs. Zero source code. Cannot verify biometric handling.</div>
+        </div>
+        <div class="audit-row">
+          <div class="system">UPI</div>
+          <div class="status no">NO</div>
+          <div class="detail">OpenAPI specs for integration. Core switching logic: closed.</div>
+        </div>
+        <div class="audit-row">
+          <div class="system">ABDM / ABHA</div>
+          <div class="status no">NO</div>
+          <div class="detail">API documentation. Health data handling code: closed. 31M leaked 2024.</div>
+        </div>
+        <div class="audit-row">
+          <div class="system">DigiLocker</div>
+          <div class="status no">NO</div>
+          <div class="detail">Integration guides. Document storage implementation: closed.</div>
+        </div>
+        <div class="audit-row">
+          <div class="system">Account Aggregator</div>
+          <div class="status partial">PARTIAL</div>
+          <div class="detail">ReBIT spec (partial). Gateway closed. Implementations proprietary.</div>
+        </div>
+        <div class="audit-row">
+          <div class="system">ONDC</div>
+          <div class="status partial">PARTIAL</div>
+          <div class="detail">Beckn protocol spec. Registry/gateway: closed. Cannot self-host.</div>
+        </div>
+        <div class="audit-row">
+          <div class="system">eSign / eKYC</div>
+          <div class="status no">NO</div>
+          <div class="detail">API docs only. Requires licensed ASP. Tied to Aadhaar.</div>
+        </div>
+      </div>
+
+      <div class="failure-box mt-2">
+        <div class="label">17 Years of Aadhaar</div>
+        <p>After 1.4 billion enrollments, <strong>zero lines of source code</strong> released for public audit. Not the biometric matcher. Not the de-duplication engine. Not the authentication server. OpenAPI docs exist, but you can't verify if the implementation matches.</p>
+      </div>
+    </section>
+
+    <!-- SPEC VS IMPLEMENTATION -->
+    <section class="content-section fade-up">
+      <h2>When Spec ≠ Implementation</h2>
+
+      <p class="text-secondary">Even where specifications exist, they create a false sense of transparency:</p>
+
+      <div class="pattern-grid">
+        <div class="pattern-card closed">
+          <h4>◉ What Specs Don't Tell You</h4>
+          <ul>
+            <li>What data is actually logged</li>
+            <li>What metadata is retained</li>
+            <li>What side-channel leaks exist</li>
+            <li>What third parties have access</li>
+            <li>What the actual error handling does</li>
+            <li>Whether consent is actually enforced</li>
+          </ul>
+        </div>
+        <div class="pattern-card closed">
+          <h4>◉ Known Spec-Reality Gaps</h4>
+          <ul>
+            <li>Aadhaar: "minimal data" spec vs. massive metadata collection</li>
+            <li>UPI: documented limits vs. actual transaction surveillance</li>
+            <li>ABDM: consent spec vs. reported unauthorized access</li>
+            <li>All systems: documented security vs. 210+ breaches</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="principle-box">
+        <div class="label">The Verification Problem</div>
+        <p>Without source code, there is <strong>no way to verify</strong> that the implementation matches the specification. A spec says "we do X." The code might do Y. <strong>Trust without verification is not transparency, it's faith.</strong></p>
+      </div>
+    </section>
+
+    <!-- MOSIP PARADOX -->
+    <section class="content-section fade-up">
+      <h2>The Export Paradox</h2>
+
+      <p class="text-secondary">MOSIP (Modular Open Source Identity Platform) is marketed as proof of openness:</p>
+
+      <div class="pattern-grid">
+        <div class="pattern-card open">
+          <h4>◉ What's Open (for export)</h4>
+          <ul>
+            <li>Registration UI workflows</li>
+            <li>API middleware layer</li>
+            <li>Data schemas</li>
+            <li>Country customization hooks</li>
+          </ul>
+        </div>
+        <div class="pattern-card closed">
+          <h4>◉ What's Proprietary (always)</h4>
+          <ul>
+            <li>Biometric matching (ABIS)</li>
+            <li>Fingerprint/iris/face recognition</li>
+            <li>De-duplication engine</li>
+            <li>The intelligence that matters</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="failure-box">
+        <div class="label">The Paradox</div>
+        <p>MOSIP is open source <strong>for export</strong>. Morocco, Philippines, Nigeria. All get the "open" framework. Meanwhile, Aadhaar, 17 years, 1.4 billion Indians, remains <strong>completely closed</strong>. Open for foreigners. Closed to citizens.</p>
+      </div>
+
+      <div class="callout warning">
+        <div class="label">The Business Model</div>
+        <p><strong>MOSIP is a sales funnel for biometric SDK vendors.</strong></p>
+        <p>The open source wrapper (registration UI, workflows, APIs) creates adoption. Governments think they're avoiding vendor lock-in.</p>
+        <p>But identity verification requires ABIS, Automated Biometric Identification System. ABIS is proprietary. You must buy from TECH5, Idemia, NEC, or similar vendors.</p>
+        <p><strong>The "open" part is the funnel. The closed part is where the money flows.</strong> This isn't a public good, it's a go-to-market strategy using open-washing.</p>
+      </div>
+
+    </section>
+
+    <!-- GOVERNANCE -->
+    <section class="content-section fade-up">
+      <h2>The Governance Layer</h2>
+
+      <p class="text-secondary">Organizations that claim "open" credentials, what's actually in their repositories:</p>
+
+      <div class="audit-table mb-2">
+        <div class="audit-row header">
+          <div class="system">ORG</div>
+          <div class="status">REPOS</div>
+          <div class="detail">CONTENT</div>
+        </div>
+        <div class="audit-row">
+          <div class="system">NPCI</div>
+          <div class="status">2</div>
+          <div class="detail">One K8s tool. One profile. <strong class="text-danger">Zero UPI code.</strong></div>
+        </div>
+        <div class="audit-row">
+          <div class="system">iSPIRT</div>
+          <div class="status">34</div>
+          <div class="detail">Docs, specs, training materials. <strong class="text-danger">Zero infrastructure code.</strong></div>
+        </div>
+        <div class="audit-row">
+          <div class="system">Sahamati</div>
+          <div class="status">22</div>
+          <div class="detail">API specs, guidelines. <strong class="text-warning">No implementations.</strong></div>
+        </div>
+        <div class="audit-row">
+          <div class="system">Beckn</div>
+          <div class="status">94</div>
+          <div class="detail">Protocol specs, sandboxes. <strong class="text-warning">Not production code.</strong></div>
+        </div>
+      </div>
+
+      <div class="failure-box">
+        <div class="label">Self-Regulatory Capture</div>
+        <p>Each layer is overseen by <strong>Section 8 companies</strong>, private non-profits exempt from RTI. Industry consortiums that write rules, certify compliance, and audit themselves. <strong>When the regulator is captured, who watches the watcher?</strong></p>
+      </div>
+    </section>
+
+    <!-- COMPARATIVE -->
+    <section class="content-section fade-up">
+      <h2>How Democracies Choose</h2>
+
+      <div class="audit-table">
+        <div class="audit-row header">
+          <div class="system">COUNTRY</div>
+          <div class="status">SYSTEM</div>
+          <div class="detail">SOURCE CODE</div>
+        </div>
+        <div class="audit-row">
+          <div class="system">Estonia</div>
+          <div class="status yes">X-Road</div>
+          <div class="detail">Fully open. Citizens can verify, audit, contribute.</div>
+        </div>
+        <div class="audit-row">
+          <div class="system">UK</div>
+          <div class="status yes">GOV.UK</div>
+          <div class="detail">Fully open. Public repositories. Transparent governance.</div>
+        </div>
+        <div class="audit-row">
+          <div class="system">USA</div>
+          <div class="status yes">login.gov</div>
+          <div class="detail">Fully open. Security audits public. Bug bounty active.</div>
+        </div>
+        <div class="audit-row">
+          <div class="system text-danger">India</div>
+          <div class="status no">Aadhaar/UPI/ABDM</div>
+          <div class="detail"><strong class="text-danger">Closed. 17 years. API docs ≠ source code.</strong></div>
+        </div>
+      </div>
+
+      <p class="text-secondary mt-1">These countries chose observability. India chose opacity. <strong>This is a policy choice.</strong></p>
+    </section>
+
+    <!-- THE POLICY CONTRADICTION -->
+    <section class="content-section fade-up">
+      <h2>The Government's Own Policy</h2>
+
+      <div class="callout warning">
+        <div class="label">Policy on Adoption of Open Source Software for Government of India (2015)</div>
+        <p>MeitY's official policy makes it <strong>"mandatory to formally adopt and use Open Source Software in government organisations, as a preferred option"</strong> compared to closed-source alternatives.</p>
+        <p>The policy requires:</p>
+        <ul>
+          <li>All tech suppliers must submit bids with OSS options</li>
+          <li>Government must compare OSS alternatives for all procurements</li>
+          <li>Systems must use open standards for interoperability</li>
+          <li>Well-documented open APIs for migration and exit</li>
+        </ul>
+        <p><a href="https://www.meity.gov.in/content/policy-adoption-open-source-software-government-india" target="_blank">→ MeitY Policy Document</a></p>
+      </div>
+
+      <div class="failure-box">
+        <div class="label">The Contradiction</div>
+        <p>The government's own policy mandates OSS as the "preferred option." Yet <strong>every core India Stack component, Aadhaar, UPI, ABDM, DigiLocker, is closed source.</strong></p>
+        <p>The policy exists. Compliance does not.</p>
+      </div>
+
+      <div class="callout warning mt-1">
+        <div class="label">The Section 8 Bypass</div>
+        <p>The mechanism for evading policy: <strong>Section 8 companies</strong> (non-profits under Companies Act). These structures bypass government procurement rules, RTI, and OSS mandates.</p>
+        <ul>
+          <li><strong>NPCI</strong> (runs UPI): Section 8 company- not a government entity. RTI-exempt. OSS policy doesn't apply.</li>
+          <li><strong>CoWIN</strong>: Funded by UNDP, developed by private companies. Not subject to government OSS procurement.</li>
+          <li><strong>ONDC</strong>: Section 8 company, no writ petition possible, no RTI.</li>
+          <li><strong>Digi Yatra Foundation</strong>: Private foundation (AAI 26% + 5 private airports).</li>
+        </ul>
+        <p><strong>And the enforcer violates its own rules:</strong> Aadhaar/UIDAI falls under MeitY, the same ministry that issued the OSS policy. MeitY is violating its own mandate.</p>
+      </div>
+    </section>
+
+    <!-- SECURITY -->
+    <section class="content-section fade-up">
+      <h2>Security Through Obscurity</h2>
+
+      <div class="principle-box">
+        <div class="label">Kerckhoffs's Principle (1883)</div>
+        <p>"A cryptosystem should be secure even if everything about the system, except the key, is public knowledge."</p>
+      </div>
+
+      <div class="pattern-grid">
+        <div class="pattern-card open">
+          <h4>◉ Open Systems Track Record</h4>
+          <ul>
+            <li>Signal Protocol: Zero breaches</li>
+            <li>Linux Kernel: Powers 90% of cloud</li>
+            <li>Bitcoin: $800B+ secured 15 years</li>
+          </ul>
+        </div>
+        <div class="pattern-card closed">
+          <h4>◉ India Stack Track Record</h4>
+          <ul>
+            <li>Aadhaar: 210+ documented breaches</li>
+            <li>UPI: 40+ vulnerabilities (2019)</li>
+            <li>ABDM: 31M records leaked (2024)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- VERDICT -->
+    <section class="content-section fade-up">
+      <div class="verdict">
+        <div class="verdict-label">Assessment</div>
+        <div class="verdict-text">India Stack is not observable. Therefore, it is not controllable by citizens.</div>
+        <p class="text-secondary mt-1">OpenAPI docs are not source code. Specifications are not implementations. Marketing is not transparency.</p>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section class="content-section fade-up">
+      <p class="text-secondary">Related: <a href="/fork/">Can You Fork It?</a> · <a href="/audit/">Can You Audit It?</a> · <a href="/exit/">Can You Exit?</a></p>
+    </section>
+
+    <!-- SOURCES -->
+    <section class="sources fade-up">
+      <h3>Sources</h3>
+      <ul>
+        <li><a href="https://opensource.org/osd">Open Source Definition, OSI</a></li>
+        <li><a href="https://docs.mosip.io/1.1.5/biometrics/automated-biometric-identification-system-abis">MOSIP ABIS Documentation</a></li>
+        <li><a href="https://privacyinternational.org/case-study/4657/id-systems-analysed-mosip">Privacy International: MOSIP Analysis</a></li>
+        <li><a href="https://www.meity.gov.in/content/policy-adoption-open-source-software-government-india">MeitY Policy on Adoption of OSS for GoI (2015)</a></li>
+      </ul>
+    </section>
+
+    <a href="/dpi/" class="page-crosslink fade-up" style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2); border-radius: 12px; text-decoration: none; margin-bottom: 2rem;">
+      <span style="color: var(--text-secondary);">Universal CODE test for any system → <strong style="color: var(--blue);">DPI Corrigibility Framework</strong></span>
+      <span style="color: var(--blue);">→</span>
+    </a>
+
+    <section class="fade-up mt-2">
+      <div class="nav-grid">
+        <a href="/fork/" class="nav-card">
+          <h3>Fork</h3>
+          <p>Can you build alternatives?</p>
+        </a>
+        <a href="/audit/" class="nav-card">
+          <h3>Audit</h3>
+          <p>Security analysis.</p>
+        </a>
+        <a href="/layers/" class="nav-card">
+          <h3>Layers</h3>
+          <p>All 25+ components.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+  </main>
+
+    <div id="site-footer"></div>
+
+  <script>
+  
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal-up, .fade-up, .content-section').forEach(el => observer.observe(el));
+
+// Magnetic hover effect for cards
+document.querySelectorAll('.nav-card, .component-card, .info-box, .gov-card, .ai-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateZ(10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease';
+  });
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.dataset.open === 'true';
+      navLinks.dataset.open = !isOpen;
+      menuToggle.setAttribute('aria-expanded', !isOpen);
+    });
+  }
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+  </script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

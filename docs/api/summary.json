@@ -1,0 +1,35 @@
+{
+  "name": "India Stack Watch",
+  "url": "https://indiastack.in",
+  "thesis": "The code is closed. The governance is private. The exit is blocked.",
+  "core_tests": {
+    "fork": {"question": "Can you fork it?", "answer": "No", "url": "/fork/"},
+    "audit": {"question": "Can you audit it?", "answer": "No", "url": "/audit/"},
+    "exit": {"question": "Can you exit?", "answer": "No", "url": "/exit/"},
+    "participate": {"question": "Can you participate?", "answer": "By grace, not by right", "url": "/participate/"}
+  },
+  "layers": {
+    "identity": ["Aadhaar", "eKYC", "NPR"],
+    "payments": ["UPI", "NPCI", "DBT"],
+    "data": ["Account Aggregator", "DigiLocker"],
+    "commerce": ["ONDC"],
+    "health": ["ABDM", "ABHA", "CoWIN", "Aarogya Setu"],
+    "surveillance": ["NATGRID", "CMS"]
+  },
+  "key_findings": [
+    "Aadhaar: Closed source, RTI-exempt, no deletion mechanism",
+    "UPI: Private consortium (NPCI) controls standard and implementation",
+    "NATGRID: Links 21+ databases via Aadhaar, no judicial oversight",
+    "Welfare systems require Aadhaar; authentication failures cause deaths"
+  ],
+  "pages": [
+    {"path": "/", "title": "Home", "description": "Overview and core thesis"},
+    {"path": "/fork/", "title": "Fork", "description": "Forkability analysis"},
+    {"path": "/audit/", "title": "Audit", "description": "Security and transparency"},
+    {"path": "/exit/", "title": "Exit", "description": "Exit rights analysis"},
+    {"path": "/participate/", "title": "Participate", "description": "Governance rights"},
+    {"path": "/layers/", "title": "Layers", "description": "All 18+ components"},
+    {"path": "/surveillance/", "title": "Surveillance", "description": "NATGRID and monitoring"},
+    {"path": "/exclusion/", "title": "Human Cost", "description": "Deaths and denials"}
+  ]
+}

@@ -1,0 +1,13 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Stacked layers -->
+        <rect x="100" y="280" width="200" height="40" rx="5" stroke="#00f5a0" stroke-width="2" fill="rgba(0,245,160,0.1)" opacity="0.7"/>
+        <rect x="110" y="230" width="180" height="40" rx="5" stroke="#00f5a0" stroke-width="2" fill="rgba(0,245,160,0.08)" opacity="0.6"/>
+        <rect x="120" y="180" width="160" height="40" rx="5" stroke="#ffa502" stroke-width="2" fill="rgba(255,165,2,0.08)" opacity="0.5"/>
+        <rect x="130" y="130" width="140" height="40" rx="5" stroke="#ff4757" stroke-width="2" fill="rgba(255,71,87,0.08)" opacity="0.5"/>
+        <rect x="140" y="80" width="120" height="40" rx="5" stroke="#ff4757" stroke-width="2" fill="rgba(255,71,87,0.1)" opacity="0.6"/>
+        <!-- Lock on top -->
+        <circle cx="200" cy="50" r="20" stroke="#ff4757" stroke-width="2" fill="none" opacity="0.5"/>
+        <rect x="190" y="35" width="20" height="25" rx="3" stroke="#ff4757" stroke-width="2" fill="none" opacity="0.5"/>
+        <!-- Connecting lines -->
+        <line x1="200" y1="320" x2="200" y2="350" stroke="#00f5a0" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+    </svg>

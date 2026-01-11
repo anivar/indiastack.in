@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" fill="none">
+  <defs>
+    <filter id="glow-red" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-color="#ef4444" flood-opacity="0.12"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="260" y="24" fill="#444" font-family="monospace" font-size="8" text-anchor="middle" letter-spacing="0.15em" opacity="0.5">DEFINITION FILTER</text>
+
+  <!-- Filter/Sieve frame -->
+  <rect x="60" y="40" width="400" height="180" rx="6" fill="none" stroke="#2a2a2a" stroke-width="1" opacity="0.5"/>
+
+  <!-- Wide gaps in the filter (everything passes through) -->
+  <line x1="120" y1="40" x2="120" y2="220" stroke="#1a1a1a" stroke-width="1" opacity="0.4"/>
+  <line x1="180" y1="40" x2="180" y2="220" stroke="#1a1a1a" stroke-width="1" opacity="0.4"/>
+  <line x1="260" y1="40" x2="260" y2="220" stroke="#1a1a1a" stroke-width="1" opacity="0.4"/>
+  <line x1="340" y1="40" x2="340" y2="220" stroke="#1a1a1a" stroke-width="1" opacity="0.4"/>
+  <line x1="400" y1="40" x2="400" y2="220" stroke="#1a1a1a" stroke-width="1" opacity="0.4"/>
+
+  <!-- Horizontal gaps -->
+  <line x1="60" y1="90" x2="460" y2="90" stroke="#1a1a1a" stroke-width="1" opacity="0.4"/>
+  <line x1="60" y1="130" x2="460" y2="130" stroke="#1a1a1a" stroke-width="1" opacity="0.4"/>
+  <line x1="60" y1="170" x2="460" y2="170" stroke="#1a1a1a" stroke-width="1" opacity="0.4"/>
+
+  <!-- Items passing through (all pass - nothing excluded) -->
+  <!-- Closed source -->
+  <g transform="translate(90, 70)" opacity="0.45">
+    <rect x="-24" y="-10" width="48" height="20" rx="3" fill="#0a0a0a" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="4" fill="#ef4444" font-family="monospace" font-size="7" text-anchor="middle">CLOSED</text>
+  </g>
+  <path d="M 90 80 L 90 260" stroke="#ef4444" stroke-width="1" opacity="0.15" stroke-dasharray="3 3"/>
+
+  <!-- No audit -->
+  <g transform="translate(150, 115)" opacity="0.45">
+    <rect x="-28" y="-10" width="56" height="20" rx="3" fill="#0a0a0a" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="4" fill="#ef4444" font-family="monospace" font-size="7" text-anchor="middle">NO AUDIT</text>
+  </g>
+  <path d="M 150 125 L 150 260" stroke="#ef4444" stroke-width="1" opacity="0.15" stroke-dasharray="3 3"/>
+
+  <!-- No exit -->
+  <g transform="translate(220, 155)" opacity="0.45">
+    <rect x="-26" y="-10" width="52" height="20" rx="3" fill="#0a0a0a" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="4" fill="#ef4444" font-family="monospace" font-size="7" text-anchor="middle">NO EXIT</text>
+  </g>
+  <path d="M 220 165 L 220 260" stroke="#ef4444" stroke-width="1" opacity="0.15" stroke-dasharray="3 3"/>
+
+  <!-- Monopoly -->
+  <g transform="translate(300, 75)" opacity="0.45">
+    <rect x="-32" y="-10" width="64" height="20" rx="3" fill="#0a0a0a" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="4" fill="#ef4444" font-family="monospace" font-size="7" text-anchor="middle">MONOPOLY</text>
+  </g>
+  <path d="M 300 85 L 300 260" stroke="#ef4444" stroke-width="1" opacity="0.15" stroke-dasharray="3 3"/>
+
+  <!-- No govern -->
+  <g transform="translate(370, 150)" opacity="0.45">
+    <rect x="-35" y="-10" width="70" height="20" rx="3" fill="#0a0a0a" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="4" fill="#ef4444" font-family="monospace" font-size="7" text-anchor="middle">NO GOVERN</text>
+  </g>
+  <path d="M 370 160 L 370 260" stroke="#ef4444" stroke-width="1" opacity="0.15" stroke-dasharray="3 3"/>
+
+  <!-- RTI exempt -->
+  <g transform="translate(430, 110)" opacity="0.45">
+    <rect x="-32" y="-10" width="64" height="20" rx="3" fill="#0a0a0a" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="4" fill="#ef4444" font-family="monospace" font-size="7" text-anchor="middle">RTI EXEMPT</text>
+  </g>
+  <path d="M 430 120 L 430 260" stroke="#ef4444" stroke-width="1" opacity="0.15" stroke-dasharray="3 3"/>
+
+  <!-- Definition label on filter -->
+  <g transform="translate(260, 130)" filter="url(#glow-red)">
+    <rect x="-45" y="-14" width="90" height="28" rx="4" fill="#0a0a0a" stroke="#ef4444" stroke-width="1.5" opacity="0.85"/>
+    <text x="0" y="5" fill="#ef4444" font-family="monospace" font-size="9" text-anchor="middle" font-weight="600">"DPI"</text>
+  </g>
+
+  <!-- Checkmarks below filter showing everything qualifies -->
+  <g opacity="0.35">
+    <text x="90" y="285" fill="#ef4444" font-family="monospace" font-size="9" text-anchor="middle">✓</text>
+    <text x="150" y="285" fill="#ef4444" font-family="monospace" font-size="9" text-anchor="middle">✓</text>
+    <text x="220" y="285" fill="#ef4444" font-family="monospace" font-size="9" text-anchor="middle">✓</text>
+    <text x="300" y="285" fill="#ef4444" font-family="monospace" font-size="9" text-anchor="middle">✓</text>
+    <text x="370" y="285" fill="#ef4444" font-family="monospace" font-size="9" text-anchor="middle">✓</text>
+    <text x="430" y="285" fill="#ef4444" font-family="monospace" font-size="9" text-anchor="middle">✓</text>
+  </g>
+
+  <!-- Bottom text -->
+  <text x="260" y="310" fill="#555" font-family="monospace" font-size="8" text-anchor="middle" opacity="0.4">all pass · excludes nothing</text>
+</svg>

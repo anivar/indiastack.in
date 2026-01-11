@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>India Stack Watch, Public Infrastructure, Private Code</title>
+  <meta name="description" content="Critical analysis of India Stack: Aadhaar, UPI, ABDM. These systems cannot be exited, audited, corrected, or replaced. They fail five structural tests for public infrastructure. Closed source at home, marketed as open abroad.">
+  <meta name="keywords" content="India Stack, DPI, Digital Public Infrastructure, Aadhaar, UPI, NPCI, open source, surveillance, NATGRID, privacy, digital rights, public infrastructure">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="India Stack Watch">
+  <link rel="canonical" href="https://indiastack.in/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="og:title" content="India Stack Watch">
+  <meta property="og:description" content="Closed source at home. Marketed as 'open' abroad. India Stack fails five structural tests for public infrastructure.">
+  <meta property="og:url" content="https://indiastack.in/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@indiastackwatch">
+  <meta name="twitter:title" content="India Stack Watch">
+  <meta name="twitter:description" content="Closed source at home. Marketed as 'open' abroad. India Stack fails five structural tests for public infrastructure.">
+  <meta name="twitter:image" content="https://indiastack.in/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://indiastack.in/#website",
+        "name": "India Stack Watch",
+        "alternateName": "IndiaStack.in",
+        "url": "https://indiastack.in/",
+        "description": "Architectural critique of India's digital infrastructure through a cybernetics frame. Evaluating systems by corrigibility, not outcomes.",
+        "inLanguage": "en",
+        "publisher": {"@id": "https://indiastack.in/#organization"},
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://indiastack.in/?s={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://indiastack.in/#organization",
+        "name": "India Stack Watch",
+        "url": "https://indiastack.in",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://indiastack.in/logo.svg",
+          "width": 512,
+          "height": 512
+        },
+        "description": "Architectural critique of digital public infrastructure using cybernetics, commons governance, and FOSS principles.",
+        "sameAs": [
+          "https://twitter.com/indiastackwatch"
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://indiastack.in/#webpage",
+        "url": "https://indiastack.in/",
+        "name": "India Stack Watch, Public Infrastructure, Private Code",
+        "isPartOf": {"@id": "https://indiastack.in/#website"},
+        "about": {"@id": "https://indiastack.in/#organization"},
+        "author": {"@id": "https://indiastack.in/#organization"},
+        "description": "Critical analysis of India Stack: Aadhaar, UPI, ABDM. These systems cannot be exited, audited, corrected, or replaced. They fail five structural tests for public infrastructure.",
+        "inLanguage": "en",
+        "datePublished": "2025-01-01",
+        "dateModified": "2026-01-08"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": "https://indiastack.in/#nav-dpi",
+        "name": "DPI Framework",
+        "url": "https://indiastack.in/dpi/",
+        "description": "Universal evaluation framework for Digital Public Infrastructure (CC0 Public Domain)"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": "https://indiastack.in/#nav-methods",
+        "name": "Methods",
+        "url": "https://indiastack.in/methods/",
+        "description": "Five structural tests for corrigibility"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": "https://indiastack.in/#nav-layers",
+        "name": "Layers",
+        "url": "https://indiastack.in/layers/",
+        "description": "25+ components, same failure pattern"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": "https://indiastack.in/#nav-surveillance",
+        "name": "Surveillance",
+        "url": "https://indiastack.in/surveillance/",
+        "description": "NATGRID, NPR, electoral linkage"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": "https://indiastack.in/#nav-exclusion",
+        "name": "Human Cost",
+        "url": "https://indiastack.in/exclusion/",
+        "description": "~100 documented starvation deaths linked to authentication failures"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": "https://indiastack.in/#nav-exit",
+        "name": "Exit Test",
+        "url": "https://indiastack.in/exit/",
+        "description": "Can you refuse digital systems while retaining access to government services?"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": "https://indiastack.in/#nav-foss",
+        "name": "Open Source Test",
+        "url": "https://indiastack.in/foss/",
+        "description": "Is India Stack truly open source? Analysis of code availability."
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": "https://indiastack.in/#nav-audit",
+        "name": "Audit Test",
+        "url": "https://indiastack.in/audit/",
+        "description": "Can independent parties verify India Stack claims?"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": "https://indiastack.in/#nav-fork",
+        "name": "Fork Test",
+        "url": "https://indiastack.in/fork/",
+        "description": "Can alternatives to India Stack exist?"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is India Stack?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "India Stack is a marketing term by iSPIRT branding separate closed-source government systems as unified 'open' infrastructure. Components include Aadhaar (UIDAI), UPI (NPCI), ABDM (NHA), and DigiLocker (MeitY). All are closed source and RTI-exempt. There is no single entity called India Stack."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is India Stack open source?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Despite claims of 'open APIs' and 'open architecture', no core India Stack component publishes source code. API documentation is not source code. Specifications are not implementations. 17 years, 1.4 billion enrolled, zero lines of code released for public audit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the five structural tests?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "EXIT (can you refuse digital while keeping non-digital government access?), CODE (is implementation public?), AUDIT (can independent parties verify?), GOVERN (can affected populations shape rules?), FORK (can alternatives exist?). India Stack fails all five tests."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is corrigibility?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Corrigibility is the structural capacity of those affected by a system to detect error, apply pressure, and trigger correction, without suffering material harm. A system without feedback loops cannot self-correct."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Have people died from Aadhaar failures?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Documented starvation deaths in Jharkhand linked to Aadhaar authentication failures denying ration access. Studies show 6-12% biometric failure rates for manual laborers, elderly, and others. When authentication fails, people lose access to food, pensions, and welfare."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+</head>
+<body>
+
+  <div class="grid-pattern"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+
+    <!-- Hero with visual -->
+    <section class="home-hero fade-up">
+      <div class="home-hero-content">
+        <h1>India Stack <span>Watch</span></h1>
+        <p class="hero-subtitle"><strong>Closed source at home.</strong> <span class="text-accent">Marketed as "open" abroad.</span></p>
+        <p class="text-muted mb-1">Architectural critique of Digital Public Infrastructure</p>
+        <p class="thesis-inline">At population scale, digital systems become control systems. A system is public only if those it affects can <strong>refuse, inspect, verify, govern, and replace it</strong>.</p>
+        <p class="thesis-inline-highlight"><strong>Public infrastructure must be corrigible. Otherwise it is not public.</strong></p>
+      </div>
+      <div class="home-hero-visual">
+        <img src="/components/svg/hero-home.svg" alt="India Stack Watch illustration">
+      </div>
+    </section>
+
+    <!-- THE TEST -->
+    <section class="test-section fade-up">
+      <div class="section-label">Five Structural Tests</div>
+      <div class="test-grid-home">
+        <a href="/foss/" class="test-item">
+          <div class="test-q">Is it Open Source?</div>
+          <div class="test-a">No. Openwashing.</div>
+        </a>
+        <a href="/fork/" class="test-item">
+          <div class="test-q">Can you fork it?</div>
+          <div class="test-a">No.</div>
+        </a>
+        <a href="/audit/" class="test-item">
+          <div class="test-q">Can you audit it?</div>
+          <div class="test-a">No.</div>
+        </a>
+        <a href="/exit/" class="test-item">
+          <div class="test-q">Can you exit?</div>
+          <div class="test-a">No.</div>
+        </a>
+        <a href="/participate/" class="test-item">
+          <div class="test-q">Can you participate?</div>
+          <div class="test-a">By grace, not by right.</div>
+        </a>
+      </div>
+      <p class="test-warning">Fail one, and the claim of "public" is false. <strong class="text-rose">India Stack fails all five.</strong></p>
+    </section>
+
+    <!-- What is India Stack -->
+    <div class="context-box fade-up fade-up-2">
+      <div class="label">THE SUBJECT</div>
+      <p><strong>"India Stack" is a marketing term</strong>, coined by iSPIRT to brand separate closed systems as unified "open" infrastructure. Aadhaar is UIDAI. UPI is NPCI. DigiLocker is MeitY. ABDM is NHA. Each is closed source. Each is separately governed. The branding is open. The systems are not.</p>
+    </div>
+
+    <!-- The Export -->
+    <div class="context-box fade-up warning">
+      <div class="label">THE EXPORT</div>
+      <p>India Stack is being exported globally as a model for "Digital Public Infrastructure." What is actually being exported is <strong>a template of closed control systems branded as public infrastructure</strong>.</p>
+      <p>Exit is blocked technically. Refusal is penalized legally. Correction is structurally unavailable. UIDAI cannot be sued. NPCI is RTI-exempt. No external audit exists. No deletion mechanism. No alternatives permitted.</p>
+      <p><strong>This is a closed control loop.</strong></p>
+    </div>
+
+    <!-- Timeline of Concerns -->
+    <section class="timeline-section fade-up">
+      <div class="section-label">Timeline</div>
+      <div class="timeline-wrapper">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2009</div>
+          <div class="timeline-event">UIDAI created by executive order. No parliamentary approval.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2010</div>
+          <div class="timeline-event">NPR launched with Aadhaar as backend. Same biometrics, different wrapper.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2012</div>
+          <div class="timeline-event">Standing Committee rejects Aadhaar Bill. Cites surveillance risk.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2013</div>
+          <div class="timeline-event">SC: Aadhaar cannot be mandatory. First interim order.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2015</div>
+          <div class="timeline-event">SC limits Aadhaar to PDS & LPG. Govt ignores via notifications.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2016</div>
+          <div class="timeline-event">UPI launched by NPCI. Aadhaar Act passed as Money Bill.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2017</div>
+          <div class="timeline-event">Privacy declared fundamental right. Puttaswamy judgment.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2018</div>
+          <div class="timeline-event">SC strikes Section 57. CIC: NPCI exempt from RTI as "private body."</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2019</div>
+          <div class="timeline-event">Amendment restores private use. NRC-Aadhaar seeding begins.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2020</div>
+          <div class="timeline-event">Aarogya Setu launched. CoWIN creates ABHA IDs without consent.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2021</div>
+          <div class="timeline-event">Voter-Aadhaar linkage enabled. ABDM rolls out nationally.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2022</div>
+          <div class="timeline-event">RBI flags NPCI governance. Parliamentary panel: "foreign entities dominate UPI."</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-event">DPDP Act: State exempted. Digi Yatra: 30% enrolled without knowing.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-event">50+ orgs warn against replicating model abroad.</div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- Explore -->
+    <section class="explore-section fade-up fade-up-3">
+      <div class="section-label">The Evidence</div>
+      <div class="explore-grid">
+        <a href="/layers/" class="explore-card">
+          <h3>Architecture</h3>
+          <p>18+ components. What's open. What's closed. Who controls what.</p>
+        </a>
+        <a href="/surveillance/" class="explore-card">
+          <h3>Surveillance</h3>
+          <p>NATGRID. NPR. Electoral linkage. The observation layer.</p>
+        </a>
+        <a href="/exclusion/" class="explore-card">
+          <h3>Human Cost</h3>
+          <p>Documented deaths. Welfare denials. Error asymmetry.</p>
+        </a>
+      </div>
+      <div class="section-label mt-2">The Framework</div>
+      <div class="explore-grid">
+        <a href="/terminology/" class="explore-card">
+          <h3>Terminology</h3>
+          <p>Definitions. What "public," "open," and "consent" mean here.</p>
+        </a>
+        <a href="/methods/" class="explore-card">
+          <h3>Methods</h3>
+          <p>Evaluation by structure, not outcomes. Five tests for corrigibility.</p>
+        </a>
+        <a href="/dpi/" class="explore-card" style="border-color: rgba(168,85,247,0.3);">
+          <h3 style="color: var(--purple);">DPI Framework</h3>
+          <p>Universal evaluation standard. Apply globally. CC0 public domain.</p>
+        </a>
+        <a href="/participate/" class="explore-card">
+          <h3>Contribute</h3>
+          <p>Add evidence. Challenge claims. This is a living document.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="tweet-section">
+      <div class="tweet-embed">
+        <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">The Great Indian Tech Illusion: Why "DPI" Is Proprietary Vaporware<br><br>The narrative needs debugging.<br><br>For years, global think-tanks have marketed "India Stack" or "Digital Public Infrastructure" (DPI) as open, democratic, and empowering.<br><br>But a technical audit reveals a different reality.</p>&mdash; Anivar A (@anivar) <a href="https://twitter.com/anivar/status/1991551264669212865">July 17, 2025</a></blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </section>
+
+    <section class="media-section">
+      <div class="media-label">Concerns documented by</div>
+      <div class="media-logos">
+        <a href="https://www.washingtonpost.com/news/theworldpost/wp/2018/08/09/aadhaar/" target="_blank" class="media-logo" title="The Washington Post">
+          <svg viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Georgia, Times, serif" font-size="14" font-style="italic" fill="#fff">The Washington Post</text></svg>
+        </a>
+        <a href="https://techcrunch.com/2025/02/02/india-expands-aadhaar-authentication-for-businesses-raising-privacy-concerns/" target="_blank" class="media-logo" title="TechCrunch">
+          <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff">TechCrunch</text></svg>
+        </a>
+        <a href="https://www.hrw.org/news/2018/01/13/india-identification-project-threatens-rights" target="_blank" class="media-logo" title="Human Rights Watch">
+          <svg viewBox="0 0 150 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="500" fill="#fff">Human Rights Watch</text></svg>
+        </a>
+        <a href="https://www.aljazeera.com/news/2018/1/5/india-probes-breach-of-biometric-identity-database" target="_blank" class="media-logo" title="Al Jazeera">
+          <svg viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff">Al Jazeera</text></svg>
+        </a>
+        <a href="https://internetfreedom.in" target="_blank" class="media-logo" title="Internet Freedom Foundation">
+          <svg viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff">IFF</text></svg>
+        </a>
+        <a href="https://sflc.in" target="_blank" class="media-logo" title="Software Freedom Law Center">
+          <svg viewBox="0 0 70 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#fff">SFLC.in</text></svg>
+        </a>
+        <a href="https://cis-india.org" target="_blank" class="media-logo" title="Centre for Internet and Society">
+          <svg viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="11" fill="#fff">Centre for Internet &amp; Society</text></svg>
+        </a>
+        <a href="https://rethinkaadhaar.in" target="_blank" class="media-logo" title="Rethink Aadhaar">
+          <svg viewBox="0 0 130 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="12" fill="#fff">Rethink Aadhaar</text></svg>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <div id="site-footer"></div>
+</main>
+
+<a href="#" class="back-to-top" aria-label="Back to top">↑</a>
+
+<script src="/js/components.js"></script>
+<script>
+// Page animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Card hover effects
+document.querySelectorAll('.explore-card, .nav-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 30}deg) rotateY(${x / 30}deg) translateY(-3px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// Back to top
+const backToTop = document.querySelector('.back-to-top');
+if (backToTop) {
+  window.addEventListener('scroll', () => backToTop.classList.toggle('visible', window.scrollY > 300));
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+</script>
+</body>
+</html>

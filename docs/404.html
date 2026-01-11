@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | India Stack Watch</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .error-content {
+      max-width: 500px;
+    }
+    .error-code {
+      font-size: 8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--danger) 0%, #ff6b81 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .error-title {
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+    .error-desc {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .error-home {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      background: var(--accent);
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .error-home:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px var(--accent-glow);
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-pattern"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main" class="error-page">
+    <div class="error-content">
+      <div class="error-code">404</div>
+      <h1 class="error-title">One Nation, One Failure</h1>
+      <p class="error-desc">This page could not be found in CIDR. Unlike your Aadhaar data, it hasn't been replicated across thousands of eKYC servers without your consent.</p>
+      <p class="error-desc mt-1">The good news? You can actually <strong class="text-accent">exit</strong> this page.</p>
+      <p class="error-desc mono mt-1" style="font-size: 0.8rem; opacity: 0.6; border: 1px solid var(--border); padding: 1rem; border-radius: 8px; text-align: left;">
+        <span class="text-danger">ERROR_CODE:</span> PAGE_NOT_FOUND<br>
+        <span class="text-danger">UIDAI_STATUS:</span> FREEDOM_MISMATCH<br>
+        <span class="text-danger">SUGGESTION:</span> Surrender all hope at nearest enrollment center
+      </p>
+      <a href="/" class="error-home">Exit Successfully</a>
+    </div>
+  </main>
+
+    <div id="site-footer"></div>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

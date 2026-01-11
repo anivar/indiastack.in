@@ -1,0 +1,25 @@
+/* TEAM */
+Project: India Stack Watch
+Site: https://indiastack.in
+Purpose: Critical technical examination of India's Digital Public Infrastructure
+License: Copying is an act of love. Love is not subject to law.
+
+/* THANKS */
+Contributors to digital rights discourse in India
+Researchers documenting exclusion and harms
+Journalists investigating data breaches
+Civil society organizations advocating for transparency
+
+/* SITE */
+Last update: 2026-01-05
+Language: English
+Doctype: HTML5
+Standards: WCAG 2.1 AA, Schema.org structured data
+Technologies: Static HTML, CSS, JavaScript
+Hosting: Self-hosted
+Analytics: None (no tracking)
+
+/* NOTE */
+This site does not track visitors.
+No cookies. No analytics. No surveillance.
+The irony of a surveillance-critical site using surveillance tools would not be lost on us.

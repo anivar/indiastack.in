@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payments Stack | India Stack Watch</title>
+  <meta name="description" content="Critical examination of India's Payments Stack: UPI, NPCI, BHIM. Public rails, private consortium, consent violations, and surveillance capability.">
+  <meta name="keywords" content="UPI, NPCI, BHIM, payments, privacy, surveillance, India Stack, digital payments">
+  <link rel="canonical" href="https://indiastack.in/payments/">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Payments Stack | India Stack Watch">
+  <meta property="og:description" content="UPI: Public rails, private consortium. Critical examination of India's Payments Stack.">
+  <meta property="og:url" content="https://indiastack.in/payments/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://indiastack.in/og-image.png">
+  
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    .pay-component {
+      background: rgba(20, 20, 20, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .pay-component h3 {
+      color: var(--accent);
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .pay-component h3 .status {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+    .status-closed { background: rgba(239,68,68,0.2); color: #ef4444; }
+    .status-private { background: rgba(251,191,36,0.2); color: #fbbf24; }
+    
+    .claim-reality {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .claim, .reality {
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .claim {
+      background: rgba(16,185,129,0.1);
+      border-left: 3px solid var(--accent);
+    }
+    .reality {
+      background: rgba(239,68,68,0.1);
+      border-left: 3px solid #ef4444;
+    }
+    .claim h4, .reality h4 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .claim h4 { color: var(--accent); }
+    .reality h4 { color: #ef4444; }
+    
+    .issues-list {
+      margin-top: 1rem;
+    }
+    .issues-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--text-secondary);
+    }
+    .issues-list li:last-child { border-bottom: none; }
+    .issues-list li strong {
+      color: var(--text-primary);
+    }
+    
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-item {
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat-item .number {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .stat-item .label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    
+    .governance-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    .governance-table th, .governance-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .governance-table th {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+    .governance-table td {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .claim-reality { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Payments Stack Analysis",
+    "description": "UPI, FASTag, NETC - financial infrastructure under NPCI monopoly. Rs 805 crore fraud FY26.",
+    "url": "https://indiastack.in/payments/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-09",
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in", "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/payments/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"},
+    "keywords": ["payments", "UPI", "FASTag", "NETC", "NPCI", "financial infrastructure"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"Payments","item":"https://indiastack.in/payments/"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is UPI open source?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. UPI's core infrastructure code is not publicly available for audit. NPCI approval is required for all payment service providers. You cannot build a UPI-compatible system without NPCI permission."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who controls UPI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NPCI (National Payments Corporation of India), a private limited company with major banks as shareholders (SBI, HDFC, ICICI, etc.). NPCI is not subject to RTI and has no parliamentary oversight. It decides who can offer payment services."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What data does NPCI collect from UPI transactions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NPCI has visibility into all transaction details: Aadhaar number, device fingerprint, IP address, operating system, application, bank account numbers, and GPS location. This creates a 'comprehensive financial profile' of every UPI user."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you opt out of UPI surveillance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Cash is disappearing. Many merchants are UPI-only. You cannot participate in the digital economy without financial surveillance. The perimeter closes. Sign the terms or don't use the service, that's not consent, that's compulsion."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Have there been UPI consent violations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. In April 2024, a leading PSP ported UPI handles to different banks without user consent, documented by IFF. NPCI only introduced explicit consent requirements for seeding/porting in March 2025, after years of violations."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- Visual effects -->
+  <div class="scan-line"></div>
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+    <section class="hero-section fade-up">
+      <div class="hero-content">
+        <div class="eyebrow text-blue">Layer Deep Dive</div>
+        <h1 class="hero-title">Payments <span class="accent">Stack</span></h1>
+        <p class="hero-subtitle">Public rails, private consortium, consent violations, and financial surveillance</p>
+      </div>
+      <div class="hero-illustration accent">
+        <img src="/components/svg/hero-payments.svg" alt="Payment system with central gatekeeper control">
+      </div>
+    </section>
+
+    <section class="content-section fade-up">
+      <div class="quote-box">
+        <blockquote>
+          "Most customers do not read the fine print and often sign up without understanding the details. The single consent mechanism for multiple financial services is a privacy concern."
+        </blockquote>
+        <cite>- SBI Managing Director on Account Aggregator framework</cite>
+      </div>
+    </section>
+
+    <section class="content-section fade-up">
+      <h2>The Architecture</h2>
+      <p>India's Payments Stack is cited as DPI's success story. Look closer: <strong>51% public ownership, Rs 8,730 crore in government subsidies, CAG-appointed auditors, yet claims exemption from RTI</strong>. A private consortium takes public money but rejects public accountability. One node approves all participants. You cannot exit.</p>
+      
+      <div class="layer-list">
+        <div class="layer-item">
+          <span class="layer-name">UPI</span>
+          <span class="layer-reality">Closed protocols → NPCI gatekeeping → 85.9% duopoly → <a href="/upi/" style="color: var(--accent);">Full analysis →</a></span>
+        </div>
+        <div class="layer-item">
+          <span class="layer-name">NPCI</span>
+          <span class="layer-reality">51% public banks → Rs 8,730 Cr subsidies → Claims NOT public authority → RTI exempt</span>
+        </div>
+        <div class="layer-item">
+          <span class="layer-name">BHIM</span>
+          <span class="layer-reality">NPCI-owned competitor → Rs 300 Cr funding → 0.2% market share → Conflict of interest</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPI -->
+    <section class="content-section fade-up">
+      <div class="pay-component">
+        <h3>UPI <span class="status status-private">Closed Protocols</span></h3>
+
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div class="number">20.47B</div>
+            <div class="label">Monthly transactions</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">85.9%</div>
+            <div class="label">PhonePe + Google Pay</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">0%</div>
+            <div class="label">Source code available</div>
+          </div>
+        </div>
+
+        <ul class="issues-list">
+          <li><strong>Not Like Email:</strong> UPI ≠ SMTP. You cannot set up a UPI service like an email server. Protocols are closed. NPCI gates all access.</li>
+          <li><strong>Duopoly on "Open" Rails:</strong> PhonePe (Walmart) 48.7% + Google Pay 37.2% = 85.9%. One duopoly (Visa/MC) replaced with another.</li>
+          <li><strong>Differential Treatment:</strong> NPCI has admitted to picking winners, wallets excluded (2016), WhatsApp restricted for 6 years, Google Tez got 4 banks while others got 1.</li>
+          <li><strong>Consent Violations:</strong> In April 2024, a leading PSP ported UPI handles without user consent. NPCI only required explicit consent in March 2025.</li>
+        </ul>
+
+        <a href="/upi/" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3); border-radius: 8px; color: #3b82f6; font-weight: 500; text-decoration: none;">Full UPI Analysis →</a>
+      </div>
+    </section>
+
+    <!-- NPCI -->
+    <section class="content-section fade-up">
+      <div class="pay-component">
+        <h3>NPCI <span class="status status-private">Private Consortium</span></h3>
+
+        <div class="claim-reality">
+          <div class="claim">
+            <h4>Government Claims</h4>
+            <p>RBI initiative. Non-profit. Public interest organization. Enabling financial inclusion.</p>
+          </div>
+          <div class="reality">
+            <h4>Documented Reality</h4>
+            <p>Private limited company. Won CIC case to evade RTI. Uses "National" in name despite rules. Gatekeeps all digital payments.</p>
+          </div>
+        </div>
+
+        <table class="governance-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Reality</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Legal Structure</td>
+              <td>Non-profit company (Section 8). Claims to be private, but...</td>
+            </tr>
+            <tr>
+              <td>Shareholders</td>
+              <td><strong>51%+ public sector banks</strong> among 65 shareholders. Government company under Companies Act.</td>
+            </tr>
+            <tr>
+              <td>Auditor Appointment</td>
+              <td><strong>CAG appoints auditors</strong>, confirming government company status under Companies Act 2013.</td>
+            </tr>
+            <tr>
+              <td>Public Accountability</td>
+              <td>Yet claims NOT subject to RTI. <strong>Won 2019 CIC case</strong>. No parliamentary oversight.</td>
+            </tr>
+            <tr>
+              <td>Government Subsidy</td>
+              <td><strong>Rs 8,730 crore</strong> (2021-2025) to subsidize RuPay and BHIM-UPI transactions.</td>
+            </tr>
+            <tr>
+              <td>Scale</td>
+              <td>20.47 billion monthly UPI transactions. Monopoly position.</td>
+            </tr>
+            <tr>
+              <td>FY24 Revenue</td>
+              <td>Rs 3,279 crore (42% growth). Could be SSDE under Digital Competition Bill.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.25); border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+          <p style="color: var(--warning); font-weight: 600; margin-bottom: 0.5rem;">The Accountability Contradiction</p>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">CAG appoints NPCI's auditors (government company). Public sector banks hold 51%+ shares. Government gave Rs 8,730 crore in subsidies. Yet NPCI claims it is NOT a public authority and NOT subject to RTI. <strong>It takes public money but rejects public accountability.</strong></p>
+        </div>
+
+        <ul class="issues-list">
+          <li><strong>Designed as Monopoly:</strong> 2011 Technical Advisory Group (Nandan Nilekani) acknowledged: "upfront sunk-cost, economies of scale, and network externalities" make it a natural monopoly.</li>
+          <li><strong>No Competition Allowed:</strong> RBI rejected all New Umbrella Entity (NUE) applications from Reliance, Axis, Tata, Paytm, on "flimsy grounds" (MediaNama).</li>
+          <li><strong>Opaque Decision-Making:</strong> Cook and Raman research: scheme rules set by product-level committees, no public consultation, no recommendations sought.</li>
+          <li><strong>Quasi-Regulator Role:</strong> NPCI trying to play competition regulator with 30% market cap, while also being a participant.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RBI Regulatory Failures -->
+    <section class="content-section fade-up">
+      <div class="pay-component" style="border-color: rgba(239,68,68,0.3);">
+        <h3 style="color: #ef4444;">RBI Regulatory Failures</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">The Reserve Bank of India has failed on three counts with payments infrastructure:</p>
+
+        <ul class="issues-list">
+          <li><strong>Failed Independent Oversight:</strong> RBI signed off on Watal Committee recommendation for a separate Payments Regulator, then switched to "self regulation", retaining control without establishing independent oversight.</li>
+          <li><strong>Failed to Enable Competition:</strong> RBI teased New Umbrella Entities (NUEs), received applications from Reliance, Axis, Tata, Paytm, then rejected all on grounds as thin as "we did not see innovation." NPCI monopoly continues.</li>
+          <li><strong>Failed Public Accountability:</strong> No public consultation for critical payments infrastructure. No recommendations sought from civil society or merchant community.</li>
+        </ul>
+
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem;">Until there is competition, NPCI remains a <strong>single point of failure</strong> for digital payments in India. And a systemic risk.</p>
+      </div>
+    </section>
+
+    <!-- BHIM -->
+    <section class="content-section fade-up">
+      <div class="pay-component">
+        <h3>BHIM <span class="status status-closed">Closed Source</span> <span class="status status-private">Conflict of Interest</span></h3>
+
+        <div class="claim-reality">
+          <div class="claim">
+            <h4>Government Claims</h4>
+            <p>Secure government app. Simple UPI access. Privacy-preserving. Made for all Indians. "National initiative."</p>
+          </div>
+          <div class="reality">
+            <h4>Documented Reality</h4>
+            <p>NPCI owns the marketplace AND competes in it. UPI apps fund their own competitor. Market share: 0.2%.</p>
+          </div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-item" style="background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3);">
+            <div class="number" style="color: #ef4444;">0.2%</div>
+            <div class="label">BHIM's UPI market share</div>
+          </div>
+          <div class="stat-item" style="background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3);">
+            <div class="number" style="color: #ef4444;">₹300 Cr</div>
+            <div class="label">Given by NPCI to BHIM (FY24)</div>
+          </div>
+          <div class="stat-item" style="background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3);">
+            <div class="number" style="color: #ef4444;">100%</div>
+            <div class="label">NPCI owns BHIM subsidiary</div>
+          </div>
+        </div>
+
+        <ul class="issues-list">
+          <li><strong>Marketplace Owner Competing:</strong> NPCI runs UPI AND owns BHIM app. Participants who pay NPCI fees are effectively <strong>funding their own competition</strong>.</li>
+          <li><strong>Spun Off, Still Controlled:</strong> BHIM was spun off as fully owned subsidiary, but NPCI gave it Rs 300 crore to attract customers (Moneycontrol, Oct 2024).</li>
+          <li><strong>"National Initiative" Misrepresentation:</strong> NPCI CEO called BHIM a "national initiative", despite NPCI winning CIC case to confirm it is NOT a government body.</li>
+          <li><strong>Third-Party Data Sharing:</strong> BHIM privacy policy: data shared with "financial institutions, service providers, merchants or regulatory/government authorities."</li>
+          <li><strong>Aadhaar Linkage:</strong> BHIM enables Aadhaar-based authentication, linking financial transactions to biometric identity.</li>
+        </ul>
+
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">Despite Rs 300 crore in funding, BHIM has just 0.2% market share. PhonePe (Walmart) and Google Pay control 85.9%. One duopoly (Visa/Mastercard) was replaced with another, on "open" public infrastructure.</p>
+      </div>
+    </section>
+
+    <section class="content-section fade-up">
+      <h2>Recent Security Measures (2025)</h2>
+      <p>NPCI has introduced new security guidelines, but fundamental issues remain:</p>
+      <ul class="issues-list">
+        <li><strong>API Security Guidelines (May 2025):</strong> New OC-215 mandate for PSPs. Implementation deadline July 2025.</li>
+        <li><strong>Consent for Seeding/Porting:</strong> Now requires explicit consent (March 2025), after years of violations.</li>
+        <li><strong>Biometric Authentication:</strong> Cut security incidents by 58%, but increases surveillance capability.</li>
+        <li><strong>Federated Learning:</strong> NPCI piloting fraud detection without sharing customer data, step in right direction but limited.</li>
+      </ul>
+      <p>These improvements address symptoms while leaving the fundamental architecture, private control of public infrastructure, unchanged.</p>
+    </section>
+
+    <section class="content-section fade-up">
+      <h2>The Pattern: Financial Enclosure</h2>
+      
+      <p>You cannot exit. Cash is disappearing. Every transaction is visible. The enclosure is complete.</p>
+      <ul class="issues-list">
+        <li><strong>No Exit:</strong> Cash is disappearing. Try paying rent without UPI. Try receiving salary without a bank. The perimeter closes.</li>
+        <li><strong>Total Visibility:</strong> Every rupee you spend. Every rupee you receive. Visible to your bank, NPCI, government, and whoever they share with.</li>
+        <li><strong>Gatekeeping Node:</strong> NPCI, a private company, decides who can offer payment services. One node controls all flow.</li>
+        <li><strong>Consent Theater:</strong> Sign the terms or don't use the service. That's not consent. That's compulsion dressed as choice.</li>
+        <li><strong>Export Model:</strong> This is what India sells abroad as "Digital Public Infrastructure." Private control of public rails. Surveillance by design.</li>
+      </ul>
+    </section>
+
+    <section class="content-section fade-up">
+      <h2>Sources</h2>
+      <ul class="issues-list">
+        <li><a href="https://www.theindiaforum.in/society/whom-npci-accountable" target="_blank" style="color: var(--accent);">The India Forum: To Whom is the NPCI Accountable?</a></li>
+        <li><a href="https://www.medianama.com/2025/02/223-npci-competition-regulation/" target="_blank" style="color: var(--accent);">MediaNama: What if competition regulation was applied to NPCI?</a> (Feb 2025)</li>
+        <li><a href="https://www.medianama.com/2025/02/223-how-not-to-screw-up-your-digital-public-infrastructure-dpi/" target="_blank" style="color: var(--accent);">MediaNama: How not to screw up your DPI</a> (Feb 2025)</li>
+        <li>Internet Freedom Foundation. UPI/NPCI analysis, Truecaller breach documentation</li>
+        <li>NPCI, Official statistics and policy documents</li>
+        <li>RBI, Digital payment regulations and NUE decisions</li>
+        <li>Smriti Parsheera, NPCI governance research</li>
+        <li>Cook and Raman, NPCI scheme rules and decision-making research</li>
+        <li>BHIM Privacy Policy, Data sharing disclosures</li>
+        <li>Moneycontrol, BHIM subsidiary funding (Oct 2024)</li>
+      </ul>
+    </section>
+
+    <section class="fade-up mt-2">
+      <div class="nav-grid">
+        <a href="/education/" class="nav-card">
+          <h3>← Education Stack</h3>
+          <p>DIKSHA, APAAR, and children's data surveillance.</p>
+        </a>
+        <a href="/data/" class="nav-card">
+          <h3>Data Stack →</h3>
+          <p>Account Aggregator, DigiLocker, Digi Yatra.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+  </main>
+
+    <div id="site-footer"></div>
+
+  <script>
+  
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal-up, .fade-up, .content-section').forEach(el => observer.observe(el));
+
+// Magnetic hover effect for cards
+document.querySelectorAll('.nav-card, .component-card, .info-box, .gov-card, .ai-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateZ(10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease';
+  });
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.dataset.open === 'true';
+      navLinks.dataset.open = !isOpen;
+      menuToggle.setAttribute('aria-expanded', !isOpen);
+    });
+  }
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+  </script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

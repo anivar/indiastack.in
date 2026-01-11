@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Layers of India Stack, Complete Technical Breakdown</title>
+  <meta name="description" content="Complete breakdown of all 25+ India Stack components. Identity, Payments, Data, Commerce, Health, Education, Governance, Surveillance layers. What is open? What is closed? Who controls what?">
+  <meta name="keywords" content="India Stack layers, Aadhaar, UPI, DEPA, Account Aggregator, DigiLocker, ONDC, ABDM, CoWIN, NATGRID, DIKSHA, GeM, PFMS, Zoho eOffice, DPI components">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://indiastack.in/layers/">
+  <meta property="og:title" content="All Layers of India Stack, Complete Breakdown">
+  <meta property="og:description" content="25+ components analyzed. What's open. What's closed. Who controls what.">
+  <meta property="og:url" content="https://indiastack.in/layers/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://indiastack.in/og-image.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    .component-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .component-card { background: var(--bg-secondary); border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border); transition: all 0.3s ease; }
+    .component-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .component-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.6rem; gap: 0.5rem; }
+    .component-name { font-size: 1rem; font-weight: 500; color: var(--text-primary); }
+    .badge { font-family: var(--font-mono); font-size: 0.55rem; padding: 0.25rem 0.5rem; border-radius: 4px; letter-spacing: 0.05em; white-space: nowrap; }
+    .badge-closed { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+    .badge-partial { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+    .badge-private { background: rgba(168, 85, 247, 0.2); color: #B794F4; }
+    .component-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem; }
+    .component-reality { font-size: 0.8rem; color: var(--rose); line-height: 1.5; }
+    .governance-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.85rem; }
+    .governance-table th { text-align: left; color: var(--accent); font-weight: 500; padding: 0.75rem; border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.05em; }
+    .governance-table td { padding: 0.75rem; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+    .governance-table td:first-child { color: var(--text-primary); font-weight: 500; }
+    .governance-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .nav-links a[href="/layers/"] { color: var(--accent); background: var(--accent-dim); }
+    @media (max-width: 600px) { .component-grid { grid-template-columns: 1fr; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Layers of India Stack",
+    "description": "Complete breakdown of 25+ India Stack components. What is open, what is closed, who controls what.",
+    "url": "https://indiastack.in/layers/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-08",
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in", "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/layers/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"},
+    "keywords": ["India Stack", "Aadhaar", "UPI", "ABDM", "DigiLocker", "digital infrastructure"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"Layers","item":"https://indiastack.in/layers/"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many components are in India Stack?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "India Stack has 25+ components across multiple layers: Identity (Aadhaar, NPR, eKYC), Payments (UPI, DBT, PFMS), Data (Account Aggregator, DigiLocker, Digi Yatra), Commerce (ONDC, GeM, Beckn), Health (ABDM, CoWIN, Aarogya Setu), Education (DIKSHA, APAAR), Governance (eOffice, UMANG), and Surveillance (NATGRID, CMS)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is India Stack open source?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Of 25+ components, zero are fully open source. Seven have partial specifications available (like Account Aggregator, ONDC), but none have publicly available source code that citizens can inspect, fork, or independently deploy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who controls India Stack?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Each layer has different controllers: UIDAI (Aadhaar), NPCI (UPI, FASTag), NHA (ABDM/Health), MeitY (DigiLocker), Sahamati (Account Aggregator). Many are Section 8 companies exempt from RTI. The brand is unified but control is fragmented across private and quasi-government entities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the surveillance capability of India Stack?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NATGRID links 21+ databases via Aadhaar, bank records, FASTag location, health records, tax data. NPCI sees all UPI transaction details including GPS location. NPR has 119 crore residents' data. 11 intelligence agencies plus state police have access. No judicial oversight."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the documented harms from India Stack?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Documented starvation deaths from Aadhaar-linked ration card cancellations. 4.39 crore ration cards deleted (2013-2021), 88% were genuine beneficiaries. 49% biometric failure rate in Jharkhand. DIKSHA data breach exposed 1M+ teachers and 600K students. WEF called Aadhaar the world's largest data breach."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- Visual effects -->
+  <div class="scan-line"></div>
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+    <section class="hero-section fade-up">
+      <div class="hero-content">
+<h1 class="hero-title">The <span class="accent">Layers</span></h1>
+        <p class="hero-subtitle">25+ components analyzed. A technical breakdown of what "Digital Public Infrastructure" actually means. <strong>DPI does not require open source.</strong></p>
+      </div>
+      <div class="hero-illustration">
+        <img src="/components/svg/hero-layers.svg" alt="Stacked infrastructure layers with lock">
+      </div>
+    </section>
+
+    <div class="callout warning">
+      <div class="label">NOTE</div>
+      <p><strong>"India Stack" is PRware</strong>, a marketing term coined by iSPIRT. There is no entity called "India Stack." Each system is owned by a different institution: UIDAI (Aadhaar), NPCI (UPI), NHA (ABDM), MeitY (DigiLocker). All closed source. The brand is unified. The code is fragmented and proprietary.</p>
+    </div>
+
+    <div class="quote-box">
+      <blockquote>"The idea that every citizen in this country is to be numbered is the primary thing in the project. The second part is that every database should have the number embedded in it so it becomes <strong>easy to collate information about people, easy to profile people</strong> and launch surveillance if you want."</blockquote>
+      <cite>- Usha Ramanathan</cite>
+    </div>
+
+    <!-- IDENTITY LAYER -->
+    <div class="section-label">Identity Layer</div>
+    <div class="component-grid">
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">Aadhaar / UIDAI</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc"><strong>Governance:</strong> Built by private sector brought into government. Volunteer networks promoted ecosystem. Ex-UIDAI members entered Aadhaar markets. RTI-exempt since 2011. "Cronyism" allegations documented.</div>
+        <div class="component-reality">49% biometric failure rate in Jharkhand. 37% in Rajasthan. No deletion. Fail to match = denied benefits. Not a right, a privilege revocable anytime.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">NPR</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc"><strong>National Population Register.</strong> 119 crore residents (Dec 2024). Aadhaar is backend. Linked to NATGRID. Collects 14 demographic fields including biometrics.</div>
+        <div class="component-reality">No opt-out. No deletion. Feeds surveillance infrastructure. CAA+NPR enables citizenship filtering. "Usual residents" tracked permanently. Aadhaar linkage makes it inescapable.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">eKYC</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc">Electronic identity verification via Aadhaar. Requires AUA/KUA license from UIDAI. Mandatory for banks, SIMs, financial services.</div>
+        <div class="component-reality">Fingerprints wear from labor. Corneal blindness, cataracts exclude 2-5% of population. - Usha Ramanathan</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">Voter ID-Aadhaar Linkage</span>
+          <span class="badge badge-partial">COERCIVE</span>
+        </div>
+        <div class="component-desc">2021 Election Laws Amendment. Claims "voluntary" but Form 6B offers no real opt-out. In 2015 Telangana pilot, 55 lakh voters removed due to mismatches.</div>
+        <div class="component-reality">"Biometrics is disenfranchising a large number of citizens." - Usha Ramanathan. SC issued stay on 2015 exercise.</div>
+      </div>
+    </div>
+
+    <!-- PAYMENTS LAYER -->
+    <div class="section-label">Payments Layer</div>
+    <div class="component-grid">
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">UPI / NPCI</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc"><strong>Governance:</strong> NPCI claims "private" status but: 51% owned by public sector banks, CAG appoints auditors, Rs 8,730 crore government subsidies (2021-2025). Yet won 2019 CIC case to be RTI-exempt. RBI "failed to ensure public accountability." PhonePe+Google = 86% duopoly (foreign-owned). Parliamentary panel: "foreign entities dominate."</div>
+        <div class="component-reality">₹805 crore fraud FY26. 1 in 5 users hit by fraud. Only 6% recovered. NPCI sees everything. You see nothing.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">OCEN</span>
+          <span class="badge badge-partial">SPEC ONLY</span>
+        </div>
+        <div class="component-desc"><strong>Open Credit Enablement Network.</strong> Volunteer network-designed protocol for credit access. Account Aggregator feeds data. Tech philanthropist networks set standards. Claims to "democratize" lending.</div>
+        <div class="component-reality">Credit decisions based on AA data you cannot verify. Lenders see everything. Rejection reasons opaque. "Open" protocol, closed algorithms. Same governance pattern as DEPA/Beckn.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">DBT</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc">Direct Benefit Transfer. Aadhaar-linked welfare distribution. 1200+ schemes. Claims "savings" from reduced leakage.</div>
+        <div class="component-reality">"Savings" = denial to excluded. 88% of cancelled cards were genuine. (J-PAL)</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">PFMS</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc"><strong>Public Financial Management System.</strong> "Master control software of government finances." Single Nodal Agency model (2021) stripped state financial autonomy.</div>
+        <div class="component-reality">"Code is Law", PFMS enables unconstitutional centralization through tech. States reduced to "data nodes." Federalism crushed.</div>
+      </div>
+    </div>
+
+    <!-- DATA LAYER -->
+    <div class="section-label">Data Layer</div>
+    <div class="component-grid">
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">Account Aggregator (DEPA)</span>
+          <span class="badge badge-partial">SPEC ONLY</span>
+        </div>
+        <div class="component-desc"><strong>Governance:</strong> Sahamati (SRO) launched by tech philanthropist network. Volunteer networks designed DEPA. Industry self-regulates on pricing, privacy, encryption. Consumer protection secondary to "participatory governance."</div>
+        <div class="component-reality">Single consent for everything. SBI MD: "Most customers don't read fine print." No way to verify deletion. Consent under exclusion threat isn't consent.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">DigiLocker</span>
+          <span class="badge badge-partial">CLAIMS OPEN</span>
+        </div>
+        <div class="component-desc"><strong>Governance:</strong> NIC-operated. 2020 critical vulnerability allowed OTP bypass. SIM swap vulnerability documented. Fake apps proliferating. Cannot self-host or federate.</div>
+        <div class="component-reality">SIM recycling exposes previous owner's Aadhaar (2025 case). Fake apps stealing data (Dec 2025 govt warning). Cannot delink Aadhaar once linked. No self-hosting.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">API Setu</span>
+          <span class="badge badge-partial">GATEKEPT</span>
+        </div>
+        <div class="component-desc">Open API Platform (MeitY, 2020). 4200+ APIs, 1800+ partners. Enables interoperability but centralizes access control.</div>
+        <div class="component-reality">Single gateway. All data flows through one chokepoint. Private providers need approval. The node that controls access controls everything.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">Digi Yatra</span>
+          <span class="badge badge-closed">FRT</span>
+        </div>
+        <div class="component-desc"><strong>Governance:</strong> Digi Yatra Foundation = private company (AAI 26% + 5 private airports). RTI-exempt. 29% enrolled without knowledge. Forces Aadhaar. DPDP Act Section 17 can exempt it anytime.</div>
+        <div class="component-reality">30% enrolled without knowing. IFF: "tool of coercion." Face data enables dragnet surveillance. Private foundation, not ministry. Cannot verify deletion claims.</div>
+      </div>
+    </div>
+
+    <!-- COMMERCE LAYER -->
+    <div class="section-label">Commerce Layer</div>
+    <div class="component-grid">
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">ONDC</span>
+          <span class="badge badge-partial">NOT FOSS</span>
+        </div>
+        <div class="component-desc"><strong>Governance:</strong> Beckn protocol by tech philanthropist networks. Beckn Foundation owned by single philanthropist. ONDC Advisory Council includes same network. "Open" but not FOSS. Subsidy-dependent, collapsed 30% when cut.</div>
+        <div class="component-reality">Subsidy-dependent. Orders collapsed 30% when subsidies cut. Not FOSS. No community governance. "Open" in name only. <a href="https://inc42.com/features/ondc-india-ecommerce-reality-check/" target="_blank" class="text-danger">Inc42</a></div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">GeM</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc"><strong>Government e-Marketplace.</strong> ₹13.6 lakh crore GMV. 23 lakh sellers. Mandatory for government procurement.</div>
+        <div class="component-reality">Mandatory gateway. No GeM = no government contracts. Single chokepoint controls all procurement. Payment delays. Excludes vendors without digital capacity.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">Beckn Protocol</span>
+          <span class="badge badge-partial">SPEC ONLY</span>
+        </div>
+        <div class="component-desc"><strong>Governance:</strong> FIDE (Foundation for Interoperability in Digital Economy) sets standards, co-founded by tech philanthropist network. Pattern mirrors ReBIT→Sahamati. Specs "open," governance concentrated. Google Cloud partnership 2025.</div>
+        <div class="component-reality">Protocol is open. Implementations are closed. Google Cloud partnership (2025). 63M businesses must adopt vs 50 banks for UPI. Open spec, closed reality.</div>
+      </div>
+    </div>
+
+    <!-- HEALTH LAYER -->
+    <div class="section-label">Health Layer</div>
+    <div class="component-grid">
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">ABDM / ABHA</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc"><strong>Ayushman Bharat Digital Mission.</strong> 80 crore ABHA IDs. 67 crore health records linked. Claims "Privacy by Design." Samsung integration expands attack surface.</div>
+        <div class="component-reality">PMJAY dashboard exposes patient details (MediaNama 2024). Star Health breach: 31M records on Telegram. No separate law, legally challengeable. <a href="https://www.medianama.com/2024/12/223-abdm-privacy-by-design-dashboard-exposes-patient-details/" target="_blank" class="text-danger">MediaNama</a></div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">CoWIN / U-WIN</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc">Vaccination registration. 1.6B doses recorded. Portal unavailable since Aug 2025. Being repurposed as U-WIN for universal immunization.</div>
+        <div class="component-reality">200-280M Indians had no/poor internet access. CoWIN data breach affected hundreds of millions. Digital exclusion by design.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">Aarogya Setu</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc">Contact tracing app. 218M downloads. No legislative backing. Privacy policy contradicts protocol on data sharing.</div>
+        <div class="component-reality">Karnataka HC: "Cannot deny benefit for not installing." MIT rating: 1/5 for transparency. GPS tracking without disclosure.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">UHID</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc"><strong>Unique Health ID.</strong> Hospital-level patient tracking. AIIMS-originated. Aadhaar-linkable. Enables lifelong medical profile across all healthcare facilities.</div>
+        <div class="component-reality">Permanent patient tracking. Aadhaar linkage enables cross-database profiling. UHID Rules 2021 allow collection of sexual orientation, religious/political beliefs. TB patients forced to link, some dropped treatment fearing privacy breach.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">eSanjeevani</span>
+          <span class="badge badge-partial">CLAIMS SECURE</span>
+        </div>
+        <div class="component-desc"><strong>National Telemedicine Service.</strong> 311M+ patients served. Worlds largest government-led telemedicine. Claims EHR compliance.</div>
+        <div class="component-reality">311M patients. No independent audit. Code closed. "Secure" is a claim you cannot verify. Integrates with ABDM, your consultation becomes lifelong record.</div>
+      </div>
+    </div>
+
+    <!-- EDUCATION LAYER -->
+    <div class="section-label">Education Layer</div>
+    <div class="component-grid">
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">DIKSHA</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc"><strong>Governance:</strong> NCERT/MoE platform. Made mandatory without alternative. Ministry ignored breach alerts. No accountability. HRW documented location tracking + advertising trackers in children's app.</div>
+        <div class="component-reality"><strong>Major breach:</strong> 1M+ teachers, 600K students exposed. Data searchable on Google for 4+ years. HRW: "violated children's privacy." Location tracking without disclosure. Advertising trackers found. <a href="https://www.hrw.org/news/2023/01/27/indian-government-app-exposed-childrens-personal-data" target="_blank" class="text-danger">HRW</a></div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">APAAR</span>
+          <span class="badge badge-partial">NO LAW</span>
+        </div>
+        <div class="component-desc"><strong>Governance:</strong> No legal/statutory backing, only ministry circulars. "Voluntary-mandatory" design like Aadhaar. School principals threatened with salary cuts. IFF: open APIs expose children's data. Tracks from age 6 for life.</div>
+        <div class="component-reality">Children tracked from age 6 forever. No delete button. No opt-out. Parents pressured during admissions. The registry never forgets.</div>
+      </div>
+    </div>
+
+    <!-- GOVERNANCE LAYER -->
+    <div class="section-label">Governance Layer</div>
+    <div class="component-grid">
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">eOffice → Zoho</span>
+          <span class="badge badge-private">PRIVATIZED</span>
+        </div>
+        <div class="component-desc"><strong>12 lakh govt emails migrated to Zoho</strong> (Oct 2025). 7-year contract awarded 2023. PMO included. NIC's 50-year capability abandoned.</div>
+        <div class="component-reality">"Digital sovereignty surrendered." Zoho founder on National Security Advisory Board since 2021. Cabinet notes, diplomatic cables now depend on private contract. No end-to-end encryption by default.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">UMANG</span>
+          <span class="badge badge-partial">UNVERIFIED</span>
+        </div>
+        <div class="component-desc"><strong>Unified Mobile Application for New-age Governance.</strong> MeitY (2017). Single app for 1200+ government services. Aadhaar-based authentication.</div>
+        <div class="component-reality">1200+ services through one app. Claims "no data collection", Apple: "not verified." Single aggregation point sees all citizen-government interaction.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">PM Gati Shakti</span>
+          <span class="badge badge-partial">DATA SHARING</span>
+        </div>
+        <div class="component-desc"><strong>Infrastructure planning portal.</strong> GIS-based. Land records, ports, forests, highways data. Feb 2025: Govt to share data with private sector.</div>
+        <div class="component-reality">Ports, railways, energy data on one platform. Now sharing with private sector. Single visibility point for all national infrastructure. Hub-spoke by design.</div>
+      </div>
+    </div>
+
+    <!-- JUSTICE LAYER -->
+    <div class="section-label">Justice Layer</div>
+    <div class="component-grid">
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">eCourts / NJDG</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc"><strong>National Judicial Data Grid.</strong> 32+ crore judgments. Judges govern themselves. Vision drafted by think tanks funded by philanthropic networks. No parliamentary oversight. No RTI.</div>
+        <div class="component-reality">Judiciary exempt from data protection. No Right to be Forgotten, SC blocked attempts. POCSO victim names searchable. Divorce details permanent. Acquitted? Still marked forever. Selective digitization, some vanish, yours persists. The institution that interprets your rights exempts itself from them.</div>
+      </div>
+    </div>
+
+    <!-- SURVEILLANCE LAYER -->
+    <div class="section-label">Surveillance Layer</div>
+    <div class="component-grid">
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">NATGRID</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc"><strong>Governance:</strong> RTI-exempt since 2011. Now linked to NPR (119 crore residents, Dec 2024). 100 crore facial entries. 45,000+ queries/month. Access expanded to SP-rank officers. No judicial oversight.</div>
+        <div class="component-reality">RTI-exempt since 2011. No judicial oversight. "Aadhaar with NATGRID is surveillance." (CIS India)</div>
+      </div>
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-name">CMS</span>
+          <span class="badge badge-closed">CLOSED</span>
+        </div>
+        <div class="component-desc"><strong>Governance:</strong> C-DOT built, TERM cells operate. Direct access bypasses telecom providers. 2024 Interception Rules lowered threshold, "consider" alternatives, not "determine." Delhi HC ordered halt (pending). No judicial oversight.</div>
+        <div class="component-reality">Mass telecom interception. No judicial oversight. No transparency. No accountability. No legal framework. The panopticon has no windows.</div>
+      </div>
+    </div>
+
+    <!-- GOVERNANCE EVOLUTION TABLE -->
+    <div class="info-box mt-2">
+      <h3>The Governance Evolution</h3>
+      <p>The pattern: each layer moves from public control to private governance with public mandate. State-Blessed Private Monopoly. Public risk, private control. No exit.</p>
+      <table class="governance-table">
+        <tr>
+          <th>Layer</th>
+          <th>Spec Owner</th>
+          <th>Implementation</th>
+          <th>2025 Status</th>
+        </tr>
+        <tr>
+          <td>Aadhaar (2009)</td>
+          <td>Govt (UIDAI)</td>
+          <td>Ecosystem outside govt</td>
+          <td>RTI-exempt</td>
+        </tr>
+        <tr>
+          <td>UPI</td>
+          <td>NPCI (51% public banks)</td>
+          <td>Claims private, RTI-exempt</td>
+          <td>Closed source</td>
+        </tr>
+        <tr>
+          <td>Account Aggregator</td>
+          <td>ReBIT (RBI entity)</td>
+          <td>Self-regulated private</td>
+          <td>License required</td>
+        </tr>
+        <tr>
+          <td>ONDC</td>
+          <td>Private consortium</td>
+          <td>Beckn Protocol</td>
+          <td>Subsidy-dependent</td>
+        </tr>
+        <tr>
+          <td>eOffice → Zoho</td>
+          <td>Private (Zoho)</td>
+          <td>Private cloud</td>
+          <td>7-year contract</td>
+        </tr>
+        <tr>
+          <td>PFMS</td>
+          <td>Union govt</td>
+          <td>Centralized</td>
+          <td>Crushes federalism</td>
+        </tr>
+      </table>
+      <p class="text-muted mt-1"><strong>Public risk, private control.</strong> The Programmable State: where citizenship is a ledger entry that can be deleted.</p>
+    </div>
+
+    <div class="info-box mt-2">
+      <h3>Deep Dives</h3>
+      <p>Detailed analysis of each layer:</p>
+      <div class="quick-links">
+        <a href="/health/" class="quick-link"><strong class="text-accent">Health Stack</strong><br><span>CoWIN, ABDM, Aarogya Setu, UHID</span></a>
+        <a href="/education/" class="quick-link"><strong class="text-accent">Education Stack</strong><br><span>DIKSHA, APAAR</span></a>
+        <a href="/payments/" class="quick-link"><strong class="text-accent">Payments Stack</strong><br><span>UPI, NPCI, BHIM</span></a>
+        <a href="/data/" class="quick-link"><strong class="text-accent">Data Stack</strong><br><span>Account Aggregator, DigiLocker, Digi Yatra</span></a>
+        <a href="/governance/" class="quick-link"><strong class="text-accent">Governance Stack</strong><br><span>Code first. Policy later.</span></a>
+        <a href="/ai/" class="quick-link cyan"><strong class="cyan">AI Stack</strong><br><span>IndiaAI Mission, Sovereign LLM</span></a>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="verdict-label">Verdict</div>
+      <div class="verdict-text">"Open API" ≠ Open Source. "Public" ≠ Publicly Controlled. Single Point of Failure. Defective by Design.</div>
+    </div>
+
+    <div class="sources">
+      <h3>Key Sources</h3>
+      <ul>
+        <li><a href="https://www.hrw.org/news/2023/01/27/indian-government-app-exposed-childrens-personal-data" target="_blank">Human Rights Watch</a>, DIKSHA children's privacy violation</li>
+        <li><a href="https://www.medianama.com/2024/12/223-abdm-privacy-by-design-dashboard-exposes-patient-details/" target="_blank">MediaNama</a>, ABDM dashboard privacy issues</li>
+        <li><a href="https://inc42.com/features/ondc-india-ecommerce-reality-check/" target="_blank">Inc42</a>, ONDC reality check 2025</li>
+        <li><a href="https://internetfreedom.in" target="_blank">Internet Freedom Foundation</a>, CoWIN, ABDM, ONDC analysis</li>
+        <li><a href="https://cis-india.org" target="_blank">Centre for Internet and Society</a>, Surveillance and security analysis</li>
+        <li><a href="https://rethinkaadhaar.in" target="_blank">Rethink Aadhaar</a>, Exclusion documentation</li>
+      </ul>
+    </div>
+
+    <section class="media-section">
+      <div class="media-label">Concerns documented by</div>
+      <div class="media-logos">
+        <a href="https://www.hrw.org/news/2018/01/13/india-identification-project-threatens-rights" target="_blank" class="media-logo" title="Human Rights Watch">
+          <svg viewBox="0 0 150 20"><text x="0" y="15" font-family="Arial" font-size="12" font-weight="500" fill="#666">Human Rights Watch</text></svg>
+        </a>
+        <a href="https://www.medianama.com" target="_blank" class="media-logo" title="MediaNama">
+          <svg viewBox="0 0 100 20"><text x="0" y="15" font-family="Arial" font-size="13" fill="#666">MediaNama</text></svg>
+        </a>
+        <a href="https://inc42.com" target="_blank" class="media-logo" title="Inc42">
+          <svg viewBox="0 0 50 20"><text x="0" y="15" font-family="Arial" font-size="14" font-weight="bold" fill="#666">Inc42</text></svg>
+        </a>
+      </div>
+    </section>
+
+  </div>
+  </main>
+
+    <div id="site-footer"></div>
+
+<script>
+
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal-up, .fade-up, .content-section').forEach(el => observer.observe(el));
+
+// Magnetic hover effect for cards
+document.querySelectorAll('.nav-card, .component-card, .info-box, .gov-card, .ai-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateZ(10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease';
+  });
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.dataset.open === 'true';
+    navLinks.dataset.open = !isOpen;
+    menuToggle.setAttribute('aria-expanded', !isOpen);
+  });
+}
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+</script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can You Fork It? | India Stack Watch</title>
+  <meta name="description" content="Technical analysis of forkability in India Stack. Aadhaar, UPI, DEPA, DigiLocker - none can be independently deployed. The gap between "open" claims and closed reality.">
+  <meta name="keywords" content="fork India Stack, open source DPI, Aadhaar source code, UPI open source, DEPA forkable, DigiLocker self-host">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="India Stack Watch">
+  <link rel="canonical" href="https://indiastack.in/fork/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="og:title" content="Can You Fork India Stack?">
+  <meta property="og:description" content="Source available? Deployable independently? No permission needed? Testing India Stack against open infrastructure standards.">
+  <meta property="og:url" content="https://indiastack.in/fork/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@indiastackwatch">
+  <meta name="twitter:title" content="Can You Fork India Stack?">
+  <meta name="twitter:description" content="Source available? Deployable independently? No permission needed? Testing India Stack against open infrastructure standards.">
+  <meta name="twitter:image" content="https://indiastack.in/og-image.png">
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="msapplication-TileColor" content="#0a0a0a">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "Can You Fork India Stack?",
+    "description": "Technical analysis of forkability in India Stack. Aadhaar, UPI, DEPA, DigiLocker - none can be independently deployed. The gap between 'open' claims and closed reality.",
+    "url": "https://indiastack.in/fork/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-08",
+    "publisher": {
+      "@type": "Organization",
+      "name": "India Stack Watch",
+      "url": "https://indiastack.in",
+      "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}
+    },
+    "headline": "Can You Fork India Stack?",
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/fork/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"}
+  }
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    /* Fork page - green accent theme */
+    .gradient-orb.orb-1 { background: radial-gradient(circle, #0dd892 0%, transparent 70%); }
+    .gradient-orb.orb-2 { background: radial-gradient(circle, #059669 0%, transparent 70%); }
+
+    /* Page-specific forkable list */
+    .forkable-list { list-style: none; padding: 0; }
+    .forkable-list li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; color: var(--text-secondary); }
+    .forkable-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+    .text-accent-mono { font-family: var(--font-mono); color: var(--accent); font-size: 0.85rem; margin-top: 1rem; }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"Fork","item":"https://indiastack.in/fork/"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does 'forkable' mean for digital infrastructure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Forkable means: source code is publicly available, the system can be deployed independently, and no permission is required from original operators. This is the minimum bar for 'open' infrastructure. True public infrastructure like TCP/IP, HTTP, or email can be implemented by anyone, anywhere, without permission."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Aadhaar's source code publicly available?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Aadhaar is closed source, centralized by design. UIDAI operates the only instance. No federation protocol exists. The system cannot be forked, replicated, or independently verified."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you build your own UPI-compatible payment system?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. UPI is a proprietary NPCI system with no public specification. You cannot build a compatible implementation without NPCI approval and membership. There is no open protocol that allows independent implementation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What countries have truly forkable digital infrastructure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Estonia's X-Road is fully open source, Finland, Iceland, and Japan use forks. UK's Gov.UK code is on GitHub for local councils to adapt. These systems meet the forkable standard: source available, self-hostable, no permission needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does forkability matter for public infrastructure?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When infrastructure cannot be forked, users have no exit. Operators face no competitive pressure. 'Open API' becomes a facade over proprietary control. Without the ability to run alternatives, citizens are locked into whatever the single operator decides."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- Visual effects -->
+  <div class="scan-line"></div>
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div id="site-header"></div>
+  
+  <main id="main-content" role="main">
+  <div class="container">
+    <section class="hero-section fade-up">
+      <div class="hero-content">
+        <div class="eyebrow text-accent">Test 05 · Credible Replacement</div>
+<h1 class="hero-title">Can You <span class="accent">Fork</span> It?</h1>
+        <p class="hero-subtitle">Testing India Stack against the basic requirement of open infrastructure: <strong>the ability to run your own instance.</strong></p>
+      </div>
+      <div class="hero-illustration accent">
+        <img src="/components/svg/hero-fork.svg" alt="Fork test illustration" width="500" height="500">
+      </div>
+    </section>
+
+<!-- Quick Test Grid -->
+    <div class="quick-test">
+      <div class="quick-test-item">
+        <span class="q">Source Code?</span>
+        <span class="a no">No</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">Self-Host?</span>
+        <span class="a no">No</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">No Permission Needed?</span>
+        <span class="a no">No</span>
+      </div>
+    </div>
+
+    <div class="definition">
+      <div class="definition-label">What "Forkable" Means</div>
+      <p>Source code publicly available. Can be deployed independently. No permission required from original operators. This is the minimum bar for "open" infrastructure.</p>
+    </div>
+    
+    <div class="section-label">The Layers</div>
+    <table class="layer-table">
+      <thead>
+        <tr>
+          <th>System</th>
+          <th>Forkable?</th>
+          <th>Reality</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="layer-name">Aadhaar</td>
+          <td class="layer-status status-no">No</td>
+          <td class="layer-detail">Closed source. Centralized by design. UIDAI operates the only instance. No federation protocol exists.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">UPI</td>
+          <td class="layer-status status-no">No</td>
+          <td class="layer-detail">NPCI proprietary system. No public specification. Cannot build compatible implementation without NPCI approval.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">DEPA / AA</td>
+          <td class="layer-status status-partial">Partial</td>
+          <td class="layer-detail">Specification documents exist. But: implementations require ReBIT certification. Cannot operate without Sahamati approval.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">DigiLocker</td>
+          <td class="layer-status status-no">No</td>
+          <td class="layer-detail">No self-hosting. Single government instance. Issuers must integrate with central system.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">eSign</td>
+          <td class="layer-status status-no">No</td>
+          <td class="layer-detail">Requires licensed ASP (Application Service Provider). No open implementation. Tied to Aadhaar/eKYC.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">ONDC</td>
+          <td class="layer-status status-no">No</td>
+          <td class="layer-detail">Private Section 8 company. Protocol not truly open, can you change the source code? Governance by private board.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">ABDM / ABHA</td>
+          <td class="layer-status status-no">No</td>
+          <td class="layer-detail">Health ID tied to Aadhaar. Single operator (NHA). No alternative health identity system permitted.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">CoWIN / U-WIN</td>
+          <td class="layer-status status-no">No</td>
+          <td class="layer-detail">Centralized vaccination registry. Now repurposed as U-WIN. No alternative immunization tracking allowed.</td>
+        </tr>
+        <tr>
+          <td class="layer-name">FASTag / NETC</td>
+          <td class="layer-status status-no">No</td>
+          <td class="layer-detail">NPCI-operated toll system. Mandatory for vehicles. No alternative electronic toll collection permitted.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="context-box accent">
+      <h2 class="text-accent">What Truly Forkable Looks Like</h2>
+      <p class="mb-1">For comparison, infrastructure that actually meets the "forkable" standard:</p>
+      <ul class="forkable-list">
+        <li><strong>Estonia X-Road:</strong> Fully open source. Any country can deploy. Finland, Iceland, Japan use forks.</li>
+        <li><strong>Gov.UK:</strong> Code on GitHub. Local councils can fork &amp; adapt.</li>
+        <li><strong>Matrix Protocol:</strong> Federated messaging. Anyone can run a server.</li>
+        <li><strong>Email/SMTP:</strong> No single operator. Thousands of independent servers.</li>
+      </ul>
+      <p class="text-accent-mono">India Stack components meet none of these standards.</p>
+    </div>
+
+    <div class="why-section">
+      <h2>Code Is Law</h2>
+      <p>When you cannot see the code, you cannot see the rules. When you cannot change the code, you cannot change the rules. This is governance by black box.</p>
+      <p>In closed systems, policy decisions are embedded in algorithms invisible to the public. Who gets authenticated? Who gets rejected? What data is collected? The code decides. And you cannot read it.</p>
+    </div>
+
+
+    <div class="why-section">
+      <h2>Why This Matters</h2>
+      <p>When infrastructure cannot be forked, users have no exit. Operators face no competitive pressure. "Open API" becomes a facade over proprietary control.</p>
+      <p>True public digital infrastructure, like TCP/IP, HTTP, or email, can be implemented by anyone, anywhere, without permission. India Stack fails this test.</p>
+    </div>
+    
+    <div class="verdict-box warning">
+      <div class="verdict-label">Verdict</div>
+      <div class="verdict-title">Not Forkable. Not Open.</div>
+    </div>
+    
+    <div class="sources">
+      <h3>Sources & References</h3>
+      <ul>
+        <li>UIDAI does not publish Aadhaar source code or federation protocols</li>
+        <li>NPCI UPI specifications are not publicly available</li>
+        <li>Account Aggregator requires Sahamati membership</li>
+        <li>DigiLocker operates as single-instance government service</li>
+      </ul>
+    </div>
+
+    <a href="/dpi/" class="page-crosslink fade-up" style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; background: rgba(244,114,182,0.06); border: 1px solid rgba(244,114,182,0.2); border-radius: 12px; text-decoration: none; margin: 2rem 0;">
+      <span style="color: var(--text-secondary);">Universal FORK test for any system → <strong style="color: var(--rose);">DPI Corrigibility Framework</strong></span>
+      <span style="color: var(--rose);">→</span>
+    </a>
+    </div>
+
+    <div class="media-section">
+      <div class="media-label">Concerns documented by</div>
+      <div class="media-logos">
+        <a href="https://www.washingtonpost.com/news/theworldpost/wp/2018/08/09/aadhaar/" target="_blank" class="media-logo" title="The Washington Post">
+          <svg viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Georgia, Times, serif" font-size="14" font-style="italic" fill="#666">The Washington Post</text></svg>
+        </a>
+        <a href="https://techcrunch.com/2025/02/02/india-expands-aadhaar-authentication-for-businesses-raising-privacy-concerns/" target="_blank" class="media-logo" title="TechCrunch">
+          <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#666">TechCrunch</text></svg>
+        </a>
+        <a href="https://www.hrw.org/news/2018/01/13/india-identification-project-threatens-rights" target="_blank" class="media-logo" title="Human Rights Watch">
+          <svg viewBox="0 0 150 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="500" fill="#666">Human Rights Watch</text></svg>
+        </a>
+        <a href="https://www.aljazeera.com/news/2018/1/5/india-probes-breach-of-biometric-identity-database" target="_blank" class="media-logo" title="Al Jazeera">
+          <svg viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#666">Al Jazeera</text></svg>
+        </a>
+        <a href="https://www.moneylife.in/article/aadhaar-data-breach-largest-in-the-world-says-wefs-global-risk-report-and-avast/56384.html" target="_blank" class="media-logo" title="World Economic Forum">
+          <svg viewBox="0 0 32 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Courier, monospace" font-size="13" font-weight="600" fill="#666">WEF</text></svg>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+    <div id="site-footer"></div>
+<script>
+// Mobile menu toggle
+
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal-up, .fade-up, .content-section').forEach(el => observer.observe(el));
+
+// Magnetic hover effect for cards
+document.querySelectorAll('.nav-card, .component-card, .info-box, .gov-card, .ai-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateZ(10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease';
+  });
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.dataset.open === 'true';
+    navLinks.dataset.open = !isOpen;
+    menuToggle.setAttribute('aria-expanded', !isOpen);
+  });
+}
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+</script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

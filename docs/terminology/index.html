@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminology, Operational Definitions for DPI Critique</title>
+  <meta name="description" content="Operational definitions for evaluating digital infrastructure: public good vs club good, open source vs open-washing, consent vs coercion. India Stack is a club good with coercive enrollment, not a public good.">
+  <meta name="keywords" content="public goods, club goods, open source, digital commons, Elinor Ostrom, open-washing, DPI terminology, PRware, error asymmetry, corrigibility">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://indiastack.in/terminology/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="og:title" content="Terminology, Operational Definitions for DPI Critique">
+  <meta property="og:description" content="Key concepts: PRware, Error Asymmetry, Closed Control Loop, Jurisdictional Arbitrage. India Stack is a club good with coercive enrollment.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Terminology, DPI Critique Definitions">
+  <meta name="twitter:description" content="Public good vs club good. Open source vs open-washing. India Stack terminology explained.">
+  <meta property="og:url" content="https://indiastack.in/terminology/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    /* Hero */
+    .term-hero {
+      padding: 4rem 0 3rem;
+      margin-bottom: 3.5rem;
+    }
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-text {
+      flex: 1;
+    }
+    .hero-illustration {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-illustration svg,
+    .hero-illustration img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      filter: drop-shadow(0 0 60px rgba(0, 255, 153, 1)) drop-shadow(0 0 120px rgba(0, 255, 153, 0.6));
+      opacity: 1;
+    }
+    .term-hero .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .term-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .term-hero .lead {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    /* Section Headers */
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--border), transparent);
+    }
+
+    .term-section {
+      margin-bottom: 5rem;
+    }
+    .term-section p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+    .term-section p strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* PRware Banner */
+    .prware-banner {
+      background: linear-gradient(135deg, rgba(245,158,11,0.12) 0%, rgba(245,158,11,0.03) 100%);
+      border: 1px solid rgba(245,158,11,0.25);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .prware-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--warning), transparent);
+    }
+    .prware-banner .tag {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--warning);
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+    }
+    .prware-banner h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .prware-banner h3 span {
+      color: var(--warning);
+    }
+    .prware-banner p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* Economic Matrix Visual */
+    .matrix-visual {
+      background: #030305;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    .matrix-visual svg,
+    .matrix-visual img {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Definition Cards */
+    .def-grid {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .def-item {
+      background: rgba(255,255,255,0.015);
+      padding: 1.5rem 1.75rem;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1.5rem;
+      align-items: baseline;
+      transition: background 0.2s;
+    }
+    .def-item:hover {
+      background: rgba(255,255,255,0.03);
+    }
+    .def-item .term {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .def-item .content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .def-item .wrong {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-decoration: line-through;
+      text-decoration-color: rgba(239,68,68,0.5);
+    }
+    .def-item .right {
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* Open-washing Table */
+    .wash-wrap {
+      background: #030305;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .wash-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .wash-table th {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid var(--border);
+    }
+    .wash-table td {
+      padding: 1rem 1.25rem;
+      font-size: 0.88rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .wash-table tr:last-child td {
+      border-bottom: none;
+    }
+    .wash-table .sys {
+      font-weight: 600;
+      color: #fff;
+      width: 110px;
+    }
+    .wash-table .claim {
+      color: var(--warning);
+      font-style: italic;
+      width: 130px;
+    }
+    .wash-table .reality {
+      color: var(--text-secondary);
+    }
+
+    /* DPG vs DPI */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .compare-card {
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      padding: 1.75rem;
+      position: relative;
+    }
+    .compare-card.partial {
+      border: 1px solid rgba(245,158,11,0.2);
+    }
+    .compare-card.bad {
+      border: 1px solid rgba(239,68,68,0.2);
+    }
+    .compare-card .icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .compare-card.partial .icon {
+      background: rgba(245,158,11,0.1);
+      color: var(--warning);
+    }
+    .compare-card.bad .icon {
+      background: rgba(239,68,68,0.1);
+      color: var(--danger);
+    }
+    .compare-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .compare-card.partial h4 { color: var(--warning); }
+    .compare-card.bad h4 { color: var(--danger); }
+    .compare-card p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .compare-card .tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-top: 1rem;
+    }
+    .compare-card.partial .tag { color: var(--warning); }
+    .compare-card.bad .tag { color: var(--danger); }
+
+    /* Ostrom Grid */
+    .ostrom-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .ostrom-item {
+      background: rgba(239,68,68,0.04);
+      border-left: 2px solid rgba(239,68,68,0.4);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 10px 10px 0;
+    }
+    .ostrom-item .q {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+    .ostrom-item .a {
+      font-size: 0.92rem;
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    /* Wash Patterns */
+    .wash-patterns {
+      display: grid;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .wash-pattern {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+    .pattern-num {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--warning);
+      opacity: 0.5;
+    }
+    .pattern-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .pattern-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .pattern-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .pattern-example {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+    }
+    .pattern-example span {
+      color: var(--warning);
+    }
+
+    /* References */
+    .references {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      margin-top: 3rem;
+    }
+    .references .section-label {
+      margin-top: 0;
+    }
+    .ref-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ref-list li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 0.4rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+    .ref-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: rgba(255,255,255,0.25);
+    }
+    .ref-list a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .ref-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Analogy Boxes */
+    .analogy-box {
+      background: rgba(13,216,146,0.04);
+      border: 1px solid rgba(13,216,146,0.15);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .analogy-box.bad {
+      background: rgba(239,68,68,0.04);
+      border-color: rgba(239,68,68,0.15);
+    }
+    .analogy-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .analogy-header span {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .check-list {
+      display: grid;
+      gap: 0.5rem;
+    }
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .check-item .icon {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .check-item.bad .icon {
+      color: var(--danger);
+    }
+
+    /* Verdict Box */
+    .verdict-box {
+      background: linear-gradient(135deg, rgba(239,68,68,0.1) 0%, rgba(239,68,68,0.02) 100%);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+      margin: 4rem 0 2rem;
+      position: relative;
+    }
+    .verdict-box .label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--danger);
+      letter-spacing: 0.25em;
+      margin-bottom: 1.25rem;
+    }
+    .verdict-box p {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.5;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .verdict-box p strong {
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-illustration {
+        order: -1;
+      }
+      .hero-illustration svg,
+      .hero-illustration img {
+        max-width: 280px;
+      }
+    }
+    @media (max-width: 768px) {
+      .term-hero { padding: 3rem 0 2rem; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .ostrom-grid { grid-template-columns: 1fr; }
+      .def-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .prware-banner { padding: 1.75rem; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Terminology: Operational Definitions for Architectural Critique",
+    "description": "The conceptual spine for analyzing digital infrastructure through cybernetics, commons governance, and FOSS principles. Key concepts: PRware, Error Asymmetry, Closed Control Loop, Jurisdictional Arbitrage.",
+    "url": "https://indiastack.in/terminology/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-08",
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "publisher": {
+      "@type": "Organization",
+      "name": "India Stack Watch",
+      "url": "https://indiastack.in",
+      "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}
+    },
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/terminology/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "What is PRware?", "acceptedAnswer": {"@type": "Answer", "text": "PRware is a marketing term that brands separate closed-source systems as unified 'open' infrastructure. India Stack is PRware, there is no single entity called India Stack. Each component (Aadhaar, UPI, ABDM) is owned separately, all closed source, all RTI-exempt."}},
+      {"@type": "Question", "name": "What is Error Asymmetry?", "acceptedAnswer": {"@type": "Answer", "text": "Error Asymmetry describes systems where error costs are externalized onto users while operators remain protected. The system is fail-safe for the state but fail-deadly for users. Authentication failures cause users to lose rations; operators face no consequences."}},
+      {"@type": "Question", "name": "What is corrigibility?", "acceptedAnswer": {"@type": "Answer", "text": "Corrigibility is the structural capacity of those affected by a system to detect error, apply pressure, and trigger correction, without suffering material harm. A corrigible system can be observed, tested, refused, shaped, and replaced by those it affects."}},
+      {"@type": "Question", "name": "Is India Stack open source?", "acceptedAnswer": {"@type": "Answer", "text": "No. Despite marketing claims, no core India Stack system publishes source code. Aadhaar, UPI, ABDM, and DigiLocker are all closed source. MOSIP is exported as open source but India runs closed-source Aadhaar domestically. This is Jurisdictional Arbitrage."}},
+      {"@type": "Question", "name": "What is DID-Washing?", "acceptedAnswer": {"@type": "Answer", "text": "DID-Washing is claiming W3C DID/Verifiable Credentials compliance while anchoring all credentials to a centralized identity system. Systems like DigiYatra and Sunbird RC use decentralized identity vocabulary but require Aadhaar as the sole trust anchor. True W3C DID allows multiple issuers and verification without contacting the issuer. A 'decentralized wallet' does not equal 'decentralized trust.'"}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+
+    <header class="term-hero fade-up">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="eyebrow">Reference</div>
+          <h1>Terminology</h1>
+          <p class="lead">Words shape what debates are possible. These definitions are operational, not moral.</p>
+          <!-- PRware Banner - inline in hero -->
+          <div class="prware-banner" style="margin-top: 2rem; margin-bottom: 0;">
+            <div class="tag">WHAT IS "INDIA STACK"?</div>
+            <h3>"India Stack" is <span>PRware</span></h3>
+            <p>A marketing term by iSPIRT branding separate closed systems as unified "open" infrastructure. Aadhaar is UIDAI. UPI is NPCI. ABDM is NHA. DigiLocker is MeitY. All closed source. All separately governed. The brand is unified. The code is proprietary.</p>
+          </div>
+        </div>
+        <div class="hero-illustration">
+          <img src="/components/svg/hero-terminology.svg" alt="Terminology decoder illustration">
+        </div>
+      </div>
+    </header>
+
+    <!-- Economic Classification -->
+    <section class="term-section fade-up">
+      <div class="section-label">Economic Classification</div>
+
+      <p>Economics classifies goods by <strong>rivalry</strong> (does use deplete it?) and <strong>excludability</strong> (can access be blocked?).</p>
+
+      <div class="matrix-visual">
+        <img src="/components/svg/diagram-economic-matrix.svg" alt="Economic goods classification matrix">
+      </div>
+    </section>
+
+    <!-- Operational Definitions -->
+    <section class="term-section fade-up">
+      <div class="section-label">Operational Definitions</div>
+
+      <div class="def-grid">
+        <div class="def-item">
+          <div class="term">Public</div>
+          <div class="content">
+            <span class="wrong">Widely used</span>
+            <span class="right">Correctable by those affected</span>
+          </div>
+        </div>
+        <div class="def-item">
+          <div class="term">Open</div>
+          <div class="content">
+            <span class="wrong">Open APIs</span>
+            <span class="right">Inspectable, forkable execution</span>
+          </div>
+        </div>
+        <div class="def-item">
+          <div class="term">Consent</div>
+          <div class="content">
+            <span class="wrong">One-time enrollment</span>
+            <span class="right">Safe, reversible participation</span>
+          </div>
+        </div>
+        <div class="def-item">
+          <div class="term">Participation</div>
+          <div class="content">
+            <span class="wrong">Grievance redressal</span>
+            <span class="right">Constitutive rule-making power</span>
+          </div>
+        </div>
+        <div class="def-item">
+          <div class="term">Success</div>
+          <div class="content">
+            <span class="wrong">Scale under mandate</span>
+            <span class="right">Stability under voluntary use</span>
+          </div>
+        </div>
+        <div class="def-item">
+          <div class="term">Corrigibility</div>
+          <div class="content">
+            <span class="wrong">Can be updated by operators</span>
+            <span class="right">Can be corrected by those affected</span>
+          </div>
+        </div>
+        <div class="def-item">
+          <div class="term">Commons</div>
+          <div class="content">
+            <span class="wrong">Widely used</span>
+            <span class="right">Governed by those who use it</span>
+          </div>
+        </div>
+        <div class="def-item" style="border-left: 2px solid var(--purple);">
+          <div class="term">Open (AI)</div>
+          <div class="content">
+            <span class="wrong">Weights published</span>
+            <span class="right">Training data + process reproducible</span>
+          </div>
+        </div>
+        <div class="def-item" style="border-left: 2px solid var(--purple);">
+          <div class="term">Safe (AI)</div>
+          <div class="content">
+            <span class="wrong">Benchmark compliance</span>
+            <span class="right">Correctable by those harmed</span>
+          </div>
+        </div>
+        <div class="def-item" style="border-left: 2px solid var(--purple);">
+          <div class="term">Aligned (AI)</div>
+          <div class="content">
+            <span class="wrong">Matches builder intent</span>
+            <span class="right">Correctable by those affected</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="note-text mt-2">These definitions determine how this site <a href="/methods/" class="text-accent">evaluates systems</a>. Scale, adoption, and efficiency are excluded as metrics.</p>
+    </section>
+
+    <!-- Open-washing Taxonomy -->
+    <section class="term-section fade-up">
+      <div class="section-label">Open-Washing Taxonomy</div>
+
+      <p>Four patterns of claiming "openness" without providing it:</p>
+
+      <div class="wash-patterns">
+        <div class="wash-pattern">
+          <div class="pattern-num">01</div>
+          <div class="pattern-content">
+            <div class="pattern-name">API-as-Openness</div>
+            <div class="pattern-desc">Publishing endpoint documentation while keeping implementation proprietary. The interface is documented; the algorithm is secret. <strong>"You can call our system" ≠ "You can see our system."</strong></div>
+            <div class="pattern-example"><span>→</span> Aadhaar publishes eKYC API specs but CIDR, biometric matching, and de-duplication remain proprietary. You cannot verify what happens after you call the API.</div>
+          </div>
+        </div>
+        <div class="wash-pattern">
+          <div class="pattern-num">02</div>
+          <div class="pattern-content">
+            <div class="pattern-name">Spec-as-Source</div>
+            <div class="pattern-desc">Publishing a protocol specification while maintaining monopoly operation. The spec may not match what runs in production. <strong>"The standard is public" ≠ "The implementation is public."</strong></div>
+            <div class="pattern-example"><span>→</span> UPI spec is public but: (1) only NPCI operates the network, (2) the production code is unknown, (3) you cannot verify the running system matches the spec.</div>
+          </div>
+        </div>
+        <div class="wash-pattern">
+          <div class="pattern-num">03</div>
+          <div class="pattern-content">
+            <div class="pattern-name">Funnel Open-Sourcing</div>
+            <div class="pattern-desc">Open-sourcing wrappers (UI, SDKs) while keeping control components closed. The open parts are the sales funnel. The closed parts are where power resides. <strong>"The client is open" ≠ "The system is open."</strong></div>
+            <div class="pattern-example"><span>→</span> MOSIP's registration workflows are open. Biometric matching (ABIS) is proprietary, you must buy from TECH5, Idemia, NEC. India exports this "open" framework while running closed-source Aadhaar at home.</div>
+          </div>
+        </div>
+        <div class="wash-pattern">
+          <div class="pattern-num">04</div>
+          <div class="pattern-content">
+            <div class="pattern-name">DID-Washing</div>
+            <div class="pattern-desc">Using W3C vocabulary (DID, Verifiable Credentials, SSI, wallet) while anchoring all credentials to a centralized identity system. True W3C DID allows multiple issuers and verification without contacting the issuer. <strong>"Decentralized wallet" ≠ "Decentralized trust."</strong></div>
+            <div class="pattern-example"><span>→</span> DigiYatra, Sunbird RC, Aadhaar Verifiable Credential all claim W3C DID/VC compliance but require Aadhaar as the sole identity anchor. The wallet is local; the trust is centralized.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label mt-2">Applied to India Stack</div>
+
+      <div class="wash-wrap">
+        <table class="wash-table">
+          <thead>
+            <tr>
+              <th>SYSTEM</th>
+              <th>CLAIM</th>
+              <th>REALITY</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sys">Aadhaar</td>
+              <td class="claim">"Open APIs"</td>
+              <td class="reality">API docs only. No source. Cannot run own CIDR.</td>
+            </tr>
+            <tr>
+              <td class="sys">UPI</td>
+              <td class="claim">"Open protocol"</td>
+              <td class="reality">Spec available. Single operator (NPCI). Membership required.</td>
+            </tr>
+            <tr>
+              <td class="sys">MOSIP</td>
+              <td class="claim">"Open source"</td>
+              <td class="reality">Wrappers open. ABIS (biometric matching) proprietary. Sales funnel for SDK vendors. India runs closed Aadhaar.</td>
+            </tr>
+            <tr>
+              <td class="sys">Account Agg.</td>
+              <td class="claim">"Open network"</td>
+              <td class="reality">Sahamati membership. Private self-regulatory body.</td>
+            </tr>
+            <tr>
+              <td class="sys">ABDM</td>
+              <td class="claim">"Open health"</td>
+              <td class="reality">NHA-controlled. Policy, not law. No code access.</td>
+            </tr>
+            <tr>
+              <td class="sys">DigiLocker</td>
+              <td class="claim">"Open docs"</td>
+              <td class="reality">Single system. No self-hosting. Aadhaar-linked.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- DPG vs DPI -->
+    <section class="term-section fade-up">
+      <div class="section-label">DPG vs DPI</div>
+
+      <div class="compare-grid">
+        <div class="compare-card partial">
+          <div class="icon">◐</div>
+          <h4>Digital Public Good</h4>
+          <p>Precise definition. OSI-approved license. 9 verifiable criteria. But no governance, exit, or alternatives requirement.</p>
+          <div class="tag">AUDITABLE CODE ≠ PUBLIC SYSTEM</div>
+        </div>
+        <div class="compare-card bad">
+          <div class="icon">✗</div>
+          <h4>Digital Public Infrastructure</h4>
+          <p>Vague term. No formal definition. Can include closed-source. Self-declared.</p>
+          <div class="tag">UNVERIFIABLE</div>
+        </div>
+      </div>
+
+      <p class="note-text">DPG is more verifiable than DPI, but <strong>observable code ≠ corrigible system</strong>. Without feedback channels (error correction, safe refusal, credible alternatives), a system cannot distinguish compliance from consent. Neither DPG nor DPI guarantees these structural properties.</p>
+    </section>
+
+    <!-- Closed Control Loop -->
+    <section id="legal-lock-in" class="term-section fade-up">
+      <div class="section-label">Closed Control Loop</div>
+
+      <p class="highlight-text mb-2"><strong>Exit is blocked technically, refusal is penalized legally, and correction is structurally unavailable.</strong></p>
+
+      <p>India Stack lock-in is multi-dimensional:</p>
+
+      <div class="ostrom-grid">
+        <div class="ostrom-item">
+          <div class="q">Law</div>
+          <div class="a">Enforces dependency. RTI-exempt. Litigation barred.</div>
+        </div>
+        <div class="ostrom-item">
+          <div class="q">Technology</div>
+          <div class="a">Enforces opacity. Closed source. No audit access.</div>
+        </div>
+        <div class="ostrom-item">
+          <div class="q">Governance</div>
+          <div class="a">Prevents correction. No constitutive input.</div>
+        </div>
+        <div class="ostrom-item">
+          <div class="q">Exit</div>
+          <div class="a">Punished by exclusion. No deletion mechanism.</div>
+        </div>
+        <div class="ostrom-item">
+          <div class="q">Alternatives</div>
+          <div class="a">Prohibited by regulation. Replication blocked.</div>
+        </div>
+      </div>
+
+      <p class="note-text mt-2">None of these alone is decisive. <strong>Together, they form a closed control loop.</strong></p>
+      <p class="note-text">This is why the critique works cybernetically, not constitutionally.</p>
+    </section>
+
+    <!-- Jurisdictional Arbitrage -->
+    <section class="term-section fade-up">
+      <div class="section-label">Jurisdictional Arbitrage</div>
+
+      <p>India exports "open" digital frameworks while operating closed systems domestically.</p>
+
+      <div class="prware-banner banner-warning">
+        <div class="tag">THE PATTERN</div>
+        <p>Openness exists only at the boundary, not at the core.</p>
+        <p>This allows international promotion without domestic accountability.</p>
+        <p class="m-0"><strong>What is marketed is architecture. What is withheld is control.</strong></p>
+      </div>
+
+      <p class="note-text">Other countries are sold a fictional openness. The defense, "they can choose how to implement it", ignores that India itself chose closure.</p>
+    </section>
+
+    <!-- Ostrom -->
+    <section class="term-section fade-up">
+      <div class="section-label">Commons Governance (Ostrom)</div>
+
+      <p>Elinor Ostrom (Nobel 2009) showed shared resources survive only when users are co-governors. India Stack fails her core principles:</p>
+
+      <div class="ostrom-grid">
+        <div class="ostrom-item">
+          <div class="q">Collective-choice arrangements?</div>
+          <div class="a">No. NPCI/UIDAI not user-governed.</div>
+        </div>
+        <div class="ostrom-item">
+          <div class="q">Monitoring by users?</div>
+          <div class="a">No. RTI-exempt. No public audits.</div>
+        </div>
+        <div class="ostrom-item">
+          <div class="q">Accessible conflict resolution?</div>
+          <div class="a">No. Cannot sue UIDAI (Section 8).</div>
+        </div>
+        <div class="ostrom-item">
+          <div class="q">Right to organize alternatives?</div>
+          <div class="a">No. Legally and technically blocked.</div>
+        </div>
+      </div>
+
+      <p class="note-text mt-2">A system used by everyone but governed by a few is not a commons, it is <strong>enclosure</strong>.</p>
+    </section>
+
+    <!-- Why Not Public -->
+    <section class="term-section fade-up">
+      <div class="section-label">Why Not "Public"?</div>
+
+      <p>The test is not "who provides it" but <strong>whether citizens can observe, verify, and correct it</strong>. This is the cybernetic condition for democratic control.</p>
+
+      <div class="analogy-box">
+        <div class="analogy-header">
+          <img src="/components/svg/icon-open-source.svg" alt="Open source" width="32" height="32">
+          <span>Open Source Infrastructure</span>
+        </div>
+        <div class="analogy-content">
+          <div class="check-list">
+            <div class="check-item"><span class="icon">✓</span> <strong>Observable:</strong> Source code is public. Anyone can read it.</div>
+            <div class="check-item"><span class="icon">✓</span> <strong>Verifiable:</strong> Claims can be checked against implementation.</div>
+            <div class="check-item"><span class="icon">✓</span> <strong>Corrigible:</strong> Citizens can report bugs, submit fixes, fork if needed.</div>
+            <div class="check-item"><span class="icon">✓</span> <strong>Forkable:</strong> If governance fails, the code can be taken elsewhere.</div>
+          </div>
+          <p class="note-text small mt-1">Examples: Estonia's X-Road, UK's GOV.UK, USA's login.gov, all fully open source.</p>
+        </div>
+      </div>
+
+      <div class="analogy-box bad">
+        <div class="analogy-header">
+          <img src="/components/svg/icon-closed-source.svg" alt="Closed source" width="32" height="32">
+          <span>India Stack</span>
+        </div>
+        <div class="analogy-content">
+          <div class="check-list">
+            <div class="check-item bad"><span class="icon">✗</span> <strong>Not observable:</strong> Zero source code released. Black box.</div>
+            <div class="check-item bad"><span class="icon">✗</span> <strong>Not verifiable:</strong> Cannot check if implementation matches spec.</div>
+            <div class="check-item bad"><span class="icon">✗</span> <strong>Not corrigible:</strong> RTI-exempt. No public bug tracker. No citizen input.</div>
+            <div class="check-item bad"><span class="icon">✗</span> <strong>Not forkable:</strong> Alternatives legally/technically blocked.</div>
+          </div>
+          <p class="note-text small mt-1">17 years. 1.4 billion enrolled. Zero lines of code released for public audit.</p>
+        </div>
+      </div>
+
+      <p class="note-text mt-2">A system you cannot observe is a system you cannot control. A system you cannot control is a system that controls you. <a href="/foss/" class="text-accent">→ The Observability Problem</a></p>
+    </section>
+
+    <!-- Error Asymmetry -->
+    <section class="term-section fade-up">
+      <div class="section-label">Error Asymmetry</div>
+
+      <p>In corrigible systems, error costs are shared and correctable. In India Stack, <strong>errors are externalized onto users</strong>.</p>
+
+      <div class="ostrom-grid">
+        <div class="ostrom-item">
+          <div class="q">Authentication failure?</div>
+          <div class="a">User denied food, pension, services.</div>
+        </div>
+        <div class="ostrom-item">
+          <div class="q">Data error?</div>
+          <div class="a">User must prove identity again.</div>
+        </div>
+        <div class="ostrom-item">
+          <div class="q">System failure?</div>
+          <div class="a">Exclusion, not rollback.</div>
+        </div>
+        <div class="ostrom-item">
+          <div class="q">Operator liability?</div>
+          <div class="a">None. Correction is optional.</div>
+        </div>
+      </div>
+
+      <p class="note-text mt-2"><strong>The system is fail-safe for the state. It is fail-deadly for users.</strong></p>
+      <p class="note-text">Errors are not bugs to be fixed. They are costs structurally externalized onto the governed.</p>
+    </section>
+
+    <!-- Burden of Proof -->
+    <div class="prware-banner banner-accent text-center fade-up">
+      <p class="highlight-text m-0"><strong class="text-accent">Any system claiming to be public infrastructure must demonstrate corrigibility.</strong><br><span class="text-secondary">India Stack does not attempt to.</span></p>
+    </div>
+
+    <!-- Verdict -->
+    <div class="verdict-box fade-up">
+      <div class="label">CLASSIFICATION</div>
+      <p>India Stack is a <strong>Club Good</strong> with <strong>Coercive Enrollment</strong>.<br>Not a Public Good. Not Open Source. Not a Commons.</p>
+    </div>
+
+    <!-- References -->
+    <div class="references fade-up">
+      <div class="section-label">References</div>
+      <ul class="ref-list">
+        <li><a href="https://opensource.org/osd" target="_blank" rel="noopener">Open Source Definition</a>, Open Source Initiative</li>
+        <li><a href="https://www.nobelprize.org/prizes/economic-sciences/2009/ostrom/facts/" target="_blank" rel="noopener">Elinor Ostrom, Nobel Prize 2009</a></li>
+        <li>Ostrom, E. (1990). <em>Governing the Commons: The Evolution of Institutions for Collective Action</em></li>
+        <li>Samuelson, P. (1954). "The Pure Theory of Public Expenditure", original public goods framework</li>
+        <li><a href="https://digitalpublicgoods.net/standard/" target="_blank" rel="noopener">Digital Public Goods Standard</a>, DPGA certification criteria</li>
+        <li><a href="https://www.fsf.org/about/what-is-free-software" target="_blank" rel="noopener">What is Free Software?</a>, Free Software Foundation</li>
+      </ul>
+    </div>
+
+    <!-- Methods Link -->
+    <a href="/methods/" class="page-crosslink fade-up">
+      <span class="text">How these definitions are applied → <strong class="text-accent">Methods</strong></span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="/dpi/" class="page-crosslink fade-up">
+      <span class="text">Global evaluation framework → <strong class="text-accent">DPI Corrigibility Framework</strong></span>
+      <span class="arrow">→</span>
+    </a>
+
+  </div>
+  </main>
+
+    <div id="site-footer"></div>
+
+<script>
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, observerOptions);
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.dataset.open === 'true';
+    navLinks.dataset.open = !isOpen;
+    menuToggle.setAttribute('aria-expanded', !isOpen);
+  });
+}
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+</script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

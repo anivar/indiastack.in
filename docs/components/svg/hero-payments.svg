@@ -1,0 +1,93 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Payments Stack: UPI, NPCI (private consortium), BHIM -->
+
+    <!-- Central gatekeeper node (NPCI) -->
+    <circle cx="200" cy="200" r="55" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="200" cy="200" r="25" fill="rgba(239,68,68,0.2)" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="200" y="195" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">NPCI</text>
+    <text x="200" y="207" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.4)">PRIVATE</text>
+
+    <!-- Outer orbit rings -->
+    <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
+    <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(239,68,68,0.15)" stroke-width="1" stroke-dasharray="6 4"/>
+
+    <!-- Bank/Payment nodes orbiting -->
+    <g>
+        <circle cx="200" cy="60" r="25" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <text x="200" y="65" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="16">₹</text>
+        <text x="200" y="105" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.4)">BANK</text>
+    </g>
+
+    <g>
+        <circle cx="340" cy="200" r="25" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <text x="340" y="205" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="16">₹</text>
+        <text x="305" y="200" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.4)">PSP</text>
+    </g>
+
+    <g>
+        <circle cx="200" cy="340" r="25" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <text x="200" y="345" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="16">₹</text>
+        <text x="200" y="295" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.4)">USER</text>
+    </g>
+
+    <g>
+        <circle cx="60" cy="200" r="25" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <text x="60" y="205" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="16">₹</text>
+        <text x="95" y="200" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.4)">MERCH</text>
+    </g>
+
+    <!-- Transaction flow arrows (all going THROUGH center) -->
+    <g stroke="#ef4444" stroke-width="2" fill="none" opacity="0.7">
+        <!-- Top to center -->
+        <line x1="200" y1="90" x2="200" y2="140"/>
+        <polygon points="200,140 195,130 205,130" fill="#ef4444"/>
+        <!-- Right to center -->
+        <line x1="310" y1="200" x2="260" y2="200"/>
+        <polygon points="260,200 270,195 270,205" fill="#ef4444"/>
+        <!-- Bottom to center -->
+        <line x1="200" y1="310" x2="200" y2="260"/>
+        <polygon points="200,260 195,270 205,270" fill="#ef4444"/>
+        <!-- Left to center -->
+        <line x1="90" y1="200" x2="140" y2="200"/>
+        <polygon points="140,200 130,195 130,205" fill="#ef4444"/>
+    </g>
+
+    <!-- Diagonal connections showing everything flows through center -->
+    <g stroke="#ef4444" stroke-width="1" opacity="0.3" stroke-dasharray="4 4">
+        <line x1="110" y1="110" x2="170" y2="170"/>
+        <line x1="290" y1="110" x2="230" y2="170"/>
+        <line x1="110" y1="290" x2="170" y2="230"/>
+        <line x1="290" y1="290" x2="230" y2="230"/>
+    </g>
+
+    <!-- Statistics badges -->
+    <g transform="translate(80, 80)">
+        <rect x="-40" y="-12" width="80" height="24" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="8" fill="#ef4444">56.5%</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="5" fill="rgba(255,255,255,0.4)">UPI FRAUD</text>
+    </g>
+
+    <g transform="translate(320, 80)">
+        <rect x="-40" y="-12" width="80" height="24" rx="4" fill="rgba(251,191,36,0.15)" stroke="#f59e0b" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="7" fill="#f59e0b">PRIVATE</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="5" fill="rgba(255,255,255,0.4)">CONTROL</text>
+    </g>
+
+    <g transform="translate(80, 320)">
+        <rect x="-40" y="-12" width="80" height="24" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="7" fill="#ef4444">CLOSED</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="5" fill="rgba(255,255,255,0.4)">SOURCE</text>
+    </g>
+
+    <g transform="translate(320, 320)">
+        <rect x="-40" y="-12" width="80" height="24" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">18K Cr</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="5" fill="rgba(255,255,255,0.4)">TXN/YR</text>
+    </g>
+
+    <!-- "NO EXIT" label -->
+    <g transform="translate(200, 380)">
+        <rect x="-50" y="-12" width="100" height="24" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">NO EXIT</text>
+    </g>
+</svg>

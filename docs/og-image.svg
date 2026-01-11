@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0c"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="layer1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f5a0"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="layer2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffa502"/>
+      <stop offset="100%" stop-color="#e67e00"/>
+    </linearGradient>
+    <linearGradient id="layer3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6b81"/>
+      <stop offset="100%" stop-color="#ff4757"/>
+    </linearGradient>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Connecting line - centered -->
+  <line x1="100" y1="315" x2="1100" y2="315" stroke="#00f5a0" stroke-width="4" opacity="0.4"/>
+
+  <!-- Layer blocks - smaller, on the line -->
+  <g transform="translate(150, 315)">
+    <rect x="-30" y="-50" width="60" height="100" rx="8" fill="url(#layer3)" opacity="0.9"/>
+    <circle cx="0" cy="0" r="8" fill="#fff" opacity="0.8"/>
+  </g>
+
+  <g transform="translate(230, 315)">
+    <rect x="-25" y="-40" width="50" height="80" rx="8" fill="url(#layer2)" opacity="0.9"/>
+    <circle cx="0" cy="0" r="8" fill="#fff" opacity="0.8"/>
+  </g>
+
+  <g transform="translate(300, 315)">
+    <rect x="-35" y="-60" width="70" height="120" rx="8" fill="url(#layer1)" opacity="0.9"/>
+    <circle cx="0" cy="0" r="8" fill="#fff" opacity="0.8"/>
+  </g>
+
+  <!-- Title - centered, on the line -->
+  <text x="600" y="330" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="80" font-weight="700" fill="#ffffff">India Stack</text>
+
+  <!-- Tagline -->
+  <text x="600" y="420" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif" font-size="32" fill="rgba(255,255,255,0.7)">Public Infrastructure, Private Code</text>
+
+  <!-- Questions -->
+  <text x="600" y="480" text-anchor="middle" font-family="'Space Mono', monospace" font-size="18" fill="#ff4757" letter-spacing="0.08em">CAN YOU FORK IT? • CAN YOU AUDIT IT? • CAN YOU EXIT?</text>
+
+  <!-- URL -->
+  <text x="600" y="580" text-anchor="middle" font-family="'Space Mono', monospace" font-size="20" fill="#00f5a0" letter-spacing="0.05em">indiastack.in</text>
+</svg>

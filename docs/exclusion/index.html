@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Human Cost of India Stack, Deaths, Denials, Exclusion</title>
+  <meta name="description" content="Documented deaths and welfare denials from Aadhaar failures. Starvation deaths in Jharkhand. 6-12% biometric failure rates. When authentication fails, people die.">
+  <meta name="keywords" content="Aadhaar deaths, welfare exclusion India, biometric failure, Jharkhand starvation, DBT exclusion, Aadhaar human cost">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="India Stack Watch">
+  <link rel="canonical" href="https://indiastack.in/exclusion/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta property="og:title" content="The Human Cost of India Stack">
+  <meta property="og:description" content="Documented deaths. Welfare denials. When authentication fails, people die. The human cost of digital infrastructure.">
+  <meta property="og:url" content="https://indiastack.in/exclusion/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@indiastackwatch">
+  <meta name="twitter:title" content="The Human Cost of India Stack">
+  <meta name="twitter:description" content="Documented deaths. Welfare denials. When authentication fails, people die. The human cost of digital infrastructure.">
+  <meta name="twitter:image" content="https://indiastack.in/og-image.png">
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="msapplication-TileColor" content="#0a0a0a">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "name": "The Human Cost of India Stack",
+    "description": "Documented deaths and welfare denials from Aadhaar failures. Starvation deaths in Jharkhand. 6-12% biometric failure rates. When authentication fails, people die.",
+    "url": "https://indiastack.in/exclusion/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-08",
+    "publisher": {
+      "@type": "Organization",
+      "name": "India Stack Watch",
+      "url": "https://indiastack.in",
+      "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}
+    },
+    "headline": "The Human Cost of India Stack",
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/exclusion/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"}
+  }
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    /* Exclusion page - green accent theme */
+    .gradient-orb.orb-1 { background: radial-gradient(circle, #0dd892 0%, transparent 70%); }
+    .gradient-orb.orb-2 { background: radial-gradient(circle, #059669 0%, transparent 70%); }
+
+    /* Page-specific stat banner */
+    .stat-banner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
+    .stat-box { background: rgba(244, 114, 182, 0.1); border-radius: 8px; padding: 1.25rem; text-align: center; }
+    .stat-number { font-size: 1.8rem; font-weight: 600; color: var(--rose); margin-bottom: 0.25rem; }
+    .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.55); }
+
+    /* Page-specific case cards */
+    .case-card { background: #0c0c0c; border-left: 3px solid var(--rose); border-radius: 0 8px 8px 0; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+    .case-card .name { font-size: 1rem; font-weight: 500; color: rgba(255,255,255,0.9); margin-bottom: 0.25rem; }
+    .case-card .details { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-bottom: 0.5rem; }
+    .case-card .outcome { font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+    /* Page-specific research box */
+    .research-box { background: #0c0c0c; border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0; }
+    .research-box h3 { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.75rem; color: rgba(255,255,255,0.9); }
+    .research-box ul { list-style: none; }
+    .research-box li { font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-bottom: 0.5rem; padding-left: 1.25rem; position: relative; line-height: 1.5; }
+    .research-box li::before { content: '•'; position: absolute; left: 0; color: var(--rose); }
+
+    @media (max-width: 600px) { .stat-banner { grid-template-columns: 1fr; } }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"Human Cost","item":"https://indiastack.in/exclusion/"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Have people died due to Aadhaar failures?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Approximately 100 starvation deaths have been documented since 2015, with at least 25 directly linked to Aadhaar issues. Cases include 11-year-old Santoshi Kumari in Jharkhand (2017) who starved for 8+ days after her family's ration card was cancelled for not linking to Aadhaar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the biometric failure rate for Aadhaar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Biometric failure rates range from 6-12% for manual laborers, 49% in Jharkhand, and 37% in Rajasthan. Fingerprints wear away from manual labor. Elderly people have degraded biometrics. Facial authentication in Rajasthan has 31% failure rate (2025 data)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many ration cards were cancelled due to Aadhaar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "4.39 crore ration cards were deleted between 2013-2021. A JPAL study found 88% of cancelled cards in Jharkhand belonged to genuine beneficiaries, not 'ghosts.' The deletions were claimed as 'savings from reduced leakage' but were actually denial of legal entitlements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What did Human Rights Watch find about Aadhaar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HRW (2018) found 2.5 million families in Rajasthan were denied ration supplies due to Aadhaar issues. Children without Aadhaar were excluded from schools and meal programs. Hospitals demanded Aadhaar for birth and death certificates. People with HIV/AIDS were denied treatment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why can't people fix Aadhaar authentication failures?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When authentication fails, the system records success, it successfully denied. Citizens cannot see why they were denied. They cannot fix errors themselves. UIDAI takes no responsibility for deficient biometric capture (per CAG Report 2022). The onus is passed entirely to Aadhaar holders."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- Visual effects -->
+  <div class="scan-line"></div>
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div id="site-header"></div>
+  <main id="main-content" role="main">
+  <div class="container">
+    <section class="hero-section fade-up">
+      <div class="hero-content">
+        <div class="eyebrow text-rose">Structural Consequence · Error Asymmetry</div>
+<h1 class="hero-title">The <span class="accent">Human</span> Cost</h1>
+        <p class="hero-subtitle">When biometric authentication fails, people are denied food, pensions, and wages. <strong>Some die. This is documented.</strong></p>
+      </div>
+      <div class="hero-illustration accent">
+        <img src="/components/svg/hero-exclusion.svg" alt="Broken chain and excluded person illustration">
+      </div>
+    </section>
+
+    <!-- Quick Test Grid -->
+    <div class="quick-test">
+      <div class="quick-test-item">
+        <span class="q">Documented starvation deaths?</span>
+        <span class="a no">Yes</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">Biometric failure rate (Jharkhand)?</span>
+        <span class="a no">49%</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">Welfare denials due to Aadhaar?</span>
+        <span class="a no">Documented</span>
+      </div>
+      <div class="quick-test-item">
+        <span class="q">Accountability for deaths?</span>
+        <span class="a no">None</span>
+      </div>
+    </div>
+<div class="stat-banner">
+      <div class="stat-box">
+        <div class="stat-number">4.39 Cr</div>
+        <div class="stat-label">Ration cards deleted (2013-2021)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">88%</div>
+        <div class="stat-label">Were genuine beneficiaries (JPAL)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">~100</div>
+        <div class="stat-label">Documented starvation deaths since 2015</div>
+      </div>
+    </div>
+
+    <div class="quote-box red">
+      <blockquote>"The Aadhaar project, even before its ambitions have been fully realized, has caused deaths, data breaches, banking fraud, and hardship."</blockquote>
+      <cite>- Reetika Khera, Washington Post (2018)</cite>
+    </div>
+
+    <div class="section-label">Some Documented Denials</div>
+
+    <div class="case-card">
+      <div class="name">Santoshi Kumari, 11</div>
+      <div class="details">Simdega, Jharkhand · Died September 28, 2017</div>
+      <div class="outcome">Starved for 8+ days after family's ration card was cancelled for not linking to Aadhaar. 11 lakh cards cancelled in Jharkhand that year.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="name">Ruplal Marandi</div>
+      <div class="details">Jharkhand · 2017</div>
+      <div class="outcome">Denied rations due to Aadhaar-related issues. One of four documented Jharkhand deaths: Santoshi, Ruplal, Premani Kunwar, Etwariya Devi.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="name">Arjun Hembram, 11</div>
+      <div class="details">Ghatisahi, Jajpur, Odisha · Died March 3, 2023</div>
+      <div class="outcome">Child with disability. Hadn't eaten rice for 2 days. Family's ration card inactive since July 2021 due to name mismatch between ration card and Aadhaar.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="name">Dukhi Jani, 46</div>
+      <div class="details">Kandha Tribal woman, Odisha · Died June 24, 2020</div>
+      <div class="outcome">Chronic starvation. Without food for 3 days before death. Aadhaar-related exclusion from PDS.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="name">Risa Mankadia</div>
+      <div class="details">PVTG, Odisha · Died October 22, 2025</div>
+      <div class="outcome">Elderly single man from Particularly Vulnerable Tribal Group. Unable to complete e-KYC for ration card. Died of hunger.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="name">Ghisi Devi, 92</div>
+      <div class="details">Vijaypura, Rajasthan · 2025</div>
+      <div class="outcome">Facial auth failed repeatedly. Only succeeded when carried outside into sunlight. Bent fingers prevented fingerprint fallback. Monthly pension: ₹1,500.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="name">Gudiya Kumari (80% disabled)</div>
+      <div class="details">Rajasthan · Since 2022</div>
+      <div class="outcome">Lost disability pension after unable to complete Aadhaar enrollment despite three years of attempts. Wheelchair user excluded from the system designed to help her.</div>
+    </div>
+
+    <div class="callout warning mt-2">
+      <p>When authentication fails, the system records success, it successfully denied. <strong>The system cannot see its own errors.</strong> Every denial is an intended output. That's why nothing changes.</p>
+    </div>
+
+    <div class="section-label">Human Rights Watch Findings</div>
+    <div class="info-box">
+      <h3>India: Identification Project Threatens Rights (2018)</h3>
+      <p>Human Rights Watch and Amnesty International India joint finding:</p>
+      <p><span class="highlight">2.5 million families in Rajasthan</span> denied ration supplies between September 2016 and June 2017 due to missing or unlinked Aadhaar numbers.</p>
+      <p>Children without Aadhaar excluded from government schools and free meal programs, despite constitutional guarantees.</p>
+      <p>Hospitals demanded Aadhaar enrollment before issuing <span class="highlight">birth certificates</span>. Death certificates similarly conditioned.</p>
+      <p>People living with HIV/AIDS denied medical treatment over Aadhaar requirements.</p>
+      <p>Aadhaar deactivations occur <span class="highlight">without prior notice</span>. Only UIDAI can sue, individuals cannot.</p>
+    </div>
+
+    <div class="section-label">Why Authentication Fails</div>
+    <div class="quote-box red">
+      <blockquote>"Around <strong>two to five per cent of the Indian population would be excluded</strong>" due to biometric failures. Physical conditions like corneal blindness, scars, and malnourishment-induced cataracts prevented valid fingerprints or iris scans.</blockquote>
+      <cite>- Usha Ramanathan, <a href="https://cis-india.org/internet-governance/blog/UID_Questions_without_Answers" target="_blank">CIS India</a></cite>
+    </div>
+
+    <div class="info-box">
+      <h3>Biometric Exclusion</h3>
+      <p>Fingerprints wear away from manual labor. Construction workers, farmers, domestic workers face <span class="highlight">6-12% authentication failure rates</span>.</p>
+      <p>Elderly people have degraded fingerprints. Children's biometrics are unstable. People with disabilities face accessibility barriers.</p>
+      <p>In 2023, UIDAI acknowledged <span class="highlight">54+ hours of service downtime</span> due to OTP delays and server issues.</p>
+    </div>
+
+    <div class="section-label">2023-25: Facial Authentication Expansion</div>
+    <div class="info-box">
+      <h3>Despite Known Failures, Biometrics Expand</h3>
+      <p>After years of documented fingerprint exclusion, states are now adding facial authentication. Rajasthan mandated it for pensioners via RAJSSP app (February 2023). Results from January-April 2025:</p>
+      <p><span class="highlight">Facial authentication success: 69.11%</span>, nearly 1 in 3 pensioners fail.</p>
+      <p>Fingerprint authentication: 76.27% success. OTP had 90%+ success but government deemed it "unreliable."</p>
+      <p>The system was tested on only <span class="highlight">15-20 people</span> before statewide rollout to 600,000+ pensioners in Jaipur alone.</p>
+    </div>
+
+    <div class="info-box danger">
+      <h3>Consent Is Structurally Broken</h3>
+      <p>UIDAI claims authentication requires "explicit consent." But <span class="highlight">consent is meaningless when refusal means exclusion</span>.</p>
+      <p>This pattern repeats across India Stack:</p>
+      <ul class="list-arrow">
+        <li><strong>Aadhaar:</strong> No ration card without it. No pension. No bank account.</li>
+        <li><strong>UPI:</strong> Bank account required. KYC mandatory. Phone number linked.</li>
+        <li><strong>ABDM:</strong> Health ID pushed at hospitals. Opt-out unclear.</li>
+        <li><strong>FASTag:</strong> Mandatory by law. No alternative.</li>
+        <li><strong>CoWIN:</strong> No vaccine without registration. Digital-only access.</li>
+      </ul>
+      <p>When the cost of refusal is starvation, medical exclusion, or losing your pension, <span class="highlight">that's not consent. That's coercion.</span></p>
+    </div>
+
+    <div class="quote-box red">
+      <blockquote>"No match." The system's response when a 92-year-old's face doesn't match its database. No pension. No recourse. No accountability.</blockquote>
+      <cite>- <a href="https://thewire.in/rights/no-match-rajasthans-push-for-facial-authentication-on-pensioners-leaves-many-behind" target="_blank">The Wire (2025)</a></cite>
+    </div>
+
+    <div class="section-label">Digital Divide: CoWIN</div>
+    <div class="info-box">
+      <h3>Vaccine Access as Digital Gatekeeping</h3>
+      <p>CoWIN required smartphone, internet, and digital literacy. <span class="highlight">200-280 million Indians (33-45% of 18-44 age group)</span> had no or poor internet access.</p>
+      <p>25% of India's population had no smartphone. No offline registration option. English-only web portal. Homeless and rural populations systematically excluded.</p>
+      <p>Supreme Court (May 2021): <span class="highlight">"CoWIN not accessible to persons with disabilities."</span> Ordered disability audit.</p>
+      <p>Digital divide privileged English-speaking urban population at the cost of rural India. A form of "technical rationing."</p>
+    </div>
+
+    <div class="section-label">The Research</div>
+    <div class="research-box">
+      <h3>Key Findings</h3>
+      <ul>
+        <li><strong>Documented (2019):</strong> Of 42 hunger-related deaths since 2017, 25 were linked to Aadhaar issues.</li>
+        <li><strong>Washington Post (2018):</strong> "India's biometric ID program was supposed to end welfare corruption. But the neediest may be hit hardest." Authentication failures prevented thousands from receiving entitlements.</li>
+        <li><strong>JPAL Study (2020):</strong> 88% of 1.44 lakh cancelled ration cards in Jharkhand belonged to genuine beneficiaries, not "ghosts."</li>
+        <li><strong>IIT Delhi (Reetika Khera):</strong> Continued quantity fraud, higher transaction costs, and exclusion of the most vulnerable since Aadhaar-Based Biometric Authentication.</li>
+        <li><strong>Right to Food Campaign:</strong> 57 starvation deaths documented in nine Indian states from 2015 onwards. At least 19 directly linked to Aadhaar.</li>
+        <li><strong>CAG Report (2022):</strong> UIDAI takes no responsibility for deficient biometric capture. Onus passed to Aadhaar holders.</li>
+        <li><strong>SFLC.in (2021):</strong> CoWIN created digital exclusion, mandatory for 18-44 age group, disadvantaging those without smartphones or internet.</li>
+      </ul>
+    </div>
+
+    <div class="quote-box">
+      <blockquote>"Far from being inclusive and reducing corruption, Aadhaar is becoming a tool of exclusion. Whatever is termed as savings is often the result of a denial of legal entitlements."</blockquote>
+      <cite>- Reetika Khera, IIT Delhi</cite>
+    </div>
+
+    <div class="quote-box">
+      <blockquote>"When subsidies are subject to biometric authentication, uninterrupted network connectivity, and bureaucratic compliance, the right to food becomes a conditional privilege."</blockquote>
+      <cite>- IDR Online</cite>
+    </div>
+
+    <div class="section-label">The Court Response</div>
+    <div class="info-box">
+      <h3>Orissa High Court (May 2023)</h3>
+      <p>"Welfare schemes are meant to cater to the needs of the most vulnerable and poor sections of our society who <span class="highlight">cannot be excluded on any ground, including the lack of an Aadhaar Card or a mobile phone</span>."</p>
+      <p>The court noted that Subhalaxmi Tarai, suffering from cerebral palsy and secondary malnutrition, had died.</p>
+    </div>
+    <div class="info-box">
+      <h3>Supreme Court (March 2021)</h3>
+      <p>Agreed to hear petition challenging deletion of 3 crore ration cards. The petition (Koili Devi v. Union of India) was filed by Santoshi Kumari's mother.</p>
+      <p>Starvation deaths documented across: Jharkhand, UP, Odisha, Karnataka, MP, Maharashtra, Bihar, Chhattisgarh, West Bengal, Andhra Pradesh, Telangana.</p>
+    </div>
+
+    <div class="section-label">Ongoing Exclusion</div>
+    <div class="info-box">
+      <h3>Section 57 Restored (TechCrunch, 2025)</h3>
+      <p>In 2018, Supreme Court struck down Section 57 that allowed private entities to use Aadhaar. The government has now <span class="highlight">effectively re-legislated</span> this through amendments.</p>
+      <p>Private companies in e-commerce, hospitality, healthcare can now access Aadhaar authentication. No guardrails defined to prevent misuse of biometric IDs.</p>
+    </div>
+    <div class="info-box">
+      <h3>e-KYC Drive (2024)</h3>
+      <p>June 2024: Government directed 100% e-KYC compliance for all ration card holders.</p>
+      <p>Odisha "temporarily suspended" rice distribution for <span class="highlight">20+ lakh eligible individuals</span> for e-KYC non-compliance.</p>
+      <p>The Right to Food Campaign has urged the government to halt e-KYC and remove exclusionary digital measures from PDS.</p>
+    </div>
+
+    <div class="info-box danger">
+      <h3>When Systems Fail, Humans Pay</h3>
+      <p>Every system has errors. The question is: who bears the cost?</p>
+      <p>In India Stack, the system never fails. It only denies. When your biometrics don't match, when seeding is wrong, when the network is down, <strong>you</strong> failed. Not the system. You must prove it wrong. You cannot opt out. You cannot see why you were denied. You cannot fix it yourself. You can only wait, appeal, and hope.</p>
+      <p class="mt-1">With 6-12% biometric failure rates, millions are denied. The system records no error. For some, that denial is fatal.</p>
+    </div>
+
+    <div class="verdict-box warning">
+      <div class="verdict-label">VERDICT</div>
+      <div class="verdict-title">Errors Are Externalized. Accountability Is Not.</div>
+    </div>
+
+    <div class="sources">
+      <h3>Sources</h3>
+      <ul>
+        <li><a href="https://www.washingtonpost.com/news/theworldpost/wp/2018/08/09/aadhaar/" target="_blank">Washington Post: Aadhaar, India's ID system, is a cautionary tale (Reetika Khera)</a></li>
+        <li><a href="https://www.washingtonpost.com/world/asia_pacific/indias-vast-biometric-program-was-supposed-to-end-corruption-but-the-neediest-may-be-hit-hardest/2018/03/24/bb212a86-289c-11e8-a227-fd2b009466bc_story.html" target="_blank">Washington Post: India's biometric ID program, neediest hit hardest (2018)</a></li>
+        <li><a href="https://www.hrw.org/news/2018/01/13/india-identification-project-threatens-rights" target="_blank">Human Rights Watch: India Identification Project Threatens Rights (2018)</a></li>
+        <li><a href="https://techcrunch.com/2025/02/02/india-expands-aadhaar-authentication-for-businesses-raising-privacy-concerns/" target="_blank">TechCrunch: India expands Aadhaar, raising privacy concerns (2025)</a></li>
+        <li>25 of 42 hunger deaths linked to Aadhaar issues (2017-2019)</li>
+        <li><a href="https://rethinkaadhaar.in/testimonials" target="_blank">Rethink Aadhaar: Exclusion Testimonials</a></li>
+        <li><a href="https://idronline.org/article/rights/infrastructures-of-exclusion-how-e-kyc-impacts-access-to-food/" target="_blank">IDR: How e-KYC Restricts Access to Food</a></li>
+        <li><a href="https://www.epw.in/journal/2017/50/special-articles/impact-aadhaar-welfare-programmes.html" target="_blank">EPW: Impact of Aadhaar on Welfare Programmes (Reetika Khera)</a></li>
+        <li><a href="https://sflc.in/sflcin-writes-pmo-mohfw-nha-raising-concerns-related-cowin/" target="_blank">SFLC.in: CoWIN Concerns</a></li>
+      </ul>
+    </div></div>
+
+    <div class="media-section">
+      <div class="media-label">Concerns documented by</div>
+      <div class="media-logos">
+        <a href="https://www.washingtonpost.com/news/theworldpost/wp/2018/08/09/aadhaar/" target="_blank" class="media-logo" title="The Washington Post">
+          <svg viewBox="0 0 180 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Georgia, Times, serif" font-size="14" font-style="italic" fill="#666">The Washington Post</text></svg>
+        </a>
+        <a href="https://techcrunch.com/2025/02/02/india-expands-aadhaar-authentication-for-businesses-raising-privacy-concerns/" target="_blank" class="media-logo" title="TechCrunch">
+          <svg viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#666">TechCrunch</text></svg>
+        </a>
+        <a href="https://www.hrw.org/news/2018/01/13/india-identification-project-threatens-rights" target="_blank" class="media-logo" title="Human Rights Watch">
+          <svg viewBox="0 0 150 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="12" font-weight="500" fill="#666">Human Rights Watch</text></svg>
+        </a>
+        <a href="https://www.aljazeera.com/news/2018/1/5/india-probes-breach-of-biometric-identity-database" target="_blank" class="media-logo" title="Al Jazeera">
+          <svg viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#666">Al Jazeera</text></svg>
+        </a>
+        <a href="https://www.moneylife.in/article/aadhaar-data-breach-largest-in-the-world-says-wefs-global-risk-report-and-avast/56384.html" target="_blank" class="media-logo" title="World Economic Forum">
+          <svg viewBox="0 0 32 20" xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-family="Courier, monospace" font-size="13" font-weight="600" fill="#666">WEF</text></svg>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+    <div id="site-footer"></div>
+<script>
+// Mobile menu toggle
+
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal-up, .fade-up, .content-section').forEach(el => observer.observe(el));
+
+// Magnetic hover effect for cards
+document.querySelectorAll('.nav-card, .component-card, .info-box, .gov-card, .ai-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateZ(10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease';
+  });
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.dataset.open === 'true';
+    navLinks.dataset.open = !isOpen;
+    menuToggle.setAttribute('aria-expanded', !isOpen);
+  });
+}
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+</script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

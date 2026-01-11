@@ -1,0 +1,211 @@
+/* ===== LATEX-STYLE MATHEMATICAL DISPLAY ===== */
+/* Inspired by LaTeX/KaTeX typography */
+
+/* Math container */
+.math-block {
+    background: linear-gradient(135deg, #0a0a0a 0%, #0d0d0f 100%);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.math-block .math-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* LaTeX-style equation display */
+.math-block .equation {
+    font-family: 'Times New Roman', 'Computer Modern', Georgia, serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    letter-spacing: 0.02em;
+    line-height: 1.8;
+}
+
+/* Variable styling - italic */
+.math-block .equation .var {
+    font-style: italic;
+    color: #fff;
+}
+
+/* Function names - upright */
+.math-block .equation .fn {
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Subscript and superscript */
+.math-block .equation sub {
+    font-size: 0.7em;
+    vertical-align: sub;
+    color: var(--text-secondary);
+}
+
+.math-block .equation sup {
+    font-size: 0.7em;
+    vertical-align: super;
+}
+
+/* Operators */
+.math-block .equation .op {
+    font-style: normal;
+    padding: 0 0.3em;
+    color: var(--accent);
+}
+
+/* Greek letters rendered properly */
+.math-block .equation .greek {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+}
+
+/* Partial derivative symbol */
+.math-block .equation .partial {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+}
+
+/* Glossary/explanation */
+.math-block .math-gloss {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    line-height: 1.6;
+}
+
+.math-block .math-gloss strong {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Where clause for variable definitions */
+.math-block .math-where {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.75rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border);
+}
+
+.math-block .math-where .def {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.math-block .math-where .symbol {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    color: var(--accent);
+    margin-right: 0.5rem;
+}
+
+/* Mapping table style (for correspondences) */
+.math-block .mapping {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    padding: 0.5rem 0;
+}
+
+.math-block .mapping .left {
+    color: var(--accent);
+    font-weight: 600;
+    display: inline-block;
+    min-width: 80px;
+}
+
+.math-block .mapping .arrow {
+    color: var(--text-muted);
+    padding: 0 0.75rem;
+}
+
+.math-block .mapping .right {
+    color: var(--text-secondary);
+}
+
+/* Inline math */
+.math-inline {
+    font-family: 'Times New Roman', 'Computer Modern', Georgia, serif;
+    font-style: italic;
+    font-size: 1.05em;
+    color: var(--accent);
+    padding: 0 0.15em;
+}
+
+/* Theorem/Law box */
+.math-theorem {
+    background: rgba(129,140,248,0.06);
+    border: 1px solid rgba(129,140,248,0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.math-theorem .theorem-name {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--indigo);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.math-theorem .theorem-statement {
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.7;
+}
+
+/* Conservation law / identity box */
+.math-identity {
+    background: rgba(13,216,146,0.06);
+    border: 1px solid rgba(13,216,146,0.2);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.math-identity .equation {
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #fff;
+    padding: 0.5rem 0;
+}
+
+/* Print styles */
+@media print {
+    .math-block {
+        background: #f5f5f5 !important;
+        border: 1px solid #ccc !important;
+        border-left: 3px solid #333 !important;
+    }
+    .math-block .equation {
+        color: #000 !important;
+    }
+    .math-block .math-label {
+        color: #666 !important;
+    }
+}

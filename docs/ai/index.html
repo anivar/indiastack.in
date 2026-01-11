@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Stack | India Stack Watch</title>
+  <meta name="description" content="Code first, governance later. How AI follows the India Stack pattern. Private models, public mandate.">
+  <meta name="keywords" content="IndiaAI Mission, AI governance, Bhashini, UIDAI, ONDC, AI infrastructure, code first">
+  <link rel="canonical" href="https://indiastack.in/ai/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI Stack | India Stack Watch">
+  <meta property="og:description" content="Code first, governance later. AI follows the India Stack pattern.">
+  <meta property="og:url" content="https://indiastack.in/ai/">
+  <meta property="og:image" content="https://indiastack.in/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="India Stack Watch">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://indiastack.in/og-image.png">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    .ai-card {
+      background: rgba(20, 20, 20, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .ai-card h3 {
+      color: var(--accent);
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .concern {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #ef4444;
+      margin: 1rem 0;
+      padding: 0.75rem;
+      background: rgba(239,68,68,0.1);
+      border-radius: 6px;
+      border-left: 2px solid #ef4444;
+    }
+
+    .pattern-box {
+      background: rgba(10, 10, 10, 0.8);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      font-family: var(--font-mono);
+    }
+    .pattern-box h4 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .pattern-box pre {
+      font-size: 0.7rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      overflow-x: auto;
+    }
+
+    .core-issue {
+      background: linear-gradient(135deg, rgba(239,68,68,0.1) 0%, rgba(239,68,68,0.05) 100%);
+      border-left: 3px solid #ef4444;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    .core-issue h4 {
+      color: #ef4444;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .issues-list {
+      margin-top: 1rem;
+    }
+    .issues-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .issues-list li:last-child { border-bottom: none; }
+    .issues-list li strong {
+      color: var(--text-primary);
+    }
+
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(10,10,10,0.4);
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .flow-step .number {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      color: var(--accent);
+      width: 2rem;
+      flex-shrink: 0;
+    }
+    .flow-step .content {
+      flex: 1;
+    }
+    .flow-step .title {
+      color: var(--text-primary);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    .flow-step .desc {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+    .flow-arrow {
+      text-align: center;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      padding: 0.25rem 0;
+    }
+
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI Stack Analysis",
+    "description": "IndiaAI Mission - same pattern of private build, public mandate, governance last.",
+    "url": "https://indiastack.in/ai/",
+    "datePublished": "2025-01-01",
+    "dateModified": "2026-01-08",
+    "author": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in", "logo": {"@type": "ImageObject", "url": "https://indiastack.in/logo.svg"}},
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://indiastack.in/ai/"},
+    "isPartOf": {"@id": "https://indiastack.in/#website"},
+    "keywords": ["IndiaAI", "artificial intelligence", "AI governance", "AI regulation"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"AI","item":"https://indiastack.in/ai/"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is AI integrated into India Stack?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI is being embedded in existing layers: Bhashini (AI translation in government services), UIDAI (AI for biometric matching), ONDC (AI for commerce recommendations), ABDM (AI for health analytics). Each integration inherits the governance gaps of the underlying layer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the governance latency for AI decisions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The governance pipeline (AIGG coordinates quarterly, TPEC reviews, AISI drafts standards, sectoral interpretation) takes 13+ months per decision. Model release cycles are 12-18 months. By the time governance catches up, the models have moved on."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is accountable when AI makes wrong decisions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Same pattern as rest of India Stack: responsibility distributed until it disappears. When AI denies benefits- not the model builder ('following specs'), not the integrator ('model output'), not the government ('private technology'). Citizen has no recourse."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What data does AI in India Stack have access to?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Population-scale data: Aadhaar (1.4B), ABDM (71cr+ health IDs), AgriStack, GSTN, Account Aggregator, CCTNS/ICJS. India Stack collected the data. AI processes it. Same governance gaps. No algorithmic accountability. No audit rights."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does India have AI regulation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Governance frameworks arrive after deployment. The same 'code first, governance later' pattern. 6+ ministries, 5+ regulators, multiple advisory bodies must coordinate. Consensus requirement means system speed limited by slowest component. Models deploy faster than governance can adapt."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <div class="grid-pattern"></div>
+  <div class="morph-bg"></div>
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- Visual effects -->
+  <div class="scan-line"></div>
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container">
+    <section class="hero-section fade-up">
+      <div class="hero-content">
+        <div class="eyebrow text-cyan">Technical Analysis · Emerging Layer</div>
+        <h1 class="hero-title">AI <span class="accent">Stack</span></h1>
+        <p class="hero-subtitle">Code first. Governance later. AI follows the India Stack pattern.</p>
+      </div>
+      <div class="hero-illustration accent">
+        <img src="/components/svg/hero-ai.svg" alt="AI neural network illustration">
+      </div>
+    </section>
+
+    <!-- CORE THESIS -->
+    <section class="content-section fade-up">
+      <div class="core-issue">
+        <h4>PRware Gets an AI Layer</h4>
+        <p><strong>"India Stack" is PRware</strong>, a marketing term with no single owner. Now AI becomes the next layer of PRware. Private entities design and build. Government provides compute and endorsement. Integration with existing closed systems creates adoption. Governance frameworks arrive after deployment.</p>
+        <p class="mt-1">The same sequence. The same accountability gaps. Now with algorithmic decision-making layered on top of closed, unauditable infrastructure.</p>
+      </div>
+    </section>
+
+    <!-- THE SEQUENCE -->
+    <section class="content-section fade-up">
+      <h2>The Sequence</h2>
+
+      <p class="text-secondary mb-2">AI follows the same sequence as the rest of India Stack:</p>
+
+      <div class="flow-step">
+        <div class="number">1</div>
+        <div class="content">
+          <div class="title">Code</div>
+          <div class="desc">Private startups build models. Research labs design architectures. Specifications drafted by industry. Government provides compute access. No parliamentary approval for what gets built.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+
+      <div class="flow-step">
+        <div class="number">2</div>
+        <div class="content">
+          <div class="title">Deployment</div>
+          <div class="desc">Integration with Bhashini, UIDAI, ONDC, ABDM. AI capabilities embedded in existing stack layers. Early adopters in government services. Ecosystem forms around deployed models.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+
+      <div class="flow-step">
+        <div class="number">3</div>
+        <div class="content">
+          <div class="title">Adoption Push</div>
+          <div class="desc">Government services told to integrate AI. Existing stack touchpoints become AI distribution channels. Network effects through mandatory infrastructure. Opting out means opting out of the stack.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+
+      <div class="flow-step">
+        <div class="number">4</div>
+        <div class="content">
+          <div class="title">Endorsement</div>
+          <div class="desc">"Sovereign AI" narratives. International showcases. Success metrics announced. The AI is now national identity.</div>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+
+      <div class="flow-step">
+        <div class="number">5</div>
+        <div class="content">
+          <div class="title">Governance</div>
+          <div class="desc">Frameworks drafted after deployment. AIGG, TPEC, AISI coordinate. 13+ month cycles for any decision. By the time governance catches up, the models are already in production.</div>
+        </div>
+      </div>
+
+      <div class="concern">
+        Same order. Code first. Governance last. By the time there's a framework, there's already an ecosystem, integrations, and millions of users.
+      </div>
+    </section>
+
+    <!-- STACK INTEGRATION -->
+    <section class="content-section fade-up">
+      <h2>Stack Integration</h2>
+
+      <div class="ai-card">
+        <h3>AI Embedded in Existing Layers</h3>
+
+        <p class="text-secondary mb-1">AI isn't a separate layer. It's being integrated into existing India Stack infrastructure:</p>
+
+        <ul class="issues-list">
+          <li><strong>Bhashini:</strong> AI-powered translation. Integrated with government services.</li>
+          <li><strong>UIDAI:</strong> AI for identity verification. Biometric matching at scale.</li>
+          <li><strong>ONDC:</strong> AI for commerce. Recommendations, logistics.</li>
+          <li><strong>ABDM:</strong> AI for health. Built on digital health records.</li>
+        </ul>
+
+        <div class="concern">
+          Each integration inherits the governance model of the underlying layer. Same accountability gaps. Same audit limitations. Now with AI decision-making added.
+        </div>
+      </div>
+    </section>
+
+    <!-- GOVERNANCE LATENCY -->
+    <section class="content-section fade-up">
+      <h2>Governance Latency</h2>
+
+      <div class="pattern-box danger">
+        <h4>The Decision Pipeline</h4>
+<pre>
+AIGG (coordinates) → TPEC (advises) → AISI (implements) →
+Sectoral Regulators (enforce) → Industry (complies)
+
+LATENCY:
+─────────────────────────────────────────────────────────────────
+AIGG meets quarterly           = 3-month cycles
+TPEC reviews               = +1 month
+AISI drafts standards          = +6 months
+Sectoral interpretation         = +3 months
+─────────────────────────────────────────────────────────────────
+TOTAL: 13+ months per governance decision
+
+MODEL RELEASE CYCLES: 12-18 months
+GOVERNANCE CYCLES: 13+ months
+
+By the time governance catches up, the models have moved on.
+</pre>
+      </div>
+
+      <div class="ai-card">
+        <h3>The Consensus Requirement</h3>
+
+        <ul class="issues-list">
+          <li>6+ ministries with representation</li>
+          <li>5+ sectoral regulators</li>
+          <li>Multiple advisory bodies</li>
+          <li>Inter-departmental coordination</li>
+        </ul>
+
+        <div class="concern">
+          System speed limited by slowest component. One node can slow the entire pipeline. Models deploy faster than governance can adapt.
+        </div>
+      </div>
+    </section>
+
+    <!-- SEVEN SUTRAS -->
+    <section class="content-section fade-up">
+      <h2>The Seven Sutras</h2>
+
+      <p class="text-secondary mb-2">When governance finally arrives, it arrives empty. India's AI Governance Guidelines (2025) offer seven principles, and zero tests.</p>
+
+      <div class="pattern-box">
+        <h4>Principles Without Verification</h4>
+<pre>
+SUTRA              SOUNDS LIKE     WOULD REQUIRE
+───────────────────────────────────────────────────────────────────
+Trust as Foundation       Legitimacy     EXIT (can refuse)
+People First          Rights       GOVERN (binding input)
+Fairness & Equity        Inclusion      AUDIT (verification)
+Accountability         Oversight      CODE + AUDIT
+Understandable by Design    Transparency    CODE (legible execution)
+Safety / Resilience       Protection     AUDIT + persistence
+Innovation over Restraint   ,          <em>deprioritizes enforcement</em>
+───────────────────────────────────────────────────────────────────
+RESOURCE ALLOCATION:
+₹10,371 crore for compute
+38,000 GPUs subsidized
+Governance: voluntary, existing laws, no new enforcement
+</pre>
+      </div>
+
+      <div class="concern">
+        Same pattern as G20 DPI definition. Aspirational vocabulary. No structural requirements. "Innovation over Restraint" is the only operational principle, the other six are decoration.
+      </div>
+    </section>
+
+    <!-- ACCOUNTABILITY GAP -->
+    <section class="content-section fade-up">
+      <h2>The Accountability Gap</h2>
+
+      <div class="pattern-box danger">
+        <h4>When AI Decisions Fail</h4>
+<pre>
+WHEN AI FAILS              WHO'S ACCOUNTABLE?
+────────────────────────────────────────────────────────────────────────────
+AI denies benefits            Not the model builder, "following specs"
+→ citizen excluded            Not the integrator, "model output"
+                     Not the government, "private technology"
+                     → Citizen has no recourse
+
+AI flags for fraud            Not the algorithm, "probabilistic"
+→ account frozen             Not the bank, "AI recommendation"
+                     Not the regulator, "implementation detail"
+                     → User has no recourse
+
+AI makes health recommendation      Not the model, "advisory only"
+→ wrong treatment            Not the hospital, "AI-assisted"
+                     Not the platform, "user responsibility"
+                     → Patient has no recourse
+
+THE PATTERN:
+Same as rest of India Stack.
+Responsibility distributed until it disappears.
+Everyone points elsewhere.
+Citizens bear the consequences.
+</pre>
+      </div>
+    </section>
+
+    <!-- DATA CONVERGENCE -->
+    <section class="content-section fade-up">
+      <h2>Data Convergence</h2>
+
+      <div class="pattern-box">
+        <h4>Population-Scale Data Meets AI</h4>
+<pre>
+EXISTING DATA            AI APPLICATIONS
+─────────────────────────────────────────────────────────────────────────
+Aadhaar (1.4B)           Identity verification, biometric matching
+ABDM (71cr+ IDs)          Health analytics, risk assessment
+AgriStack              Agricultural predictions, credit inputs
+GSTN                Pattern detection, compliance analysis
+Account Aggregator         Financial analysis, credit scoring
+CCTNS/ICJS             Pattern matching, case analysis
+
+India Stack collected the data.
+AI processes it.
+Same governance gaps apply.
+No algorithmic accountability.
+No audit rights.
+No error correction.
+</pre>
+      </div>
+    </section>
+
+    <!-- VERDICT -->
+    <section class="content-section fade-up">
+      <div class="core-issue centered">
+        <h4>The Extension</h4>
+        <p class="highlight-text">Code first. Governance later. Accountability never.</p>
+        <p class="text-secondary mt-1">AI is the next layer on India Stack. Same sequence. Same accountability gaps. Now with algorithmic decision-making at population scale.</p>
+        <p class="note-text mono mt-1">When AI makes decisions using India Stack data, who audits the algorithm?</p>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <section class="content-section fade-up">
+      <h2>Sources</h2>
+      <ul class="link-list">
+        <li><a href="https://indiaai.gov.in/" class="text-accent">IndiaAI Mission</a></li>
+        <li><a href="https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc2025115685601.pdf" class="text-accent">India AI Governance Guidelines (2025)</a></li>
+        <li><a href="https://bhashini.gov.in/" class="text-accent">Bhashini</a></li>
+        <li><a href="https://www.drishtiias.com/daily-updates/daily-news-analysis/rbi-s-free-ai-committee-report" class="text-accent">RBI FREE-AI Report</a></li>
+      </ul>
+    </section>
+
+    <a href="/dpi/learned-systems/" class="page-crosslink fade-up" style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2); border-radius: 12px; text-decoration: none; margin-bottom: 2rem;">
+      <span style="color: var(--text-secondary);">Universal framework for AI as public infrastructure → <strong style="color: var(--purple);">DPI Learned Systems Annex</strong></span>
+      <span style="color: var(--purple);">→</span>
+    </a>
+
+    <section class="fade-up mt-2">
+      <div class="nav-grid">
+        <a href="/governance/" class="nav-card">
+          <h3>← Governance Stack</h3>
+          <p>Code first. Policy later.</p>
+        </a>
+        <a href="/layers/" class="nav-card">
+          <h3>All Layers →</h3>
+          <p>Complete architecture.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+  </main>
+
+    <div id="site-footer"></div>
+
+  <script>
+  
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal-up, .fade-up, .content-section').forEach(el => observer.observe(el));
+
+// Magnetic hover effect for cards
+document.querySelectorAll('.nav-card, .component-card, .info-box, .gov-card, .ai-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 25}deg) rotateY(${x / 25}deg) translateZ(10px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform 0.5s ease';
+  });
+});
+
+const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.dataset.open === 'true';
+      navLinks.dataset.open = !isOpen;
+      menuToggle.setAttribute('aria-expanded', !isOpen);
+    });
+  }
+
+// Dropdown toggle for mobile
+document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.parentElement;
+    const isOpen = dropdown.classList.contains('open');
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    if (!isOpen) dropdown.classList.add('open');
+  });
+});
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+  </script>
+
+<script src="/js/components.js"></script>
+</body>
+</html>

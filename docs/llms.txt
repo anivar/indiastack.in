@@ -1,0 +1,189 @@
+# India Stack Watch
+
+> Critical analysis of Digital Public Infrastructure through cybernetics, commons governance, and free software principles.
+
+## Core Thesis
+
+A digital system is legitimate only if it is **structurally corrigible** by those it affects.
+
+**Corrigibility**: The structural capacity of affected populations to detect error, apply pressure, and trigger correction—without suffering material harm.
+
+This is not ethics. It is cybernetics. When correction is structurally unavailable, error accumulates until the system fails catastrophically or requires authoritarian enforcement.
+
+---
+
+## DPI Corrigibility Framework
+
+Universal framework for evaluating Digital Public Infrastructure. Five structural tests. One question: **Can those affected correct the system?**
+
+Released under **CC0 1.0 Universal** (Public Domain). Use freely.
+
+### Framework Structure
+
+| Page | URL | Purpose |
+|------|-----|---------|
+| Main Framework | /dpi/ | Five tests, G20/UN critique, India Stack scorecard |
+| Why Corrigibility | /dpi/analysis/ | Control theory proof, Ashby's Law, legitimacy debt |
+| How to Build | /dpi/build/ | Six mandatory architectural primitives |
+| How to Require | /dpi/require/ | Legal and procurement instruments |
+| Definitions | /dpi/definitions/ | G20, UNDP, World Bank analysis |
+| Learned Systems | /dpi/learned-systems/ | AI and stochastic system governance (Annex) |
+| Terminology | /terminology/ | Operational definitions |
+| Methods | /methods/ | Evaluation procedure |
+
+### The Five Tests
+
+| Test | Code | Question | Failure Mode |
+|------|------|----------|--------------|
+| EXIT | Safe Refusal | Can people refuse the system without penalty? | Coercion without escape |
+| CODE | Legible Execution | Are executable rules publicly inspectable? | Unverifiable power |
+| AUDIT | Independent Verifiability | Can claims be tested without permission? | Unfalsifiable authority |
+| GOVERN | Constitutive Input | Do affected populations have rule-making input? | Imposed governance |
+| FORK | Credible Replacement | Is replacement technically and legally possible? | Monopoly entrenchment |
+
+**Failure of any single test is fatal.** Binary tests, not a scoring rubric.
+
+### Learned Systems Extension
+
+For AI and learned systems, the five tests apply with extended verification:
+
+| Test | Deterministic Verification | Learned System Verification |
+|------|---------------------------|----------------------------|
+| EXIT | Can refuse the system | Disclosure + non-AI alternative |
+| CODE | Source code | Training pipeline transparency |
+| AUDIT | Inspect logic | Statistical bounds + monitoring |
+| GOVERN | Maintainer process | Objective governance |
+| FORK | Copy and deploy | Resource forkability (compute + data) |
+
+**Training data is an upstream commons.** When enclosed without governance, learned systems inherit legitimacy without constraints.
+
+### Six Build Primitives
+
+1. **Reproducible Execution** — Binary reproducible from source
+2. **Modular Architecture** — Components independently replaceable
+3. **Fork-Authorizing Licenses** — AGPL or equivalent
+4. **Audit Surfaces** — External verification without permission
+5. **Safe Refusal Paths** — Non-digital alternatives, no penalty
+6. **Policy-as-Code Governance** — Versioned, auditable, forkable rules
+
+---
+
+## Three Analytical Lenses
+
+Three independent traditions converge on the same structural requirements:
+
+### 1. Cybernetics (Control Theory)
+- **Question**: Can those affected observe and trigger correction?
+- **Failure**: Runaway—error amplifies to collapse or lock-in
+- **Reference**: Ashby's Law of Requisite Variety
+
+### 2. Commons Governance (Ostrom)
+- **Question**: Who governs the shared resource? Who decides rules?
+- **Failure**: Enclosure—public goods become club goods
+- **Reference**: Eight Principles for Managing Commons
+
+### 3. FOSS Principles
+- **Question**: Can power be observed, verified, and replaced?
+- **Failure**: Lock-in—users trapped in systems they cannot exit
+- **Reference**: Four Software Freedoms
+
+---
+
+## India Stack Assessment
+
+| Test | Status | Evidence |
+|------|--------|----------|
+| EXIT | FAIL | No Aadhaar deletion. Welfare conditioned on enrollment. |
+| CODE | FAIL | Zero lines of core Aadhaar/UPI source code published. |
+| AUDIT | FAIL | UIDAI RTI-exempt. No independent security audits. |
+| GOVERN | FAIL | No public comment. Private foundations control. |
+| FORK | FAIL | Closed source. Centralized. Replication prohibited. |
+
+### Documented Harms
+
+- **~100 starvation deaths** linked to Aadhaar authentication failures
+- **4.39 crore ration cards deleted** (88% genuine beneficiaries)
+- **1.1 billion records** exposed (WEF: "largest data breach in history")
+- **31-49% biometric failure rates** in field conditions
+
+---
+
+## Site Structure
+
+### Test Analysis Pages
+- /exit/ — EXIT: Safe Refusal
+- /foss/ — CODE: Legible Execution
+- /audit/ — AUDIT: Independent Verifiability
+- /participate/ — GOVERN: Constitutive Input
+- /fork/ — FORK: Credible Replacement
+
+### Component Deep Dives
+- /aadhaar/ — Identity layer, biometric database
+- /upi/ — Payments, NPCI consortium
+- /payments/ — DBT, PFMS, financial flows
+- /health/ — ABDM, CoWIN, consent violations
+- /education/ — APAAR, DIKSHA, children's data
+- /data/ — Account Aggregator, Digi Yatra
+- /governance/ — Code first, policy later
+- /ai/ — Next layer, same pattern
+
+### Evidence
+- /layers/ — 25+ components, same failure pattern
+- /surveillance/ — NATGRID, asymmetric observation
+- /exclusion/ — Human cost documentation
+
+---
+
+## Key Concepts
+
+### Bearer Credentials vs Identification Systems
+
+| Property | Bearer Credentials | Identification Systems |
+|----------|-------------------|------------------------|
+| Examples | Passport, cash | Biometric databases |
+| Principle | Possession = authorization | System verifies, system decides |
+| Verification | Once, at issuance | Every transaction |
+| Power | Person → Institution | Institution → Person |
+
+### Open-Washing Patterns
+
+| Pattern | Claim | Reality |
+|---------|-------|---------|
+| API-as-Openness | "Open APIs" | How to call, not how it works |
+| Spec-as-Source | "Open specs" | Protocols, not implementations |
+| Funnel Open-Sourcing | "It's on GitHub" | Clients open, backends closed |
+| DID-Washing | "W3C compliant" | Decentralized vocabulary, centralized trust |
+| Safety-Washing | "Safety team" | Policy without audit |
+
+---
+
+## License
+
+**CC0 1.0 Universal** (Public Domain). Use freely. No attribution required.
+
+Authored by [Anivar Aravind](https://anivar.net)
+
+---
+
+## URLs
+
+- Website: https://indiastack.in
+- DPI Framework: https://indiastack.in/dpi/
+- Sitemap: https://indiastack.in/sitemap.xml
+- DPI Sitemap: https://indiastack.in/dpi/sitemap.xml
+- DPI LLM Guidance: https://indiastack.in/dpi/llms.txt
+
+---
+
+## DPI Corrigibility Framework — Separate LLM Guidance
+
+For detailed guidance on the DPI Corrigibility Framework specifically (five invariant tests, learned systems annex, exposure surfaces, build requirements), refer to:
+
+https://indiastack.in/dpi/llms.txt
+
+That file contains:
+- Normative interpretation rules for the framework
+- Canonical page hierarchy
+- Guidance for language models on preserving exclusionary nature of tests
+- Treatment of AI and learned systems
+- Citation preferences

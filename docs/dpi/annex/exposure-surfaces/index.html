@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Annex: Corrigibility Exposure Surfaces | DPI Framework</title>
+  <meta name="description" content="Structural locations where claims about Digital Public Infrastructure can be independently challenged. EXIT, CODE, AUDIT, GOVERN, FORK exposure surfaces with illustrative machine-readable manifest.">
+  <meta name="keywords" content="DPI exposure surfaces, corrigibility surfaces, DPI audit, EXIT test, CODE test, AUDIT test, GOVERN test, FORK test, digital infrastructure structure, machine-readable manifest, JSON Schema">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="author" content="Anivar Aravind">
+  <link rel="canonical" href="https://indiastack.in/dpi/annex/exposure-surfaces/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Corrigibility Exposure Surfaces">
+  <meta property="og:description" content="Structural locations where correction can enter a system. Exposure surfaces for Digital Public Infrastructure with illustrative machine-readable format.">
+  <meta property="og:url" content="https://indiastack.in/dpi/annex/exposure-surfaces/">
+  <meta property="og:image" content="https://indiastack.in/dpi/og-image-dpi.png">
+  <meta property="og:site_name" content="India Stack Watch">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Corrigibility Exposure Surfaces">
+  <meta name="twitter:description" content="Structural locations where correction can enter DPI systems.">
+
+  <!-- Schema: TechArticle -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Corrigibility Exposure Surfaces",
+    "name": "Annex: Corrigibility Exposure Surfaces",
+    "description": "Structural locations where claims about Digital Public Infrastructure can be independently challenged by affected parties. Illustrative machine-readable manifest format.",
+    "url": "https://indiastack.in/dpi/annex/exposure-surfaces/",
+    "datePublished": "2026-01-11",
+    "dateModified": "2026-01-11",
+    "author": {"@type": "Person", "name": "Anivar Aravind", "url": "https://anivar.net"},
+    "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "isPartOf": {"@type": "WebPage", "url": "https://indiastack.in/dpi/", "name": "DPI Corrigibility Framework"}
+  }
+  </script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiastack.in/"},{"@type":"ListItem","position":2,"name":"DPI Framework","item":"https://indiastack.in/dpi/"},{"@type":"ListItem","position":3,"name":"Annex: Exposure Surfaces","item":"https://indiastack.in/dpi/annex/exposure-surfaces/"}]}
+  </script>
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/components/style.css">
+  <link rel="stylesheet" href="/components/header.css">
+  <link rel="stylesheet" href="/components/footer.css">
+  <style>
+    .surface-card {
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border);
+    }
+    .surface-card h3 {
+      margin: 0.25rem 0 0.75rem;
+      font-size: 1.1rem;
+      color: var(--text-primary);
+    }
+    .surface-card .key-elements {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .surface-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .surface-list li {
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .surface-list li::before {
+      content: '◇';
+      position: absolute;
+      left: 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    .test-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.35rem;
+    }
+    .notes-box {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 2rem;
+    }
+    .notes-box h4 {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    .notes-box ul {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+    .notes-box li {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .related-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .related-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .related-card h4 {
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      margin: 0.5rem 0 0.25rem;
+    }
+    .related-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin: 0;
+    }
+    .manifest-section {
+      background: rgba(129,140,248,0.06);
+      border: 1px solid rgba(129,140,248,0.2);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin: 2.5rem 0;
+    }
+    .manifest-json {
+      background: rgba(0,0,0,0.4);
+      border-radius: 8px;
+      padding: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      overflow-x: auto;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+    .manifest-json pre {
+      margin: 0;
+      color: var(--text-secondary);
+      white-space: pre;
+      line-height: 1.5;
+    }
+    /* JSON Syntax Highlighting */
+    .json-key { color: #06b6d4; }
+    .json-string { color: #0dd892; }
+    .json-number { color: #f59e0b; }
+    .json-boolean { color: #a855f7; }
+    .json-null { color: #ef4444; }
+    .json-bracket { color: #818cf8; }
+    .json-comment { color: #666; font-style: italic; }
+    /* Schema Section */
+    .schema-section {
+      background: rgba(6,182,212,0.06);
+      border: 1px solid rgba(6,182,212,0.2);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+    }
+    .schema-toggle {
+      background: rgba(6,182,212,0.1);
+      border: 1px solid rgba(6,182,212,0.3);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+    .schema-toggle:hover {
+      background: rgba(6,182,212,0.15);
+    }
+    .schema-toggle .arrow {
+      transition: transform 0.2s ease;
+    }
+    .schema-toggle.open .arrow {
+      transform: rotate(90deg);
+    }
+    .schema-content {
+      display: none;
+      margin-top: 1rem;
+    }
+    .schema-content.open {
+      display: block;
+    }
+    .guidance-section {
+      background: rgba(13,216,146,0.06);
+      border: 1px solid rgba(13,216,146,0.2);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin: 2rem 0;
+    }
+    .guidance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+    .guidance-box {
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+    .guidance-box h5 {
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      margin: 0 0 0.5rem;
+    }
+    .guidance-box ul {
+      margin: 0;
+      padding-left: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    .guidance-box li {
+      margin-bottom: 0.25rem;
+    }
+    @media (max-width: 768px) {
+      .related-grid, .guidance-grid {
+        grid-template-columns: 1fr;
+      }
+      .surface-card {
+        padding: 1.25rem;
+      }
+      .manifest-section, .guidance-section {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="grid-pattern" aria-hidden="true"></div>
+  <div id="site-header"></div>
+
+  <main id="main-content" role="main">
+  <div class="container" style="max-width: 900px;">
+
+    <!-- Header -->
+    <section class="fade-up" style="padding: 2rem 0 3rem;">
+      <nav aria-label="Breadcrumb" class="eyebrow" style="margin-bottom: 1rem;">
+        <a href="/">Home</a> /
+        <a href="/dpi/">DPI Framework</a> /
+        <span aria-current="page">Exposure Surfaces</span>
+      </nav>
+      <p class="eyebrow" style="color: var(--accent); margin-bottom: 0.5rem;">ANNEX</p>
+      <h1>Corrigibility Exposure Surfaces</h1>
+      <p class="lead">Structural locations where claims about a system can be independently challenged by affected parties.</p>
+      <p style="color: var(--text-secondary); margin-top: 1rem;">Exposure surfaces reveal boundaries of visibility, contestability, and replaceability. They express structure rather than compliance. Each surface maps to a feedback entry point (cybernetics), a monitoring boundary (commons governance), or a replaceability threshold (FOSS).</p>
+    </section>
+
+    <!-- Why This Annex Exists -->
+    <div class="fade-up" style="background: rgba(129,140,248,0.06); border: 1px solid rgba(129,140,248,0.15); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
+          <circle cx="24" cy="24" r="18" stroke="#818cf8" stroke-width="2" fill="none"/>
+          <path d="M24 16V28" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="24" cy="34" r="2" fill="#818cf8"/>
+        </svg>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--indigo); margin: 0; letter-spacing: 0.1em;">WHY THIS ANNEX EXISTS</p>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0; line-height: 1.7;">This annex exists to make corrigibility surfaces explicit. The core DPI framework defines what must be structurally possible for infrastructure to be public. This annex identifies where and how those possibilities surface in real systems. In the FOSS tradition, observability concerns whether execution can be inspected and replaced. Corrigibility extends further: it asks where affected parties can introduce feedback, contestation, and correction across exit, audit, governance, and replacement boundaries. Exposure surfaces do not assert compliance, safety, or legitimacy. They describe structural locations where claims about a system can be independently challenged, or where such challenge is structurally blocked. Where no exposure surface exists, correction is impossible regardless of intent. This annex therefore supports <em>analysis</em>, not certification; <em>diagnosis</em>, not endorsement; and <em>correction</em>, not trust.</p>
+    </div>
+
+    <!-- Canonical Definition -->
+    <div class="fade-up" style="background: rgba(13,216,146,0.08); border: 1px solid rgba(13,216,146,0.25); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
+          <rect x="8" y="8" width="32" height="32" rx="4" stroke="#0dd892" stroke-width="2" fill="none"/>
+          <circle cx="24" cy="24" r="8" stroke="#0dd892" stroke-width="2" fill="none"/>
+          <circle cx="24" cy="24" r="3" fill="#0dd892"/>
+        </svg>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); margin: 0; letter-spacing: 0.1em;">STRUCTURAL DEFINITION</p>
+      </div>
+      <p style="font-size: 1.05rem; color: #fff; margin: 0;"><strong>Exposure surfaces</strong> are structural locations where claims about a system can be independently challenged <em>and acted upon</em> by affected parties.</p>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 1rem;">They describe where correction can enter a system. Each surface corresponds to one or more of these functional properties:</p>
+      <ul style="margin: 1rem 0 0 1.5rem; color: var(--text-secondary); font-size: 0.95rem;">
+        <li><strong style="color: #fff;">Feedback entry</strong> — a point where affected parties can send corrective signals that change system behavior.</li>
+        <li><strong style="color: #fff;">Monitoring boundary</strong> — a place where reciprocal observation enables collective governance.</li>
+        <li><strong style="color: #fff;">Replaceability threshold</strong> — a boundary where alternative implementations can emerge without incumbent permission.</li>
+      </ul>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem; font-style: italic;">These properties map to cybernetics (feedback), commons governance (monitoring), and FOSS (replaceability) respectively.</p>
+    </div>
+
+    <!-- EXIT Surface -->
+    <article class="surface-card fade-up" style="border-left: 3px solid var(--cyan); background: linear-gradient(135deg, rgba(6,182,212,0.06) 0%, transparent 50%);" aria-labelledby="exit-surface">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px;">
+          <circle cx="24" cy="24" r="20" stroke="#06b6d4" stroke-width="2" fill="none"/>
+          <path d="M20 16L28 24L20 32" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="12" y1="24" x2="26" y2="24" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M32 14V34" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        </svg>
+        <span class="test-tag" style="background: rgba(6,182,212,0.15); color: var(--cyan);">EXIT</span>
+      </div>
+      <h3 id="exit-surface" style="margin-top: 0;">Refusal Surface</h3>
+      <p class="key-elements">A public map of alternative, non-digital pathways for each essential service endpoint.</p>
+      <ul class="surface-list">
+        <li>Public statement of non-digital alternatives for each essential service endpoint.</li>
+        <li>Published fallback procedures and access methods (phone lines, physical office locations, alternate identity paths).</li>
+        <li>Disclosure of service mediation pathways and consequences of refusal, with practical guidance on continuity of access.</li>
+      </ul>
+      <p style="font-size: 0.9rem; color: var(--cyan); margin-top: 1rem; font-weight: 500;">Exit surfaces prioritize user continuity: refusal and fallback deliver <em>structurally</em> equivalent service levels while correction proceeds.</p>
+    </article>
+
+    <!-- CODE Surface -->
+    <article class="surface-card fade-up" style="border-left: 3px solid var(--blue); background: linear-gradient(135deg, rgba(59,130,246,0.06) 0%, transparent 50%);" aria-labelledby="code-surface">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px;">
+          <rect x="8" y="10" width="32" height="28" rx="3" stroke="#3b82f6" stroke-width="2" fill="none"/>
+          <path d="M18 20L12 26L18 32" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M30 20L36 26L30 32" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="22" y1="34" x2="26" y2="18" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="test-tag" style="background: rgba(59,130,246,0.15); color: var(--blue);">CODE</span>
+      </div>
+      <h3 id="code-surface" style="margin-top: 0;">Execution Visibility Surface</h3>
+      <p class="key-elements">A structural map of where execution logic becomes observable and reproducible.</p>
+      <ul class="surface-list">
+        <li>Source repository links and OSI-compatible license declarations.</li>
+        <li>Build manifest, deterministic build scripts, and signed reproducible-build checksums; or a link that ties deployed binary to a published reproducible build run.</li>
+        <li>For learned systems: training pipeline summary (data classes, filtering rules, optimization objective), training recipe reference, and provenance pointers for major datasets.</li>
+        <li style="padding-top: 0.75rem; font-size: 0.8rem; color: var(--blue); font-style: italic; list-style: none; margin-left: -1.5rem;">Behavioral Legibility Layer:</li>
+        <li><strong>Behavioral Specification Language (BSL):</strong> machine-readable statement of input classes, expected outputs, acceptable error bounds stratified by relevant groups, confidence intervals, and test distributions.</li>
+        <li><strong>Runtime configuration disclosure:</strong> deployed model/version identifier, versioned prompt templates or runtime policy snippets, guardrail/filter descriptions, and change history.</li>
+      </ul>
+      <p style="font-size: 0.9rem; color: var(--blue); margin-top: 1rem; font-weight: 500;">Code surfaces prioritize legibility and reproducibility so that production behavior links back to inspectable artifacts.</p>
+    </article>
+
+    <!-- AUDIT Surface -->
+    <article class="surface-card fade-up" style="border-left: 3px solid var(--purple); background: linear-gradient(135deg, rgba(168,85,247,0.06) 0%, transparent 50%);" aria-labelledby="audit-surface">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px;">
+          <circle cx="20" cy="20" r="12" stroke="#a855f7" stroke-width="2" fill="none"/>
+          <line x1="29" y1="29" x2="40" y2="40" stroke="#a855f7" stroke-width="3" stroke-linecap="round"/>
+          <path d="M15 20L18 23L25 16" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="test-tag" style="background: rgba(168,85,247,0.15); color: var(--purple);">AUDIT</span>
+      </div>
+      <h3 id="audit-surface" style="margin-top: 0;">Verification Surface</h3>
+      <p class="key-elements">A structural map of independent observation points for system behavior.</p>
+      <ul class="surface-list">
+        <li>Telemetry schema and public dashboard with stratified aggregate metrics (error and rejection rates by group and region).</li>
+        <li>Description of the test harness and sample black-box test cases used for verification.</li>
+        <li>Named independent auditors or contact points for independent testing.</li>
+        <li><strong>Drift and detection telemetry:</strong> documented drift metrics, alert thresholds, and time-stamped summaries of recent drift events and remediation status.</li>
+      </ul>
+      <p style="font-size: 0.9rem; color: var(--purple); margin-top: 1rem; font-weight: 500;">Audit surfaces operate independently of operator discretion, enabling continuous verification and public evaluation.</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Where audit depends on operator-granted access, trust substitutes for structure.</p>
+    </article>
+
+    <!-- GOVERN Surface -->
+    <article class="surface-card fade-up" style="border-left: 3px solid var(--amber); background: linear-gradient(135deg, rgba(245,158,11,0.06) 0%, transparent 50%);" aria-labelledby="govern-surface">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px;">
+          <circle cx="24" cy="14" r="6" stroke="#f59e0b" stroke-width="2" fill="none"/>
+          <circle cx="12" cy="34" r="5" stroke="#f59e0b" stroke-width="2" fill="none"/>
+          <circle cx="24" cy="38" r="5" stroke="#f59e0b" stroke-width="2" fill="none"/>
+          <circle cx="36" cy="34" r="5" stroke="#f59e0b" stroke-width="2" fill="none"/>
+          <line x1="24" y1="20" x2="24" y2="33" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+          <line x1="20" y1="18" x2="14" y2="29" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+          <line x1="28" y1="18" x2="34" y2="29" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+        </svg>
+        <span class="test-tag" style="background: rgba(245,158,11,0.15); color: var(--amber);">GOVERN</span>
+      </div>
+      <h3 id="govern-surface" style="margin-top: 0;">Governance Surface</h3>
+      <p class="key-elements">A structural map of where rules form and change with binding effect.</p>
+      <ul class="surface-list">
+        <li>Public policy-as-code repository or published changelog documenting eligibility and operational rules in machine-readable form.</li>
+        <li>Record of affected-population consultation (RFCs, public comment summaries, minutes) with evidence of how input shaped decisions.</li>
+        <li><strong>Decision authority:</strong> which bodies hold binding decision power, which roles can trigger policy changes, and mechanisms for affected-party representation.</li>
+      </ul>
+      <p style="font-size: 0.9rem; color: var(--amber); margin-top: 1rem; font-weight: 500;">Govern surfaces expose where collective choice arrangements and sanctioning rules are structured.</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Constitutional review presupposes these surfaces. Where they are absent, proportionality analysis cannot function.</p>
+    </article>
+
+    <!-- FORK Surface -->
+    <article class="surface-card fade-up" style="border-left: 3px solid var(--rose); background: linear-gradient(135deg, rgba(244,114,182,0.06) 0%, transparent 50%);" aria-labelledby="fork-surface">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px;">
+          <circle cx="24" cy="40" r="5" stroke="#f472b6" stroke-width="2" fill="none"/>
+          <circle cx="12" cy="12" r="5" stroke="#f472b6" stroke-width="2" fill="none"/>
+          <circle cx="36" cy="12" r="5" stroke="#f472b6" stroke-width="2" fill="none"/>
+          <path d="M24 35V26C24 22 24 20 18 16" stroke="#f472b6" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M24 26C24 22 24 20 30 16" stroke="#f472b6" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span class="test-tag" style="background: rgba(244,114,182,0.15); color: var(--rose);">FORK</span>
+      </div>
+      <h3 id="fork-surface" style="margin-top: 0;">Replacement Surface</h3>
+      <p class="key-elements">A structural map of legal, technical, and economic conditions that permit replacement.</p>
+      <ul class="surface-list">
+        <li>License permitting redistribution and fork.</li>
+        <li>Declaration of runtime dependencies required for operation (proprietary services, vendor SDKs, hardware keys).</li>
+        <li>Statement of practical barriers to forkability and mitigations.</li>
+        <li>For learned components: a <strong>resource-access statement</strong> describing compute, dataset, and knowledge barriers and possible mitigations (public compute grants, dataset mirrors, training recipes).</li>
+      </ul>
+      <p style="font-size: 0.9rem; color: var(--rose); margin-top: 1rem; font-weight: 500;">Fork surfaces express whether replacement is feasible in law, technology, and economics.</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Economic infeasibility is structural infeasibility. Where replacement requires resources only incumbents control, permission is granted in form but withheld in fact.</p>
+    </article>
+
+    <!-- Learned Systems: Correction Pathway -->
+    <div class="fade-up" style="background: rgba(168,85,247,0.08); border: 1px solid rgba(168,85,247,0.25); border-radius: 12px; padding: 1.75rem; margin: 2rem 0;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 28px;">
+          <circle cx="24" cy="24" r="18" stroke="#a855f7" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+          <path d="M16 24C16 20 19 17 24 17C29 17 32 20 32 24" stroke="#a855f7" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M20 28L24 32L28 28" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <line x1="24" y1="24" x2="24" y2="31" stroke="#a855f7" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--purple); margin: 0; letter-spacing: 0.1em;">LEARNED SYSTEMS — CORRECTION PATHWAY</p>
+      </div>
+      <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">Learned systems exercise statistical governance. Corrigibility therefore operates through bounded behavior, continuous observation, and resource-level replaceability. A Correction Pathway for learned systems maps:</p>
+      <ul class="surface-list">
+        <li><strong>Detection triggers:</strong> drift thresholds and detection telemetry with quantitative sensitivity and specificity tradeoffs.</li>
+        <li><strong>Fallback delivery:</strong> mechanisms by which affected users receive continuing service while correction is implemented.</li>
+        <li><strong>Remediation window:</strong> maximum timeframes for restoration, with confidence bounds on recovery expectations.</li>
+        <li><strong>Escrow triggers:</strong> artifacts and disclosures that become accessible if remediation exceeds the remediation window (for example, model snapshots, training recipe logs, or external audit activation).</li>
+      </ul>
+      <p style="font-size: 0.9rem; color: var(--purple); margin-top: 1rem; font-weight: 500;">Correction pathways align operational change with temporal safeguards and public observability.</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;"><strong>Service continuity invariant:</strong> correction must not require service interruption for affected users. Fallback delivery must be structurally guaranteed.</p>
+    </div>
+
+    <!-- Trust Dependencies -->
+    <div class="fade-up" style="background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2); border-radius: 12px; padding: 1.5rem 2rem; margin: 2rem 0;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 28px;">
+          <path d="M24 8L42 40H6L24 8Z" stroke="#ef4444" stroke-width="2" fill="none" stroke-linejoin="round"/>
+          <line x1="24" y1="18" x2="24" y2="28" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="24" cy="34" r="2" fill="#ef4444"/>
+        </svg>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--danger); margin: 0; letter-spacing: 0.1em;">TRUST DEPENDENCIES</p>
+      </div>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem;">Where system behavior depends on operator discretion, these dependencies appear explicitly and structurally:</p>
+      <ul class="surface-list" style="--marker-color: var(--danger);">
+        <li>Permission-based audit access and the scope of required permissions.</li>
+        <li>Sampled or aggregated metrics and sampling methodology.</li>
+        <li>Contractual testing limits and terms that shape third-party testing.</li>
+        <li>Proprietary dependencies and single-vendor chokepoints.</li>
+        <li>Resource concentration: compute, curated datasets, and specialist knowledge.</li>
+      </ul>
+      <p style="font-size: 0.9rem; color: var(--danger); margin-top: 1rem; font-weight: 500;">Trust dependency fields identify where correction routes through human trust rather than structural guarantees.</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Trust is not corrigibility. Where trust is required, correction is contingent on continued goodwill.</p>
+    </div>
+
+    <!-- Structural Notes -->
+    <div class="notes-box fade-up">
+      <h4>Structural Notes</h4>
+      <ul>
+        <li>Each surface points to a reproducible artifact, a public interface, a measurable boundary, or an explicit opacity marker.</li>
+        <li>Omitted surfaces function as explicit exposure choices and signal where independent challenge requires additional effort.</li>
+        <li>Partial openness produces partial exposure; corrigibility operates at the narrowest exposed layer.</li>
+        <li>The framework defines structural preconditions for corrigibility and provides vocabulary for analysis. It supplies the topology that enables independent challenge and public contestation.</li>
+      </ul>
+    </div>
+
+    <!-- Machine-Readable Manifest Section -->
+    <div class="manifest-section fade-up">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
+          <rect x="6" y="8" width="36" height="32" rx="3" stroke="#818cf8" stroke-width="2" fill="none"/>
+          <line x1="14" y1="16" x2="34" y2="16" stroke="#818cf8" stroke-width="2" stroke-linecap="round"/>
+          <line x1="14" y1="24" x2="28" y2="24" stroke="#818cf8" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+          <line x1="14" y1="32" x2="24" y2="32" stroke="#818cf8" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        </svg>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--indigo); margin: 0; letter-spacing: 0.1em;">TWO-MANIFEST ARCHITECTURE</p>
+      </div>
+
+      <!-- Framework Agnosticism Note -->
+      <div style="background: rgba(129,140,248,0.08); border: 1px solid rgba(129,140,248,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">The corrigibility framework does not prescribe instruments. It evaluates structure. Two complementary schemas separate operator facts from auditor judgments. <strong style="color: var(--indigo);">Operators cannot grade their own homework.</strong></p>
+      </div>
+
+      <!-- Two Schema Cards -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+        <div style="background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2); border-radius: 12px; padding: 1.25rem;">
+          <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--blue); margin: 0 0 0.5rem; letter-spacing: 0.1em;">INFRASTRUCTURE.JSON</p>
+          <p style="color: #fff; font-weight: 500; margin-bottom: 0.5rem;">Operator Manifest</p>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Published by system operators. Declares operational facts: dependencies, access channels, governance model. Does not assert compliance.</p>
+          <p style="color: var(--blue); font-size: 0.8rem; margin-top: 0.75rem; font-style: italic;">Analogy: package.json</p>
+        </div>
+        <div style="background: rgba(168,85,247,0.06); border: 1px solid rgba(168,85,247,0.2); border-radius: 12px; padding: 1.25rem;">
+          <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--purple); margin: 0 0 0.5rem; letter-spacing: 0.1em;">CORRIGIBILITY.JSON</p>
+          <p style="color: #fff; font-weight: 500; margin-bottom: 0.5rem;">Auditor Assessment</p>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Authored by auditors, not operators. Evaluates structural correction capacity against the five tests. Contains pass/fail judgments with evidence.</p>
+          <p style="color: var(--purple); font-size: 0.8rem; margin-top: 0.75rem; font-style: italic;">Analogy: security audit report</p>
+        </div>
+      </div>
+
+      <!-- What These Manifests Are -->
+      <div style="background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0 0 0.75rem;"><strong style="color: var(--danger);">These schemas are NOT:</strong></p>
+        <ul style="margin: 0 0 1rem 1.25rem; font-size: 0.85rem; color: var(--text-muted);">
+          <li>Compliance attestations or self-certifications</li>
+          <li>Safety declarations</li>
+          <li>The only way to expose corrigibility surfaces</li>
+        </ul>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;"><strong style="color: var(--accent);">They are:</strong> One possible disclosure format. The framework is upstream of these tools.</p>
+      </div>
+
+      <h4 style="color: #fff; font-size: 1rem; margin: 0 0 0.75rem;">Infrastructure Manifest (v1.1)</h4>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Location: <code style="background: rgba(255,255,255,0.1); padding: 0.1rem 0.3rem; border-radius: 3px;">/.well-known/infrastructure.json</code></p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Machine-readability enables automated discovery. Boolean fields force confession. Named dependencies enable scrutiny.</p>
+
+      <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+        <a href="/dpi/schema/infrastructure.json" download style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3); border-radius: 6px; padding: 0.5rem 1rem; font-size: 0.8rem; color: var(--blue); text-decoration: none; transition: all 0.2s ease;">
+          <svg viewBox="0 0 24 24" style="width: 16px; height: 16px;" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          infrastructure.json
+        </a>
+        <a href="/dpi/schema/corrigibility.json" download style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3); border-radius: 6px; padding: 0.5rem 1rem; font-size: 0.8rem; color: var(--purple); text-decoration: none; transition: all 0.2s ease;">
+          <svg viewBox="0 0 24 24" style="width: 16px; height: 16px;" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          corrigibility.json
+        </a>
+        <a href="/dpi/schema/examples/aadhaar.json" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); border-radius: 6px; padding: 0.5rem 1rem; font-size: 0.8rem; color: var(--danger); text-decoration: none; transition: all 0.2s ease;">
+          <svg viewBox="0 0 24 24" style="width: 16px; height: 16px;" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+          </svg>
+          Aadhaar Example
+        </a>
+      </div>
+
+      <div class="manifest-json" id="manifest-json">
+        <pre>{
+  "$schema": "https://indiastack.in/dpi/schema/infrastructure.json",
+  "meta": {
+    "system_id": "urn:example:system",
+    "version": "1.0",
+    "deployment": "production",
+    "lifecycle": "active",
+    "license": "MIT",
+    "maintainer": "admin@example.org"
+  },
+
+  "dependencies": {
+    "repository": "https://github.com/example/system",
+    "docs": "https://docs.example.org/",
+    "closed_components": []
+  },
+
+  "access": {
+    "endpoint": "https://api.example.org/",
+    "offline_channel": "https://example.org/offices/",
+    "offline_equivalent": true,
+    "data_export": "https://example.org/export/"
+  },
+
+  "reliability": {
+    "status_page": "https://status.example.org/",
+    "dispute_slo": "7d",
+    "fix_slo": "30d",
+    "escalation": "https://ombudsman.example.org/"
+  },
+
+  "governance": {
+    "model": "foundation",
+    "issues": "https://github.com/example/system/issues",
+    "rfc": "https://github.com/example/rfcs"
+  },
+
+  "learned_components": {
+    "model_card": "https://example.org/model-card/",
+    "training_docs": "https://example.org/training/",
+    "role": "advisory",
+    "when_uncertain": "escalates"
+  }
+}</pre>
+      </div>
+    </div>
+
+    <!-- JSON Schema Reference -->
+    <div class="schema-section fade-up">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
+          <rect x="8" y="6" width="32" height="36" rx="3" stroke="#06b6d4" stroke-width="2" fill="none"/>
+          <path d="M16 16h16M16 24h12M16 32h8" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+          <circle cx="34" cy="34" r="8" stroke="#06b6d4" stroke-width="2" fill="rgba(0,0,0,0.8)"/>
+          <path d="M32 32l4 4" stroke="#06b6d4" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan); margin: 0; letter-spacing: 0.1em;">SCHEMA STRUCTURE</p>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Both schemas use JSON Schema Draft 2020-12. Validate against: <a href="/dpi/schema/infrastructure.json" style="color: var(--blue);">infrastructure.json</a> and <a href="/dpi/schema/corrigibility.json" style="color: var(--purple);">corrigibility.json</a></p>
+
+      <button class="schema-toggle" onclick="toggleSchema(this)">
+        <span>View Schema Structure</span>
+        <span class="arrow">▶</span>
+      </button>
+
+      <div class="schema-content" id="schema-content">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div style="background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); border-radius: 8px; padding: 1rem;">
+            <p style="font-size: 0.75rem; color: var(--blue); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">INFRASTRUCTURE.JSON</p>
+            <ul style="margin: 0; padding-left: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
+              <li><span class="json-key">meta</span> <span style="color: var(--text-muted);">— system_id, lifecycle, license</span></li>
+              <li><span class="json-key">dependencies</span> <span style="color: var(--text-muted);">— repository, closed_components[]</span></li>
+              <li><span class="json-key">access</span> <span style="color: var(--text-muted);">— offline_equivalent, data_export</span></li>
+              <li><span class="json-key">reliability</span> <span style="color: var(--text-muted);">— dispute_slo, fix_slo, escalation</span></li>
+              <li><span class="json-key">governance</span> <span style="color: var(--text-muted);">— model, issues, rfc</span></li>
+              <li><span class="json-key">learned_components</span> <span style="color: var(--text-muted);">— role, when_uncertain</span></li>
+            </ul>
+          </div>
+          <div style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); border-radius: 8px; padding: 1rem;">
+            <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">CORRIGIBILITY.JSON</p>
+            <ul style="margin: 0; padding-left: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
+              <li><span class="json-key">target</span> <span style="color: var(--text-muted);">— matches infrastructure system_id</span></li>
+              <li><span class="json-key">assessed_by</span> <span style="color: var(--text-muted);">— auditor organization</span></li>
+              <li><span class="json-key">tests</span> <span style="color: var(--text-muted);">— exit, code, audit, govern, fork</span></li>
+              <li><span class="json-key">verdict</span> <span style="color: var(--text-muted);">— corrigible, tests_passed, summary</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+          <p style="font-size: 0.75rem; color: var(--accent); font-family: var(--font-mono); margin: 0 0 0.75rem; letter-spacing: 0.05em;">FIVE TESTS IN CORRIGIBILITY ASSESSMENT</p>
+          <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; text-align: center;">
+            <div style="background: rgba(6,182,212,0.15); border-radius: 4px; padding: 0.5rem;">
+              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--cyan); font-weight: 600;">EXIT</span>
+              <p style="font-size: 0.65rem; color: var(--text-muted); margin: 0.25rem 0 0;">penalty_ratio</p>
+            </div>
+            <div style="background: rgba(59,130,246,0.15); border-radius: 4px; padding: 0.5rem;">
+              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--blue); font-weight: 600;">CODE</span>
+              <p style="font-size: 0.65rem; color: var(--text-muted); margin: 0.25rem 0 0;">visibility</p>
+            </div>
+            <div style="background: rgba(168,85,247,0.15); border-radius: 4px; padding: 0.5rem;">
+              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--purple); font-weight: 600;">AUDIT</span>
+              <p style="font-size: 0.65rem; color: var(--text-muted); margin: 0.25rem 0 0;">access</p>
+            </div>
+            <div style="background: rgba(245,158,11,0.15); border-radius: 4px; padding: 0.5rem;">
+              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--amber); font-weight: 600;">GOVERN</span>
+              <p style="font-size: 0.65rem; color: var(--text-muted); margin: 0.25rem 0 0;">user_power</p>
+            </div>
+            <div style="background: rgba(244,114,182,0.15); border-radius: 4px; padding: 0.5rem;">
+              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--rose); font-weight: 600;">FORK</span>
+              <p style="font-size: 0.65rem; color: var(--text-muted); margin: 0.25rem 0 0;">barriers[]</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+          <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 1rem;">
+            <p style="font-size: 0.75rem; color: var(--amber); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">INFRASTRUCTURE ENUMS</p>
+            <div style="font-size: 0.75rem; color: var(--text-secondary);">
+              <p style="margin: 0 0 0.25rem;"><span class="json-key">deployment</span>: <span class="json-string">"production"</span> | <span class="json-string">"staging"</span> | <span class="json-string">"pilot"</span> | <span class="json-string">"demo"</span></p>
+              <p style="margin: 0 0 0.25rem;"><span class="json-key">lifecycle</span>: <span class="json-string">"active"</span> | <span class="json-string">"deprecated"</span> | <span class="json-string">"sunset"</span> | <span class="json-string">"archived"</span></p>
+              <p style="margin: 0 0 0.25rem;"><span class="json-key">governance.model</span>: <span class="json-string">"community"</span> | <span class="json-string">"foundation"</span> | <span class="json-string">"corporate"</span> | <span class="json-string">"government"</span> | <span class="json-string">"closed"</span></p>
+              <p style="margin: 0;"><span class="json-key">learned.role</span>: <span class="json-string">"advisory"</span> | <span class="json-string">"decision"</span> | <span class="json-string">"enforcement"</span></p>
+            </div>
+          </div>
+          <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 1rem;">
+            <p style="font-size: 0.75rem; color: var(--rose); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">CORRIGIBILITY ENUMS</p>
+            <div style="font-size: 0.75rem; color: var(--text-secondary);">
+              <p style="margin: 0 0 0.25rem;"><span class="json-key">code.visibility</span>: <span class="json-string">"full"</span> | <span class="json-string">"partial"</span> | <span class="json-string">"api_only"</span> | <span class="json-string">"none"</span></p>
+              <p style="margin: 0 0 0.25rem;"><span class="json-key">audit.access</span>: <span class="json-string">"open"</span> | <span class="json-string">"permissioned"</span> | <span class="json-string">"forbidden"</span></p>
+              <p style="margin: 0 0 0.25rem;"><span class="json-key">govern.user_power</span>: <span class="json-string">"binding"</span> | <span class="json-string">"veto"</span> | <span class="json-string">"advisory"</span> | <span class="json-string">"none"</span></p>
+              <p style="margin: 0;"><span class="json-key">fork.barriers</span>: <span class="json-string">"legal"</span> | <span class="json-string">"technical"</span> | <span class="json-string">"economic"</span> | <span class="json-string">"regulatory"</span> | <span class="json-string">"data"</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); border-radius: 8px; padding: 1rem;">
+          <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">AI SYSTEM EXTENSIONS — INFRASTRUCTURE.JSON</p>
+          <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0 0 0.75rem; font-style: italic;">Required if system uses ML/AI components</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.75rem; color: var(--text-secondary);">
+            <div>
+              <p style="margin: 0 0 0.25rem; color: var(--purple); font-weight: 500;">learned_components.role</p>
+              <p style="margin: 0;"><span class="json-string">"advisory"</span> / <span class="json-string">"decision"</span> / <span class="json-string">"enforcement"</span></p>
+            </div>
+            <div>
+              <p style="margin: 0 0 0.25rem; color: var(--purple); font-weight: 500;">learned_components.when_uncertain</p>
+              <p style="margin: 0;"><span class="json-string">"escalates"</span> / <span class="json-string">"fails_open"</span> / <span class="json-string">"fails_closed"</span> / <span class="json-string">"silent"</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Practical Guidance -->
+    <div class="guidance-section fade-up">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px;">
+          <circle cx="24" cy="24" r="18" stroke="#0dd892" stroke-width="2" fill="none"/>
+          <path d="M24 14V26" stroke="#0dd892" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M24 26L30 20" stroke="#0dd892" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+          <circle cx="24" cy="32" r="2" fill="#0dd892"/>
+        </svg>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); margin: 0; letter-spacing: 0.1em;">PRACTICAL GUIDANCE</p>
+      </div>
+      <p style="color: var(--text-secondary); margin-bottom: 0.5rem;"><strong style="color: #fff;">Primary purpose:</strong> Map where independent actors can observe, test, and challenge system behavior. Supply machine-readable pointers to the artifacts that enable independent scrutiny.</p>
+
+      <div class="guidance-grid">
+        <div class="guidance-box">
+          <h5>Who uses it</h5>
+          <ul>
+            <li>Civil society and journalists for triage</li>
+            <li>Researchers for automated discovery</li>
+            <li>Auditors preparing test harnesses</li>
+            <li>Policy drafters writing procurement clauses</li>
+            <li>Automated agents indexing exposure surfaces</li>
+          </ul>
+        </div>
+        <div class="guidance-box">
+          <h5>Intended uses</h5>
+          <ul>
+            <li>Generate human review tasks</li>
+            <li>Produce prioritized verification checklists</li>
+            <li>Feed discovery services</li>
+            <li>Identify missing surfaces quickly</li>
+          </ul>
+        </div>
+        <div class="guidance-box">
+          <h5>Out-of-scope uses</h5>
+          <ul>
+            <li>Automated certification or enforcement decisions</li>
+            <li>Single-field pass/fail judgments</li>
+            <li>Claims that manifest alone establishes corrigibility</li>
+          </ul>
+        </div>
+        <div class="guidance-box">
+          <h5>Operational workflow</h5>
+          <ul>
+            <li><strong>Publish:</strong> Operator publishes manifest at stable URL</li>
+            <li><strong>Index:</strong> Agents parse manifest structure</li>
+            <li><strong>Triage:</strong> Agents compute asymmetry metrics</li>
+            <li><strong>Test:</strong> Humans verify linked artifacts</li>
+            <li><strong>Update:</strong> Operators update change_log</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Summary -->
+    <div class="fade-up" style="background: rgba(13,216,146,0.08); border: 1px solid rgba(13,216,146,0.25); border-radius: 12px; padding: 1.25rem 1.5rem; margin: 2rem 0; text-align: center;">
+      <p style="font-size: 1rem; color: var(--accent); margin: 0; font-weight: 500;">Corrigibility becomes observable where exposure maps supply clear interfaces for challenge, correction, and replacement.</p>
+    </div>
+
+    <!-- Related Pages -->
+    <section class="fade-up" style="margin: 3rem 0 2rem;">
+      <h2 class="section-title">Related</h2>
+      <div class="related-grid">
+        <a href="/dpi/analysis/" class="related-card" style="border-top: 3px solid var(--indigo); background: linear-gradient(135deg, rgba(129,140,248,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--indigo);">ANALYSIS</span>
+          <h4>Why Corrigibility</h4>
+          <p>Structural necessity</p>
+        </a>
+        <a href="/dpi/build/" class="related-card" style="border-top: 3px solid var(--blue); background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--blue);">TECHNICAL</span>
+          <h4>How to Build</h4>
+          <p>Architecture primitives</p>
+        </a>
+        <a href="/dpi/require/" class="related-card" style="border-top: 3px solid var(--amber); background: linear-gradient(135deg, rgba(245,158,11,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--amber);">LEGAL</span>
+          <h4>How to Require</h4>
+          <p>Procurement language</p>
+        </a>
+      </div>
+      <div class="related-grid" style="margin-top: 1rem;">
+        <a href="/dpi/learned-systems/" class="related-card" style="border-top: 3px solid var(--purple); background: linear-gradient(135deg, rgba(168,85,247,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--purple);">ANNEX</span>
+          <h4>Learned Systems</h4>
+          <p>Stochastic governance</p>
+        </a>
+        <a href="/dpi/definitions/" class="related-card" style="border-top: 3px solid var(--cyan); background: linear-gradient(135deg, rgba(6,182,212,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--cyan);">INTERNATIONAL</span>
+          <h4>Definitions</h4>
+          <p>G20, UNDP, World Bank</p>
+        </a>
+        <a href="/dpi/" class="related-card" style="border-top: 3px solid var(--accent); background: linear-gradient(135deg, rgba(13,216,146,0.08) 0%, transparent 40%);">
+          <span class="eyebrow" style="color: var(--accent);">FRAMEWORK</span>
+          <h4>DPI Framework</h4>
+          <p>Five tests overview</p>
+        </a>
+      </div>
+    </section>
+
+    <a href="/dpi/" class="back-link fade-up" style="display: inline-block; margin-top: 1rem;">← Back to DPI Framework</a>
+
+    <p class="fade-up" style="margin-top: 3rem; font-size: 0.85rem; color: var(--text-muted);">Authored by <a href="https://anivar.net" target="_blank" rel="noopener">Anivar Aravind</a></p>
+
+  </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/js/components.js"></script>
+  <script>
+  // Fade-up animation observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Schema toggle function
+  function toggleSchema(btn) {
+    btn.classList.toggle('open');
+    const content = document.getElementById('schema-content');
+    content.classList.toggle('open');
+  }
+
+  // JSON syntax highlighting
+  function highlightJSON(json) {
+    return json
+      .replace(/("(?:\\.|[^"\\])*")\s*:/g, '<span class="json-key">$1</span>:')
+      .replace(/:\s*("(?:\\.|[^"\\])*")/g, ': <span class="json-string">$1</span>')
+      .replace(/:\s*(\d+\.?\d*)/g, ': <span class="json-number">$1</span>')
+      .replace(/:\s*(true|false)/g, ': <span class="json-boolean">$1</span>')
+      .replace(/:\s*(null)/g, ': <span class="json-null">$1</span>')
+      .replace(/([{}\[\]])/g, '<span class="json-bracket">$1</span>');
+  }
+
+  // Apply highlighting to manifest
+  document.addEventListener('DOMContentLoaded', function() {
+    const manifestEl = document.querySelector('#manifest-json pre');
+    if (manifestEl) {
+      manifestEl.innerHTML = highlightJSON(manifestEl.textContent);
+    }
+  });
+  </script>
+</body>
+</html>

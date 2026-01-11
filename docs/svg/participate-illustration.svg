@@ -1,0 +1,16 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Gate/Barrier -->
+        <rect x="50" y="100" width="20" height="200" fill="#ff4757" opacity="0.5"/>
+        <rect x="330" y="100" width="20" height="200" fill="#ff4757" opacity="0.5"/>
+        <!-- Barrier bars -->
+        <line x1="70" y1="150" x2="330" y2="150" stroke="#ff4757" stroke-width="4" opacity="0.6"/>
+        <line x1="70" y1="200" x2="330" y2="200" stroke="#ff4757" stroke-width="4" opacity="0.6"/>
+        <line x1="70" y1="250" x2="330" y2="250" stroke="#ff4757" stroke-width="4" opacity="0.6"/>
+        <!-- People icons outside -->
+        <circle cx="200" cy="320" r="15" stroke="#00f5a0" stroke-width="2" fill="none" opacity="0.6"/>
+        <line x1="200" y1="335" x2="200" y2="370" stroke="#00f5a0" stroke-width="2" opacity="0.6"/>
+        <circle cx="150" cy="340" r="10" stroke="#00f5a0" stroke-width="1.5" fill="none" opacity="0.4"/>
+        <circle cx="250" cy="340" r="10" stroke="#00f5a0" stroke-width="1.5" fill="none" opacity="0.4"/>
+        <!-- Crown/blessing above gate -->
+        <polygon points="200,60 180,90 190,90 190,100 210,100 210,90 220,90" fill="#a855f7" opacity="0.4"/>
+    </svg>

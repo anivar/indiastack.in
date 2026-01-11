@@ -1,0 +1,16 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Door frame -->
+        <rect x="120" y="80" width="160" height="240" stroke="#00f5a0" stroke-width="3" fill="none" opacity="0.4"/>
+        <!-- Door -->
+        <rect x="130" y="90" width="140" height="220" stroke="#ff4757" stroke-width="2" fill="rgba(255,71,87,0.1)" opacity="0.5"/>
+        <!-- Lock -->
+        <circle cx="250" cy="200" r="15" stroke="#ff4757" stroke-width="3" fill="none" opacity="0.7"/>
+        <rect x="243" y="185" width="14" height="20" stroke="#ff4757" stroke-width="2" fill="none" opacity="0.6"/>
+        <!-- Chains -->
+        <ellipse cx="200" cy="150" rx="30" ry="10" stroke="#ff4757" stroke-width="2" fill="none" opacity="0.5"/>
+        <ellipse cx="200" cy="170" rx="30" ry="10" stroke="#ff4757" stroke-width="2" fill="none" opacity="0.5"/>
+        <ellipse cx="200" cy="250" rx="30" ry="10" stroke="#ff4757" stroke-width="2" fill="none" opacity="0.5"/>
+        <!-- Arrow trying to exit -->
+        <line x1="50" y1="200" x2="100" y2="200" stroke="#00f5a0" stroke-width="3" opacity="0.6"/>
+        <polygon points="100,190 120,200 100,210" fill="#00f5a0" opacity="0.6"/>
+    </svg>

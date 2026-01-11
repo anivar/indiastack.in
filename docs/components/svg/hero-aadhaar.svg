@@ -1,0 +1,77 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Aadhaar: Biometric surveillance, RTI-exempt, data breaches -->
+
+    <!-- Outer radiating sun rays (UIDAI logo style) -->
+    <g stroke="#ef4444" stroke-width="2" opacity="0.4">
+        <line x1="200" y1="20" x2="200" y2="60"/>
+        <line x1="200" y1="340" x2="200" y2="380"/>
+        <line x1="20" y1="200" x2="60" y2="200"/>
+        <line x1="340" y1="200" x2="380" y2="200"/>
+        <line x1="72" y1="72" x2="100" y2="100"/>
+        <line x1="300" y1="300" x2="328" y2="328"/>
+        <line x1="328" y1="72" x2="300" y2="100"/>
+        <line x1="100" y1="300" x2="72" y2="328"/>
+        <line x1="120" y1="40" x2="135" y2="75"/>
+        <line x1="265" y1="325" x2="280" y2="360"/>
+        <line x1="280" y1="40" x2="265" y2="75"/>
+        <line x1="135" y1="325" x2="120" y2="360"/>
+        <line x1="40" y1="120" x2="75" y2="135"/>
+        <line x1="325" y1="265" x2="360" y2="280"/>
+        <line x1="40" y1="280" x2="75" y2="265"/>
+        <line x1="325" y1="135" x2="360" y2="120"/>
+    </g>
+
+    <!-- Central surveillance eye -->
+    <ellipse cx="200" cy="200" rx="90" ry="50" stroke="#ef4444" stroke-width="3" fill="none"/>
+    <circle cx="200" cy="200" r="30" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="200" cy="200" r="12" fill="#ef4444"/>
+
+    <!-- Fingerprint arcs around eye -->
+    <path d="M120 200 Q120 140 200 140 Q280 140 280 200" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2"/>
+    <path d="M130 200 Q130 150 200 150 Q270 150 270 200" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+    <path d="M140 200 Q140 160 200 160 Q260 160 260 200" fill="none" stroke="rgba(239,68,68,0.3)" stroke-width="1.5"/>
+    <path d="M120 200 Q120 260 200 260 Q280 260 280 200" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="2"/>
+    <path d="M130 200 Q130 250 200 250 Q270 250 270 200" fill="none" stroke="rgba(239,68,68,0.35)" stroke-width="1.5"/>
+    <path d="M140 200 Q140 240 200 240 Q260 240 260 200" fill="none" stroke="rgba(239,68,68,0.3)" stroke-width="1.5"/>
+
+    <!-- Concentric surveillance rings -->
+    <circle cx="200" cy="200" r="120" stroke="#ef4444" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="4 4"/>
+    <circle cx="200" cy="200" r="150" stroke="#ef4444" stroke-width="1" fill="none" opacity="0.2" stroke-dasharray="6 6"/>
+
+    <!-- Statistics badges -->
+    <g transform="translate(50, 80)">
+        <rect x="-35" y="-12" width="70" height="24" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">6-12%</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.4)">BIO FAIL</text>
+    </g>
+
+    <g transform="translate(350, 80)">
+        <rect x="-35" y="-12" width="70" height="24" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">210+</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.4)">BREACHES</text>
+    </g>
+
+    <g transform="translate(50, 320)">
+        <rect x="-35" y="-12" width="70" height="24" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">1.4B</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.4)">ENROLLED</text>
+    </g>
+
+    <g transform="translate(350, 320)">
+        <rect x="-35" y="-12" width="70" height="24" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="8" fill="#ef4444">0 LINES</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.4)">CODE</text>
+    </g>
+
+    <!-- Labels on curved paths -->
+    <defs>
+        <path id="topArc" d="M70 200 A130 130 0 0 1 330 200"/>
+        <path id="bottomArc" d="M330 200 A130 130 0 0 1 70 200"/>
+    </defs>
+    <text fill="#ef4444" font-family="monospace" font-size="11" opacity="0.6">
+        <textPath href="#topArc" startOffset="25%">RTI EXEMPT</textPath>
+    </text>
+    <text fill="#ef4444" font-family="monospace" font-size="11" opacity="0.6">
+        <textPath href="#bottomArc" startOffset="20%">CLOSED SOURCE</textPath>
+    </text>
+</svg>

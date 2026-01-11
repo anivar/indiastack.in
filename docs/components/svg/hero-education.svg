@@ -1,0 +1,71 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Education Stack: DIKSHA breach, APAAR lifelong registry, children surveillance -->
+
+    <!-- Graduation cap -->
+    <polygon points="200,50 280,90 200,130 120,90" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="2"/>
+    <rect x="195" y="35" width="10" height="15" fill="#ef4444" opacity="0.6"/>
+    <line x1="280" y1="90" x2="280" y2="115" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="280" cy="120" r="6" fill="#ef4444" opacity="0.5"/>
+
+    <!-- Child silhouette (simplified) -->
+    <circle cx="200" cy="180" r="35" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+    <path d="M165 230 Q200 260 235 230 L250 320 L150 320 Z" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+
+    <!-- Data collection arrows pointing AT the child -->
+    <g fill="none" stroke="#ef4444" stroke-width="2" opacity="0.7">
+        <!-- Arrow from left top -->
+        <line x1="60" y1="140" x2="140" y2="170"/>
+        <polygon points="140,170 128,163 130,175" fill="#ef4444" opacity="0.7"/>
+        <!-- Arrow from right top -->
+        <line x1="340" y1="140" x2="260" y2="170"/>
+        <polygon points="260,170 272,163 270,175" fill="#ef4444" opacity="0.7"/>
+        <!-- Arrow from left bottom -->
+        <line x1="60" y1="260" x2="140" y2="240"/>
+        <polygon points="140,240 128,235 130,247" fill="#ef4444" opacity="0.7"/>
+        <!-- Arrow from right bottom -->
+        <line x1="340" y1="260" x2="260" y2="240"/>
+        <polygon points="260,240 272,235 270,247" fill="#ef4444" opacity="0.7"/>
+    </g>
+
+    <!-- Data collection nodes -->
+    <g transform="translate(50, 135)">
+        <circle cx="0" cy="0" r="18" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="7" fill="#ef4444">DIKSHA</text>
+    </g>
+    <g transform="translate(350, 135)">
+        <circle cx="0" cy="0" r="18" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="7" fill="#ef4444">APAAR</text>
+    </g>
+    <g transform="translate(50, 265)">
+        <circle cx="0" cy="0" r="18" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">A+</text>
+    </g>
+    <g transform="translate(350, 265)">
+        <circle cx="0" cy="0" r="18" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="7" fill="#ef4444">GPS</text>
+    </g>
+
+    <!-- Age marker inside child -->
+    <text x="200" y="185" text-anchor="middle" font-family="monospace" font-size="12" fill="rgba(255,255,255,0.5)">AGE 6</text>
+
+    <!-- Lifetime registry visualization -->
+    <path d="M200 320 L200 345" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+    <rect x="120" y="345" width="160" height="30" rx="4" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="200" y="364" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">LIFELONG REGISTRY</text>
+
+    <!-- Statistics -->
+    <g transform="translate(100, 70)">
+        <rect x="-40" y="-12" width="80" height="24" rx="4" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="9" fill="#ef4444">600K</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.4)">EXPOSED</text>
+    </g>
+
+    <g transform="translate(300, 70)">
+        <rect x="-40" y="-12" width="80" height="24" rx="4" fill="rgba(251,191,36,0.15)" stroke="#f59e0b" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="7" fill="#f59e0b">NO LAW</text>
+        <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.4)">BACKING</text>
+    </g>
+
+    <!-- Warning label -->
+    <text x="200" y="395" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.4)">CHILDREN AS DATA SUBJECTS</text>
+</svg>
