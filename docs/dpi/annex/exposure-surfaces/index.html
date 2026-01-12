@@ -31,7 +31,7 @@
     "description": "Structural locations where claims about Digital Public Infrastructure can be independently challenged by affected parties. Illustrative machine-readable manifest format.",
     "url": "https://indiastack.in/dpi/annex/exposure-surfaces/",
     "datePublished": "2026-01-11",
-    "dateModified": "2026-01-11",
+    "dateModified": "2026-01-12",
     "author": {"@type": "Person", "name": "Anivar Aravind", "url": "https://anivar.net"},
     "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
@@ -530,9 +530,9 @@
         <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;"><strong style="color: var(--accent);">They are:</strong> One possible disclosure format. The framework is upstream of these tools.</p>
       </div>
 
-      <h4 style="color: #fff; font-size: 1rem; margin: 0 0 0.75rem;">Infrastructure Manifest (v1.1)</h4>
+      <h4 style="color: #fff; font-size: 1rem; margin: 0 0 0.75rem;">Infrastructure Manifest (v1.4)</h4>
       <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Location: <code style="background: rgba(255,255,255,0.1); padding: 0.1rem 0.3rem; border-radius: 3px;">/.well-known/infrastructure.json</code></p>
-      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Machine-readability enables automated discovery. Boolean fields force confession. Named dependencies enable scrutiny.</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Machine-readability enables automated discovery. Boolean fields force confession. Named arrays force topology mapping. Each section is an evidence surface for the five tests.</p>
 
       <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
         <a href="/dpi/schema/infrastructure.json" download style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3); border-radius: 6px; padding: 0.5rem 1rem; font-size: 0.8rem; color: var(--blue); text-decoration: none; transition: all 0.2s ease;">
@@ -552,46 +552,59 @@
       <div class="manifest-json" id="manifest-json">
         <pre>{
   "$schema": "https://indiastack.in/dpi/schema/infrastructure.json",
+
   "meta": {
     "system_id": "urn:example:system",
-    "version": "1.0",
     "deployment": "production",
     "lifecycle": "active",
-    "license": "MIT",
-    "maintainer": "admin@example.org"
+    "license_spdx": "MIT"
   },
 
-  "dependencies": {
-    "repository": "https://github.com/example/system",
-    "docs": "https://docs.example.org/",
-    "closed_components": []
-  },
-
-  "access": {
-    "endpoint": "https://api.example.org/",
-    "offline_channel": "https://example.org/offices/",
-    "offline_equivalent": true,
-    "data_export": "https://example.org/export/"
-  },
-
-  "reliability": {
+  "operations": {
     "status_page": "https://status.example.org/",
-    "dispute_slo": "7d",
-    "fix_slo": "30d",
-    "escalation": "https://ombudsman.example.org/"
+    "slos": {
+      "uptime_target": "99.9%",
+      "dispute_resolution": "72h"
+    }
   },
 
   "governance": {
     "model": "foundation",
-    "issues": "https://github.com/example/system/issues",
-    "rfc": "https://github.com/example/rfcs"
+    "escalation_paths": [
+      { "level": "Support Portal", "url": "https://support.example.org/", "binding": false },
+      { "level": "Ombudsman", "url": "https://ombudsman.example.org/", "binding": true }
+    ],
+    "public_participation": {
+      "rfc": ["https://github.com/example/rfcs"],
+      "issues": ["https://github.com/example/system/issues"]
+    }
   },
 
-  "learned_components": {
-    "model_card": "https://example.org/model-card/",
-    "training_docs": "https://example.org/training/",
-    "role": "advisory",
-    "when_uncertain": "escalates"
+  "components": {
+    "repositories": [
+      { "name": "Core Server", "url": "https://github.com/example/core", "role": "core" },
+      { "name": "Mobile SDK", "url": "https://github.com/example/sdk", "role": "sdk" }
+    ],
+    "closed_components": []
+  },
+
+  "learned_components": [
+    {
+      "name": "Fraud Detection Model",
+      "role": "advisory",
+      "when_uncertain": "escalates",
+      "model_cards": ["https://example.org/model-card/"],
+      "training_docs": ["https://example.org/training/"]
+    }
+  ],
+
+  "access": {
+    "endpoints": ["https://api.example.org/", "https://app.example.org/"],
+    "offline_channels": [
+      { "type": "Service Center", "url": "https://example.org/locations/" }
+    ],
+    "offline_equivalent": true,
+    "data_export": ["https://example.org/export/"]
   }
 }</pre>
       </div>
@@ -618,22 +631,23 @@
       <div class="schema-content" id="schema-content">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
           <div style="background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); border-radius: 8px; padding: 1rem;">
-            <p style="font-size: 0.75rem; color: var(--blue); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">INFRASTRUCTURE.JSON</p>
+            <p style="font-size: 0.75rem; color: var(--blue); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">INFRASTRUCTURE.JSON v1.4</p>
             <ul style="margin: 0; padding-left: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
-              <li><span class="json-key">meta</span> <span style="color: var(--text-muted);">— system_id, lifecycle, license</span></li>
-              <li><span class="json-key">dependencies</span> <span style="color: var(--text-muted);">— repository, closed_components[]</span></li>
-              <li><span class="json-key">access</span> <span style="color: var(--text-muted);">— offline_equivalent, data_export</span></li>
-              <li><span class="json-key">reliability</span> <span style="color: var(--text-muted);">— dispute_slo, fix_slo, escalation</span></li>
-              <li><span class="json-key">governance</span> <span style="color: var(--text-muted);">— model, issues, rfc</span></li>
-              <li><span class="json-key">learned_components</span> <span style="color: var(--text-muted);">— role, when_uncertain</span></li>
+              <li><span class="json-key">meta</span> <span style="color: var(--text-muted);">— system_id, deployment, lifecycle</span></li>
+              <li><span class="json-key">operations</span> <span style="color: var(--text-muted);">— status_page, slos{uptime_target, dispute_resolution}</span></li>
+              <li><span class="json-key">governance</span> <span style="color: var(--text-muted);">— model, escalation_paths[], public_participation</span></li>
+              <li><span class="json-key">components</span> <span style="color: var(--text-muted);">— repositories[], closed_components[]</span></li>
+              <li><span class="json-key">learned_components</span> <span style="color: var(--text-muted);">— [{name, role, when_uncertain, model_cards[]}]</span></li>
+              <li><span class="json-key">access</span> <span style="color: var(--text-muted);">— endpoints[], offline_channels[], offline_equivalent</span></li>
             </ul>
           </div>
           <div style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); border-radius: 8px; padding: 1rem;">
-            <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">CORRIGIBILITY.JSON</p>
+            <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">CORRIGIBILITY.JSON v1.4</p>
             <ul style="margin: 0; padding-left: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
               <li><span class="json-key">target</span> <span style="color: var(--text-muted);">— matches infrastructure system_id</span></li>
               <li><span class="json-key">assessed_by</span> <span style="color: var(--text-muted);">— auditor organization</span></li>
-              <li><span class="json-key">tests</span> <span style="color: var(--text-muted);">— exit, code, audit, govern, fork</span></li>
+              <li><span class="json-key">assessed_at</span> <span style="color: var(--text-muted);">— required date (closes temporal loophole)</span></li>
+              <li><span class="json-key">tests</span> <span style="color: var(--text-muted);">— exit, code, audit, govern, fork (with evidence[])</span></li>
               <li><span class="json-key">verdict</span> <span style="color: var(--text-muted);">— corrigible, tests_passed, summary</span></li>
             </ul>
           </div>
@@ -669,9 +683,10 @@
           <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 1rem;">
             <p style="font-size: 0.75rem; color: var(--amber); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">INFRASTRUCTURE ENUMS</p>
             <div style="font-size: 0.75rem; color: var(--text-secondary);">
-              <p style="margin: 0 0 0.25rem;"><span class="json-key">deployment</span>: <span class="json-string">"production"</span> | <span class="json-string">"staging"</span> | <span class="json-string">"pilot"</span> | <span class="json-string">"demo"</span></p>
-              <p style="margin: 0 0 0.25rem;"><span class="json-key">lifecycle</span>: <span class="json-string">"active"</span> | <span class="json-string">"deprecated"</span> | <span class="json-string">"sunset"</span> | <span class="json-string">"archived"</span></p>
+              <p style="margin: 0 0 0.25rem;"><span class="json-key">deployment</span>: <span class="json-string">"production"</span> | <span class="json-string">"staging"</span> | <span class="json-string">"pilot"</span></p>
+              <p style="margin: 0 0 0.25rem;"><span class="json-key">lifecycle</span>: <span class="json-string">"active"</span> | <span class="json-string">"deprecated"</span> | <span class="json-string">"archived"</span></p>
               <p style="margin: 0 0 0.25rem;"><span class="json-key">governance.model</span>: <span class="json-string">"community"</span> | <span class="json-string">"foundation"</span> | <span class="json-string">"corporate"</span> | <span class="json-string">"government"</span> | <span class="json-string">"closed"</span></p>
+              <p style="margin: 0 0 0.25rem;"><span class="json-key">components.role</span>: <span class="json-string">"core"</span> | <span class="json-string">"client"</span> | <span class="json-string">"sdk"</span> | <span class="json-string">"docs"</span></p>
               <p style="margin: 0;"><span class="json-key">learned.role</span>: <span class="json-string">"advisory"</span> | <span class="json-string">"decision"</span> | <span class="json-string">"enforcement"</span></p>
             </div>
           </div>
@@ -686,18 +701,27 @@
           </div>
         </div>
 
-        <div style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); border-radius: 8px; padding: 1rem;">
-          <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">AI SYSTEM EXTENSIONS — INFRASTRUCTURE.JSON</p>
-          <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0 0 0.75rem; font-style: italic;">Required if system uses ML/AI components</p>
+        <div style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+          <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">AI SYSTEM DISCLOSURE — LEARNED_COMPONENTS[]</p>
+          <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0 0 0.75rem; font-style: italic;">Each AI model must be declared individually. No hiding enforcement AI in advisory wrapper.</p>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.75rem; color: var(--text-secondary);">
             <div>
-              <p style="margin: 0 0 0.25rem; color: var(--purple); font-weight: 500;">learned_components.role</p>
-              <p style="margin: 0;"><span class="json-string">"advisory"</span> / <span class="json-string">"decision"</span> / <span class="json-string">"enforcement"</span></p>
+              <p style="margin: 0 0 0.25rem; color: var(--purple); font-weight: 500;">role</p>
+              <p style="margin: 0;"><span class="json-string">"advisory"</span> = human in loop / <span class="json-string">"enforcement"</span> = automatic penalty</p>
             </div>
             <div>
-              <p style="margin: 0 0 0.25rem; color: var(--purple); font-weight: 500;">learned_components.when_uncertain</p>
-              <p style="margin: 0;"><span class="json-string">"escalates"</span> / <span class="json-string">"fails_open"</span> / <span class="json-string">"fails_closed"</span> / <span class="json-string">"silent"</span></p>
+              <p style="margin: 0 0 0.25rem; color: var(--purple); font-weight: 500;">when_uncertain</p>
+              <p style="margin: 0;"><span class="json-string">"silent"</span> = fail-deadly design (disclose or perjury)</p>
             </div>
+          </div>
+        </div>
+
+        <div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; padding: 1rem;">
+          <p style="font-size: 0.75rem; color: var(--danger); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">THE TRAP — OPERATOR vs AUDITOR</p>
+          <div style="font-size: 0.8rem; color: var(--text-secondary);">
+            <p style="margin: 0 0 0.5rem;">Operator claims <span class="json-key">offline_equivalent</span>: <span class="json-boolean">true</span> → Auditor measures <span class="json-key">exit.penalty_ratio</span>: <span class="json-number">50</span> → <strong style="color: var(--danger);">Proof of Lie</strong></p>
+            <p style="margin: 0 0 0.5rem;">Operator claims <span class="json-key">dispute_resolution</span>: <span class="json-string">"72h"</span> → Auditor records <span class="json-key">observed_fix_time</span>: <span class="json-string">"3 months"</span> → <strong style="color: var(--danger);">Proof of Failure</strong></p>
+            <p style="margin: 0;">Operator claims <span class="json-key">escalation.binding</span>: <span class="json-boolean">true</span> → Auditor finds <span class="json-key">govern.user_power</span>: <span class="json-string">"advisory"</span> → <strong style="color: var(--danger);">Proof of Theater</strong></p>
           </div>
         </div>
       </div>

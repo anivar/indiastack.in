@@ -1,0 +1,771 @@
+\documentclass{article}
+\usepackage{arxiv}
+
+% arXiv preprint format
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{natbib}
+\usepackage{authblk}
+
+% Define colors for test names
+\definecolor{exitcolor}{HTML}{06B6D4}
+\definecolor{codecolor}{HTML}{3B82F6}
+\definecolor{auditcolor}{HTML}{A855F7}
+\definecolor{governcolor}{HTML}{F59E0B}
+\definecolor{forkcolor}{HTML}{F472B6}
+
+% Theorem environments
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{claim}{Claim}
+
+\title{Corrigibility as a Structural Precondition for Digital Public Infrastructure: A Cybernetic Framework}
+
+\author[1]{Anivar A Aravind\thanks{Corresponding author: \href{https://anivar.net}{anivar.net} · \texttt{ping@anivar.net} · ORCID: \href{https://orcid.org/0009-0009-8995-0005}{0009-0009-8995-0005}}}
+\affil[1]{Independent Researcher}
+
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Digital Public Infrastructure (DPI)---including identity systems, payment rails, data exchanges, and increasingly AI-based services---is being deployed globally at population scale. International definitions from the G20 and United Nations articulate desirable attributes (open, inclusive, accountable) without specifying structural conditions under which these attributes can be verified or enforced. This paper introduces a formal framework for evaluating DPI based on \textbf{corrigibility}: the structural capacity of those affected by a system to detect error, signal harm, and trigger correction without incurring material loss. We derive five necessary tests---EXIT (safe refusal), CODE (legible execution), AUDIT (independent verification), GOVERN (constitutive input), and FORK (credible replacement)---from three independent theoretical traditions: cybernetics (Ashby's Law of Requisite Variety), commons governance (Ostrom's design principles), and free software principles. We prove that failure of any single test disqualifies a system from DPI status and extend the framework to learned systems (AI), where verification shifts from inspecting execution to bounding behavior. The framework is released under CC0 public domain to enable universal adoption.
+\end{abstract}
+
+\section{Introduction}
+
+Digital Public Infrastructure operates at population scale. Rules are encoded in advance; technical artifacts embed political arrangements \citep{winner1980}. Access to essential services---food distribution, banking, healthcare, mobility---is mediated through these systems. They will inevitably misclassify, exclude, or fail some users some of the time. This is not a bug; it is a mathematical certainty when fixed rule systems encounter human diversity.
+
+The critical question is not whether errors occur, but whether those affected can \textit{detect, correct, and reverse} them before harm becomes permanent.
+
+International bodies have adopted definitions of DPI that use aspirational language without operational requirements. The G20 New Delhi Declaration (2023) describes DPI as systems that ``should be secure and interoperable'' and ``can be built on open standards.'' The UN/UNDP framework (2023-2024) defines DPI as ``solutions and systems that enable the effective provision of essential society-wide functions'' \citep{undp}. These definitions exclude nothing. They articulate intent, not conditions.
+
+This paper introduces \textbf{corrigibility} as the structural property that determines whether a system operates as genuinely public infrastructure:
+
+\begin{definition}[Corrigibility]
+The structural capacity of those affected by a system to detect error, signal harm, and trigger correction, without incurring material loss or irreversible consequence.
+\end{definition}
+
+We reject the assumption that state coercion necessitates structural opacity. On the contrary, precisely because DPI mandates participation, it requires \textit{higher} standards of corrigibility than voluntary market systems. Where refusal is not an option, correction must be.
+
+A further distinction clarifies the stakes: administrations are temporary; infrastructure is permanent. Governments change; the systems they build outlast them. Infrastructure that cannot be corrected independent of the current administration is not public---it is captured. The five tests that follow operationalize this principle.
+
+We derive five necessary tests from three independent theoretical traditions that converge on the same structural requirements. We then extend the framework to learned systems (AI), where the challenge shifts from inspecting deterministic execution to bounding probabilistic behavior.
+
+\section{The Problem: Definitions Without Structure}
+
+Current international definitions of DPI share a common structural deficiency: they describe what systems should achieve without specifying the conditions under which achievement can be verified.
+
+\subsection{G20 Definition (2023)}
+
+\begin{quote}
+``Digital public infrastructure... is described as a set of shared digital systems that \textit{should be} secure and interoperable, and \textit{can be} built on open standards and specifications to deliver and provide equitable access to public and/or private services at societal scale and are governed by applicable legal frameworks and enabling rules.'' \citep{g20}
+\end{quote}
+
+\subsection{Structural Insufficiency}
+
+\begin{itemize}
+    \item \textbf{Aspirational language is not definitional}: ``should be'' and ``can be'' describe intent, not conditions
+    \item \textbf{Open standards are not open execution}: published specifications do not reveal how systems operate
+    \item \textbf{``Applicable legal frameworks'' exclude nothing}: all systems operate under some legal regime
+    \item \textbf{No verification mechanism exists}: compliance is self-asserted
+\end{itemize}
+
+Without structural requirements, ``public'' becomes a descriptive label rather than an operational property. Classification systems become invisible as they gain acceptance \citep{bowker1999}; DPI risks the same trajectory---escaping scrutiny precisely as it becomes essential. The same pattern now extends to AI systems promoted as ``public infrastructure.''
+
+\section{Theoretical Foundations}
+
+Three independent intellectual traditions converge on the same structural requirements for legitimate population-scale systems.
+
+\subsection{Cybernetics: Ashby's Law of Requisite Variety}
+
+Ashby's Law states that a controller must possess at least as much variety as the disturbances it seeks to regulate \citep{ashby1956}.
+
+\begin{equation}
+V(\text{controller}) \geq V(\text{disturbance})
+\end{equation}
+
+In DPI, the \textit{disturbance} is human diversity across language, mobility, disability, geography, documentation, and life events. The \textit{controller} is a pre-specified rule system.
+
+No fixed rule set can match population variety. Stability therefore depends on \textbf{feedback channels} that transmit error signals from affected populations back into system behavior.
+
+\begin{claim}
+No fixed rule system can regulate population-scale diversity without feedback from those affected.
+\end{claim}
+
+When feedback channels are blocked, the controller's variety falls below disturbance variety. The system cannot regulate its own impact. Instability is guaranteed.
+
+\subsection{Commons Governance: Ostrom's Design Principles}
+
+Elinor Ostrom identified conditions under which commons can be sustainably governed \citep{ostrom1990}. DPI claims to be a commons for the digital age. We evaluate it against Ostrom's principles:
+
+\begin{enumerate}
+    \item \textbf{Boundaries must be knowable}: In DPI, the boundary between public service and private data extraction is often opaque.
+    \item \textbf{Monitoring must be accountable to users}: DPI inverts this---citizens are fully visible to the system while the system is opaque to citizens.
+    \item \textbf{Sanctions must be graduated}: DPI imposes binary outcomes---authentication failure leads to exclusion.
+    \item \textbf{Disputes must be resolved locally and at low cost}: DPI centralizes redress or requires litigation.
+    \item \textbf{Rule-making must involve those affected}: DPI rules are set through executive or technocratic processes.
+\end{enumerate}
+
+\begin{claim}
+A system that fails commons governance conditions is an enclosure, not a public good.
+\end{claim}
+
+\subsection{Free Software: The Four Freedoms}
+
+Free and Open Source Software enables correction by making power observable and replaceable. The four freedoms (use, study, modify, distribute) exist because software that cannot be inspected cannot be trusted \citep{stallman2002}.
+
+The free software tradition contributes two requirements:
+\begin{itemize}
+    \item \textbf{Inspectability}: Power must be observable to be contestable
+    \item \textbf{Forkability}: Replacement must be credible to discipline incumbent behavior
+\end{itemize}
+
+\begin{claim}
+Openness without inspectability and forkability is rhetorical.
+\end{claim}
+
+\section{The Five Structural Tests}
+
+We derive five necessary tests from the convergent requirements of cybernetics, commons governance, and free software principles. Each test maps to a distinct feedback or governance channel.
+
+\subsection{Test 1: EXIT (Safe Refusal)}
+
+\textbf{Question}: Can a person decline participation while retaining access to essential services?
+
+\begin{itemize}
+    \item \textbf{Pass}: Refusal carries no penalty. Non-digital or alternative pathways remain available.
+    \item \textbf{Fail}: Opting out results in exclusion from food, banking, healthcare, employment, or mobility.
+\end{itemize}
+
+\textit{Where refusal triggers material harm, consent cannot be considered freely exercised.} This extends Hirschman's exit-voice framework \citep{hirschman1970} to infrastructure: when exit is structurally blocked, voice becomes the only channel---but voice without exit has no leverage.
+
+\subsection{Test 2: CODE (Legible Execution)}
+
+\textbf{Question}: Is the system's actual execution observable in practice?
+
+\begin{itemize}
+    \item \textbf{Pass}: Executing logic is inspectable. Source code or equivalent execution artifacts are available.
+    \item \textbf{Fail}: Only policy documents, APIs, or specifications are public.
+\end{itemize}
+
+\textit{For systems with learned components, legibility extends to training processes, data composition, and optimization regimes.} As Lessig observed, code functions as law in digital environments \citep{lessig2006}---but law that cannot be read cannot be contested.
+
+\subsection{Test 3: AUDIT (Independent Verification)}
+
+\textbf{Question}: Can independent parties verify system behavior without operator permission?
+
+\begin{itemize}
+    \item \textbf{Pass}: External auditors can measure error rates, bias, and failure modes. Results are public.
+    \item \textbf{Fail}: Verification depends on operator consent or is legally restricted.
+\end{itemize}
+
+\textit{Benchmark compliance does not substitute for deployment-level verification.}
+
+\subsection{Test 4: GOVERN (Constitutive Input)}
+
+\textbf{Question}: Do affected populations have binding authority in system design and evolution?
+
+\begin{itemize}
+    \item \textbf{Pass}: Governance includes structured, pre-deployment participation by those affected.
+    \item \textbf{Fail}: Decisions are made internally. Consultation, if any, is advisory or post hoc.
+\end{itemize}
+
+\textit{Grievance mechanisms after harm do not replace authority before deployment.}
+
+\subsection{Test 5: FORK (Credible Replacement)}
+
+\textbf{Question}: Can the system be replicated or replaced without incumbent permission?
+
+\begin{itemize}
+    \item \textbf{Pass}: Alternative implementations are legally, technically, and economically feasible.
+    \item \textbf{Fail}: Control is centralized. Barriers prevent credible alternatives.
+\end{itemize}
+
+\textit{For capital-intensive systems, economic concentration constitutes a structural barrier even absent formal licensing restrictions.}
+
+\subsection{Fatal Failure Property}
+
+\begin{proposition}
+Failure of any single test disqualifies a system from evaluation as genuinely public infrastructure.
+\end{proposition}
+
+\begin{proof}
+Each test corresponds to a necessary feedback channel derived from the theoretical foundations:
+\begin{itemize}
+    \item EXIT blocked $\Rightarrow$ No negative signal from non-participation (cybernetics)
+    \item CODE hidden $\Rightarrow$ Power unobservable (FOSS)
+    \item AUDIT restricted $\Rightarrow$ Error rates unknown (cybernetics, commons)
+    \item GOVERN excluded $\Rightarrow$ No rule-making by affected (commons)
+    \item FORK prohibited $\Rightarrow$ No credible replacement threat (FOSS)
+\end{itemize}
+When any channel is blocked, $V(\text{controller}) < V(\text{disturbance})$. The system cannot regulate its own impact. These are necessary conditions, not a scoring rubric.
+\end{proof}
+
+\section{Conservation of Correction Demand}
+
+We introduce a conservation principle for correction demand in population-scale systems.
+
+\begin{definition}[Conservation of Correction Demand]
+When designed correction channels are blocked, correction demand does not disappear---it reroutes through emergent channels.
+\end{definition}
+
+\begin{equation}
+F_{\text{designed}} + F_{\text{emergent}} = K
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $F_{\text{designed}}$ = correction flow through designed channels (EXIT, CODE, AUDIT, GOVERN, FORK)
+    \item $F_{\text{emergent}}$ = correction flow through emergent channels (protest, courts, journalism, political pressure)
+    \item $K$ = total correction demand (constant for a given system state)
+\end{itemize}
+
+\textbf{Implication}: Systems choose \textit{where} correction occurs; they cannot choose \textit{whether} it occurs. Emergent correction is slower, costlier, and more destabilizing than designed correction.
+
+\section{Grievance Is Not a Feedback Channel}
+
+Many incorrigible systems provide grievance mechanisms. These absorb complaints without altering system behavior.
+
+\begin{equation}
+\frac{\partial S}{\partial G} = 0
+\end{equation}
+
+System state $S$ is invariant to grievance volume $G$. Grievance channels record dissatisfaction but do not modify execution, policy, or eligibility logic. They do not increase controller variety.
+
+\begin{claim}
+Corrigibility requires causal influence, not expression. The tests measure whether affected populations can change system state, not whether they can complain.
+\end{claim}
+
+\section{Constitutional Preconditions}
+
+Proportionality analysis---the foundation of rights review across jurisdictions---presupposes structural conditions:
+
+\begin{itemize}
+    \item \textbf{Legibility of rules}: Power must be knowable to be contestable
+    \item \textbf{Reversibility of outcomes}: Harm must be correctable
+    \item \textbf{Availability of alternatives}: Necessity collapses without choice
+    \item \textbf{Independent review}: Oversight cannot depend on operator permission
+\end{itemize}
+
+Where digital systems block these structurally, courts cannot apply review meaningfully. Review becomes contingent on operator assertion.
+
+\begin{claim}
+Corrigibility supplies the structural preconditions that law presupposes but cannot itself enforce.
+\end{claim}
+
+\section{Extension to Learned Systems}
+
+\subsection{The Deterministic Assumption}
+
+The five tests implicitly assume deterministic systems where:
+\begin{itemize}
+    \item Same input produces same output
+    \item Source code determines behavior
+    \item Inspection reveals logic
+    \item Exact reproduction is possible
+\end{itemize}
+
+Learned systems (AI, ML models) break every assumption:
+\begin{itemize}
+    \item Same input may produce different outputs
+    \item Training data and objectives determine behavior
+    \item Weights and representations are opaque
+    \item Only statistical approximation is possible
+\end{itemize}
+
+\subsection{Invariance of the Standard}
+
+\begin{proposition}
+The five corrigibility tests remain invariant for learned systems. What changes is the verification method.
+\end{proposition}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Test} & \textbf{Deterministic Verification} & \textbf{Learned System Verification} \\
+\midrule
+EXIT & Can refuse the system & Disclosure + non-AI alternative \\
+CODE & Source code determines behavior & Layered transparency across training pipeline \\
+AUDIT & Inspect logic and outputs & Statistical bounds + continuous monitoring \\
+GOVERN & Maintainer and RFC process & Governance over objectives and value tradeoffs \\
+FORK & Copy code and deploy & Resource forkability (compute + data) \\
+\bottomrule
+\end{tabular}
+\caption{Verification methods for deterministic vs. learned systems}
+\end{table}
+
+\subsection{What Is ``Source'' in a Learned System?}
+
+For learned systems, behavior is distributed across layers:
+\begin{enumerate}
+    \item Training data corpus
+    \item Data filtering and preprocessing decisions
+    \item Model architecture and hyperparameters
+    \item Training objectives and loss functions
+    \item RLHF or preference optimization processes
+    \item System prompts and runtime constraints
+\end{enumerate}
+
+Inference code alone does not determine behavior. Publishing it does not satisfy the CODE test.
+
+\subsubsection{Documentation Standards for CODE Compliance}
+
+Emerging practices provide structured approaches to training pipeline transparency:
+
+\begin{itemize}
+    \item \textbf{Data Sheets for Datasets} \citep{gebru2021}: Standardized documentation of training data composition, collection methodology, preprocessing decisions, and known limitations.
+    \item \textbf{Model Cards} \citep{mitchell2019}: Structured disclosure of intended use, performance characteristics across demographic groups, and known failure modes.
+    \item \textbf{Training Process Documentation}: Hyperparameters, optimization objectives, loss functions, and compute resources used.
+    \item \textbf{Alignment Process Disclosure}: For systems using RLHF or preference optimization, documentation of human feedback sources, labeler instructions, and reward model training.
+\end{itemize}
+
+These artifacts constitute the functional equivalent of ``source code'' for learned systems. A system claiming CODE compliance must provide sufficient documentation across these layers to enable independent assessment of how behavior was produced.
+
+\subsection{Temporal Variety Gap}
+
+Traditional DPI systems are static. Learned systems evolve through retraining. A system corrigible at deployment may become incorrigible over time.
+
+\begin{equation}
+\Delta(t) = V(\text{disturbance}; t) - V(\text{controller}; \theta)
+\end{equation}
+
+where $\theta$ represents the fixed model parameters established at training time. When $\theta$ is frozen and the world continues to change, the variety gap $\Delta(t)$ tends to widen without corrective intervention.
+
+\begin{claim}
+Corrigibility is not a deployment property. It is a persistence condition.
+\end{claim}
+
+\subsection{Training Data as a Commons}
+
+Training data is collectively generated across societies while model development remains concentrated. This asymmetry transfers value without corresponding governance rights.
+
+Current AI systems derive legitimacy from collective production without adopting governance structures that commons require. They fail all five of Ostrom's design principles.
+
+\subsection{Resource Barriers to Forkability}
+
+Forking a learned system is constrained by resources, not just permission:
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Layer} & \textbf{Cost} & \textbf{Barrier} \\
+\midrule
+Inference code & Minimal & None \\
+Running open weights & Low & Minor \\
+Fine-tuning & Moderate & Economic \\
+Retraining from scratch & Very high & Structural \\
+\bottomrule
+\end{tabular}
+\caption{Resource barriers to forking learned systems}
+\end{table}
+
+\begin{claim}
+Legal permission to fork without access to compute or data is meaningless. This is an infrastructure question, not a licensing question.
+\end{claim}
+
+\section{Open-Washing Patterns}
+
+We document five recurring patterns by which systems claim openness while maintaining structural closure:
+
+\begin{enumerate}
+    \item \textbf{API-as-Openness}: Publishing endpoint documentation while keeping execution proprietary (fails CODE)
+    \item \textbf{Spec-as-Source}: Publishing protocol specifications while maintaining monopoly operation (fails CODE, FORK)
+    \item \textbf{Funnel Open-Sourcing}: Open-sourcing SDKs while keeping control components closed (fails FORK, GOVERN)
+    \item \textbf{DID-Washing}: Using decentralized vocabulary with centralized trust roots (fails EXIT, FORK)
+    \item \textbf{Safety-Washing}: Publishing safety policies while blocking independent verification (fails AUDIT)
+\end{enumerate}
+
+These patterns are predictable strategies for satisfying the \textit{language} of openness while defeating its \textit{substance}.
+
+\section{Empirical Application: India Stack}
+
+To demonstrate the framework's application, we evaluate two systems frequently cited as exemplary DPI: Aadhaar (biometric identity) and UPI (payments infrastructure). Both are promoted internationally as models for other nations.
+
+\subsection{Aadhaar (Unique Identification Authority of India)}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}llp{7cm}@{}}
+\toprule
+\textbf{Test} & \textbf{Result} & \textbf{Evidence} \\
+\midrule
+EXIT & \textcolor{red}{FAIL} & Aadhaar is mandatory for: food rations (PDS), bank accounts (KYC), mobile SIM cards, LPG subsidies, MGNREGA wages, scholarships, and pension disbursement. Refusal results in exclusion from essential services. \\
+\addlinespace
+CODE & \textcolor{red}{FAIL} & UIDAI software is proprietary. Authentication protocols are published as specifications, but executing code is not inspectable. Biometric matching algorithms are trade secrets of vendors. \\
+\addlinespace
+AUDIT & \textcolor{red}{FAIL} & Independent security audits are prohibited. RTI requests for failure rates are denied citing ``security.'' Published authentication success rates are operator-asserted, not independently verified. \\
+\addlinespace
+GOVERN & \textcolor{red}{FAIL} & UIDAI is an executive authority. No structured public participation in rule-making. Enrollment and authentication policies are set administratively. Affected populations have no binding input. \\
+\addlinespace
+FORK & \textcolor{red}{FAIL} & No alternative identity system is accepted for government services. UIDAI holds monopoly. State governments cannot deploy alternatives. \\
+\bottomrule
+\end{tabular}
+\caption{Aadhaar evaluation: 0/5 tests passed}
+\end{table}
+
+\textbf{Conclusion}: Aadhaar fails all five tests. It does not satisfy the structural conditions for DPI designation under this framework.
+
+\subsection{UPI (Unified Payments Interface)}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}llp{7cm}@{}}
+\toprule
+\textbf{Test} & \textbf{Result} & \textbf{Evidence} \\
+\midrule
+EXIT & \textcolor{orange}{PARTIAL} & Cash remains legal tender. Other payment methods (cards, NEFT, cheques) exist. However, many merchants and government services increasingly require UPI, creating soft coercion. \\
+\addlinespace
+CODE & \textcolor{orange}{PARTIAL} & NPCI publishes protocol specifications. However, PSP (Payment Service Provider) implementations are proprietary. The NPCI switching layer is closed source. \\
+\addlinespace
+AUDIT & \textcolor{orange}{PARTIAL} & RBI conducts regulatory audits. Transaction statistics are published. However, failure rates by demographic group, rejection reasons, and dispute resolution outcomes are not public. \\
+\addlinespace
+GOVERN & \textcolor{red}{FAIL} & NPCI is governed by member banks and RBI. No structural representation of users, merchants, or civil society in governance. Rule changes are announced, not deliberated. \\
+\addlinespace
+FORK & \textcolor{red}{FAIL} & NPCI holds regulatory monopoly on interbank instant payments. Alternative payment rails cannot interoperate with bank accounts without NPCI. Economic and regulatory barriers prevent credible replacement. \\
+\bottomrule
+\end{tabular}
+\caption{UPI evaluation: 0/5 tests passed (3 partial, 2 fail)}
+\end{table}
+
+\textbf{Conclusion}: UPI shows partial compliance on EXIT (cash exists but soft coercion increasing), CODE (specs public but switching layer closed), and AUDIT (RBI audits but demographic data withheld). However, partial compliance does not satisfy the binary threshold. Under the fatal failure property, UPI fails all five tests and does not qualify as DPI.
+
+\subsection{Pix (Banco Central do Brasil)}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}llp{7cm}@{}}
+\toprule
+\textbf{Test} & \textbf{Result} & \textbf{Evidence} \\
+\midrule
+EXIT & \textcolor{orange}{PARTIAL} & Other payment methods exist (cards, TED, boleto). However, Pix is increasingly required for government payments and merchant transactions. \\
+\addlinespace
+CODE & \textcolor{orange}{PARTIAL} & BCB publishes protocol specifications. However, bank and PSP implementations are proprietary. Core switching infrastructure is closed. \\
+\addlinespace
+AUDIT & \textcolor{orange}{PARTIAL} & BCB conducts regulatory oversight. Transaction volumes are published. However, failure rates, fraud patterns, and dispute resolution outcomes by demographic group are not public. \\
+\addlinespace
+GOVERN & \textcolor{red}{FAIL} & Governed by Banco Central do Brasil. No structural representation of users or civil society in governance. Rule changes are administrative. \\
+\addlinespace
+FORK & \textcolor{red}{FAIL} & BCB holds regulatory monopoly on instant payments in Brazil. Alternative payment rails cannot interoperate with bank accounts without BCB authorization. \\
+\bottomrule
+\end{tabular}
+\caption{Pix evaluation: 0/5 tests passed (3 partial, 2 fail)}
+\end{table}
+
+\textbf{Conclusion}: Pix mirrors UPI's structural pattern---partial compliance on EXIT, CODE, and AUDIT, but failure on GOVERN and FORK. Central bank monopoly and absence of public governance disqualify both systems under the framework.
+
+\subsection{Open-Weights AI Models (Llama, Qwen, DeepSeek)}
+
+To evaluate AI systems claiming ``openness,'' we examine prominent open-weights models: Meta's Llama, Alibaba's Qwen, and DeepSeek. These represent the current frontier of ``open'' AI.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}llp{7cm}@{}}
+\toprule
+\textbf{Test} & \textbf{Result} & \textbf{Evidence} \\
+\midrule
+EXIT & \textcolor{green!50!black}{PASS} & Users can choose other models (GPT, Claude, Mistral, local alternatives). No lock-in to specific provider. \\
+\addlinespace
+CODE & \textcolor{orange}{PARTIAL} & Model weights are published. DeepSeek publishes more technical details than competitors. However, training data is not disclosed by any provider. RLHF/preference data and labeler instructions remain opaque. Training pipelines are not fully reproducible. \\
+\addlinespace
+AUDIT & \textcolor{orange}{PARTIAL} & External researchers can evaluate model outputs. Red-teaming results are selectively published. However, training process cannot be independently verified. \\
+\addlinespace
+GOVERN & \textcolor{red}{FAIL} & Meta, Alibaba, and DeepSeek make all decisions unilaterally---training objectives, safety policies, acceptable use terms. No structured input from affected populations. Corporate governance, not public governance. \\
+\addlinespace
+FORK & \textcolor{orange}{PARTIAL} & Open weights enable fine-tuning and local deployment. However, retraining from scratch requires resources only available to large corporations. Economic barriers create partial forkability. \\
+\bottomrule
+\end{tabular}
+\caption{Open-weights AI models (Llama, Qwen, DeepSeek): 1/5 tests passed}
+\end{table}
+
+\textbf{Conclusion}: Open-weights models represent an improvement over fully closed systems (they pass EXIT), but ``open weights'' does not equal ``open.'' Training data opacity fails CODE. Unilateral governance fails GOVERN. Resource barriers create only partial FORK. Under the framework, current open-weights models do not qualify as corrigible infrastructure.
+
+\subsection{Positive Examples: Linux Kernel and Let's Encrypt}
+
+For contrast, we evaluate two infrastructure systems that satisfy the corrigibility tests.
+
+\subsubsection{Linux Kernel}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}llp{7cm}@{}}
+\toprule
+\textbf{Test} & \textbf{Result} & \textbf{Evidence} \\
+\midrule
+EXIT & \textcolor{green!50!black}{PASS} & Users can run BSD, Windows, or other operating systems. No penalty for non-adoption. Hardware vendors can choose alternatives. \\
+\addlinespace
+CODE & \textcolor{green!50!black}{PASS} & Full source code publicly available under GPL. Build process is reproducible. Every commit is inspectable. \\
+\addlinespace
+AUDIT & \textcolor{green!50!black}{PASS} & Anyone can audit. Security researchers regularly publish findings. No permission required. CVE process is public. \\
+\addlinespace
+GOVERN & \textcolor{green!50!black}{PASS} & Patch submission open to all. LKML (Linux Kernel Mailing List) deliberation is public. Maintainer decisions are documented and contestable. \\
+\addlinespace
+FORK & \textcolor{green!50!black}{PASS} & GPL guarantees fork rights. Android, ChromeOS, and hundreds of distributions demonstrate credible forkability. \\
+\bottomrule
+\end{tabular}
+\caption{Linux Kernel evaluation: 5/5 tests passed}
+\end{table}
+
+\subsubsection{Let's Encrypt (ISRG)}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}llp{7cm}@{}}
+\toprule
+\textbf{Test} & \textbf{Result} & \textbf{Evidence} \\
+\midrule
+EXIT & \textcolor{green!50!black}{PASS} & Users can obtain certificates from other CAs (DigiCert, Sectigo, etc.). No lock-in. Protocol is standard ACME. \\
+\addlinespace
+CODE & \textcolor{green!50!black}{PASS} & Boulder (CA software) is open source. ACME protocol is IETF standard (RFC 8555). Client implementations (Certbot) are open source. \\
+\addlinespace
+AUDIT & \textcolor{green!50!black}{PASS} & Annual third-party audits published. Certificate Transparency logs are public. Issuance statistics disclosed. \\
+\addlinespace
+GOVERN & \textcolor{green!50!black}{PASS} & ISRG is a 501(c)(3) nonprofit with public board. Policy changes go through public comment. IETF process governs protocol evolution. \\
+\addlinespace
+FORK & \textcolor{green!50!black}{PASS} & Open source stack enables alternatives. Other free CAs have emerged (ZeroSSL). ACME protocol prevents vendor lock-in. \\
+\bottomrule
+\end{tabular}
+\caption{Let's Encrypt evaluation: 5/5 tests passed}
+\end{table}
+
+\subsubsection{Wikipedia (Wikimedia Foundation)}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}llp{7cm}@{}}
+\toprule
+\textbf{Test} & \textbf{Result} & \textbf{Evidence} \\
+\midrule
+EXIT & \textcolor{green!50!black}{PASS} & Users can use other encyclopedias. No penalty for non-use. Content is freely exportable under CC BY-SA. \\
+\addlinespace
+CODE & \textcolor{green!50!black}{PASS} & MediaWiki software is open source. All edits are logged with full history. Every change is inspectable. \\
+\addlinespace
+AUDIT & \textcolor{green!50!black}{PASS} & Edit histories are public. Deletion logs are public. Anyone can analyze patterns. Academic research on Wikipedia is extensive. \\
+\addlinespace
+GOVERN & \textcolor{green!50!black}{PASS} & Policies are set through community consensus (RfC process). Wikimedia Foundation board includes community-elected members. Disputes are resolved through public processes. \\
+\addlinespace
+FORK & \textcolor{green!50!black}{PASS} & Content is CC BY-SA licensed. Full database dumps available. Forks exist (Everipedia, Wikiwand). Anyone can mirror or fork. \\
+\bottomrule
+\end{tabular}
+\caption{Wikipedia evaluation: 5/5 tests passed}
+\end{table}
+
+\textbf{Conclusion}: Linux, Let's Encrypt, and Wikipedia all operate at global scale while satisfying all five tests. They demonstrate that corrigibility is achievable for population-scale infrastructure.
+
+\subsection{Implications}
+
+The contrast is instructive. Aadhaar and UPI---promoted as model DPI---fail all tests. Linux, Let's Encrypt, and Wikipedia---rarely described as ``DPI''---pass all tests.
+
+This suggests the ``public'' in Digital Public Infrastructure often refers to \textit{population-scale deployment} rather than \textit{public accountability}. The framework distinguishes these: scale is not governance.
+
+All three systems that pass share common properties:
+\begin{itemize}
+    \item Open source with permissive or copyleft licensing
+    \item Nonprofit or community governance structures
+    \item Protocol standardization through open processes (IETF, LKML)
+    \item No monopoly on essential services
+\end{itemize}
+
+Systems can achieve massive scale and technical sophistication while remaining structurally incorrigible. Conversely, corrigible systems can achieve global scale. The choice is architectural, not inevitable. Scale does not require capture; universality does not require opacity.
+
+\section{Discussion}
+
+\subsection{Exclusionary Framework}
+
+This framework is intentionally exclusionary. It does not provide a maturity model, scoring rubric, or phased adoption path. Systems either satisfy all five tests or they do not qualify as DPI.
+
+This design choice follows from the theoretical foundations: each test corresponds to a necessary feedback channel. Partial compliance provides partial feedback, which is insufficient for stability under Ashby's Law.
+
+\subsection{Application Context}
+
+The framework can be applied by multiple actors for different purposes:
+
+\begin{itemize}
+    \item \textbf{Procurement officers}: As due diligence criteria before government adoption
+    \item \textbf{Regulators}: As structural conditions for DPI designation or certification
+    \item \textbf{Civil society}: As audit criteria for accountability campaigns
+    \item \textbf{Courts}: As evidentiary framework for proportionality review
+    \item \textbf{Developers}: As design requirements for systems claiming public status
+\end{itemize}
+
+The framework does not require regulatory adoption to be useful. It can function as a civil society tool for naming structural deficiencies, independent of whether governments choose to enforce it.
+
+\subsection{Implementation Model: Protocol vs. Platform}
+
+A common objection holds that governments cannot practically adopt corrigible infrastructure. This conflates two distinct models:
+
+\begin{itemize}
+    \item \textbf{Platform Model (Current)}: Government contracts a vendor to build a proprietary system. The vendor controls execution, the government controls policy, citizens control nothing. Examples: Aadhaar (UIDAI + vendors), most national ID systems.
+    \item \textbf{Protocol Model (Alternative)}: Government adopts an open protocol and acts as a trusted issuer or verifier on top of it. The protocol is corrigible; the government is one participant among many. Examples: Government agencies issuing W3C Verifiable Credentials, municipalities running services on open-source stacks.
+\end{itemize}
+
+The distinction mirrors existing infrastructure:
+\begin{itemize}
+    \item Linux is the infrastructure; Red Hat is a vendor.
+    \item HTTP is the infrastructure; Google is a service provider.
+    \item Wikipedia is the infrastructure; search engines are users.
+\end{itemize}
+
+Governments can issue credentials, verify identities, and deliver services without building captured platforms. They choose centralized opacity not because corrigibility is impractical, but because accountability is inconvenient. The framework makes this choice visible.
+
+\subsection{Implications for AI Governance}
+
+The framework implies that many contemporary AI systems---including large language models deployed for consequential decisions---cannot satisfy the structural conditions for DPI designation:
+
+\begin{itemize}
+    \item EXIT fails when AI is embedded invisibly in service delivery
+    \item CODE fails when training data and objectives remain undisclosed
+    \item AUDIT fails when verification depends on operator-provided benchmarks
+    \item GOVERN fails when objectives are set unilaterally
+    \item FORK fails when compute and data concentration prevent credible alternatives
+\end{itemize}
+
+This does not imply AI cannot be used in public services. It implies AI systems must meet structural requirements before designation as public infrastructure.
+
+\subsection{Relationship to AI Alignment}
+
+The corrigibility framework shares vocabulary with AI alignment research but addresses a distinct problem.
+
+In AI alignment literature, ``corrigibility'' typically refers to the property of an AI system that does not resist shutdown or modification by its operators---the system remains under builder control. The question is: \textit{can the builder correct the system?}
+
+In this framework, corrigibility refers to the structural capacity of \textit{affected populations} to detect error, signal harm, and trigger correction. The question is: \textit{can those harmed by the system correct it?}
+
+These are orthogonal properties:
+\begin{itemize}
+    \item A system may be corrigible in the alignment sense (operators can shut it down) while being incorrigible in the DPI sense (affected populations have no recourse).
+    \item A system may be well-aligned with operator intent while remaining structurally unaccountable to those it governs.
+\end{itemize}
+
+The problems are complementary but not identical. A well-aligned system that cannot be corrected by those it affects remains structurally illegitimate as public infrastructure. Alignment ensures the system does what builders intend. Corrigibility (in the DPI sense) ensures those affected retain the capacity to contest, correct, and if necessary replace it.
+
+\section{Conclusion}
+
+Corrigibility is a structural condition for stability in systems that exercise asymmetric power at population scale. This applies to deterministic infrastructures and to learned systems. In the latter case, correction is harder because behavior is produced through training while environmental variation continues.
+
+We have derived five necessary tests from three independent theoretical traditions. We have proven that failure of any single test disqualifies a system from DPI designation. We have extended the framework to learned systems and documented common patterns of structural closure disguised as openness.
+
+The framework exists to identify when systems lack the structural properties required for public legitimacy. It does not evaluate intent, innovation, or performance. It evaluates whether those affected retain the capacity to detect error, contest outcomes, and trigger correction before harm becomes irreversible.
+
+\begin{quote}
+\textit{Systems that cannot be corrected by those they affect will eventually be corrected by forces they cannot control.}
+\end{quote}
+
+\section*{Acknowledgments}
+
+This framework was developed through analysis of India Stack and subsequent generalization to universal criteria. The author thanks the digital rights community for ongoing critique and refinement.
+
+\section*{License}
+
+This work is released under CC0 1.0 Universal (Public Domain). Use, adapt, translate, and redistribute freely. No attribution required.
+
+\section*{Data and Code Availability}
+
+The complete framework, including JSON Schema for machine-readable attestation and supplementary materials, is available at:
+
+\url{https://indiastack.in/dpi/}
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{9}
+
+\bibitem[Ashby(1956)]{ashby1956}
+Ashby, W. Ross.
+\newblock {\em An Introduction to Cybernetics}.
+\newblock Chapman \& Hall, 1956.
+
+\bibitem[Ostrom(1990)]{ostrom1990}
+Ostrom, Elinor.
+\newblock {\em Governing the Commons: The Evolution of Institutions for Collective Action}.
+\newblock Cambridge University Press, 1990.
+
+\bibitem[Stallman(2002)]{stallman2002}
+Stallman, Richard.
+\newblock {\em Free Software, Free Society: Selected Essays}.
+\newblock GNU Press, 2002.
+
+\bibitem[Winner(1980)]{winner1980}
+Winner, Langdon.
+\newblock Do Artifacts Have Politics?
+\newblock {\em Daedalus}, 109(1):121--136, 1980.
+
+\bibitem[Hirschman(1970)]{hirschman1970}
+Hirschman, Albert O.
+\newblock {\em Exit, Voice, and Loyalty: Responses to Decline in Firms, Organizations, and States}.
+\newblock Harvard University Press, 1970.
+
+\bibitem[Lessig(2006)]{lessig2006}
+Lessig, Lawrence.
+\newblock {\em Code: Version 2.0}.
+\newblock Basic Books, 2006.
+
+\bibitem[Bowker and Star(1999)]{bowker1999}
+Bowker, Geoffrey C. and Star, Susan Leigh.
+\newblock {\em Sorting Things Out: Classification and Its Consequences}.
+\newblock MIT Press, 1999.
+
+\bibitem[G20(2023)]{g20}
+G20.
+\newblock New Delhi Leaders' Declaration.
+\newblock G20 Summit, September 2023.
+
+\bibitem[UNDP(2024)]{undp}
+United Nations Development Programme.
+\newblock Digital Public Infrastructure: Definitions and Core Concepts.
+\newblock UNDP Digital Strategy Office, 2024.
+
+\bibitem[Gebru et al.(2021)]{gebru2021}
+Gebru, Timnit, Morgenstern, Jamie, Vecchione, Briana, et al.
+\newblock Datasheets for Datasets.
+\newblock {\em Communications of the ACM}, 64(12):86--92, 2021.
+
+\bibitem[Mitchell et al.(2019)]{mitchell2019}
+Mitchell, Margaret, Wu, Simone, Zaldivar, Andrew, et al.
+\newblock Model Cards for Model Reporting.
+\newblock In {\em Proceedings of the Conference on Fairness, Accountability, and Transparency}, pages 220--229, 2019.
+
+\end{thebibliography}
+
+\appendix
+
+\section{Machine-Readable Corrigibility Manifest}
+\label{appendix:manifest}
+
+To enable automated discovery and triage of corrigibility surfaces, we provide a JSON Schema for structured disclosure. The schema follows JSON Schema Draft 2020-12 and defines required fields for each of the five tests.
+
+\subsection{Schema Overview}
+
+The manifest structure includes:
+
+\begin{itemize}
+    \item \textbf{System identification}: Name, operator, jurisdiction, system type (deterministic/learned/hybrid), deployment scope, and criticality level.
+    \item \textbf{Disclosure intent}: Explicit statement that the manifest exposes surfaces for verification, not attestation of compliance.
+    \item \textbf{Evidence surfaces}: Structured fields for each test (EXIT, CODE, AUDIT, GOVERN, FORK) with typed locators pointing to verifiable artifacts.
+    \item \textbf{AI system extensions}: For learned systems, additional fields for model versioning, training data provenance, behavior monitoring, and drift detection.
+    \item \textbf{Integrity fields}: Optional cryptographic signatures for binding manifest claims to issuer identity.
+\end{itemize}
+
+\subsection{Key Design Principles}
+
+\begin{enumerate}
+    \item \textbf{Surfaces, not scores}: The manifest exposes structural locations where claims can be challenged. It does not compute pass/fail judgments.
+    \item \textbf{Locators, not assertions}: Each surface contains URIs pointing to external artifacts. Verification occurs by following these links, not by trusting manifest content.
+    \item \textbf{Trust dependencies explicit}: Where verification depends on sampling, third-party attestation, or operator permission, this dependency must be declared.
+    \item \textbf{Temporal tracking}: For learned systems, drift detection fields declare how behavior change is monitored and what remediation windows apply.
+\end{enumerate}
+
+\subsection{Usage}
+
+The reference schema and illustrative examples are available at:
+
+\url{https://indiastack.in/dpi/schema/corrigibility-manifest.json}
+
+Machine-readability enables automated indexing and comparison across systems. It does not substitute for human verification of linked artifacts.
+
+\end{document}

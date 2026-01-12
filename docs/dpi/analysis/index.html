@@ -35,7 +35,7 @@
     "description": "Control theory and cybernetics analysis proving why Digital Public Infrastructure requires structural corrigibility. Ashby's Law, feedback loops, stability conditions.",
     "url": "https://indiastack.in/dpi/analysis/",
     "datePublished": "2026-01-07",
-    "dateModified": "2026-01-11",
+    "dateModified": "2026-01-12",
     "author": {"@type": "Person", "name": "Anivar Aravind", "url": "https://anivar.net"},
     "publisher": {"@type": "Organization", "name": "India Stack Watch", "url": "https://indiastack.in"},
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
@@ -548,21 +548,23 @@
 
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
             <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 1rem;">
-              <p style="font-size: 0.75rem; color: var(--blue); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">INFRASTRUCTURE.JSON</p>
+              <p style="font-size: 0.75rem; color: var(--blue); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">INFRASTRUCTURE.JSON v1.4</p>
               <ul style="margin: 0; padding-left: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
-                <li><code style="color: var(--blue);">meta</code>: system_id, lifecycle, license</li>
-                <li><code style="color: var(--blue);">dependencies</code>: repository, closed_components[]</li>
-                <li><code style="color: var(--blue);">access</code>: offline_equivalent, data_export</li>
-                <li><code style="color: var(--blue);">reliability</code>: dispute_slo, fix_slo, escalation</li>
-                <li><code style="color: var(--blue);">learned_components</code>: role, when_uncertain</li>
+                <li><code style="color: var(--blue);">meta</code>: system_id, deployment, lifecycle</li>
+                <li><code style="color: var(--blue);">operations</code>: status_page, slos{uptime_target, dispute_resolution}</li>
+                <li><code style="color: var(--blue);">governance</code>: model, escalation_paths[], public_participation</li>
+                <li><code style="color: var(--blue);">components</code>: repositories[], closed_components[]</li>
+                <li><code style="color: var(--blue);">learned_components</code>: [{name, role, when_uncertain}]</li>
+                <li><code style="color: var(--blue);">access</code>: endpoints[], offline_channels[], offline_equivalent</li>
               </ul>
             </div>
             <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 1rem;">
-              <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">CORRIGIBILITY.JSON</p>
+              <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">CORRIGIBILITY.JSON v1.4</p>
               <ul style="margin: 0; padding-left: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
                 <li><code style="color: var(--purple);">target</code>: matches infrastructure system_id</li>
                 <li><code style="color: var(--purple);">assessed_by</code>: auditor organization</li>
-                <li><code style="color: var(--purple);">tests</code>: exit, code, audit, govern, fork</li>
+                <li><code style="color: var(--purple);">assessed_at</code>: required date (closes temporal loophole)</li>
+                <li><code style="color: var(--purple);">tests</code>: exit, code, audit, govern, fork (with evidence[])</li>
                 <li><code style="color: var(--purple);">verdict</code>: corrigible, tests_passed, summary</li>
               </ul>
             </div>
