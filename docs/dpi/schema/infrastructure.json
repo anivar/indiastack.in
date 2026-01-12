@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://indiastack.in/dpi/schema/infrastructure.json",
-  "title": "Infrastructure Manifest v1.2",
-  "description": "This manifest exposes operational facts. It does not assert compliance, safety, or public legitimacy.",
+  "title": "DPI Operational Manifest v1.2",
+  "description": "Operational disclosure for population-scale systems. Supports federated components and multi-channel access.",
   "type": "object",
   "required": ["meta", "access"],
 
@@ -10,49 +10,107 @@
 
     "meta": {
       "type": "object",
-      "required": ["system_id", "lifecycle"],
+      "required": ["system_id", "lifecycle", "license_spdx"],
       "properties": {
         "system_id": {
           "type": "string",
           "description": "Unique identifier",
           "examples": ["urn:in:gov:uidai", "api.payments.gov"]
         },
-        "version": { "type": "string" },
         "deployment": {
           "type": "string",
-          "enum": ["production", "staging", "pilot", "demo"]
+          "enum": ["production", "staging", "pilot"]
         },
         "lifecycle": {
           "type": "string",
-          "enum": ["active", "deprecated", "sunset", "archived"]
+          "enum": ["active", "deprecated", "archived"]
         },
-        "license": {
+        "license_spdx": {
           "type": "string",
           "description": "SPDX identifier or PROPRIETARY",
-          "examples": ["MIT", "AGPL-3.0", "PROPRIETARY"]
-        },
-        "maintainer": { "type": "string", "format": "email" }
+          "default": "PROPRIETARY"
+        }
       }
     },
 
-    "dependencies": {
+    "components": {
       "type": "object",
+      "description": "System topology: repositories, documentation, and closed blobs",
       "properties": {
         "repositories": {
           "type": "array",
-          "items": { "type": "string", "format": "uri" },
-          "description": "Source code repositories"
+          "description": "Codebases comprising the system (Client, Server, SDKs)",
+          "items": {
+            "type": "object",
+            "required": ["url"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Human-readable component name",
+                "examples": ["Android Enrollment Client", "Core Authentication Server"]
+              },
+              "url": { "type": "string", "format": "uri" },
+              "scope": {
+                "type": "string",
+                "enum": ["core", "client", "sdk", "docs", "infra"],
+                "description": "Role of this repository in the system"
+              }
+            }
+          }
         },
-        "docs": {
+        "documentation": {
           "type": "array",
-          "items": { "type": "string", "format": "uri" },
-          "description": "Documentation links"
+          "description": "Technical and policy documentation",
+          "items": {
+            "type": "object",
+            "required": ["url"],
+            "properties": {
+              "title": {
+                "type": "string",
+                "examples": ["Authentication API Specs v2.5", "Privacy Policy", "Architecture Diagram"]
+              },
+              "url": { "type": "string", "format": "uri" }
+            }
+          }
         },
         "closed_components": {
           "type": "array",
-          "items": { "type": "string" },
-          "description": "Named proprietary dependencies",
-          "examples": [["oracle-db", "aws-rekognition", "idemia-abis"]]
+          "description": "Proprietary blobs that cannot be inspected",
+          "items": {
+            "type": "string",
+            "examples": ["idemia-biometric-engine-v4", "oracle-db", "aws-rekognition"]
+          }
+        }
+      }
+    },
+
+    "learned_components": {
+      "type": "array",
+      "description": "Distinct AI/ML models used within the system pipeline",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Model identifier",
+            "examples": ["Fraud Detection Network B", "Biometric Matcher v3", "OCR Engine"]
+          },
+          "model_card": { "type": "string", "format": "uri" },
+          "training_docs": {
+            "type": "array",
+            "items": { "type": "string", "format": "uri" },
+            "description": "Training data and methodology documentation"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["advisory", "decision", "enforcement"],
+            "description": "Criticality of this model's output"
+          },
+          "when_uncertain": {
+            "type": "string",
+            "enum": ["escalates", "fails_open", "fails_closed", "silent"],
+            "description": "Behavior when model confidence is low"
+          }
         }
       }
     },
@@ -61,42 +119,39 @@
       "type": "object",
       "required": ["offline_equivalent"],
       "properties": {
-        "endpoint": { "type": "string", "format": "uri" },
+        "endpoints": {
+          "type": "array",
+          "description": "Digital entry points (Web, App, API)",
+          "items": { "type": "string", "format": "uri" }
+        },
         "offline_channels": {
           "type": "array",
-          "items": { "type": "string", "format": "uri" },
-          "description": "Manual/offline alternatives"
+          "description": "Physical locations or workflows for non-digital access",
+          "items": {
+            "type": "object",
+            "required": ["type", "url"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "examples": ["Enrollment Center", "Bank Branch", "Post Office", "CSC Kiosk"]
+              },
+              "description": { "type": "string" },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Locator URL or PDF form"
+              }
+            }
+          }
         },
         "offline_equivalent": {
           "type": "boolean",
-          "description": "Does offline provide equivalent service (time, cost, outcome)?"
+          "description": "Do offline channels collectively offer equivalent service (time, cost, outcome) to digital?"
         },
         "data_export": {
           "type": "array",
-          "items": { "type": "string", "format": "uri" },
-          "description": "User data portability endpoints"
-        }
-      }
-    },
-
-    "reliability": {
-      "type": "object",
-      "properties": {
-        "status_page": { "type": "string", "format": "uri" },
-        "dispute_slo": {
-          "type": "string",
-          "description": "Max time to resolve disputes",
-          "examples": ["24h", "7d", "30d"]
-        },
-        "fix_slo": {
-          "type": "string",
-          "description": "Max time to fix verified bugs",
-          "examples": ["24h", "7d", "90d"]
-        },
-        "escalation": {
-          "type": "array",
-          "items": { "type": "string", "format": "uri" },
-          "description": "External authorities when internal fixes fail"
+          "description": "Data portability/accountability endpoints",
+          "items": { "type": "string", "format": "uri" }
         }
       }
     },
@@ -108,41 +163,62 @@
           "type": "string",
           "enum": ["community", "foundation", "corporate", "government", "closed"]
         },
+        "slos": {
+          "type": "object",
+          "description": "Service Level Objectives",
+          "properties": {
+            "dispute_resolution": {
+              "type": "string",
+              "description": "Max time to resolve disputes",
+              "examples": ["24h", "72h", "7d", "30d"]
+            },
+            "bug_fix": {
+              "type": "string",
+              "description": "Max time to fix verified bugs",
+              "examples": ["24h", "7d", "90d"]
+            }
+          }
+        },
+        "escalation_paths": {
+          "type": "array",
+          "description": "Hierarchy of appeals (L1 Support -> Ombudsman -> Court)",
+          "items": {
+            "type": "object",
+            "required": ["level", "url"],
+            "properties": {
+              "level": {
+                "type": "string",
+                "examples": ["Call Center", "Grievance Portal", "Ombudsman", "Appellate Tribunal", "Judicial Review"]
+              },
+              "url": { "type": "string", "format": "uri" },
+              "binding": {
+                "type": "boolean",
+                "description": "Does this level produce binding decisions?"
+              }
+            }
+          }
+        },
         "issues": {
           "type": "array",
-          "items": { "type": "string", "format": "uri" },
-          "description": "Issue trackers"
+          "description": "Public issue trackers",
+          "items": { "type": "string", "format": "uri" }
         },
         "rfc": {
           "type": "array",
-          "items": { "type": "string", "format": "uri" },
-          "description": "RFC/proposal processes"
+          "description": "RFC/proposal processes",
+          "items": { "type": "string", "format": "uri" }
         }
       }
     },
 
-    "learned_components": {
+    "reliability": {
       "type": "object",
-      "description": "Required if system uses ML/AI",
       "properties": {
-        "model_cards": {
-          "type": "array",
-          "items": { "type": "string", "format": "uri" },
-          "description": "Model card documentation"
-        },
-        "training_docs": {
-          "type": "array",
-          "items": { "type": "string", "format": "uri" },
-          "description": "Training data and process documentation"
-        },
-        "role": {
+        "status_page": { "type": "string", "format": "uri" },
+        "uptime_sla": {
           "type": "string",
-          "enum": ["advisory", "decision", "enforcement"],
-          "description": "How AI affects outcomes"
-        },
-        "when_uncertain": {
-          "type": "string",
-          "enum": ["escalates", "fails_open", "fails_closed", "silent"]
+          "description": "Published uptime commitment",
+          "examples": ["99.9%", "99.99%"]
         }
       }
     }
