@@ -209,18 +209,6 @@
           "items": { "type": "string", "format": "uri" }
         }
       }
-    },
-
-    "reliability": {
-      "type": "object",
-      "properties": {
-        "status_page": { "type": "string", "format": "uri" },
-        "uptime_sla": {
-          "type": "string",
-          "description": "Published uptime commitment",
-          "examples": ["99.9%", "99.99%"]
-        }
-      }
     }
   }
 }
