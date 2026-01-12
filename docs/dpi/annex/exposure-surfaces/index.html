@@ -308,9 +308,9 @@
       <p style="font-size: 1.05rem; color: #fff; margin: 0;"><strong>Exposure surfaces</strong> are structural locations where claims about a system can be independently challenged <em>and acted upon</em> by affected parties.</p>
       <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 1rem;">They describe where correction can enter a system. Each surface corresponds to one or more of these functional properties:</p>
       <ul style="margin: 1rem 0 0 1.5rem; color: var(--text-secondary); font-size: 0.95rem;">
-        <li><strong style="color: #fff;">Feedback entry</strong> — a point where affected parties can send corrective signals that change system behavior.</li>
-        <li><strong style="color: #fff;">Monitoring boundary</strong> — a place where reciprocal observation enables collective governance.</li>
-        <li><strong style="color: #fff;">Replaceability threshold</strong> — a boundary where alternative implementations can emerge without incumbent permission.</li>
+        <li><strong style="color: #fff;">Feedback entry:</strong> a point where affected parties can send corrective signals that change system behavior.</li>
+        <li><strong style="color: #fff;">Monitoring boundary:</strong> a place where reciprocal observation enables collective governance.</li>
+        <li><strong style="color: #fff;">Replaceability threshold:</strong> a boundary where alternative implementations can emerge without incumbent permission.</li>
       </ul>
       <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem; font-style: italic;">These properties map to cybernetics (feedback), commons governance (monitoring), and FOSS (replaceability) respectively.</p>
     </div>
@@ -440,7 +440,7 @@
           <path d="M20 28L24 32L28 28" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           <line x1="24" y1="24" x2="24" y2="31" stroke="#a855f7" stroke-width="2" stroke-linecap="round"/>
         </svg>
-        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--purple); margin: 0; letter-spacing: 0.1em;">LEARNED SYSTEMS — CORRECTION PATHWAY</p>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--purple); margin: 0; letter-spacing: 0.1em;">LEARNED SYSTEMS: CORRECTION PATHWAY</p>
       </div>
       <p style="color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.95rem;">Learned systems exercise statistical governance. Corrigibility therefore operates through bounded behavior, continuous observation, and resource-level replaceability. A Correction Pathway for learned systems maps:</p>
       <ul class="surface-list">
@@ -633,22 +633,22 @@
           <div style="background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); border-radius: 8px; padding: 1rem;">
             <p style="font-size: 0.75rem; color: var(--blue); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">INFRASTRUCTURE.JSON v1.4</p>
             <ul style="margin: 0; padding-left: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
-              <li><span class="json-key">meta</span> <span style="color: var(--text-muted);">— system_id, deployment, lifecycle</span></li>
-              <li><span class="json-key">operations</span> <span style="color: var(--text-muted);">— status_page, slos{uptime_target, dispute_resolution}</span></li>
-              <li><span class="json-key">governance</span> <span style="color: var(--text-muted);">— model, escalation_paths[], public_participation</span></li>
-              <li><span class="json-key">components</span> <span style="color: var(--text-muted);">— repositories[], closed_components[]</span></li>
-              <li><span class="json-key">learned_components</span> <span style="color: var(--text-muted);">— [{name, role, when_uncertain, model_cards[]}]</span></li>
-              <li><span class="json-key">access</span> <span style="color: var(--text-muted);">— endpoints[], offline_channels[], offline_equivalent</span></li>
+              <li><span class="json-key">meta</span>: system_id, deployment, lifecycle</li>
+              <li><span class="json-key">operations</span>: status_page, slos (uptime_target, dispute_resolution)</li>
+              <li><span class="json-key">governance</span>: model, escalation_paths[], public_participation</li>
+              <li><span class="json-key">components</span>: repositories[], closed_components[]</li>
+              <li><span class="json-key">learned_components</span>: array of {name, role, when_uncertain, model_cards[]}</li>
+              <li><span class="json-key">access</span>: endpoints[], offline_channels[], offline_equivalent</li>
             </ul>
           </div>
           <div style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); border-radius: 8px; padding: 1rem;">
             <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">CORRIGIBILITY.JSON v1.4</p>
             <ul style="margin: 0; padding-left: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
-              <li><span class="json-key">target</span> <span style="color: var(--text-muted);">— matches infrastructure system_id</span></li>
-              <li><span class="json-key">assessed_by</span> <span style="color: var(--text-muted);">— auditor organization</span></li>
-              <li><span class="json-key">assessed_at</span> <span style="color: var(--text-muted);">— required date (closes temporal loophole)</span></li>
-              <li><span class="json-key">tests</span> <span style="color: var(--text-muted);">— exit, code, audit, govern, fork (with evidence[])</span></li>
-              <li><span class="json-key">verdict</span> <span style="color: var(--text-muted);">— corrigible, tests_passed, summary</span></li>
+              <li><span class="json-key">target</span>: matches infrastructure system_id</li>
+              <li><span class="json-key">assessed_by</span>: auditor organization</li>
+              <li><span class="json-key">assessed_at</span>: required date (prevents stale assessments)</li>
+              <li><span class="json-key">tests</span>: exit, code, audit, govern, fork (each with evidence[])</li>
+              <li><span class="json-key">verdict</span>: corrigible, tests_passed, summary</li>
             </ul>
           </div>
         </div>
@@ -702,7 +702,7 @@
         </div>
 
         <div style="background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
-          <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">AI SYSTEM DISCLOSURE — LEARNED_COMPONENTS[]</p>
+          <p style="font-size: 0.75rem; color: var(--purple); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">AI SYSTEM DISCLOSURE: LEARNED_COMPONENTS[]</p>
           <p style="font-size: 0.7rem; color: var(--text-muted); margin: 0 0 0.75rem; font-style: italic;">Each AI model must be declared individually. No hiding enforcement AI in advisory wrapper.</p>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.75rem; color: var(--text-secondary);">
             <div>
@@ -717,7 +717,7 @@
         </div>
 
         <div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; padding: 1rem;">
-          <p style="font-size: 0.75rem; color: var(--danger); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">THE TRAP — OPERATOR vs AUDITOR</p>
+          <p style="font-size: 0.75rem; color: var(--danger); font-family: var(--font-mono); margin: 0 0 0.5rem; letter-spacing: 0.05em;">THE TRAP: OPERATOR vs AUDITOR</p>
           <div style="font-size: 0.8rem; color: var(--text-secondary);">
             <p style="margin: 0 0 0.5rem;">Operator claims <span class="json-key">offline_equivalent</span>: <span class="json-boolean">true</span> → Auditor measures <span class="json-key">exit.penalty_ratio</span>: <span class="json-number">50</span> → <strong style="color: var(--danger);">Proof of Lie</strong></p>
             <p style="margin: 0 0 0.5rem;">Operator claims <span class="json-key">dispute_resolution</span>: <span class="json-string">"72h"</span> → Auditor records <span class="json-key">observed_fix_time</span>: <span class="json-string">"3 months"</span> → <strong style="color: var(--danger);">Proof of Failure</strong></p>
