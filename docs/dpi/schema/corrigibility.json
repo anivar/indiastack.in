@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://indiastack.in/dpi/schema/corrigibility.json",
-  "title": "Corrigibility Assessment",
+  "title": "Corrigibility Assessment v1.2",
   "description": "Evaluation of structural correction capacity. Authored by auditors, not operators.",
   "type": "object",
   "required": ["target", "assessed_by", "tests"],
@@ -24,9 +24,9 @@
     },
 
     "methodology": {
-      "type": "string",
-      "format": "uri",
-      "description": "Link to assessment methodology"
+      "type": "array",
+      "items": { "type": "string", "format": "uri" },
+      "description": "Links to assessment methodology"
     },
 
     "tests": {
@@ -43,7 +43,11 @@
               "type": "number",
               "description": "Time/cost ratio: manual vs digital. 1 = equal, 999 = blocked."
             },
-            "evidence": { "type": "string" }
+            "evidence": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Evidence sources (URLs, citations, RTI responses)"
+            }
           }
         },
 
@@ -55,7 +59,11 @@
               "type": "string",
               "enum": ["full", "partial", "api_only", "none"]
             },
-            "evidence": { "type": "string" }
+            "evidence": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Evidence sources (URLs, citations, RTI responses)"
+            }
           }
         },
 
@@ -71,7 +79,11 @@
               "type": "string",
               "description": "Actual observed time to fix issues"
             },
-            "evidence": { "type": "string" }
+            "evidence": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Evidence sources (URLs, citations, RTI responses)"
+            }
           }
         },
 
@@ -83,7 +95,11 @@
               "type": "string",
               "enum": ["binding", "veto", "advisory", "none"]
             },
-            "evidence": { "type": "string" }
+            "evidence": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Evidence sources (URLs, citations, RTI responses)"
+            }
           }
         },
 
@@ -99,7 +115,11 @@
               }
             },
             "estimated_cost": { "type": "string" },
-            "evidence": { "type": "string" }
+            "evidence": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Evidence sources (URLs, citations, RTI responses)"
+            }
           }
         }
       }
