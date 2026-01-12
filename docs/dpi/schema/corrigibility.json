@@ -4,7 +4,7 @@
   "title": "Corrigibility Assessment v1.4",
   "description": "Independent evaluation of structural correction capacity. Authored by auditors, not operators.",
   "type": "object",
-  "required": ["target", "assessed_by", "tests"],
+  "required": ["target", "assessed_by", "assessed_at", "tests"],
 
   "properties": {
 
