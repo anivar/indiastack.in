@@ -254,96 +254,96 @@
       </div>
     </div>
 
-    <!-- corrigibility-surface.json Manifest -->
+    <!-- Two-Manifest Architecture -->
     <div class="fade-up" style="background: rgba(13,216,146,0.06); border: 1px solid rgba(13,216,146,0.2); border-radius: 12px; padding: 1.75rem 2rem; margin-bottom: 3rem;">
-      <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 1rem; letter-spacing: 0.1em;">MACHINE-READABLE MANIFEST</p>
-      <h3 style="color: #fff; font-size: 1.15rem; margin-bottom: 1rem;">Illustrative Manifest Format</h3>
-      <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">One way corrigibility surfaces can be made legible is through a machine-readable manifest. Other mechanisms may exist. See the full <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces annex</a> for the complete schema.</p>
+      <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 1rem; letter-spacing: 0.1em;">MACHINE-READABLE SCHEMAS v1.4</p>
+      <h3 style="color: #fff; font-size: 1.15rem; margin-bottom: 1rem;">Two-Manifest Architecture</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">The framework separates operator disclosure from auditor assessment. Operators cannot grade their own homework. See the full <a href="/dpi/annex/exposure-surfaces/" style="color: var(--accent);">Exposure Surfaces annex</a> for complete schemas.</p>
 
       <div style="background: rgba(129,140,248,0.08); border: 1px solid rgba(129,140,248,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.25rem;">
-        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">This schema uses JSON Schema Draft 2020-12. The framework is agnostic to format. Statutory registers, public dashboards, or other mechanisms are equally valid.</p>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Schemas use JSON Schema Draft 2020-12. The framework is agnostic to format. Statutory registers, public dashboards, or other mechanisms are equally valid.</p>
       </div>
 
-      <div style="background: rgba(0,0,0,0.4); border-radius: 8px; padding: 1.25rem; font-family: var(--font-mono); font-size: 0.8rem; overflow-x: auto;">
-        <pre style="margin: 0; color: var(--text-secondary); white-space: pre; line-height: 1.6;">{
-  "$schema": "https://indiastack.in/dpi/schema/corrigibility-manifest.json",
-  "schema_version": "1.0.0",
-  "name": "example-dpi",
-  "description": "Corrigibility exposure surfaces for Example DPI System",
-  "created_at": "2026-01-11T00:00:00Z",
-  "lifecycle_stage": "production",
-  "authors": ["Organization Name &lt;contact@example.org&gt;"],
-
-  "surfaces": {
-    "exit": {
-      "fallback_procedures": [
-        { "type": "documentation", "uri": "https://..." }
-      ],
-      "alternative_providers": ["provider-a", "provider-b"],
-      "data_portability": { "format": "json", "endpoint": "/export" }
-    },
-
-    "code": {
-      "locators": [
-        { "type": "source", "uri": "https://github.com/..." },
-        { "type": "build_manifest", "uri": "https://..." },
-        { "type": "behavioral_spec", "uri": "https://..." }
-      ],
-      "reproducible_build_checksum": "sha256:..."
-    },
-
-    "audit": {
-      "locators": [
-        { "type": "telemetry_schema", "uri": "https://..." },
-        { "type": "dashboard", "uri": "https://..." },
-        { "type": "test_harness", "uri": "https://..." }
-      ],
-      "drift_detection": {
-        "enabled": true,
-        "behavior_change_indicator": {
-          "method": "error_rate",
-          "endpoint": "/metrics/behavior",
-          "alert_threshold": ">5%",
-          "check_interval": "PT1H"
-        },
-        "remediation_latency": {
-          "detection_window": "PT24H",
-          "remediation_window": "P7D"
-        }
-      }
-    },
-
-    "govern": {
-      "locators": [
-        { "type": "policy_repository", "uri": "https://..." },
-        { "type": "rfc_process", "uri": "https://..." },
-        { "type": "charter", "uri": "https://..." }
-      ],
-      "governance_body": { "members": ["..."], "quorum": "..." }
-    },
-
-    "fork": {
-      "license": { "spdx_id": "AGPL-3.0-or-later", "uri": "https://..." },
-      "proprietary_dependencies": [],
-      "resource_requirements": {
-        "compute": { "description": "...", "barrier_level": "low|medium|high" },
-        "data": { "description": "...", "barrier_level": "low|medium|high" }
-      }
+      <!-- Infrastructure.json (Operator) -->
+      <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--blue); margin: 1.5rem 0 0.5rem; letter-spacing: 0.1em;">INFRASTRUCTURE.JSON (OPERATOR DISCLOSURE)</p>
+      <div style="background: rgba(0,0,0,0.4); border-radius: 8px; padding: 1.25rem; font-family: var(--font-mono); font-size: 0.75rem; overflow-x: auto; margin-bottom: 1.5rem;">
+        <pre style="margin: 0; color: var(--text-secondary); white-space: pre; line-height: 1.5;">{
+  "meta": {
+    "system_id": "example-dpi",
+    "deployment": "production",
+    "lifecycle": "active",
+    "license_spdx": "AGPL-3.0-or-later"
+  },
+  "operations": {
+    "status_page": "https://status.example.org",
+    "slos": {
+      "uptime_target": "99.9%",
+      "dispute_resolution": "72h"
     }
   },
+  "governance": {
+    "model": "foundation",
+    "escalation_paths": [
+      { "level": "Support", "url": "https://...", "binding": false },
+      { "level": "Ombudsman", "url": "https://...", "binding": true }
+    ]
+  },
+  "components": {
+    "repositories": [
+      { "name": "core", "url": "https://github.com/...", "role": "core" }
+    ],
+    "closed_components": []
+  },
+  "access": {
+    "endpoints": ["https://api.example.org"],
+    "offline_channels": [
+      { "type": "Service Center", "url": "https://locations.example.org" }
+    ],
+    "offline_equivalent": true
+  }
+}</pre>
+      </div>
 
-  "trust_dependencies": [
-    { "surface": "audit", "type": "sampling", "description": "5% coverage" },
-    { "surface": "code", "type": "third_party", "description": "Model weights" }
-  ],
-
-  "proof": {
-    "type": "DataIntegrityProof",
-    "cryptosuite": "eddsa-jcs-2022",
-    "created": "2026-01-11T00:00:00Z",
-    "proofPurpose": "assertionMethod",
-    "verificationMethod": "did:web:example.org#key-1",
-    "proofValue": "..."
+      <!-- Corrigibility.json (Auditor) -->
+      <p style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--purple); margin: 0 0 0.5rem; letter-spacing: 0.1em;">CORRIGIBILITY.JSON (AUDITOR ASSESSMENT)</p>
+      <div style="background: rgba(0,0,0,0.4); border-radius: 8px; padding: 1.25rem; font-family: var(--font-mono); font-size: 0.75rem; overflow-x: auto;">
+        <pre style="margin: 0; color: var(--text-secondary); white-space: pre; line-height: 1.5;">{
+  "target": "example-dpi",
+  "assessed_by": "Independent Auditor Org",
+  "assessed_at": "2026-01-12",
+  "tests": {
+    "exit": {
+      "pass": true,
+      "penalty_ratio": 1.2,
+      "evidence": ["https://...", "RTI response dated..."]
+    },
+    "code": {
+      "pass": true,
+      "visibility": "full",
+      "evidence": ["https://github.com/..."]
+    },
+    "audit": {
+      "pass": true,
+      "access": "open",
+      "observed_fix_time": "48h",
+      "evidence": ["https://status.example.org/incidents"]
+    },
+    "govern": {
+      "pass": true,
+      "user_power": "binding",
+      "evidence": ["https://governance.example.org"]
+    },
+    "fork": {
+      "pass": true,
+      "barriers": [],
+      "estimated_cost": "$10k",
+      "evidence": ["AGPL license", "Public documentation"]
+    }
+  },
+  "verdict": {
+    "corrigible": true,
+    "tests_passed": 5,
+    "summary": "All five tests passed. System qualifies as corrigible infrastructure."
   }
 }</pre>
       </div>
