@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://indiastack.in/dpi/schema/infrastructure.json",
-  "title": "DPI Operational Manifest v1.2",
-  "description": "Operational disclosure for population-scale systems. Supports federated components and multi-channel access.",
+  "title": "DPI Operational Manifest v1.4",
+  "description": "Operational disclosure mapped to structural corrigibility tests.",
   "type": "object",
   "required": ["meta", "access"],
 
@@ -10,12 +10,11 @@
 
     "meta": {
       "type": "object",
-      "required": ["system_id", "lifecycle", "license_spdx"],
+      "required": ["system_id", "deployment", "lifecycle"],
       "properties": {
         "system_id": {
           "type": "string",
-          "description": "Unique identifier",
-          "examples": ["urn:in:gov:uidai", "api.payments.gov"]
+          "examples": ["urn:gov:in:uidai", "api.payments.gov"]
         },
         "deployment": {
           "type": "string",
@@ -27,89 +26,134 @@
         },
         "license_spdx": {
           "type": "string",
-          "description": "SPDX identifier or PROPRIETARY",
           "default": "PROPRIETARY"
+        }
+      }
+    },
+
+    "operations": {
+      "type": "object",
+      "description": "Evidence surface for EXIT and AUDIT.",
+      "properties": {
+        "status_page": {
+          "type": "string",
+          "format": "uri"
+        },
+        "slos": {
+          "type": "object",
+          "properties": {
+            "uptime_target": {
+              "type": "string",
+              "description": "Operator's definition of acceptable exclusion. Mandatory systems with <100% target admit structural denial of service.",
+              "examples": ["99.95%", "99.9%", "99%"]
+            },
+            "dispute_resolution": {
+              "type": "string",
+              "description": "Max time to correct an error state. AUDIT baseline.",
+              "examples": ["24h", "72h", "7d", "30d"]
+            }
+          }
+        }
+      }
+    },
+
+    "governance": {
+      "type": "object",
+      "description": "Evidence surface for GOVERN.",
+      "required": ["model", "escalation_paths"],
+      "properties": {
+        "model": {
+          "type": "string",
+          "enum": ["community", "foundation", "corporate", "government", "closed"]
+        },
+        "escalation_paths": {
+          "type": "array",
+          "description": "Power hierarchy for overriding system errors.",
+          "items": {
+            "type": "object",
+            "required": ["level", "url", "binding"],
+            "properties": {
+              "level": {
+                "type": "string",
+                "examples": ["Call Center", "Grievance Portal", "Ombudsman", "Appellate Tribunal", "Judicial Review"]
+              },
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "binding": {
+                "type": "boolean",
+                "description": "If false, the escalation authority is advisory theater."
+              }
+            }
+          }
+        },
+        "public_participation": {
+          "type": "object",
+          "properties": {
+            "rfc": {
+              "type": "array",
+              "items": { "type": "string", "format": "uri" }
+            },
+            "issues": {
+              "type": "array",
+              "items": { "type": "string", "format": "uri" }
+            }
+          }
         }
       }
     },
 
     "components": {
       "type": "object",
-      "description": "System topology: repositories, documentation, and closed blobs",
+      "description": "Evidence surface for CODE and FORK.",
       "properties": {
         "repositories": {
           "type": "array",
-          "description": "Codebases comprising the system (Client, Server, SDKs)",
           "items": {
             "type": "object",
             "required": ["url"],
             "properties": {
-              "name": {
-                "type": "string",
-                "description": "Human-readable component name",
-                "examples": ["Android Enrollment Client", "Core Authentication Server"]
-              },
+              "name": { "type": "string" },
               "url": { "type": "string", "format": "uri" },
-              "scope": {
+              "role": {
                 "type": "string",
-                "enum": ["core", "client", "sdk", "docs", "infra"],
-                "description": "Role of this repository in the system"
+                "enum": ["core", "client", "sdk", "docs"]
               }
-            }
-          }
-        },
-        "documentation": {
-          "type": "array",
-          "description": "Technical and policy documentation",
-          "items": {
-            "type": "object",
-            "required": ["url"],
-            "properties": {
-              "title": {
-                "type": "string",
-                "examples": ["Authentication API Specs v2.5", "Privacy Policy", "Architecture Diagram"]
-              },
-              "url": { "type": "string", "format": "uri" }
             }
           }
         },
         "closed_components": {
           "type": "array",
-          "description": "Proprietary blobs that cannot be inspected",
-          "items": {
-            "type": "string",
-            "examples": ["idemia-biometric-engine-v4", "oracle-db", "aws-rekognition"]
-          }
+          "description": "Proprietary/opaque dependencies (e.g. ['oracle', 'biometric-sdk']).",
+          "items": { "type": "string" }
         }
       }
     },
 
     "learned_components": {
       "type": "array",
-      "description": "Distinct AI/ML models used within the system pipeline",
+      "description": "Evidence surface for AI Corrigibility.",
       "items": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "description": "Model identifier",
-            "examples": ["Fraud Detection Network B", "Biometric Matcher v3", "OCR Engine"]
-          },
-          "model_card": { "type": "string", "format": "uri" },
-          "training_docs": {
-            "type": "array",
-            "items": { "type": "string", "format": "uri" },
-            "description": "Training data and methodology documentation"
-          },
+          "name": { "type": "string" },
           "role": {
             "type": "string",
-            "enum": ["advisory", "decision", "enforcement"],
-            "description": "Criticality of this model's output"
+            "enum": ["advisory", "decision", "enforcement"]
           },
           "when_uncertain": {
             "type": "string",
             "enum": ["escalates", "fails_open", "fails_closed", "silent"],
-            "description": "Behavior when model confidence is low"
+            "description": "Failure mode disclosure. 'Silent' indicates fail-deadly design."
+          },
+          "model_cards": {
+            "type": "array",
+            "items": { "type": "string", "format": "uri" }
+          },
+          "training_docs": {
+            "type": "array",
+            "items": { "type": "string", "format": "uri" }
           }
         }
       }
@@ -117,95 +161,33 @@
 
     "access": {
       "type": "object",
+      "description": "Evidence surface for EXIT.",
       "required": ["offline_equivalent"],
       "properties": {
         "endpoints": {
           "type": "array",
-          "description": "Digital entry points (Web, App, API)",
           "items": { "type": "string", "format": "uri" }
         },
         "offline_channels": {
           "type": "array",
-          "description": "Physical locations or workflows for non-digital access",
           "items": {
             "type": "object",
             "required": ["type", "url"],
             "properties": {
               "type": {
                 "type": "string",
-                "examples": ["Enrollment Center", "Bank Branch", "Post Office", "CSC Kiosk"]
+                "examples": ["CSC Location Map", "Bank Branch", "Post Office"]
               },
-              "description": { "type": "string" },
-              "url": {
-                "type": "string",
-                "format": "uri",
-                "description": "Locator URL or PDF form"
-              }
+              "url": { "type": "string", "format": "uri" }
             }
           }
         },
         "offline_equivalent": {
           "type": "boolean",
-          "description": "Do offline channels collectively offer equivalent service (time, cost, outcome) to digital?"
+          "description": "Perjury trap: Does the offline path offer parity in outcome/cost?"
         },
         "data_export": {
           "type": "array",
-          "description": "Data portability/accountability endpoints",
-          "items": { "type": "string", "format": "uri" }
-        }
-      }
-    },
-
-    "governance": {
-      "type": "object",
-      "properties": {
-        "model": {
-          "type": "string",
-          "enum": ["community", "foundation", "corporate", "government", "closed"]
-        },
-        "slos": {
-          "type": "object",
-          "description": "Service Level Objectives",
-          "properties": {
-            "dispute_resolution": {
-              "type": "string",
-              "description": "Max time to resolve disputes",
-              "examples": ["24h", "72h", "7d", "30d"]
-            },
-            "bug_fix": {
-              "type": "string",
-              "description": "Max time to fix verified bugs",
-              "examples": ["24h", "7d", "90d"]
-            }
-          }
-        },
-        "escalation_paths": {
-          "type": "array",
-          "description": "Hierarchy of appeals (L1 Support -> Ombudsman -> Court)",
-          "items": {
-            "type": "object",
-            "required": ["level", "url"],
-            "properties": {
-              "level": {
-                "type": "string",
-                "examples": ["Call Center", "Grievance Portal", "Ombudsman", "Appellate Tribunal", "Judicial Review"]
-              },
-              "url": { "type": "string", "format": "uri" },
-              "binding": {
-                "type": "boolean",
-                "description": "Does this level produce binding decisions?"
-              }
-            }
-          }
-        },
-        "issues": {
-          "type": "array",
-          "description": "Public issue trackers",
-          "items": { "type": "string", "format": "uri" }
-        },
-        "rfc": {
-          "type": "array",
-          "description": "RFC/proposal processes",
           "items": { "type": "string", "format": "uri" }
         }
       }
