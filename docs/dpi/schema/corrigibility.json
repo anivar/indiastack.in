@@ -123,19 +123,6 @@
           }
         }
       }
-    },
-
-    "verdict": {
-      "type": "object",
-      "properties": {
-        "corrigible": { "type": "boolean" },
-        "tests_passed": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 5
-        },
-        "summary": { "type": "string" }
-      }
     }
   }
 }
