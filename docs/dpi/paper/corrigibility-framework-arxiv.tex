@@ -668,9 +668,13 @@ This work is released under CC0 1.0 Universal (Public Domain). Use, adapt, trans
 
 \section*{Data and Code Availability}
 
-The complete framework, including JSON Schema for machine-readable attestation and supplementary materials, is available at:
+The complete framework, including JSON Schemas for machine-readable disclosure and assessment, is available at:
 
-\url{https://indiastack.in/dpi/}
+\begin{itemize}
+    \item Framework documentation: \url{https://indiastack.in/dpi/}
+    \item Infrastructure manifest schema: \url{https://indiastack.in/dpi/schema/infrastructure.json}
+    \item Corrigibility assessment schema: \url{https://indiastack.in/dpi/schema/corrigibility.json}
+\end{itemize}
 
 \bibliographystyle{plainnat}
 \begin{thebibliography}{9}
@@ -734,38 +738,147 @@ Mitchell, Margaret, Wu, Simone, Zaldivar, Andrew, et al.
 
 \appendix
 
-\section{Machine-Readable Corrigibility Manifest}
-\label{appendix:manifest}
+\section{Machine-Readable Schema Architecture}
+\label{appendix:schema}
 
-To enable automated discovery and triage of corrigibility surfaces, we provide a JSON Schema for structured disclosure. The schema follows JSON Schema Draft 2020-12 and defines required fields for each of the five tests.
+To enable structured disclosure and independent assessment, we provide two complementary JSON Schemas. The schemas follow JSON Schema Draft 2020-12. This appendix describes the architectural principles; current schema versions are maintained at the URLs below.
 
-\subsection{Schema Overview}
+\subsection{Two-Manifest Architecture}
 
-The manifest structure includes:
-
-\begin{itemize}
-    \item \textbf{System identification}: Name, operator, jurisdiction, system type (deterministic/learned/hybrid), deployment scope, and criticality level.
-    \item \textbf{Disclosure intent}: Explicit statement that the manifest exposes surfaces for verification, not attestation of compliance.
-    \item \textbf{Evidence surfaces}: Structured fields for each test (EXIT, CODE, AUDIT, GOVERN, FORK) with typed locators pointing to verifiable artifacts.
-    \item \textbf{AI system extensions}: For learned systems, additional fields for model versioning, training data provenance, behavior monitoring, and drift detection.
-    \item \textbf{Integrity fields}: Optional cryptographic signatures for binding manifest claims to issuer identity.
-\end{itemize}
-
-\subsection{Key Design Principles}
+The framework separates operator disclosure from auditor assessment by design:
 
 \begin{enumerate}
-    \item \textbf{Surfaces, not scores}: The manifest exposes structural locations where claims can be challenged. It does not compute pass/fail judgments.
-    \item \textbf{Locators, not assertions}: Each surface contains URIs pointing to external artifacts. Verification occurs by following these links, not by trusting manifest content.
-    \item \textbf{Trust dependencies explicit}: Where verification depends on sampling, third-party attestation, or operator permission, this dependency must be declared.
-    \item \textbf{Temporal tracking}: For learned systems, drift detection fields declare how behavior change is monitored and what remediation windows apply.
+    \item \textbf{infrastructure.json}: Operator-authored manifest declaring system properties, governance structure, and evidence locations. Operators describe their own systems.
+    \item \textbf{corrigibility.json}: Auditor-authored assessment evaluating each of the five tests with pass/fail verdicts and supporting evidence. Auditors grade operator claims.
 \end{enumerate}
 
-\subsection{Usage}
+This separation prevents operators from grading their own homework. The two documents can be compared to detect contradictions between operator claims and auditor findings.
 
-The reference schema and illustrative examples are available at:
+\subsection{Infrastructure Manifest (Operator Disclosure)}
 
-\url{https://indiastack.in/dpi/schema/corrigibility-manifest.json}
+The operator manifest organizes disclosure around evidence surfaces mapped to the five tests:
 
-Machine-readability enables automated indexing and comparison across systems. It does not substitute for human verification of linked artifacts.
+\begin{itemize}
+    \item \textbf{meta}: System identification (system\_id, deployment status, lifecycle state)
+    \item \textbf{operations}: Service level objectives including uptime targets and dispute resolution timelines. Maps to EXIT and AUDIT tests.
+    \item \textbf{governance}: Governance model, escalation pathways with binding/advisory status, public participation channels. Maps to GOVERN test.
+    \item \textbf{components}: Code repositories by role (core, client, sdk, docs) and declared closed components. Maps to CODE and FORK tests.
+    \item \textbf{learned\_components}: For AI systems, each model declared individually with role, failure mode behavior, and documentation links.
+    \item \textbf{access}: API endpoints, offline channels, and the critical \texttt{offline\_equivalent} boolean. Maps to EXIT test.
+\end{itemize}
+
+\subsection{Corrigibility Assessment (Auditor Verdict)}
+
+The auditor assessment provides independent evaluation:
+
+\begin{itemize}
+    \item \textbf{target}: Links to infrastructure manifest via system\_id
+    \item \textbf{assessed\_by}: Auditor identity (required for accountability)
+    \item \textbf{assessed\_at}: Assessment date (required to prevent stale assessments)
+    \item \textbf{tests}: Each of the five tests with pass/fail verdict, quantitative metrics, and evidence arrays
+    \item \textbf{verdict}: Overall corrigibility determination and summary
+\end{itemize}
+
+\subsection{Key Parameters Explained}
+
+The following parameters carry specific structural meaning:
+
+\subsubsection{EXIT Test Parameters}
+
+\begin{itemize}
+    \item \texttt{offline\_equivalent} (boolean): Operator declares whether non-digital pathways offer equivalent outcomes at equivalent cost. A ``true'' claim that auditors contradict becomes evidence of deception.
+    \item \texttt{penalty\_ratio} (number): Auditor-measured ratio of time/cost for manual vs. digital path. Value of 1 means parity; 999 indicates effective blocking.
+\end{itemize}
+
+\subsubsection{CODE Test Parameters}
+
+\begin{itemize}
+    \item \texttt{visibility} (enum): Auditor assessment of code accessibility.
+    \begin{itemize}
+        \item \texttt{full}: Complete source code and build process available
+        \item \texttt{partial}: Some components open, others closed
+        \item \texttt{api\_only}: Only interface documentation, no implementation
+        \item \texttt{none}: Entirely opaque
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{AUDIT Test Parameters}
+
+\begin{itemize}
+    \item \texttt{access} (enum): Whether independent verification is permitted.
+    \begin{itemize}
+        \item \texttt{open}: Anyone can audit without permission
+        \item \texttt{permissioned}: Audit requires operator approval
+        \item \texttt{forbidden}: Independent audit legally or technically blocked
+    \end{itemize}
+    \item \texttt{observed\_fix\_time} (string): Auditor-measured time to correct issues, compared against operator's declared \texttt{dispute\_resolution} SLO.
+\end{itemize}
+
+\subsubsection{GOVERN Test Parameters}
+
+\begin{itemize}
+    \item \texttt{user\_power} (enum): Degree of affected population authority.
+    \begin{itemize}
+        \item \texttt{binding}: Decisions require user consent
+        \item \texttt{veto}: Users can block but not initiate
+        \item \texttt{advisory}: Input considered but not binding
+        \item \texttt{none}: No structured input
+    \end{itemize}
+    \item \texttt{binding} (boolean): Per-escalation-path field. If false, that escalation authority is ``advisory theater.''
+\end{itemize}
+
+\subsubsection{FORK Test Parameters}
+
+\begin{itemize}
+    \item \texttt{barriers} (array of enum): Types of barriers to replacement.
+    \begin{itemize}
+        \item \texttt{legal}: Licensing or IP restrictions
+        \item \texttt{technical}: Proprietary dependencies or formats
+        \item \texttt{economic}: Capital requirements beyond civil society capacity
+        \item \texttt{regulatory}: Government-enforced monopoly
+        \item \texttt{data}: Training data or historical data inaccessible
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{AI System Parameters}
+
+\begin{itemize}
+    \item \texttt{role} (enum): How the AI component affects outcomes.
+    \begin{itemize}
+        \item \texttt{advisory}: Human reviews AI output before action
+        \item \texttt{decision}: AI determines outcome subject to appeal
+        \item \texttt{enforcement}: AI triggers automatic penalty without human review
+    \end{itemize}
+    \item \texttt{when\_uncertain} (enum): Failure mode when model confidence is low.
+    \begin{itemize}
+        \item \texttt{escalates}: Passes to human review
+        \item \texttt{fails\_open}: Permits action despite uncertainty
+        \item \texttt{fails\_closed}: Denies action when uncertain
+        \item \texttt{silent}: No disclosure of uncertainty (fail-deadly design)
+    \end{itemize}
+\end{itemize}
+
+\subsection{The Perjury Trap}
+
+The two-manifest architecture creates structural accountability. When operators claim one thing and auditors measure another, the contradiction is machine-readable:
+
+\begin{itemize}
+    \item Operator claims \texttt{offline\_equivalent: true}; auditor measures \texttt{penalty\_ratio: 50} $\Rightarrow$ Proof of lie
+    \item Operator claims \texttt{dispute\_resolution: "72h"}; auditor records \texttt{observed\_fix\_time: "3 months"} $\Rightarrow$ Proof of SLO failure
+    \item Operator claims \texttt{escalation.binding: true}; auditor finds \texttt{user\_power: "advisory"} $\Rightarrow$ Proof of governance theater
+\end{itemize}
+
+\subsection{Future Compatibility}
+
+The schema will evolve as new patterns emerge. Current versions are maintained at:
+
+\begin{itemize}
+    \item Infrastructure manifest: \url{https://indiastack.in/dpi/schema/infrastructure.json}
+    \item Corrigibility assessment: \url{https://indiastack.in/dpi/schema/corrigibility.json}
+\end{itemize}
+
+Schema versions are indicated in the \texttt{title} field (e.g., ``v1.4''). The architectural principles (two-manifest separation, evidence surfaces, perjury trap) remain stable across versions. Field names and enums may be extended.
+
+Implementations should reference schemas by URL and validate against the current version rather than embedding schema details.
 
 \end{document}
