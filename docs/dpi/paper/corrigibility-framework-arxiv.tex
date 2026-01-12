@@ -28,7 +28,7 @@
 \author[1]{Anivar A Aravind\thanks{Corresponding author: \href{https://anivar.net}{anivar.net} · \texttt{ping@anivar.net} · ORCID: \href{https://orcid.org/0009-0009-8995-0005}{0009-0009-8995-0005}}}
 \affil[1]{Independent Researcher}
 
-\date{January 2026}
+\date{January 2026\\[0.5em]\small{Paper version 1.4 · Schema version 1.4}}
 
 \begin{document}
 
@@ -880,5 +880,14 @@ The schema will evolve as new patterns emerge. Current versions are maintained a
 Schema versions are indicated in the \texttt{title} field (e.g., ``v1.4''). The architectural principles (two-manifest separation, evidence surfaces, perjury trap) remain stable across versions. Field names and enums may be extended.
 
 Implementations should reference schemas by URL and validate against the current version rather than embedding schema details.
+
+\subsection{Version History}
+
+\begin{itemize}
+    \item \textbf{v1.0}: Initial schema with single manifest structure
+    \item \textbf{v1.2}: Refactored document fields to arrays for population-scale systems
+    \item \textbf{v1.3}: Added named object arrays (repositories, escalation\_paths, learned\_components)
+    \item \textbf{v1.4}: Two-manifest architecture (infrastructure.json + corrigibility.json), added operations section with SLOs, made assessed\_at required, added evidence arrays to all tests
+\end{itemize}
 
 \end{document}
