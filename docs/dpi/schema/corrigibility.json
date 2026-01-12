@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://indiastack.in/dpi/schema/corrigibility.json",
-  "title": "Corrigibility Assessment v1.2",
-  "description": "Evaluation of structural correction capacity. Authored by auditors, not operators.",
+  "title": "Corrigibility Assessment v1.4",
+  "description": "Independent evaluation of structural correction capacity. Authored by auditors, not operators.",
   "type": "object",
   "required": ["target", "assessed_by", "tests"],
 
@@ -77,7 +77,7 @@
             },
             "observed_fix_time": {
               "type": "string",
-              "description": "Actual observed time to fix issues"
+              "description": "Actual observed time to fix issues (compares against operator SLO)"
             },
             "evidence": {
               "type": "array",
