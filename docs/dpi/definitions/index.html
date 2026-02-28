@@ -329,44 +329,56 @@
 </head>
 <body>
   <div class="grid-pattern"></div>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-<nav class="top-nav dpi-nav" aria-label="DPI Framework navigation">
-  <div class="nav-brand">
-    <a href="/dpi/" class="logo dpi-logo" aria-label="DPI Corrigibility Framework - Home">
-      <span class="logo-text">DPI Framework</span>
-      <span class="logo-badge">CC0</span>
-    </a>
-    <a href="/" class="parent-link" title="India Stack Watch">← indiastack.in</a>
-  </div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<nav class="top-nav" aria-label="Main navigation">
+  <a href="/" class="logo" aria-label="India Stack Watch - Home">
+    <img width="300" height="50" src="/logo.svg" alt="India Stack Watch" class="logo-svg" fetchpriority="high">
+  </a>
   <button class="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
     <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
   </button>
   <ul class="nav-links" id="nav-menu" role="list">
-    <li><a href="/dpi/" class="nav-home">Framework</a></li>
+    <li><a href="/" class="nav-home">Home</a></li>
     <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="menu-learn">Learn</button>
-      <ul class="nav-dropdown-menu" id="menu-learn" role="menu" aria-label="Learn">
-        <li role="menuitem"><a href="/dpi/definitions/">DPI Definitions</a></li>
-        <li role="menuitem"><a href="/dpi/analysis/">Why Corrigibility</a></li>
-        <li role="menuitem"><a href="/dpi/learned-systems/">AI Systems</a></li>
+      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="menu-tests">Five Tests</button>
+      <ul class="nav-dropdown-menu" id="menu-tests" role="menu" aria-label="Five Tests">
+        <li role="menuitem"><a href="/exit/"><span class="test-indicator test-exit">01</span> Exit</a></li>
+        <li role="menuitem"><a href="/foss/"><span class="test-indicator test-code">02</span> Code</a></li>
+        <li role="menuitem"><a href="/audit/"><span class="test-indicator test-audit">03</span> Audit</a></li>
+        <li role="menuitem"><a href="/participate/"><span class="test-indicator test-govern">04</span> Govern</a></li>
+        <li role="menuitem"><a href="/fork/"><span class="test-indicator test-fork">05</span> Fork</a></li>
+        <li role="menuitem" class="nav-divider"></li>
+        <li role="menuitem"><a href="/methods/" class="nav-sub">Methods</a></li>
       </ul>
     </li>
     <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="menu-apply">Apply</button>
-      <ul class="nav-dropdown-menu" id="menu-apply" role="menu" aria-label="Apply">
-        <li role="menuitem"><a href="/dpi/build/">How to Build</a></li>
-        <li role="menuitem"><a href="/dpi/require/">How to Require</a></li>
-        <li role="menuitem"><a href="/dpi/annex/exposure-surfaces/">Exposure Surfaces</a></li>
-      </ul>
-    </li>
-    <li><a href="/dpi/llms.txt" class="nav-link" title="AI Model Guidance">llms.txt</a></li>
-    <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="menu-indiastack">India Stack</button>
-      <ul class="nav-dropdown-menu" id="menu-indiastack" role="menu" aria-label="India Stack">
-        <li role="menuitem"><a href="/">Home</a></li>
-        <li role="menuitem"><a href="/layers/">Layers</a></li>
+      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="menu-evidence">Evidence</button>
+      <ul class="nav-dropdown-menu" id="menu-evidence" role="menu" aria-label="Evidence">
+        <li role="menuitem"><a href="/layers/">Architecture</a></li>
+        <li role="menuitem"><a href="/surveillance/">Surveillance</a></li>
         <li role="menuitem"><a href="/exclusion/">Human Cost</a></li>
-        <li role="menuitem"><a href="/foss/">Open Source?</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="menu-components">Components</button>
+      <ul class="nav-dropdown-menu" id="menu-components" role="menu" aria-label="Components">
+        <li role="menuitem"><a href="/health/">Health Stack</a></li>
+        <li role="menuitem"><a href="/payments/">Payments</a></li>
+        <li role="menuitem"><a href="/data/">Data Economy</a></li>
+        <li role="menuitem"><a href="/education/">Education</a></li>
+        <li role="menuitem"><a href="/governance/">Governance</a></li>
+        <li role="menuitem"><a href="/ai/">AI</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="menu-framework">Framework</button>
+      <ul class="nav-dropdown-menu" id="menu-framework" role="menu" aria-label="Framework">
+        <li role="menuitem"><a href="/dpi/">DPI Framework</a></li>
+        <li role="menuitem"><a href="/dpi/definitions/" class="nav-sub">Definitions</a></li>
+        <li role="menuitem"><a href="/dpi/build/" class="nav-sub">How to Build</a></li>
+        <li role="menuitem"><a href="/dpi/require/" class="nav-sub">How to Require</a></li>
+        <li role="menuitem"><a href="/dpi/analysis/" class="nav-sub">Analysis</a></li>
+        <li role="menuitem"><a href="/terminology/">Terminology</a></li>
       </ul>
     </li>
   </ul>
