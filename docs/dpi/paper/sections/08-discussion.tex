@@ -1,0 +1,231 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{The Cybernetics of Binary Evaluation}
+
+Critics often argue that this framework's binary pass/fail topology is too rigid for the complex reality of governance, proposing instead "maturity models" or graded scorecards. From a cybernetic perspective, we reject this gradation. Corrigibility is not a variable virtue; it is a \textbf{structural connectivity state}.
+
+In a control system, a feedback loop is either closed or it is open. There is no such thing as a "mostly closed" loop. A wire that is disconnected by 1 millimeter transmits zero signal.
+
+\begin{itemize}
+    \item A system that allows \textbf{AUDIT} (Sensing) but blocks \textbf{GOVERN} (Actuation) is an \textbf{Open Loop}. It observes errors but cannot fix them.
+    \item A system that allows \textbf{GOVERN} but blocks \textbf{EXIT} is a \textbf{Coercive Loop}. It traps energy inside the system until it fails catastrophically.
+\end{itemize}
+
+Partial compliance creates "zombie infrastructure"---systems that maintain the aesthetic of responsiveness while severing the actual capacity for stability. Therefore, a "Partial" score in this framework represents a \textbf{Fatal Structural Failure}. A system is either corrigible, or it is not.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    scale=0.85, transform shape,
+    box/.style={rectangle, draw=gray!60, thick, fill=white, rounded corners, minimum height=0.8cm, minimum width=1.5cm, font=\scriptsize\sffamily},
+    lbl/.style={font=\tiny\sffamily\bfseries, color=gray},
+    cross/.style={path picture={
+        \draw[red, thick] (path picture bounding box.south west) -- (path picture bounding box.north east);
+        \draw[red, thick] (path picture bounding box.south east) -- (path picture bounding box.north west);
+    }}
+]
+
+% --- ROW 1: CORRIGIBLE (Closed Loop) ---
+\node[font=\bfseries\sffamily, align=left] at (-3, 0) {1. CORRIGIBLE\\(Closed Loop)};
+\node[box, fill=green!5] (op1) at (0,0) {Operator};
+\node[box, fill=green!5] (us1) at (4,0) {Public};
+
+\draw[->, thick, codecolor] (op1) -- node[above, font=\tiny] {Action} (us1);
+\draw[->, thick, exitcolor] (us1) -- node[below, font=\tiny] {EXIT/Correction} (op1);
+
+\node[right=0.5cm of us1, font=\tiny\sffamily, text width=2cm, align=left, color=green!40!black] {
+    \textbf{Stable}\\
+    Error signals reduce variance.
+};
+
+% --- ROW 2: COERCIVE (No Exit) ---
+\node[font=\bfseries\sffamily, align=left] at (-3, -2) {2. COERCIVE\\(No Exit)};
+\node[box] (op2) at (0,-2) {Operator};
+\node[box, fill=red!5] (us2) at (4,-2) {Public};
+
+\draw[->, thick, codecolor] (op2) -- node[above, font=\tiny] {Mandate} (us2);
+\draw[->, thick, exitcolor, dashed] (us2.south) -- +(0,-0.4) -| (op2.south);
+\node[circle, fill=white, draw=red, inner sep=1pt, cross] at (2, -2.6) {};
+\node[below, font=\tiny, color=red] at (2, -2.7) {Blocked (Aadhaar)};
+
+\node[right=0.5cm of us2, font=\tiny\sffamily, text width=2cm, align=left, color=red!40!black] {
+    \textbf{Unstable}\\
+    Variance accumulates until rupture.
+};
+
+% --- ROW 3: OPAQUE (No Inspection) ---
+\node[font=\bfseries\sffamily, align=left] at (-3, -4) {3. OPAQUE\\(No Insight)};
+\node[box, fill=gray!20] (op3) at (0,-4) {AI Model};
+\node[box] (us3) at (4,-4) {Public};
+
+\draw[->, thick, codecolor, dashed] (op3) -- node[above, font=\tiny] {????} (us3);
+\node[circle, fill=white, draw=auditcolor, inner sep=1pt, cross] at (2, -4) {};
+\node[below, font=\tiny, color=auditcolor] at (2, -4.1) {Hidden Logic (Black Box)};
+
+\draw[->, thick, exitcolor] (us3.south) -- +(0,-0.4) -| (op3.south);
+
+\node[right=0.5cm of us3, font=\tiny\sffamily, text width=2cm, align=left, color=orange!40!black] {
+    \textbf{Drifting}\\
+    Feedback irrelevant (signal noise).
+};
+
+\end{tikzpicture}
+\caption{\textbf{Topologies of Failure.}
+(1) A corrigible system closes the loop, converting error signals into stability.
+(2) A coercive system blocks \textbf{EXIT}, trapping energy.
+(3) An opaque system obscures the action channel, making feedback unintelligible.}
+\label{fig:failure_modes}
+\end{figure}
+
+\subsection{The Protocol Model of State}
+
+A common practical objection holds that governments cannot adopt corrigible infrastructure because they must retain control over sovereign functions. This objection relies on a category error: it conflates the \textit{Platform Model} with the \textit{Protocol Model}.
+
+In the \textbf{Platform Model} (currently dominant), the state contracts a vendor to build a monolithic silo (e.g., existing digital ID systems). The vendor controls execution, the state attempts to control policy, and citizens are reduced to rows in a database. As \citet{cohen2019} argues, this model inevitably subverts the Rule of Law by replacing legal due process with optimized platform logic. In the \textbf{Protocol Model} (the corrigible alternative), the state adopts open, corrigible protocols and acts as a high-authority participant within them. The state issues credentials and verifies claims, but it does not enclose the infrastructure itself.
+
+This distinction mirrors the architecture of the web. Governments do not need to build their own proprietary browsers to deliver services; they build sites on HTTP. Similarly, corrigible DPI implies that the state becomes an issuer of trust rather than a landlord of infrastructure. This model does not reduce state capacity; it enhances trust by making the state's operations verifiable.
+
+\subsubsection{Distributed Assessment Capacity}
+A corollary objection concerns resources: "Who audits?" The framework does not require every citizen to audit source code. It requires that the infrastructure allows \textit{anyone} to audit, thereby enabling civil society, journalists, and specialized firms to perform this function on behalf of the public. Assessment capacity is itself infrastructure. When systems are designed to be inscrutable, this immune system of society withers.
+
+\subsubsection{Structural Preconditions of Law}
+Legal doctrines such as proportionality analysis---as established in \textit{Puttaswamy v. Union of India} \citep{puttaswamy2017}---presuppose that state intrusions can be measured, minimized, and remedied. However, as \citet{bhatia2019} argues, when the architecture of a system is opaque or irreversible, these constitutional guarantees become legal fictions. \textbf{Corrigibility} is the evidentiary precondition required for the law to take hold of the machine.
+
+\subsection{Corrigibility in Extremis}
+
+Incorrigibility is often justified by the rhetoric of necessity---national security, anti-corruption, or emergency efficiency. This framework explicitly denies such exemptions. Corrigibility does not imply that substantive rules are negotiable; a system may enforce strict, non-negotiable limits (e.g., pandemic travel restrictions or environmental caps). However, the \textit{structural capacity} to detect error, verify correct enforcement, and reverse wrongful harm must remain intact even in high-constraint environments. As safety engineering demonstrates, accidents in complex systems are caused precisely by the lack of appropriate constraints on component interactions \citep{leveson2011}.
+
+\begin{claim}
+No exemption from the five tests is granted on the basis of emergency conditions, planetary constraints, or decentralized architecture.
+\end{claim}
+
+This applies equally to decentralized systems. Cryptographic immutability is not a substitute for governance. A blockchain that permanently records a theft without a mechanism for consensus-based reversion is not "trustless"; it is strictly incorrigible. If a system allows for irrevocable harm without recourse, its decentralization is merely a distribution of unaccountability.
+
+\subsection{Agentic Scaling and Governance Denial of Service}
+\label{subsec:gdos}
+
+Most contemporary AI systems fail the structural conditions for DPI. While they may satisfy \textbf{EXIT} and \textbf{CODE} (via open weights), they systematically fail \textbf{GOVERN} and \textbf{FORK} due to the closure of training data.
+
+We distinguish this from ``AI Alignment.'' Alignment asks: \textit{Can the operator control the system?} Corrigibility asks: \textit{Can the affected subject correct the system?} Structural legitimacy requires the latter.
+
+\subsubsection{Corrigibility as an API Contract for Agents}
+As DPI transitions to support the ``Agentic Economy,'' corrigibility moves from a moral preference to an engineering requirement. Autonomous agents lack the biological resilience to handle bureaucracy.
+\begin{itemize}
+    \item \textbf{EXIT is Exception Handling}: To an agent, a mandatory system with no exit path appears as a logic deadlock.
+    \item \textbf{CODE is Documentation}: Agents require inspectability of logic to form valid plans.
+    \item \textbf{AUDIT is Observability}: An optimization agent cannot function without a reliable failure signal.
+    \item \textbf{GOVERN is Constraint Discovery}: Advisory guidelines result in undefined behavior for software agents.
+\end{itemize}
+\begin{claim}
+Incorrigible infrastructure is structurally incompatible with AI automation.
+\end{claim}
+
+\subsubsection{The Human Friction Buffer}
+
+Incorrigible infrastructures may appear stable under human load because humans absorb friction through delay, compliance, and informal workaround. Autonomous agents remove this buffering layer. As agentic interaction scales, centralized governance mechanisms face \textbf{Governance Denial of Service (GDoS)}: the volume, speed, and strategic diversity of agent actions exceeds the system's capacity to audit, interpret, and correct behavior.
+
+This is not a security failure but a control-theoretic inevitability. Systems lacking distributed audit and rapid, binding governance lack the requisite variety to remain stable under agentic scaling. The correction velocity inequality (Section~\ref{subsec:velocity}) predicts precisely this failure mode: when $\frac{dE}{dt} \gg \frac{dC}{dt}$, the system diverges. Agents accelerate $E(t)$; centralized governance cannot accelerate $C(t)$.
+
+\begin{claim}
+Agentic scaling amplifies the correction velocity inequality. Systems that are marginally stable under human interaction rates become catastrophically unstable under agent interaction rates. The human friction buffer is not a feature; it is a hidden subsidy that masks architectural incorrigibility.
+\end{claim}
+
+\subsection{The Essential Services Problem}
+\label{subsec:essential}
+
+A pattern emerges from Section~\ref{sec:diagnosis}: systems that pass all five tests are disproportionately non-essential infrastructure. Linux, PostgreSQL, Kubernetes, and Let's Encrypt power critical operations, but no individual's survival depends on accessing them. The systems promoted as DPI, which mediate access to food, banking, healthcare, and mobility, consistently fail.
+
+This correlation reflects a structural tension between essentiality and corrigibility.
+
+\subsubsection{The Essentiality Trap}
+
+Essential services create the economic coercion that undermines EXIT. When refusal means exclusion from survival, the feedback loop breaks regardless of other properties. \citet{hirschman1970} observed that exit is effective precisely because it is voluntary. The credible threat of departure disciplines the system. When departure means death (literal or social), exit ceases to function as feedback. It becomes self-exclusion.
+
+The systems in Table~\ref{tab:positive} avoid this trap because alternatives exist. A developer who dislikes the Linux kernel's direction can migrate to BSD without losing the ability to compute. A journalist who distrusts Let's Encrypt can obtain certificates elsewhere. The existence of functional alternatives preserves the error signal.
+
+Aadhaar has been made prerequisite to existence. Documented cases demonstrate the consequence: at least 27 starvation deaths in India between 2015 and 2018 were attributed to Aadhaar-related exclusion from food rations \citep{khera2017}. These deaths are not anomalies; they are the structural prediction of a system that blocks EXIT while governing essential services.
+
+\subsubsection{Architectural Responses}
+
+The tension admits two resolutions, both architectural:
+
+\paragraph{Protected Alternatives.} Essential services can remain corrigible if law guarantees functional non-digital equivalents. Cash preserves UPI's partial EXIT; eliminating cash would collapse UPI to Aadhaar's structural status. Corrigibility for essential services requires that non-digital pathways remain legally protected, not merely tolerated.
+
+This is the lesson of the UPI/Aadhaar contrast. Both are Indian government systems operating at population scale. UPI achieves partial EXIT because cash exists; Aadhaar achieves zero EXIT because alternatives have been legally foreclosed. The difference is not in the systems' design but in the ecosystem constraint: whether alternatives are permitted.
+
+\paragraph{Federated Implementation.} Rather than a single provider of essential infrastructure, services could be delivered through multiple independent implementations of open protocols. This is analogous to email (SMTP) rather than messaging (proprietary platforms).
+
+Under this model, no single implementation would be essential; the protocol would be. A citizen excluded from one provider could obtain equivalent service from another. Estonian X-Road approaches this architecture: the protocol is open, implementations are distributed across institutions, and the Nordic Institute for Interoperability Solutions (NIIS) provides multi-stakeholder governance. Citizens cannot opt out of the data exchange layer, but no single institution controls their access to all services.
+
+X-Road demonstrates that scale and corrigibility are compatible. It passes CODE (MIT-licensed), AUDIT (transaction logs, public enforcement against misuse), GOVERN (multi-national NIIS), and FORK (deployed in 25+ countries). It fails full EXIT but compensates through strong performance on the other four tests. This compensation is unstable (it depends on continued good-faith governance) but it proves that population-scale infrastructure need not exhibit the total capture of Aadhaar.
+
+\subsubsection{The Finding}
+
+The absence of fully corrigible essential services is not a limitation of this framework; it is the framework's central finding. The question ``Can essential DPI be fully corrigible?'' is empirically answered: not under architectures that eliminate alternatives.
+
+\subsection{Transition Paths}
+\label{subsec:transition}
+
+The framework diagnoses incorrigibility but does not prescribe political remedies. However, the structure of the five tests implies an ordering for transition: certain tests are prerequisites for others, and certain interventions have higher leverage.
+
+\subsubsection{Ordered Priorities}
+
+The tests form a dependency chain when considered as a transition sequence:
+
+\begin{enumerate}
+    \item \textbf{EXIT first.} Restore exit before other tests. Without exit, no other reform creates genuine feedback. This requires either eliminating mandatory linkage laws or guaranteeing functional non-digital alternatives. EXIT is the error signal; without it, the system cannot sense its own failures.
+
+    \item \textbf{CODE before AUDIT.} Transparency must precede verification. Independent testing is meaningful only if the testing target is observable. Publishing audit results for a black box proves nothing about the box.
+
+    \item \textbf{AUDIT before GOVERN.} Verified error data creates political pressure for governance reform. Governance without measurement is arbitrary. There is no basis for determining whether constraints are adequate. The sensor must function before the actuator can be calibrated.
+
+    \item \textbf{GOVERN enables FORK.} Structural governance can mandate open licensing, data portability, and interoperability requirements that enable eventual forkability. GOVERN without FORK leaves the system captive to its current steward; FORK without GOVERN may produce fragmentation without accountability.
+\end{enumerate}
+
+This sequence reflects the causal structure of the feedback loop: signal, sensing, transmission, actuation, selection. Interventions at later stages are ineffective if earlier stages are broken.
+
+\subsubsection{Phase Transitions}
+
+The transition is not gradual improvement. It is a series of phase transitions. Each test either passes or fails; the system remains incorrigible until all five pass. A system that achieves CODE but not EXIT has become transparent without becoming accountable. Users can see their oppression; they cannot escape it.
+
+This explains why open-washing is effective: partial progress creates the appearance of reform while preserving structural capture. The framework rejects partial credit precisely because partial feedback loops do not partially function.
+
+\subsubsection{Political Economy}
+
+The political economy of transition varies by test:
+
+\begin{table}[h]
+\centering
+\caption{Political economy of transition by test}
+\label{tab:political-economy}
+\begin{tabular}{lll}
+\hline
+\textbf{Test} & \textbf{Transition Barrier} & \textbf{Concentrated Opposition} \\
+\hline
+EXIT & Mandatory linkage laws & Operators lose captive users \\
+CODE & Intellectual property claims & Vendors lose competitive moats \\
+AUDIT & Security-through-obscurity claims & Operators lose narrative control \\
+GOVERN & Sovereignty objections & Executives lose discretion \\
+FORK & Typically least opposed & Requires only licensing and documentation \\
+\hline
+\end{tabular}
+\end{table}
+
+FORK is typically the least opposed transition because it requires only legal permission and technical documentation. It does not immediately threaten operator control. However, FORK without the prior four tests is meaningless: the right to reproduce a system you cannot inspect, verify, govern, or exit provides no actual power.
+
+\subsubsection{Cost Considerations}
+
+Transition is not costless. The European Commission \citep{eu2021oss} estimated that public sector open-source adoption yields cost-benefit ratios above 1:4, but this ratio assumes successful implementation. Transition costs include personnel retraining, system compatibility engineering, procurement policy updates, and organizational change.
+
+However, these costs must be weighed against the costs of continued incorrigibility:
+
+\begin{itemize}
+    \item Litigation costs from unresolvable grievances
+    \item Political instability from suppressed correction demand (Section~\ref{subsec:velocity})
+    \item Technical debt from opacity-enabled shortcuts
+    \item Vendor lock-in premiums from non-forkable dependencies
+    \item Human costs: documented deaths, exclusions, and deprivations
+\end{itemize}
+
+The systems in Table~\ref{tab:positive} demonstrate that corrigibility at scale is economically sustainable. Linux, Kubernetes, and Let's Encrypt operate at population scale with resource models that have proven durable over decades.

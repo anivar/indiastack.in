@@ -1,0 +1,60 @@
+\section{The Dynamics of Incorrigibility}
+\label{sec:dynamics}
+
+The five tests define the static architecture of a corrigible system. However, infrastructure exists in time. When we apply these structural requirements to dynamic systems, three fundamental implications emerge regarding stability, energy conservation, and the rule of law. These principles explain why centralized grievance redressal mechanisms---the standard answer of bureaucracies to error---are mathematically insufficient to guarantee stability.
+
+\subsection{The Correction Velocity Inequality}
+\label{subsec:velocity}
+
+Stability in a cybernetic system is not merely a function of whether a correction path \textit{exists}, but of its \textit{latency} relative to error generation. A correction mechanism that is theoretically available (e.g., a court case or a legislative amendment) but slower than the rate of divergence creates a runaway failure state.
+
+We posit the \textbf{Temporal Stability Condition}: A system is corrigible only if the rate of effective correction ($C$) exceeds the rate of error accumulation ($E$) caused by environmental variety.
+
+\begin{equation}
+\frac{d}{dt} C(t) > \frac{d}{dt} E(t)
+\end{equation}
+
+$E(t)$ is driven by environmental volatility---identity fraud tactics, software exploits, pandemics, or economic shocks. These phenomena tend to grow exponentially or appear in high-velocity impulse shocks. In contrast, centralized governance operates on \textbf{bureaucratic time}. Legislative changes and judicial reviews are measured in months or years, while technical errors accumulate on \textbf{digital time}, measured in milliseconds.
+
+\begin{equation}
+\frac{dC_{\text{bureaucratic}}}{dt} \ll \frac{dE_{\text{digital}}}{dt}
+\end{equation}
+
+This timescale mismatch is an instance of the Collingridge Dilemma \citep{collingridge1980}: a double-bind in technology governance. Early in a technology's development, change is easy but the need for change cannot be foreseen (the information problem). Later, when impacts become clear, change has become expensive, difficult, and time-consuming because the technology is entrenched (the power problem).
+
+Digital Public Infrastructure exhibits the Collingridge Dilemma in acute form. By the time exclusion effects are documented (starvation deaths, banking denials, welfare failures), a system may have achieved mandatory status. Correction now requires not merely technical modification but legal amendment, bureaucratic reorganization, and political will. The system's success in achieving scale has made it resistant to correction.
+
+Corrigibility is the structural response to this dilemma: build the correction mechanisms before the need for correction is apparent. EXIT, CODE, AUDIT, GOVERN, and FORK are not remedies applied after failure; they are architectural features that must be present from deployment. A system without these features will eventually require correction but will lack the capacity to receive it.
+
+This inequality explains the failure of the ``post-execution'' remedies discussed in Section 4.4. Mechanisms like ombudsmen or grievance redressal officers inherently operate at a lower bandwidth and higher latency than the systems they supervise. When the correction loop is thermodynamically too slow to manage the entropy of the environment, error accumulates in the system until it suffers catastrophic collapse. Corrigibility requires closing the gap between error generation and correction; this is only possible if correction logic operates within the technical loop (Test 4), not outside it.
+
+\subsection{The Conservation of Correction Demand}
+
+When a system fails to correct errors due to the velocity mismatch described above, the demand for correction does not evaporate. It transforms. We propose a principle of \textbf{Conservation of Correction Demand}: for a given system state, the total pressure for correction is constant.
+
+\begin{equation}
+F_{\text{designed}} + F_{\text{emergent}} = K
+\end{equation}
+
+Here, $F_{\text{designed}}$ represents the flow of correction through designed channels---principally \textbf{EXIT} (reducing participation) and \textbf{GOVERN} (altering rules). When these channels are structurally blocked or throttled by bureaucracy, the pressure shifts to $F_{\text{emergent}}$. Emergent correction channels take the form of protest, litigation, hacks, grey markets, and eventually, civil unrest.
+
+System operators can choose \textit{where} correction occurs; they cannot choose \textit{whether} it occurs. By suppressing EXIT (via mandatory laws) and blocking GOVERN (via executive fiat), authorities force correction demand into channels that are slower, costlier, and fundamentally more destabilizing to the social order. Corrigibility acts as a pressure relief valve that converts potential volatility into system evolution.
+
+\subsubsection{Grievance Is Not Feedback}
+\label{subsec:grievance}
+
+A critical distinction must be drawn between \textit{grievance} and \textit{governance}. Many incorrigible systems act as ``roach motels'' for complaints: they allow users to submit unlimited feedback ($G$), but the system state ($S$) remains invariant to that input.
+
+\begin{equation}
+\frac{\partial S}{\partial G} = 0
+\end{equation}
+
+Grievance channels that record dissatisfaction without a binding mechanism to modify execution, policy, or eligibility logic do not constitute a feedback loop. They serve an aesthetic function, mimicking responsiveness while preserving the controller's rigidity. Under Ashby's Law, if the controller's response variety does not increase in response to signal, regulation has failed.
+
+\subsection{The Structural Preconditions of Law}
+
+These dynamics have profound implications for constitutional review. Legal doctrines such as proportionality analysis presuppose that state intrusions can be measured, minimized, and remedied. However, modern digital systems frequently violate the structural assumptions upon which these legal doctrines rest.
+
+A court cannot apply proportionality review to a system whose execution is opaque (\textbf{CODE}). A legislature cannot remedy harm if the mechanism of harm is an irreversible digital transaction (\textbf{EXIT}). A regulator cannot oversee a system if they lack the technical capability to inspect it independent of the operator (\textbf{AUDIT}).
+
+Where digital systems block these channels structurally, the rule of law becomes a legal fiction. External review mechanisms cannot function meaningfully if the internal architecture is designed to resist observation and modification. Therefore, \textbf{corrigibility} should be understood not merely as a technical specification, but as the \textit{evidentiary precondition} required for the law to take hold of the machine.

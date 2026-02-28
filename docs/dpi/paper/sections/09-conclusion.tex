@@ -1,0 +1,75 @@
+\section{Conclusion}
+
+Digital Public Infrastructure is not a specific technology; it is a claim of political legitimacy. It asserts that a system is sufficiently foundational, accessible, and accountable to serve as the substrate of civic life.
+
+This paper argues that such legitimacy cannot be derived from self-declarations, "open standards" labeling, or multilateral endorsements. It relies on a specific cybernetic property: \textbf{Corrigibility}. The capacity of the governed to observe the rules, verify their execution, limit their reach, and, if necessary, reproduce the infrastructure to escape its capture.
+
+We have proposed five rigorous tests to verify this capacity. We have demonstrated that systems currently touted as DPI models---Aadhaar, UPI, and proprietary AI---fail these tests, revealing them to be administrative enclosures rather than public goods. Conversely, we have shown that the systems which actually run the world---Linux, Kubernetes, the Web---pass them structurally.
+
+The choice is not between chaos and control. It is between \textbf{Open Loop} systems that drift toward fragility and authoritarianism, and \textbf{Closed Loop} systems that stabilize themselves through the correction of those they serve.
+
+\begin{quote}
+\textit{Systems that cannot be corrected by those they affect will eventually be corrected by forces they cannot control.}
+\end{quote}
+
+\subsection{Limitations}
+
+This framework has the following limitations:
+
+\begin{enumerate}
+    \item \textbf{Binary classification loses diagnostic information.} A system failing one test is treated identically to one failing all five for the purpose of the corrigibility determination. This is structurally correct (a broken feedback loop is broken regardless of where it breaks) but diagnostically impoverished. The schema (Appendix~\ref{appendix:schema}) preserves gradation in fields like \texttt{penalty\_ratio} and \texttt{visibility}, but the final determination collapses to binary.
+
+    \item \textbf{Governance evaluation is judgment-dependent.} CODE and FORK have clear verification criteria for code artifacts. GOVERN is harder to verify: governance claims require historical evidence of enforcement, and such evidence may be contested or incomplete. The evidentiary standards in Appendix~\ref{appendix:rules} address this, but governance evaluation remains more interpretation-dependent than technical evaluation.
+
+    \item \textbf{No fully corrigible essential services are identified.} The systems in Table~\ref{tab:positive} are non-essential infrastructure. Estonian X-Road approaches corrigibility but fails full EXIT. The framework may describe a category that is structurally empty for essential services under current political economy. If so, this is a finding, not a flaw, but it limits immediate prescriptive utility.
+
+    \item \textbf{Resource forkability for AI remains unresolved.} Section 6.4 identifies that legal rights without compute access may be permanently unfulfillable for large AI systems. The framework diagnoses this as a structural barrier to FORK but does not resolve the underlying resource asymmetry. Whether ``compute as infrastructure'' could make AI forkability meaningful is an open question.
+
+    \item \textbf{The timescale argument applies to external remedies.} Section 5.1 argues that bureaucratic correction is structurally too slow for digital-time errors. However, some corrigible systems (Bitcoin's BIP process, Linux's kernel mailing list) operate on human timescales and are accepted as valid governance. The distinction is that these mechanisms are internal to the technical community, not external bureaucracies. The timescale critique applies to external remedies (courts, ombudsmen), not to all deliberative processes.
+
+    \item \textbf{Network effects are acknowledged but not formally modeled.} The FORK test requires that reproduction be economically feasible, but network effects can make formally forkable systems practically unforkable. Signal's code is fully open; its network is not federated. A Signal fork without users is not a meaningful check on Signal Foundation governance. The framework flags this but does not provide a formal treatment of network-effect capture.
+\end{enumerate}
+
+\subsection{Future Work}
+
+Several extensions warrant investigation:
+
+\begin{enumerate}
+    \item \textbf{Empirical measurement of correction velocity.} The velocity inequality (Section 5.1) predicts system instability when correction latency exceeds error accumulation rate. Historical case studies (PDS exclusion incidents, payment system outages, identity fraud waves) could quantify the threshold at which systems become ungovernable.
+
+    \item \textbf{International comparative analysis.} This paper focuses substantially on India Stack. Systematic comparison with Estonian X-Road, Singapore's National Digital Identity, the EU Digital Identity Wallet, and Brazil's Pix would test the framework's generality across political systems.
+
+    \item \textbf{Economic modeling of transition costs.} What does it cost to make an incorrigible system corrigible? Infrastructure-specific cost modeling, particularly for systems with existing vendor lock-in, would inform policy prioritization.
+
+    \item \textbf{AI-specific verification protocols.} The CODE test for learned systems (Section 6.2) requires layered transparency across the training pipeline. Developing standardized, machine-verifiable disclosure formats would enable systematic AI corrigibility assessment.
+
+    \item \textbf{Legal doctrine integration.} Constitutional courts increasingly review digital infrastructure. How should such courts operationalize corrigibility? Integration with proportionality analysis, due process doctrine, and administrative law would extend the framework's applicability.
+
+    \item \textbf{Network effect formalization.} A formal model of network-effect capture, specifying when a technically forkable system becomes practically unforkable, would sharpen the FORK test's application to platform infrastructure.
+
+    \item \textbf{Agentic system requirements.} Section 8.4.1 sketches how AI agents require corrigible infrastructure. Specifying precise API contracts for agent-compatible infrastructure would translate corrigibility requirements into engineering specifications.
+\end{enumerate}
+
+\section*{Acknowledgments}
+
+This framework was developed through analysis of India Stack and subsequent generalization to universal criteria. The author thanks the digital rights community for ongoing critique and refinement.
+
+\section*{License}
+
+This work is released under CC0 1.0 Universal (Public Domain). Use, adapt, translate, and redistribute freely. No attribution required.
+
+\section*{Data and Code Availability}
+
+The complete framework, including JSON Schemas for machine-readable disclosure and assessment, is available at:
+
+\begin{itemize}
+    \item Framework documentation: \url{https://indiastack.in/dpi/}
+    \item Infrastructure manifest schema: \url{https://indiastack.in/dpi/schema/infrastructure.json}
+    \item Corrigibility assessment schema: \url{https://indiastack.in/dpi/schema/corrigibility.json}
+    \item Paper source and repository: \url{https://github.com/AnivarAravind/corrigibility-framework}
+\end{itemize}
+
+% ============================================
+% APPENDICES
+% ============================================
+\appendix

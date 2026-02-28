@@ -1,0 +1,81 @@
+\section{Schema Specifications (v1.7)}
+\label{appendix:schema}
+
+The current schemas are normative. Implementations must validate against these structures to generate valid proofs of corrigibility.
+
+\subsection{Infrastructure Manifest (Operator Disclosure)}
+
+This schema forces operators to make definitive commitments. Note the specific inclusion of \texttt{offline\_equivalent} to track the \textbf{EXIT} test and \texttt{when\_uncertain} to track AI safety failures.
+
+\begin{lstlisting}[language=json,caption={Operator Disclosure Schema (condensed)}]
+{
+  "$id": "https://indiastack.in/dpi/schema/infrastructure.json",
+  "title": "DPI Operational Manifest v1.7",
+  "required": ["meta", "access", "governance"],
+  "properties": {
+    "meta": {
+      "required": ["system_id", "deployment", "lifecycle"],
+      "properties": {
+        "system_id": { "type": "string" },
+        "deployment": { "enum": ["production","staging","pilot"] },
+        "lifecycle": { "enum": ["active","deprecated","archived"] }
+      }
+    },
+    "governance": {
+      "required": ["model", "escalation_paths"],
+      "properties": {
+        "model": { "enum": ["community","foundation","corporate",
+                           "government","closed"] },
+        "escalation_paths": [{
+          "required": ["level","url","binding"],
+          "binding": { "type": "boolean" }
+        }]
+      }
+    },
+    "learned_components": [{
+      "role": { "enum": ["advisory","decision","enforcement"] },
+      "when_uncertain": { "enum": ["escalates","fails_open",
+                                   "fails_closed","silent"] }
+    }],
+    "access": {
+      "required": ["offline_equivalent"],
+      "offline_equivalent": { "type": "boolean" }
+    }
+  }
+}
+\end{lstlisting}
+
+\subsection{Corrigibility Assessment (Auditor Assessment)}
+
+The auditor schema replaces subjective grading with hard observational measurements. Note the \texttt{penalty\_ratio}, which quantifies the coerciveness of the system (the cost difference between digital and manual access).
+
+\begin{lstlisting}[language=json,caption={Auditor Assessment Schema (condensed)}]
+{
+  "$id": "https://indiastack.in/dpi/schema/corrigibility.json",
+  "title": "Corrigibility Assessment v1.7",
+  "required": ["target","assessed_by","assessed_at","tests","determination"],
+  "properties": {
+    "target": { "type": "string" },
+    "assessed_by": { "type": "string" },
+    "assessed_at": { "format": "date" },
+    "tests": {
+      "required": ["exit","code","audit","govern","fork"],
+      "exit": { "pass": "boolean", "penalty_ratio": "number" },
+      "code": { "pass": "boolean",
+                "visibility": { "enum": ["full","partial","none"] } },
+      "audit": { "pass": "boolean", "fix_latency_observed": "string" },
+      "govern": { "pass": "boolean",
+                  "user_authority": { "enum": ["binding","veto",
+                                               "advisory","none"] } },
+      "fork": { "pass": "boolean", "barriers": ["string"] }
+    },
+    "determination": {
+      "description": "Derived outcome. MUST be recomputed by evaluators.",
+      "required": ["corrigible","tests_passed"],
+      "corrigible": { "type": "boolean",
+                      "description": "TRUE iff tests_passed == 5" },
+      "tests_passed": { "type": "integer", "minimum": 0, "maximum": 5 }
+    }
+  }
+}
+\end{lstlisting}

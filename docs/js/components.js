@@ -2,18 +2,37 @@
 (function() {
     // Load header
     fetch('/components/header.html')
-        .then(r => r.text())
+        .then(r => {
+            if (!r.ok) throw new Error('Header load failed');
+            return r.text();
+        })
         .then(html => {
-            document.getElementById('site-header').innerHTML = html;
-            initNav();
+            const header = document.getElementById('site-header');
+            if (header) {
+                header.innerHTML = html;
+                initNav();
+            }
+        })
+        .catch(err => {
+            console.warn('Header component failed to load:', err);
+            // Noscript fallback will be visible
         });
 
     // Load footer
     fetch('/components/footer.html')
-        .then(r => r.text())
+        .then(r => {
+            if (!r.ok) throw new Error('Footer load failed');
+            return r.text();
+        })
         .then(html => {
-            document.getElementById('site-footer').innerHTML = html;
-            loadGoogleAnalytics();
+            const footer = document.getElementById('site-footer');
+            if (footer) {
+                footer.innerHTML = html;
+                loadGoogleAnalytics();
+            }
+        })
+        .catch(err => {
+            console.warn('Footer component failed to load:', err);
         });
 
     // Google Analytics - deferred load
@@ -49,15 +68,37 @@
             });
         }
 
-        // Mobile dropdown toggle
+        // Dropdown toggle (mobile: click, desktop: CSS hover)
         document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
             toggle.addEventListener('click', (e) => {
                 if (window.innerWidth <= 768) {
                     e.preventDefault();
                     const dropdown = toggle.parentElement;
-                    dropdown.classList.toggle('open');
+                    const isOpen = dropdown.classList.toggle('open');
+                    toggle.setAttribute('aria-expanded', isOpen);
                 }
             });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navLinks && navLinks.dataset.open === 'true') {
+                if (!e.target.closest('.nav-links') && !e.target.closest('.menu-toggle')) {
+                    navLinks.dataset.open = 'false';
+                    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks && navLinks.dataset.open === 'true') {
+                navLinks.dataset.open = 'false';
+                if (menuToggle) {
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.focus();
+                }
+            }
         });
     }
 })();

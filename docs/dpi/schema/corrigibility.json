@@ -1,21 +1,41 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://indiastack.in/dpi/schema/corrigibility.json",
-  "title": "Corrigibility Assessment v1.4",
-  "description": "Independent evaluation of structural correction capacity. Authored by auditors, not operators.",
+  "title": "Corrigibility Assessment v1.6",
+  "description": "Independent structural assessment. Authored by auditors. Signed for verification.",
   "type": "object",
-  "required": ["target", "assessed_by", "assessed_at", "tests"],
+  "required": ["target", "assessed_by", "assessed_at", "tests", "determination", "assessor_signature"],
 
   "properties": {
 
     "target": {
       "type": "string",
-      "description": "System being evaluated (matches infrastructure.json meta.system_id)"
+      "description": "Matches infrastructure.json meta.system_id"
     },
 
     "assessed_by": {
-      "type": "string",
-      "description": "Organization or individual performing assessment"
+      "type": "object",
+      "description": "Structured auditor identity. Must match key_id in assessor_signature.",
+      "required": ["name", "key_id", "assurance_level"],
+      "properties": {
+        "name": { "type": "string", "description": "Human-readable auditor name." },
+        "organization": { "type": "string", "description": "Auditor's organizational affiliation (if any)." },
+        "key_id": {
+          "type": "string",
+          "pattern": "^did:(key|web):.+$",
+          "description": "DID URI resolving to the signing public key. Must match assessor_signature.key_id."
+        },
+        "assurance_level": {
+          "type": "string",
+          "enum": ["low", "moderate", "high"],
+          "description": "Trust Tier: low (did:key ephemeral), moderate (did:web domain-bound), high (did:web + transparency log anchor)."
+        },
+        "timestamp_proof": {
+          "type": "string",
+          "format": "uri",
+          "description": "RFC 3161 TSA receipt or Sigstore Rekor entry. REQUIRED for high assurance."
+        }
+      }
     },
 
     "assessed_at": {
@@ -25,8 +45,34 @@
 
     "methodology": {
       "type": "array",
-      "items": { "type": "string", "format": "uri" },
-      "description": "Links to assessment methodology"
+      "items": { "type": "string", "format": "uri" }
+    },
+
+    "evidence_archive": {
+      "type": "object",
+      "description": "Archived snapshots of evidence URLs. Prevents link rot from invalidating assessments.",
+      "additionalProperties": {
+        "type": "object",
+        "description": "Key is the original evidence URL.",
+        "properties": {
+          "snapshot_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URI to archived copy (archive.org, archive.ph, institutional archive)."
+          },
+          "content_hash": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$",
+            "description": "Content hash at capture time. Format: sha256:<hex>."
+          },
+          "captured_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "RFC 3339 timestamp when snapshot was captured."
+          }
+        },
+        "required": ["snapshot_url", "content_hash", "captured_at"]
+      }
     },
 
     "tests": {
@@ -37,90 +83,157 @@
 
         "exit": {
           "type": "object",
+          "required": ["pass"],
           "properties": {
             "pass": { "type": "boolean" },
             "penalty_ratio": {
               "type": "number",
-              "description": "Time/cost ratio: manual vs digital. 1 = equal, 999 = blocked."
+              "description": "Ratio of Time/Cost (Manual vs Digital). 1.0 = equal. >10 = coercive."
             },
             "evidence": {
               "type": "array",
-              "items": { "type": "string" },
-              "description": "Evidence sources (URLs, citations, RTI responses)"
+              "items": {
+                "type": "object",
+                "required": ["url"],
+                "properties": {
+                  "url": { "type": "string", "format": "uri", "description": "Original evidence URL." },
+                  "snapshot": { "type": "string", "format": "uri", "description": "Permanent snapshot (IPFS, Arweave, Archive.org)." }
+                }
+              }
             }
           }
         },
 
         "code": {
           "type": "object",
+          "required": ["pass"],
           "properties": {
             "pass": { "type": "boolean" },
-            "visibility": {
-              "type": "string",
-              "enum": ["full", "partial", "api_only", "none"]
-            },
+            "visibility": { "type": "string", "enum": ["full", "partial", "none"] },
             "evidence": {
               "type": "array",
-              "items": { "type": "string" },
-              "description": "Evidence sources (URLs, citations, RTI responses)"
+              "items": {
+                "type": "object",
+                "required": ["url"],
+                "properties": {
+                  "url": { "type": "string", "format": "uri", "description": "Original evidence URL." },
+                  "snapshot": { "type": "string", "format": "uri", "description": "Permanent snapshot (IPFS, Arweave, Archive.org)." }
+                }
+              }
             }
           }
         },
 
         "audit": {
           "type": "object",
+          "required": ["pass"],
           "properties": {
             "pass": { "type": "boolean" },
-            "access": {
+            "fix_latency_observed": {
               "type": "string",
-              "enum": ["open", "permissioned", "forbidden"]
-            },
-            "observed_fix_time": {
-              "type": "string",
-              "description": "Actual observed time to fix issues (compares against operator SLO)"
+              "description": "Actual observed time to fix issues (ISO8601 duration)."
             },
             "evidence": {
               "type": "array",
-              "items": { "type": "string" },
-              "description": "Evidence sources (URLs, citations, RTI responses)"
+              "items": {
+                "type": "object",
+                "required": ["url"],
+                "properties": {
+                  "url": { "type": "string", "format": "uri", "description": "Original evidence URL." },
+                  "snapshot": { "type": "string", "format": "uri", "description": "Permanent snapshot (IPFS, Arweave, Archive.org)." }
+                }
+              }
             }
           }
         },
 
         "govern": {
           "type": "object",
+          "required": ["pass"],
           "properties": {
             "pass": { "type": "boolean" },
-            "user_power": {
+            "user_authority": {
               "type": "string",
-              "enum": ["binding", "veto", "advisory", "none"]
+              "enum": ["binding", "veto", "advisory", "none"],
+              "description": "Matches against escalation binding claim."
             },
             "evidence": {
               "type": "array",
-              "items": { "type": "string" },
-              "description": "Evidence sources (URLs, citations, RTI responses)"
+              "items": {
+                "type": "object",
+                "required": ["url"],
+                "properties": {
+                  "url": { "type": "string", "format": "uri", "description": "Original evidence URL." },
+                  "snapshot": { "type": "string", "format": "uri", "description": "Permanent snapshot (IPFS, Arweave, Archive.org)." }
+                }
+              }
             }
           }
         },
 
         "fork": {
           "type": "object",
+          "required": ["pass"],
           "properties": {
             "pass": { "type": "boolean" },
-            "barriers": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": ["legal", "technical", "economic", "regulatory", "data"]
-              }
-            },
-            "estimated_cost": { "type": "string" },
+            "barriers": { "type": "array", "items": { "type": "string" } },
             "evidence": {
               "type": "array",
-              "items": { "type": "string" },
-              "description": "Evidence sources (URLs, citations, RTI responses)"
+              "items": {
+                "type": "object",
+                "required": ["url"],
+                "properties": {
+                  "url": { "type": "string", "format": "uri", "description": "Original evidence URL." },
+                  "snapshot": { "type": "string", "format": "uri", "description": "Permanent snapshot (IPFS, Arweave, Archive.org)." }
+                }
+              }
             }
           }
+        }
+      }
+    },
+
+    "determination": {
+      "type": "object",
+      "description": "Derived outcome. MUST be mechanically recomputed by evaluators. Non-authoritative if inconsistent with test results.",
+      "required": ["corrigible", "tests_passed"],
+      "properties": {
+        "corrigible": {
+          "type": "boolean",
+          "description": "Derived value. TRUE iff tests_passed == 5."
+        },
+        "tests_passed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5,
+          "description": "Derived count of tests where pass == true."
+        },
+        "summary": { "type": "string" }
+      }
+    },
+
+    "assessor_signature": {
+      "type": "object",
+      "description": "Cryptographic signature over canonical JSON (RFC 8785). Enables verification of authorship and integrity.",
+      "required": ["algorithm", "signature", "key_id", "signature_time"],
+      "properties": {
+        "algorithm": {
+          "const": "Ed25519",
+          "description": "Signature algorithm. Only Ed25519 is permitted."
+        },
+        "signature": {
+          "type": "string",
+          "description": "Base64-encoded detached signature over SHA-256 hash of canonical JSON (excluding this block)."
+        },
+        "key_id": {
+          "type": "string",
+          "pattern": "^did:(key|web):.+$",
+          "description": "DID URI identifying the signing key. Must match assessed_by.key_id."
+        },
+        "signature_time": {
+          "type": "string",
+          "format": "date-time",
+          "description": "RFC 3339 timestamp when signature was created."
         }
       }
     }

@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://indiastack.in/dpi/schema/infrastructure.json",
-  "title": "DPI Operational Manifest v1.4",
-  "description": "Operational disclosure mapped to structural corrigibility tests.",
+  "title": "DPI Operational Manifest v1.6",
+  "description": "Operational disclosure of structural power. Operators declare facts; they do not self-certify.",
   "type": "object",
-  "required": ["meta", "access"],
+  "required": ["meta", "access", "governance"],
 
   "properties": {
 
@@ -12,45 +12,28 @@
       "type": "object",
       "required": ["system_id", "deployment", "lifecycle"],
       "properties": {
-        "system_id": {
-          "type": "string",
-          "examples": ["urn:gov:in:uidai", "api.payments.gov"]
-        },
-        "deployment": {
-          "type": "string",
-          "enum": ["production", "staging", "pilot"]
-        },
-        "lifecycle": {
-          "type": "string",
-          "enum": ["active", "deprecated", "archived"]
-        },
-        "license_spdx": {
-          "type": "string",
-          "default": "PROPRIETARY"
-        }
+        "system_id": { "type": "string", "description": "e.g. urn:gov:in:uidai" },
+        "deployment": { "type": "string", "enum": ["production", "staging", "pilot"] },
+        "lifecycle": { "type": "string", "enum": ["active", "deprecated", "archived"] },
+        "license_spdx": { "type": "string", "default": "PROPRIETARY" }
       }
     },
 
     "operations": {
       "type": "object",
-      "description": "Evidence surface for EXIT and AUDIT.",
+      "description": "Availability promises. Maps to EXIT and AUDIT.",
       "properties": {
-        "status_page": {
-          "type": "string",
-          "format": "uri"
-        },
+        "status_page": { "type": "string", "format": "uri" },
         "slos": {
           "type": "object",
           "properties": {
             "uptime_target": {
               "type": "string",
-              "description": "Operator's definition of acceptable exclusion. Mandatory systems with <100% target admit structural denial of service.",
-              "examples": ["99.95%", "99.9%", "99%"]
+              "description": "Commitment to availability. If <100% and system is mandatory, this admits exclusion."
             },
             "dispute_resolution": {
               "type": "string",
-              "description": "Max time to correct an error state. AUDIT baseline.",
-              "examples": ["24h", "72h", "7d", "30d"]
+              "description": "Max time to correct system error. Functions as the audit baseline."
             }
           }
         }
@@ -59,45 +42,54 @@
 
     "governance": {
       "type": "object",
-      "description": "Evidence surface for GOVERN.",
+      "description": "Power hierarchy. Maps to GOVERN.",
       "required": ["model", "escalation_paths"],
       "properties": {
         "model": {
           "type": "string",
           "enum": ["community", "foundation", "corporate", "government", "closed"]
         },
-        "escalation_paths": {
-          "type": "array",
-          "description": "Power hierarchy for overriding system errors.",
-          "items": {
-            "type": "object",
-            "required": ["level", "url", "binding"],
-            "properties": {
-              "level": {
-                "type": "string",
-                "examples": ["Call Center", "Grievance Portal", "Ombudsman", "Appellate Tribunal", "Judicial Review"]
-              },
-              "url": {
-                "type": "string",
-                "format": "uri"
-              },
-              "binding": {
-                "type": "boolean",
-                "description": "If false, the escalation authority is advisory theater."
-              }
-            }
-          }
-        },
         "public_participation": {
           "type": "object",
           "properties": {
-            "rfc": {
-              "type": "array",
-              "items": { "type": "string", "format": "uri" }
-            },
-            "issues": {
-              "type": "array",
-              "items": { "type": "string", "format": "uri" }
+            "rfc": { "type": "array", "items": { "type": "string", "format": "uri" } },
+            "issues": { "type": "array", "items": { "type": "string", "format": "uri" } }
+          }
+        },
+        "escalation_paths": {
+          "type": "array",
+          "description": "Who overrules the code? Must be external to operator and non-defeatable.",
+          "items": {
+            "type": "object",
+            "required": ["level", "url", "binding", "binding_proof_url", "binding_proof_hash", "past_enforcement_examples"],
+            "properties": {
+              "level": { "type": "string", "description": "e.g. Ombudsman, Appellate Tribunal" },
+              "url": { "type": "string", "format": "uri" },
+              "binding": {
+                "type": "boolean",
+                "description": "If false, the escalation authority is advisory theater."
+              },
+              "binding_proof_url": {
+                "type": "string",
+                "format": "uri",
+                "description": "URI to legal/structural document proving binding authority (statute, charter, MoU with enforcement clause)."
+              },
+              "binding_proof_hash": {
+                "type": "string",
+                "pattern": "^sha256:[a-f0-9]{64}$",
+                "description": "Content integrity hash of the document at binding_proof_url. Format: sha256:<hex>."
+              },
+              "past_enforcement_examples": {
+                "type": "array",
+                "items": { "type": "string", "format": "uri" },
+                "minItems": 1,
+                "description": "URIs to documented cases where this pathway actually overruled operator decisions. REQUIRED for GOVERN pass: at least one historical enforcement example."
+              },
+              "independence_evidence": {
+                "type": "string",
+                "format": "uri",
+                "description": "URI to documentation proving independence from operator (separate budget, staffing not controlled by operator, jurisdiction not revocable)."
+              }
             }
           }
         }
@@ -106,7 +98,7 @@
 
     "components": {
       "type": "object",
-      "description": "Evidence surface for CODE and FORK.",
+      "description": "Source topology. Maps to CODE and FORK.",
       "properties": {
         "repositories": {
           "type": "array",
@@ -116,80 +108,59 @@
             "properties": {
               "name": { "type": "string" },
               "url": { "type": "string", "format": "uri" },
-              "role": {
-                "type": "string",
-                "enum": ["core", "client", "sdk", "docs"]
-              }
+              "role": { "type": "string", "enum": ["core", "client", "sdk", "docs"] }
             }
           }
         },
         "closed_components": {
           "type": "array",
-          "description": "Proprietary/opaque dependencies (e.g. ['oracle', 'biometric-sdk']).",
-          "items": { "type": "string" }
+          "items": { "type": "string" },
+          "description": "Named proprietary dependencies (Antitrust targets)."
         }
       }
     },
 
     "learned_components": {
       "type": "array",
-      "description": "Evidence surface for AI Corrigibility.",
+      "description": "AI systems. Maps to CODE.",
       "items": {
         "type": "object",
         "properties": {
           "name": { "type": "string" },
-          "role": {
-            "type": "string",
-            "enum": ["advisory", "decision", "enforcement"]
-          },
+          "role": { "type": "string", "enum": ["advisory", "decision", "enforcement"] },
           "when_uncertain": {
             "type": "string",
             "enum": ["escalates", "fails_open", "fails_closed", "silent"],
-            "description": "Failure mode disclosure. 'Silent' indicates fail-deadly design."
+            "description": "Safety mode. 'Silent' indicates fail-deadly design."
           },
-          "model_cards": {
-            "type": "array",
-            "items": { "type": "string", "format": "uri" }
-          },
-          "training_docs": {
-            "type": "array",
-            "items": { "type": "string", "format": "uri" }
-          }
+          "model_cards": { "type": "array", "items": { "type": "string", "format": "uri" } },
+          "training_docs": { "type": "array", "items": { "type": "string", "format": "uri" } }
         }
       }
     },
 
     "access": {
       "type": "object",
-      "description": "Evidence surface for EXIT.",
+      "description": "Physical access. Maps to EXIT.",
       "required": ["offline_equivalent"],
       "properties": {
-        "endpoints": {
-          "type": "array",
-          "items": { "type": "string", "format": "uri" }
-        },
+        "endpoints": { "type": "array", "items": { "type": "string", "format": "uri" } },
         "offline_channels": {
           "type": "array",
           "items": {
             "type": "object",
             "required": ["type", "url"],
             "properties": {
-              "type": {
-                "type": "string",
-                "examples": ["CSC Location Map", "Bank Branch", "Post Office"]
-              },
+              "type": { "type": "string", "description": "e.g. Common Service Center" },
               "url": { "type": "string", "format": "uri" }
             }
           }
         },
         "offline_equivalent": {
           "type": "boolean",
-          "description": "Perjury trap: Does the offline path offer parity in outcome/cost?"
+          "description": "Does offline path provide true parity in time/cost?"
         },
-        "data_export": {
-          "type": "array",
-          "items": { "type": "string", "format": "uri" }
-        }
+        "data_export": { "type": "array", "items": { "type": "string", "format": "uri" } }
       }
     }
   }

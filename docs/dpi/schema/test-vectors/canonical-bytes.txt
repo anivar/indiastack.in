@@ -1,0 +1,1 @@
+{"assessed_at":"2026-01-15","assessed_by":{"key_id":"did:key:z6MkhaXgBZDvotTqN8cxYx89dJqD6Qc28x5wYt9tFv4dF","name":"Audit Corps"},"determination":{"corrigible":true,"tests_passed":5},"target":"did:web:uidai.gov.in","tests":{"exit":{"pass":true}}}

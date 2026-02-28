@@ -1,0 +1,110 @@
+\section{Extension to Learned Systems}
+\label{sec:learned}
+
+The application of this framework to Artificial Intelligence requires resolving a fundamental crisis of verification. Earlier formulations of the five tests implicitly assumed a deterministic architecture, where the source code is the sole arbiter of behavior, inspection reveals logic, and exact reproduction is mechanically trivial. Learned systems (AI and ML models) dismantle these assumptions. In these systems, identical inputs may yield stochastic outputs; behavior is defined by training data rather than logic gates; and opacity is often an inherent property of the representation rather than a contrivance of the operator.
+
+However, the collapse of deterministic transparency does not invalidate the structural necessity of corrigibility. To the contrary, as the system's internal logic becomes less intelligible to human operators, the external capacity for correction becomes more critical. \textbf{The five tests remain invariant; only the evidentiary standard changes.}
+
+\subsection{The Invariance of the Standard}
+
+\begin{proposition}
+The five corrigibility tests remain invariant for learned systems. What changes is the verification method.
+\end{proposition}
+
+The table below illustrates how the mechanical verification of each test adapts to the probabilistic nature of AI without softening the structural requirement.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Test} & \textbf{Deterministic Verification} & \textbf{Learned System Verification} \\
+\midrule
+EXIT & Can refuse the system & Disclosure + non-AI alternative \\
+CODE & Source code determines behavior & Layered transparency across training pipeline \\
+AUDIT & Inspect logic and outputs & Statistical bounds + continuous monitoring \\
+GOVERN & Maintainer and RFC process & Governance over objectives and value tradeoffs \\
+FORK & Copy code and deploy & Resource forkability (compute + data) \\
+\bottomrule
+\end{tabular}
+\caption{Verification methods for deterministic vs. learned systems}
+\end{table}
+
+\subsection{What Is ``Source'' in a Learned System?}
+
+A central challenge in complying with the \textbf{CODE} test is redefining the object of inspection. In a learned system, behavior is distributed across a lineage of distinct artifacts. The inference code is merely the execution engine; the actual behavioral logic is encoded in the weights, which are in turn downstream of the training corpus, filtering decisions, and RLHF preferences.
+
+Therefore, publishing inference code alone does not satisfy the CODE test. It allows an auditor to run the machine, but not to understand why it produces specific outputs. To bridge this gap, compliance requires structured disclosure across the training pipeline, such as \textbf{Data Sheets for Datasets} \citep{gebru2021} and \textbf{Model Cards} \citep{mitchell2019}. These artifacts function as the ``source code'' for structural evaluation; withholding them renders the system a black box.
+
+\subsection{The Temporal Variety Gap}
+
+Unlike traditional software, which remains static until explicitly patched, learned systems possess a distinct vulnerability related to time. The variety of the controller ($V_c$) is frozen at the moment of training parameterization ($\theta$), while the variety of the world it operates upon ($V_d$) continues to expand.
+
+\begin{equation}
+\Delta(t) = V(\text{disturbance}; t) - V(\text{controller}; \theta)
+\end{equation}
+
+Without mechanisms for retraining or fine-tuning accessible to the community, the variety gap $\Delta(t)$ widens over time. Thus, AI corrigibility is not a deployment property, but a \textit{persistence condition}.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=0.8cm, y=0.5cm, font=\sffamily]
+
+    % Axes
+    \draw[->, thick, gray] (0,0) -- (10,0) node[right] {Time ($t$)};
+    \draw[->, thick, gray] (0,0) -- (0,8) node[above] {Variety ($V$)};
+
+    % Real World Complexity (The Disturbance) - Curving up
+    \draw[thick, forkcolor, smooth] plot coordinates {(0,1) (2,1.8) (4,3.5) (6,4.5) (8,7.5) (9.5, 9)};
+    \node[forkcolor, anchor=west, font=\scriptsize] at (9.5, 9) {$V(\text{Environment})$};
+
+    % AI Model State (The Controller) - Step Function
+    \draw[thick, codecolor] (0,1) -- (4,1);
+    \draw[dashed, gray] (4,1) -- (4,3.5);
+    \draw[thick, codecolor] (4,3.5) -- (8,3.5);
+    \draw[dashed, gray] (8,3.5) -- (8,7.5);
+    \draw[thick, codecolor] (8,7.5) -- (9.5,7.5);
+
+    % Labels for Model
+    \node[codecolor, anchor=north, font=\scriptsize] at (2,1) {Model $\theta_1$};
+    \node[codecolor, anchor=north, font=\scriptsize] at (6,3.5) {Model $\theta_2$};
+
+    % The Gap (Error)
+    \fill[red!10] (0,1) -- (4,1) -- (4,3.5) -- plot[smooth] coordinates {(4,3.5) (2,1.8) (0,1)} -- cycle;
+    \fill[red!20] (4,3.5) -- (8,3.5) -- (8,7.5) -- plot[smooth] coordinates {(8,7.5) (6,4.5) (4,3.5)} -- cycle;
+
+    % Annotations
+    \node[anchor=west, text=red!80!black, font=\scriptsize] at (0.5, 2.5) {$\Delta(t)$};
+    \draw[->, red!80!black] (1.2, 2.3) -- (1.5, 1.5);
+
+    \node[align=center, font=\tiny, gray] at (4, -1) {\textbf{Retraining}\\(FORK)};
+    \draw[->, gray, dotted] (4, -0.3) -- (4, 0.8);
+
+\end{tikzpicture}
+\caption{\textbf{The Temporal Variety Gap.} Environmental variety $V(e)$ evolves continuously (curve). A fixed model $\theta$ (stepped line) diverges from reality. The shaded area represents accumulated error. Only \textbf{FORK} rights allow the gap to be closed via retraining.}
+\label{fig:variety_gap}
+\end{figure}
+
+\subsection{Resource Barriers to Forkability}
+
+The right to \textbf{FORK} a learned system is constrained by physical resources rather than just copyright. In traditional software, the cost to fork is the cost of storage; in AI, the cost to fork is the cost of compute.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Layer} & \textbf{Cost} & \textbf{Barrier} \\
+\midrule
+Inference code & Minimal & None \\
+Running open weights & Low & Minor \\
+Fine-tuning & Moderate & Economic \\
+Retraining from scratch & Very high & Structural \\
+\bottomrule
+\end{tabular}
+\caption{Resource barriers to forking learned systems}
+\end{table}
+
+If a community has the legal right to fork a model but lacks access to the original training data or the massive compute clusters required to reproduce it, the ``Fork'' is illusory.
+
+\begin{claim}
+Legal permission to fork without access to compute or data is meaningless. This is an infrastructure question, not a licensing question.
+\end{claim}

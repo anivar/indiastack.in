@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage{arxiv}
+
+% Professional header setup
+\renewcommand{\undertitle}{}
+\renewcommand{\shorttitle}{}
+\renewcommand{\headeright}{}
+
+% Override arxiv.sty header with clean professional layout
+\AtBeginDocument{
+  \fancyhf{}
+  \fancyhead[L]{\footnotesize\textit{Corrigibility as a Structural Precondition for DPI}}
+  \fancyhead[R]{\footnotesize\textit{Aravind}}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+}
+
+% arXiv preprint format - packages loaded in dependency order
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{libertinust1math}        % Libertinus math (must follow amsmath)
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage[inline]{enumitem}
+\usepackage{authblk}
+
+% These must come BEFORE hyperref
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{url}
+\usepackage{natbib}
+
+% Hyperref (must load before hyperxmp)
+\usepackage[
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=green!50!black,
+    urlcolor=blue!60!black,
+    bookmarks=true,
+    pdfauthor={Anivar A Aravind (ORCID: 0009-0009-8995-0005)},
+    pdftitle={Corrigibility as a Structural Precondition for Digital Public Infrastructure: A Cybernetic Framework},
+    pdfsubject={Structural evaluation framework for Digital Public Infrastructure using cybernetics, commons governance, and free software principles. Proposes five tests (EXIT, CODE, AUDIT, GOVERN, FORK) to verify whether systems permit correction by those they affect.},
+    pdfkeywords={%
+        Digital Public Infrastructure, DPI, G20 DPI Framework, Infrastructure Governance, Public Infrastructure Accountability, %
+        Corrigibility, Structural Accountability, Five Tests Framework, EXIT CODE AUDIT GOVERN FORK, %
+        AI Alignment, AI Corrigibility, Learned Systems, Training Data Governance, AI Ethics, Machine Learning Accountability, %
+        Cybernetics, Ashby Law, Requisite Variety, Feedback Control Systems, Control Theory, %
+        Commons Governance, Ostrom Design Principles, Digital Commons, Infrastructure Commons, %
+        Free Software, Open Source Governance, Forkability, Software Freedom, Four Freedoms, %
+        Digital Rights, Digital Autonomy, Surveillance Infrastructure, Consent Architecture, %
+        India Stack, Aadhaar, UPI, Pix, Open-washing, Safety-washing, %
+        Constitutional Preconditions, Tech Law, Administrative Law, Proportionality Review%
+    },
+    pdfcreator={LaTeX with hyperref},
+    pdfproducer={pdfTeX},
+    pdflang={en}
+]{hyperref}
+
+% Hyperxmp for XMP metadata and CC0 license (must load after hyperref)
+\usepackage{hyperxmp}
+\hypersetup{
+    pdfcopyright={This work is dedicated to the public domain under CC0 1.0 Universal.},
+    pdflicenseurl={https://creativecommons.org/publicdomain/zero/1.0/},
+    pdfcontacturl={https://anivar.net},
+    pdfcontactemail={ping@anivar.net},
+    pdfauthortitle={Independent Researcher},
+    pdfmetalang={en},
+    pdftype={Text}
+}
+
+% Force Author in PDF info dict using pdfTeX primitive
+\makeatletter
+\AtBeginDocument{%
+  \ifx\pdfinfo\@undefined\else
+    \pdfinfo{/Author (Anivar A Aravind \string(ORCID: 0009-0009-8995-0005\string))}%
+  \fi
+}
+\makeatother
+\urlstyle{same}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds, shadows.blur, decorations.pathreplacing}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{fillbetween}
+\usepackage{tcolorbox}
+\usepackage{subcaption}
+\usepackage{capt-of}
+
+% JSON styling for schema listings
+\lstdefinelanguage{json}{
+    basicstyle=\ttfamily\scriptsize,
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!3},
+    rulecolor=\color{gray!40},
+    framesep=3pt,
+    xleftmargin=3pt,
+    xrightmargin=3pt,
+    literate=
+      *{:}{{{\color{gray!70}:}}}{1}
+       {,}{{{\color{gray!70},}}}{1}
+       {\{}{{{\color{codecolor}\{}}}{1}
+       {\}}{{{\color{codecolor}\}}}}{1}
+       {[}{{{\color{auditcolor}[}}}{1}
+       {]}{{{\color{auditcolor}]}}}{1}
+       {"}{{{\color{governcolor}"}}}{1},
+    morestring=[b]",
+    stringstyle=\color{blue!60!black},
+}
+
+% Define colors for test names
+\definecolor{exitcolor}{HTML}{06B6D4}
+\definecolor{codecolor}{HTML}{3B82F6}
+\definecolor{auditcolor}{HTML}{A855F7}
+\definecolor{governcolor}{HTML}{F59E0B}
+\definecolor{forkcolor}{HTML}{F472B6}
+
+% Theorem environments
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{claim}{Claim}
+\newtheorem{theorem}{Theorem}
+\newtheorem{condition}{Condition}
+
+\title{Corrigibility as a Structural Precondition for Digital Public Infrastructure: A Cybernetic Framework}
+
+\author[1]{Anivar A Aravind\thanks{Corresponding author: \href{https://anivar.net}{anivar.net} · \texttt{ping@anivar.net} · ORCID: \href{https://orcid.org/0009-0009-8995-0005}{0009-0009-8995-0005}}}
+\affil[1]{Independent Researcher}
+
+\date{January 2026}
+

@@ -1,0 +1,28 @@
+\section{Verification and Enforcement}
+\label{appendix:rules}
+
+To distinguish valid governance from performative compliance, the framework enforces strict evidentiary rules for Identity and Authority.
+
+\subsection{Normative Rules}
+
+\paragraph{Rule A.9: Operational Definition of Binding Authority}
+To satisfy the GOVERN test, any escalation path claimed as "binding" in the Manifest MUST include:
+\begin{enumerate*}[label=(\roman*)]
+    \item a resolvable reference to the statute or charter (\texttt{binding\_proof\_url}),
+    \item a cryptographic hash of that instrument to prevent silent amendment, and
+    \item historical evidence of enforcement against the operator.
+\end{enumerate*}
+Assertions of authority that rely on post-execution bureaucratic discretion (e.g., ombudsmen, "feedback forms") DO NOT satisfy this rule and must be marked \texttt{false}.
+
+\paragraph{Rule A.10: Chain of Custody}
+Auditor manifests must be canonically serialized (RFC 8785), hashed (SHA-256), and signed (Ed25519) using a valid W3C Decentralized Identifier. Unsigned assessments are treated as schema-invalid. This creates a permanent, falsifiable record of who certified a system.
+
+\subsection{Identity Assurance Model}
+
+To prevent "Identity Washing"---where operators use ephemeral keys to rubber-stamp their own systems---the framework employs a Tiered Assurance Model. Verification dashboards should weigh assessments accordingly:
+
+\begin{enumerate}
+    \item \textbf{Tier 1: Self-Attested (\texttt{did:key}):} Ephemeral identity. Suitable for whistleblowers, individual researchers, or rapid-response checks. \textit{Status: Informational.}
+    \item \textbf{Tier 2: Domain-Verified (\texttt{did:web}):} Identity cryptographically bound to a specific DNS domain (e.g., \texttt{did:web:eff.org}). Attribution to known civil society actors. \textit{Status: Verified.}
+    \item \textbf{Tier 3: Institution-Verified:} Identity anchored in transparency logs or institutional trust registries. \textit{Status: Regulatory Standing.}
+\end{enumerate}

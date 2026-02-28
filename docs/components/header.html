@@ -1,48 +1,48 @@
 <a href="#main-content" class="skip-link">Skip to main content</a>
-<nav class="top-nav" role="navigation" aria-label="Main navigation">
+<nav class="top-nav" aria-label="Main navigation">
   <a href="/" class="logo" aria-label="India Stack Watch - Home">
-    <img src="/logo.svg" alt="India Stack Watch" class="logo-svg">
+    <img width="300" height="50" src="/logo.svg" alt="India Stack Watch" class="logo-svg" fetchpriority="high">
   </a>
-  <button class="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+    <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
   </button>
-  <div class="nav-links" id="nav-menu" role="menubar">
-    <a href="/" class="nav-home">Home</a>
-    <div class="nav-dropdown">
-      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Framework</button>
-      <div class="nav-dropdown-menu">
-        <a href="/dpi/">DPI Framework</a>
-        <a href="/dpi/definitions/" class="nav-sub">, Definitions</a>
-        <a href="/dpi/build/" class="nav-sub">, How to Build</a>
-        <a href="/dpi/require/" class="nav-sub">, How to Require</a>
-        <a href="/dpi/analysis/" class="nav-sub">, Analysis</a>
-        <a href="/terminology/">Terminology</a>
-        <a href="/methods/">Methods</a>
-      </div>
-    </div>
-    <a href="/exit/" class="nav-link">Exit</a>
-    <a href="/foss/" class="nav-link">FOSS</a>
-    <a href="/audit/" class="nav-link">Audit</a>
-    <a href="/fork/" class="nav-link">Fork</a>
-    <a href="/participate/" class="nav-link">Participate</a>
-    <div class="nav-dropdown">
-      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Evidence</button>
-      <div class="nav-dropdown-menu">
-        <a href="/layers/">Layers</a>
-        <a href="/surveillance/">Surveillance</a>
-        <a href="/exclusion/">Human Cost</a>
-      </div>
-    </div>
-    <div class="nav-dropdown">
-      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Deep Dives</button>
-      <div class="nav-dropdown-menu">
-        <a href="/health/">Health Stack</a>
-        <a href="/payments/">Payments</a>
-        <a href="/data/">Data Economy</a>
-        <a href="/education/">Education</a>
-        <a href="/governance/">Governance</a>
-        <a href="/ai/">AI</a>
-      </div>
-    </div>
-  </div>
+  <ul class="nav-links" id="nav-menu" role="list">
+    <li><a href="/" class="nav-home">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="menu-framework">Framework</button>
+      <ul class="nav-dropdown-menu" id="menu-framework" role="menu" aria-label="Framework">
+        <li role="menuitem"><a href="/dpi/">DPI Framework</a></li>
+        <li role="menuitem"><a href="/dpi/definitions/" class="nav-sub">Definitions</a></li>
+        <li role="menuitem"><a href="/dpi/build/" class="nav-sub">How to Build</a></li>
+        <li role="menuitem"><a href="/dpi/require/" class="nav-sub">How to Require</a></li>
+        <li role="menuitem"><a href="/dpi/analysis/" class="nav-sub">Analysis</a></li>
+        <li role="menuitem"><a href="/terminology/">Terminology</a></li>
+        <li role="menuitem"><a href="/methods/">Methods</a></li>
+      </ul>
+    </li>
+    <li><a href="/exit/" class="nav-link">Exit</a></li>
+    <li><a href="/foss/" class="nav-link">FOSS</a></li>
+    <li><a href="/audit/" class="nav-link">Audit</a></li>
+    <li><a href="/fork/" class="nav-link">Fork</a></li>
+    <li><a href="/participate/" class="nav-link">Participate</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="menu-evidence">Evidence</button>
+      <ul class="nav-dropdown-menu" id="menu-evidence" role="menu" aria-label="Evidence">
+        <li role="menuitem"><a href="/layers/">Layers</a></li>
+        <li role="menuitem"><a href="/surveillance/">Surveillance</a></li>
+        <li role="menuitem"><a href="/exclusion/">Human Cost</a></li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="menu" aria-controls="menu-deepdives">Deep Dives</button>
+      <ul class="nav-dropdown-menu" id="menu-deepdives" role="menu" aria-label="Deep Dives">
+        <li role="menuitem"><a href="/health/">Health Stack</a></li>
+        <li role="menuitem"><a href="/payments/">Payments</a></li>
+        <li role="menuitem"><a href="/data/">Data Economy</a></li>
+        <li role="menuitem"><a href="/education/">Education</a></li>
+        <li role="menuitem"><a href="/governance/">Governance</a></li>
+        <li role="menuitem"><a href="/ai/">AI</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>

@@ -1,0 +1,50 @@
+{
+  "$comment": "CANONICAL TEST VECTOR v1.6 — Developers MUST reproduce this exact hash",
+
+  "_doc": {
+    "purpose": "Verify JCS (RFC 8785) and SHA-256 implementation",
+    "instructions": [
+      "1. Remove assessor_signature from the test_input",
+      "2. Apply JCS canonicalization",
+      "3. Hash with SHA-256",
+      "4. Compare to expected_hash"
+    ]
+  },
+
+  "test_input": {
+    "tests": { "exit": { "pass": true } },
+    "target": "did:web:uidai.gov.in",
+    "assessed_at": "2026-01-15",
+    "determination": { "corrigible": true, "tests_passed": 5 },
+    "assessed_by": {
+      "key_id": "did:key:z6MkhaXgBZDvotTqN8cxYx89dJqD6Qc28x5wYt9tFv4dF",
+      "name": "Audit Corps"
+    },
+    "assessor_signature": {
+      "_comment": "This field MUST be removed before canonicalization"
+    }
+  },
+
+  "expected_canonical": "{\"assessed_at\":\"2026-01-15\",\"assessed_by\":{\"key_id\":\"did:key:z6MkhaXgBZDvotTqN8cxYx89dJqD6Qc28x5wYt9tFv4dF\",\"name\":\"Audit Corps\"},\"determination\":{\"corrigible\":true,\"tests_passed\":5},\"target\":\"did:web:uidai.gov.in\",\"tests\":{\"exit\":{\"pass\":true}}}",
+
+  "expected_hash": {
+    "hex": "f4405362c9540b64d1f568601569426f30d07412f808728a504a54c9a3c9b78e",
+    "base64": "9EBTYslUC2TR9WhgFWlCbzDQdBL4CHKKUEpUyaPJt44="
+  },
+
+  "test_keypair": {
+    "_warning": "DO NOT USE IN PRODUCTION — Test keys only",
+    "algorithm": "Ed25519",
+    "private_key_hex": "8a88e3dd7409f195fd52db2d3cba5d72ca6709bf1d94121bf3748801b40f6f5c",
+    "public_key_hex": "8680c2f86236314f8d55b086e492b4a536551b32d2948286a11e86a9f451f284",
+    "did_key": "did:key:z6MkhaXgBZDvotTqN8cxYx89dJqD6Qc28x5wYt9tFv4dF"
+  },
+
+  "verification_checklist": [
+    "JCS sorts keys alphabetically (assessed_at before assessed_by)",
+    "JCS removes all whitespace between tokens",
+    "assessor_signature is excluded from hash input",
+    "SHA-256 is computed over UTF-8 bytes of canonical string",
+    "Signature is over the 32-byte hash, not the canonical string directly"
+  ]
+}

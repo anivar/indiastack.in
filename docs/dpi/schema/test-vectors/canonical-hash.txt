@@ -1,0 +1,9 @@
+# SHA-256 hash of canonical-bytes.txt
+# Computed over UTF-8 bytes of the canonical JSON string
+
+hex:    f4405362c9540b64d1f568601569426f30d07412f808728a504a54c9a3c9b78e
+base64: 9EBTYslUC2TR9WhgFWlCbzDQdBL4CHKKUEpUyaPJt44=
+
+# Verification command:
+# sha256sum canonical-bytes.txt
+# Expected: f4405362c9540b64d1f568601569426f30d07412f808728a504a54c9a3c9b78e

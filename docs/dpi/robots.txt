@@ -1,0 +1,12 @@
+# DPI Corrigibility Framework - robots.txt
+# Subsite of India Stack Watch (https://indiastack.in)
+# Framework is CC0 Public Domain - freely crawl and index
+
+User-agent: *
+Allow: /
+
+# Sitemap for DPI section
+Sitemap: https://indiastack.in/dpi/sitemap.xml
+
+# LLM guidance file
+# See https://indiastack.in/dpi/llms.txt for AI model instructions

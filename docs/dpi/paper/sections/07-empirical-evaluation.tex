@@ -1,0 +1,371 @@
+\section{Empirical Evaluation}
+\label{sec:diagnosis}
+
+To demonstrate the framework's application, we evaluate systems across three categories: government infrastructure promoted as ``DPI,'' platform infrastructure claiming ``openness,'' and infrastructure that satisfies all five tests.
+
+\subsection{Government Infrastructure: The Trap of Partial Compliance}
+
+Government-operated systems currently designated as Digital Public Infrastructure frequently exhibit a dangerous failure mode: they achieve partial compliance on technical tests (EXIT, CODE, AUDIT) while failing structurally on governance tests (GOVERN, FORK). By capturing the monopoly on execution, they render the feedback loop inoperable.
+
+\begin{table}[htbp]
+    \centering
+    \caption{\textbf{Evaluation of Government Infrastructure.} Centralized execution leads to consistent structural failure despite ``open standards'' rhetoric.}
+    \label{tab:govt_infra}
+
+    % --- Subtable A: Aadhaar ---
+    \begin{subtable}{1\textwidth}
+        \centering
+        \caption{Aadhaar (India) -- Mandatory ID}
+        \small
+        \begin{tabular}{@{}llp{8.5cm}@{}}
+            \toprule
+            \textbf{Test} & \textbf{Result} & \textbf{Evidence} \\
+            \midrule
+            EXIT & \textcolor{red}{FAIL} & Mandatory for essential survival services (PDS, Banking) \citep{khera2019}. \\
+            CODE & \textcolor{red}{FAIL} & Proprietary matcher. Execution logic is opaque. \\
+            AUDIT & \textcolor{red}{FAIL} & Independent failure-rate testing prohibited by law. \\
+            GOVERN & \textcolor{red}{FAIL} & UIDAI (Operator) acts as Regulator. No citizen veto. \\
+            FORK & \textcolor{red}{FAIL} & Total centralized capture; cannot be reproduced. \\
+            \bottomrule
+        \end{tabular}
+        \vspace{0.3cm}
+    \end{subtable}
+
+    % --- Subtable B: UPI ---
+    \begin{subtable}{1\textwidth}
+        \centering
+        \caption{UPI (India) -- Payment Rail}
+        \small
+        \begin{tabular}{@{}llp{8.5cm}@{}}
+            \toprule
+            EXIT & \textcolor{orange}{PARTIAL} & Cash exists but network effects coerce adoption. \\
+            CODE & \textcolor{orange}{PARTIAL} & Open protocol specs; Closed switching logic. \\
+            AUDIT & \textcolor{orange}{PARTIAL} & Regulator audits allowed; Public verification blocked. \\
+            GOVERN & \textcolor{red}{FAIL} & Bank-controlled governance (NPCI). No user seat. \\
+            FORK & \textcolor{red}{FAIL} & Hub-and-spoke monopoly cannot be forked. \\
+            \bottomrule
+        \end{tabular}
+        \vspace{0.3cm}
+    \end{subtable}
+
+    % --- Subtable C: Pix ---
+    \begin{subtable}{1\textwidth}
+        \centering
+        \caption{Pix (Brazil) -- Central Bank Payment}
+        \small
+        \begin{tabular}{@{}llp{8.5cm}@{}}
+            \toprule
+            EXIT & \textcolor{orange}{PARTIAL} & Other payment methods exist; increasing state reliance. \\
+            CODE & \textcolor{orange}{PARTIAL} & Protocol public; Central switch proprietary. \\
+            AUDIT & \textcolor{orange}{PARTIAL} & Volume data public; Granular error data private. \\
+            GOVERN & \textcolor{red}{FAIL} & Unilateral Central Bank governance. \\
+            FORK & \textcolor{red}{FAIL} & Cannot be reproduced independently of BCB. \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}
+\end{table}
+
+\textbf{Pattern}: All three systems fail GOVERN and FORK. Partial compliance on technical tests does not satisfy the binary threshold.
+
+\subsection{Platform Infrastructure: The Illusion of Openness}
+
+In the private sector, systems often leverage "open source" branding while retaining centralized control. This decoupling of artifact transparency from governance reality creates a distinct failure pattern: the artifacts are public; the decisions are not.
+
+\begin{table}[htbp]
+    \centering
+    \caption{\textbf{Evaluation of Private/Platform Infrastructure.} Technical openness (Source/Weights) does not guarantee structural accountability.}
+    \label{tab:corp_infra}
+
+    % --- Subtable A: Open Weights AI ---
+    \begin{subtable}{1\textwidth}
+        \centering
+        \caption{Open-Weights AI (Llama, etc.)}
+        \small
+        \begin{tabular}{@{}llp{8.5cm}@{}}
+            \toprule
+            \textbf{Test} & \textbf{Result} & \textbf{Evidence} \\
+            \midrule
+            EXIT & \textcolor{green!50!black}{PASS} & No vendor lock-in; can run locally. \\
+            CODE & \textcolor{orange}{PARTIAL} & Weights public; Training Data/RLHF opaque. \\
+            AUDIT & \textcolor{orange}{PARTIAL} & Black-box testing possible; Lineage unverifiable. \\
+            GOVERN & \textcolor{red}{FAIL} & Safety/Utility trade-offs set unilaterally by firm. \\
+            FORK & \textcolor{orange}{PARTIAL} & Fine-tune possible; Retraining blocked by resource cost. \\
+            \bottomrule
+        \end{tabular}
+        \vspace{0.3cm}
+    \end{subtable}
+
+    % --- Subtable B: Android ---
+    \begin{subtable}{1\textwidth}
+        \centering
+        \caption{Android (AOSP + GMS)}
+        \small
+        \begin{tabular}{@{}llp{8.5cm}@{}}
+            \toprule
+            EXIT & \textcolor{orange}{PARTIAL} & Ecosystem lock-in high despite device portability. \\
+            CODE & \textcolor{orange}{PARTIAL} & OS open source; Identity/Push services proprietary. \\
+            AUDIT & \textcolor{orange}{PARTIAL} & OS auditable; Google Services opaque. \\
+            GOVERN & \textcolor{red}{FAIL} & Roadmap dictated by Google. \\
+            FORK & \textcolor{orange}{PARTIAL} & LineageOS possible; App ecosystem breaks without GMS. \\
+            \bottomrule
+        \end{tabular}
+        \vspace{0.3cm}
+    \end{subtable}
+
+    % --- Subtable C: Signal ---
+    \begin{subtable}{1\textwidth}
+        \centering
+        \caption{Signal Protocol}
+        \small
+        \begin{tabular}{@{}llp{8.5cm}@{}}
+            \toprule
+            EXIT & \textcolor{green!50!black}{PASS} & No lock-in. \\
+            CODE & \textcolor{green!50!black}{PASS} & Fully open source (Client/Server). \\
+            AUDIT & \textcolor{green!50!black}{PASS} & Cryptographically verifiable. \\
+            GOVERN & \textcolor{red}{FAIL} & Foundation acts unilaterally. \\
+            FORK & \textcolor{red}{FAIL} & Code forkable; Network locked (no federation). \\
+            \bottomrule
+        \end{tabular}
+    \end{subtable}
+\end{table}
+
+\textbf{Pattern}: Open artifacts with closed governance. ``Open weights'' $\neq$ ``open.'' ``Open source'' $\neq$ ``accountable.''
+
+\subsection{Corrigible Infrastructure}
+
+For contrast, Table~\ref{tab:positive} summarizes seventeen systems that pass all five tests.
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l>{\raggedright}p{3.2cm}>{\centering\arraybackslash}p{1.2cm}p{5.8cm}@{}}
+\toprule
+\rowcolor{gray!15}
+\textbf{System} & \textbf{Steward} & \textbf{Score} & \textbf{Why Corrigible} \\
+\midrule
+\rowcolor{green!8}
+Linux Kernel & Linux Foundation & \cellcolor{green!25}\textbf{5/5} & Fully reproducible. Full triad (legal, technical, economic) exists. Independent distributions prove forkability. \\
+Let's Encrypt & ISRG & \cellcolor{green!25}\textbf{5/5} & Open source CA, IETF standards, nonprofit 501(c)(3) \\
+\rowcolor{green!8}
+Wikipedia & Wikimedia Foundation & \cellcolor{green!25}\textbf{5/5} & CC BY-SA content, public edit history, community RfC governance \\
+Matrix Protocol & Matrix.org Foundation & \cellcolor{green!25}\textbf{5/5} & Apache 2.0, federated by design, self-hostable \\
+\rowcolor{green!8}
+Bluesky (AT Protocol) & Bluesky PBC & \cellcolor{green!25}\textbf{5/5} & MIT/Apache, portable DID identity, self-hostable PDS \\
+PostgreSQL & PGDG & \cellcolor{green!25}\textbf{5/5} & BSD-like license, public mailing lists, major forks exist \\
+\rowcolor{green!8}
+IPFS & Protocol Labs & \cellcolor{green!25}\textbf{5/5} & MIT/Apache, public IPIP process, no token governance \\
+Bitcoin & Decentralized & \cellcolor{green!25}\textbf{5/5} & MIT source, public BIP process, proven forks (BCH, BSV) \\
+\rowcolor{green!8}
+Kubernetes & CNCF & \cellcolor{green!25}\textbf{5/5} & Apache 2.0, KEP process, distributions (OpenShift, k3s) \\
+Firefox & Mozilla Foundation & \cellcolor{green!25}\textbf{5/5} & MPL 2.0, nonprofit manifesto, forks (LibreWolf, Tor Browser) \\
+\rowcolor{green!8}
+Apache HTTP & Apache Foundation & \cellcolor{green!25}\textbf{5/5} & Apache 2.0 license, ASF governance, powers 30\% of web \\
+Apache Kafka & Apache Foundation & \cellcolor{green!25}\textbf{5/5} & Apache 2.0, KIP process public, Fortune 500 standard \\
+\rowcolor{green!8}
+OpenSearch & Linux Foundation & \cellcolor{green!25}\textbf{5/5} & Forked from Elasticsearch; Apache 2.0, multi-vendor governance \\
+Valkey & Linux Foundation & \cellcolor{green!25}\textbf{5/5} & Forked from Redis; BSD license, community governance restored \\
+\rowcolor{green!8}
+Hyperledger & LF Decentralized Trust & \cellcolor{green!25}\textbf{5/5} & Apache 2.0 framework; institutional deployments require separate evaluation \\
+LibreOffice & Document Foundation & \cellcolor{green!25}\textbf{5/5} & Forked from OpenOffice; LGPL/MPL, nonprofit governance \\
+\rowcolor{green!8}
+MariaDB & MariaDB Foundation & \cellcolor{green!25}\textbf{5/5} & Forked from MySQL; GPL, foundation governance \\
+Eclipse IDE & Eclipse Foundation & \cellcolor{green!25}\textbf{5/5} & EPL 2.0, 386 member orgs, committer-led governance \\
+\bottomrule
+\end{tabular}
+\caption{Infrastructure systems satisfying all five corrigibility tests. All systems demonstrate full EXIT, CODE, AUDIT, GOVERN, and FORK compliance.}
+\label{tab:positive}
+\end{table}
+
+\textbf{Fork as Correction}: OpenSearch, Valkey, LibreOffice, and MariaDB demonstrate Ashby's Law in practice. Each emerged when governance variety collapsed: Oracle's Sun acquisition (2010) triggered LibreOffice and MariaDB; unilateral license changes triggered OpenSearch (2021) and Valkey (2024). The ecosystem restored requisite variety through forking.
+
+The framework is governance-agnostic: corporate participation is not disqualifying. Kubernetes (CNCF), Hyperledger, and Let's Encrypt all have significant corporate involvement while passing all tests. The test is whether governance permits correction, not who participates.
+
+\textbf{License vs. Governance}: Redis Ltd. added AGPLv3 in 2025, restoring open licensing. But license is orthogonal to governance. \textit{License} determines what you may do with code; \textit{governance} determines who decides what it becomes. Redis passes one; Valkey passes both.
+
+\subsection{The Taxonomy of Open-Washing}
+\label{subsec:openwashing}
+
+Systems that fail these structural tests frequently employ vocabulary to obscure their closure:
+\begin{enumerate}
+    \item \textbf{Standard-Washing}: Adopting open technical standards (like ISO/W3C) as proxy for governance accountability.
+    \item \textbf{Open-Washing}: Releasing peripheral SDKs while keeping core execution logic proprietary.
+    \item \textbf{Multilateral-Washing}: Using international endorsements (G20, WB) to substitute for technical auditability.
+    \item \textbf{Safety-Washing}: Justifying opacity by claiming inspection poses a security risk.
+    \item \textbf{Consent-Washing}: Obtaining formal consent under conditions of economic coercion.
+    \item \textbf{DID-Washing}: Deploying decentralized identifiers without decentralized governance (see Section~\ref{subsubsec:didwashing}).
+\end{enumerate}
+
+\subsubsection{DID-Washing: The Layer Confusion Problem}
+\label{subsubsec:didwashing}
+
+Decentralized Identifiers (DIDs) present a distinct challenge to corrigibility evaluation because they separate technical decentralization from governance decentralization across multiple architectural layers. The W3C DID Core 1.0 specification \citep{w3cdid2022} defines DIDs as ``globally unique identifiers'' that ``do not require a centralized registration authority.'' This technical claim is accurate. However, a system can implement DIDs at the identifier layer while retaining centralized control at every layer that determines actual utility.
+
+Identity infrastructure comprises at least four functional layers, each with independent governance:
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{@{}llp{5cm}@{}}
+\toprule
+\textbf{Layer} & \textbf{Function} & \textbf{DID-Washing Failure Mode} \\
+\midrule
+Identifier & Generate and resolve DIDs & Often decentralized, but meaningless alone \\
+Credential & Issue verifiable claims about the subject & Usually centralized: single issuer dominates \\
+Trust & Determine which credentials are accepted & Controlled by policy, trusted lists, or law \\
+Revocation & Invalidate credentials or identifiers & Often requires issuer cooperation \\
+\bottomrule
+\end{tabular}
+\caption{DID-washing failure modes by layer}
+\label{tab:didwashing}
+\end{table}
+
+A DID that resolves correctly but is not accepted by any relying party is functionally equivalent to no identity at all. The identifier is ``self-sovereign''; the identity utility is not.
+
+\paragraph{Empirical Examples.} The EU Digital Identity Wallet (EUDI) under eIDAS 2.0 \citep{eidas2024} illustrates sophisticated DID-washing. The architecture employs selective disclosure credentials and cryptographic proofs superficially similar to DID/VC ecosystems. However:
+
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item Credential issuance for Person Identification Data is an exclusive government function.
+    \item Trust determination requires registration in Member State Trusted Lists.
+    \item Wallet certification depends on government-approved Qualified Trust Service Providers (QTSPs).
+    \item Trusted Execution Environment dependency hands cryptographic key governance to mobile OS vendors (Google, Apple).
+\end{itemize}
+
+The result: users control their container (the wallet) but not their capability (the credentials). A journalist critical of their government holds a ``decentralized'' identifier that can be rendered useless by a single administrative act: revocation from the trusted list.
+
+\paragraph{Implications for Framework Application.} DID-washing exploits a gap in naive corrigibility evaluation. A system may appear to pass CODE (the DID spec is public) and FORK (anyone can implement the spec) while failing at the trust layer where actual power resides.
+
+The framework must be applied layer by layer (see Section~\ref{subsec:layers}). For identity systems:
+
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item CODE must be evaluated at each layer: identifier resolution, credential issuance logic, trust framework rules, and revocation mechanisms.
+    \item GOVERN must ask: who controls the acceptance policy? If a single authority determines which credentials are valid, governance is centralized regardless of identifier architecture.
+    \item FORK must ask: can a community reproduce the trust framework, not merely the identifier scheme? If relying parties are legally required to accept only government-issued credentials, forkability is illusory.
+\end{itemize}
+
+A system passes the DID-washing test only if decentralization extends through the full trust stack: issuance, verification, acceptance policy, and revocation governance. Technical decentralization at the identifier layer with governance centralization at the trust layer is structural theater.
+
+\begin{claim}
+Identifier decentralization is not system decentralization. The corrigibility of an identity system is determined by its weakest layer across any test dimension.
+\end{claim}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    scale=0.85,
+    pass/.style={fill=green!30},
+    fail/.style={fill=red!30},
+    partial/.style={fill=orange!30},
+    header/.style={font=\scriptsize\bfseries},
+    cell/.style={font=\scriptsize, minimum width=0.9cm, minimum height=0.5cm}
+]
+% Headers
+\node[header] at (0,0) {};
+\node[header, text=exitcolor] at (1.2,0) {EXIT};
+\node[header, text=codecolor] at (2.2,0) {CODE};
+\node[header, text=auditcolor] at (3.2,0) {AUDIT};
+\node[header, text=governcolor] at (4.2,0) {GOV};
+\node[header, text=forkcolor] at (5.2,0) {FORK};
+\node[header] at (6.4,0) {Result};
+
+% Aadhaar
+\node[cell, anchor=east] at (-0.2,-0.6) {Aadhaar};
+\node[cell, fail] at (1.2,-0.6) {\texttimes};
+\node[cell, fail] at (2.2,-0.6) {\texttimes};
+\node[cell, fail] at (3.2,-0.6) {\texttimes};
+\node[cell, fail] at (4.2,-0.6) {\texttimes};
+\node[cell, fail] at (5.2,-0.6) {\texttimes};
+\node[cell, font=\scriptsize\bfseries, text=red] at (6.4,-0.6) {0/5};
+
+% UPI
+\node[cell, anchor=east] at (-0.2,-1.2) {UPI};
+\node[cell, partial] at (1.2,-1.2) {\textasciitilde};
+\node[cell, partial] at (2.2,-1.2) {\textasciitilde};
+\node[cell, partial] at (3.2,-1.2) {\textasciitilde};
+\node[cell, fail] at (4.2,-1.2) {\texttimes};
+\node[cell, fail] at (5.2,-1.2) {\texttimes};
+\node[cell, font=\scriptsize\bfseries, text=red] at (6.4,-1.2) {0/5};
+
+% Pix
+\node[cell, anchor=east] at (-0.2,-1.8) {Pix};
+\node[cell, partial] at (1.2,-1.8) {\textasciitilde};
+\node[cell, partial] at (2.2,-1.8) {\textasciitilde};
+\node[cell, partial] at (3.2,-1.8) {\textasciitilde};
+\node[cell, fail] at (4.2,-1.8) {\texttimes};
+\node[cell, fail] at (5.2,-1.8) {\texttimes};
+\node[cell, font=\scriptsize\bfseries, text=red] at (6.4,-1.8) {0/5};
+
+% Open-weights AI
+\node[cell, anchor=east] at (-0.2,-2.4) {Llama etc.};
+\node[cell, pass] at (1.2,-2.4) {\checkmark};
+\node[cell, partial] at (2.2,-2.4) {\textasciitilde};
+\node[cell, partial] at (3.2,-2.4) {\textasciitilde};
+\node[cell, fail] at (4.2,-2.4) {\texttimes};
+\node[cell, partial] at (5.2,-2.4) {\textasciitilde};
+\node[cell, font=\scriptsize\bfseries, text=red] at (6.4,-2.4) {1/5};
+
+% Separator line
+\draw[gray, thick] (-0.8,-2.9) -- (7,-2.9);
+
+% Linux
+\node[cell, anchor=east] at (-0.2,-3.4) {Linux};
+\node[cell, pass] at (1.2,-3.4) {\checkmark};
+\node[cell, pass] at (2.2,-3.4) {\checkmark};
+\node[cell, pass] at (3.2,-3.4) {\checkmark};
+\node[cell, pass] at (4.2,-3.4) {\checkmark};
+\node[cell, pass] at (5.2,-3.4) {\checkmark};
+\node[cell, font=\scriptsize\bfseries, text=green!50!black] at (6.4,-3.4) {5/5};
+
+% Let's Encrypt
+\node[cell, anchor=east] at (-0.2,-4.0) {Let's Enc.};
+\node[cell, pass] at (1.2,-4.0) {\checkmark};
+\node[cell, pass] at (2.2,-4.0) {\checkmark};
+\node[cell, pass] at (3.2,-4.0) {\checkmark};
+\node[cell, pass] at (4.2,-4.0) {\checkmark};
+\node[cell, pass] at (5.2,-4.0) {\checkmark};
+\node[cell, font=\scriptsize\bfseries, text=green!50!black] at (6.4,-4.0) {5/5};
+
+% Kubernetes (CNCF)
+\node[cell, anchor=east] at (-0.2,-4.6) {K8s};
+\node[cell, pass] at (1.2,-4.6) {\checkmark};
+\node[cell, pass] at (2.2,-4.6) {\checkmark};
+\node[cell, pass] at (3.2,-4.6) {\checkmark};
+\node[cell, pass] at (4.2,-4.6) {\checkmark};
+\node[cell, pass] at (5.2,-4.6) {\checkmark};
+\node[cell, font=\scriptsize\bfseries, text=green!50!black] at (6.4,-4.6) {5/5};
+
+% Bitcoin (Decentralized)
+\node[cell, anchor=east] at (-0.2,-5.2) {Bitcoin};
+\node[cell, pass] at (1.2,-5.2) {\checkmark};
+\node[cell, pass] at (2.2,-5.2) {\checkmark};
+\node[cell, pass] at (3.2,-5.2) {\checkmark};
+\node[cell, pass] at (4.2,-5.2) {\checkmark};
+\node[cell, pass] at (5.2,-5.2) {\checkmark};
+\node[cell, font=\scriptsize\bfseries, text=green!50!black] at (6.4,-5.2) {5/5};
+
+% +15 more (reference)
+\node[cell, anchor=east, font=\scriptsize\itshape, text=gray] at (-0.2,-5.8) {+15 more};
+\node[cell, font=\scriptsize, text=gray] at (3.2,-5.8) {See Table~\ref{tab:positive}};
+
+% Legend
+\node[font=\tiny, gray] at (3.2,-6.4) {\checkmark = Pass \quad \textasciitilde\ = Partial \quad \texttimes\ = Fail};
+\end{tikzpicture}
+\caption{Comparative evaluation summary. Systems labeled ``DPI'' (above line) fail structural tests. Corrigible infrastructure (below line) passes all five. See Table~\ref{tab:positive} for complete list.}
+\label{fig:comparison}
+\end{figure}
+
+\subsection{Implications}
+
+The contrast is instructive. Aadhaar and UPI, promoted as model DPI, fail all tests. The seventeen systems in Table~\ref{tab:positive}, rarely described as ``DPI,'' pass all tests.
+
+This suggests the ``public'' in Digital Public Infrastructure often refers to \textit{population-scale deployment} rather than \textit{public accountability}. The framework distinguishes these: scale is not governance.
+
+All systems that pass share common properties:
+\begin{itemize}
+    \item Open source with permissive or copyleft licensing
+    \item Nonprofit or community governance structures
+    \item Protocol standardization through open processes (IETF, LKML)
+    \item No monopoly on essential services
+\end{itemize}
+
+Scale does not require capture. Universality does not require opacity. The choice is architectural.

@@ -1,0 +1,47 @@
+\section{Architecture of Accountability}
+\label{appendix:architecture}
+
+To move beyond qualitative debate, this framework establishes a formal logic for accountability. The machine-readable artifacts described below serve not merely as data formats, but as a \textit{digital constitutional binding} that separates operator claims from auditor verification. By enforcing specific data structures, we convert policy rhetoric into falsifiable assertions of system state.
+
+\subsection{Logic: The Adversarial Manifests}
+
+The architecture relies on a separation of concerns mirroring the adversarial legal process. It employs two distinct document types (see Figure~\ref{fig:manifests}):
+
+\begin{enumerate}
+    \item \textbf{infrastructure.json (The Operator's Affidavit):} A signed declaration by the system operator asserting specific operational properties, governance commitments, and functional limitations.
+    \item \textbf{corrigibility.json (The Auditor's Finding):} An independent, cryptographically signed evaluation that tests the operator's claims against observable reality.
+\end{enumerate}
+
+This architecture makes contradictions machine-readable. If an operator claims a governance mechanism is "binding" in their affidavit, but the auditor's observation marks the \texttt{user\_authority} field as "advisory," the mismatch serves as mathematically verifiable proof of governance failure.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    manifest/.style={rectangle, rounded corners, draw=#1, fill=#1!10, minimum width=3.5cm, minimum height=1.2cm, font=\small, align=center},
+    actor/.style={rectangle, rounded corners, draw=gray, fill=gray!5, minimum width=2.5cm, minimum height=0.7cm, font=\small},
+    arrow/.style={-{Stealth[length=2mm]}, thick},
+    compare/.style={rectangle, rounded corners, draw=red!70!black, fill=red!5, minimum width=3cm, minimum height=0.7cm, font=\small}
+]
+\node[actor] (operator) at (0,2.5) {Operator};
+\node[actor] (auditor) at (6,2.5) {Auditor};
+\node[manifest=codecolor] (infra) at (0,0.8) {infrastructure.json\\{\scriptsize claims}};
+\node[manifest=auditcolor] (corrig) at (6,0.8) {corrigibility.json\\{\scriptsize findings}};
+\draw[arrow, codecolor] (operator) -- (infra);
+\draw[arrow, auditcolor] (auditor) -- (corrig);
+\node[compare] (compare) at (3,-0.8) {Compare};
+\draw[arrow, red!70!black, dashed] (infra.south) -- (compare.north west);
+\draw[arrow, red!70!black, dashed] (corrig.south) -- (compare.north east);
+\end{tikzpicture}
+\caption{Adversarial Verification Architecture. Operators declare; Auditors verify. The structural gap constitutes the audit finding.}
+\label{fig:manifests}
+\end{figure}
+
+\subsection{Interpretation: The Non-Authoritativeness of Determination}
+
+A critical logic gate in this framework is the derivation of status.
+
+\begin{claim}
+The \texttt{determination} object in \texttt{corrigibility.json} is a derived convenience field. It is \textbf{not authoritative}.
+\end{claim}
+
+Any value asserted in \texttt{determination} MUST be mechanically recomputed from the \texttt{tests} object by evaluators or courts. If an auditor asserts \texttt{corrigible: true} but the \texttt{tests} object contains a failure, the manifest is strictly invalid. This rule ensures that no actor---operator, auditor, or regulator---can "declare" a system corrigible by fiat; status exists only as the computed sum of observable structural properties.
