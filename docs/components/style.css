@@ -3037,32 +3037,33 @@ input:focus-visible,
     100% { transform: translateX(-50%); }
 }
 
-/* Context box */
+/* Context box - improved readability */
 .context-box {
     background: #0f0f0f;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
     border-left: 4px solid var(--accent);
     border-radius: 10px;
-    padding: 1.75rem 2rem;
+    padding: 2rem 2.25rem;
     margin: 2.5rem 0;
 }
 .context-box.warning { border-left-color: var(--warning); }
 .context-box .label {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--accent);
     letter-spacing: 0.1em;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
 }
 .context-box.warning .label { color: var(--warning); }
 .context-box p {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.8;
+    margin-bottom: 1rem;
 }
 .context-box p:last-child { margin-bottom: 0; }
-.context-box strong { color: var(--text-primary); }
+.context-box strong { color: #fff; font-weight: 600; }
 
 /* Explore cards */
 .explore-section { margin: 3rem 0; }
